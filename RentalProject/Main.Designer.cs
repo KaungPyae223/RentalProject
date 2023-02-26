@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            this.btnMenu = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PBLogo = new System.Windows.Forms.PictureBox();
             this.btnProfile = new System.Windows.Forms.Button();
@@ -41,7 +39,6 @@
             this.btnItems = new System.Windows.Forms.Button();
             this.btnUser = new System.Windows.Forms.Button();
             this.btnAdmin = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Slider = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
@@ -51,38 +48,21 @@
             this.Slider.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnMenu
-            // 
-            this.btnMenu.BackColor = System.Drawing.Color.White;
-            this.btnMenu.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
-            this.btnMenu.FlatAppearance.BorderSize = 0;
-            this.btnMenu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btnMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
-            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnMenu.Image")));
-            this.btnMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenu.Location = new System.Drawing.Point(0, 0);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(65, 62);
-            this.btnMenu.TabIndex = 1;
-            this.btnMenu.UseVisualStyleBackColor = false;
-            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.PBLogo);
-            this.panel1.Location = new System.Drawing.Point(0, 68);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(323, 123);
+            this.panel1.Size = new System.Drawing.Size(326, 175);
             this.panel1.TabIndex = 3;
             // 
             // PBLogo
             // 
             this.PBLogo.Image = ((System.Drawing.Image)(resources.GetObject("PBLogo.Image")));
-            this.PBLogo.Location = new System.Drawing.Point(90, 20);
+            this.PBLogo.Location = new System.Drawing.Point(45, 31);
             this.PBLogo.Name = "PBLogo";
-            this.PBLogo.Size = new System.Drawing.Size(166, 85);
+            this.PBLogo.Size = new System.Drawing.Size(236, 122);
             this.PBLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PBLogo.TabIndex = 0;
             this.PBLogo.TabStop = false;
@@ -251,18 +231,12 @@
             this.btnAdmin.UseVisualStyleBackColor = false;
             this.btnAdmin.Click += new System.EventHandler(this.button3_Click);
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 10;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // Slider
             // 
             this.Slider.BackColor = System.Drawing.Color.White;
             this.Slider.Controls.Add(this.button1);
             this.Slider.Controls.Add(this.btnExit);
             this.Slider.Controls.Add(this.btnAdmin);
-            this.Slider.Controls.Add(this.btnMenu);
             this.Slider.Controls.Add(this.btnUser);
             this.Slider.Controls.Add(this.panel1);
             this.Slider.Controls.Add(this.btnItems);
@@ -350,8 +324,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnMenu;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnProfile;

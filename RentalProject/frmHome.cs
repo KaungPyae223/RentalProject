@@ -36,7 +36,7 @@ namespace RentalProject
             for (int i = 0; i< 18; i++)
             {
                 frmHomeItems frm = new frmHomeItems();
-                frm.Width = ((label1.Width-26)/5)-6;
+                frm.Width = ((label1.Width-26)/4)-6;
                 frm.Margin= new Padding(3);
                 loadform(frm);
             }
