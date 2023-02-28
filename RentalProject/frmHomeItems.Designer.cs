@@ -99,8 +99,8 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.9771F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.0229F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.26717F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.73283F));
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 2);
@@ -197,7 +197,7 @@
             // lblBrand
             // 
             this.lblBrand.AutoSize = true;
-            this.lblBrand.Location = new System.Drawing.Point(212, 15);
+            this.lblBrand.Location = new System.Drawing.Point(224, 15);
             this.lblBrand.Name = "lblBrand";
             this.lblBrand.Size = new System.Drawing.Size(96, 25);
             this.lblBrand.TabIndex = 7;
@@ -206,7 +206,7 @@
             // lblType
             // 
             this.lblType.AutoSize = true;
-            this.lblType.Location = new System.Drawing.Point(212, 57);
+            this.lblType.Location = new System.Drawing.Point(224, 57);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(170, 25);
             this.lblType.TabIndex = 8;
@@ -215,7 +215,7 @@
             // lblPowerUsage
             // 
             this.lblPowerUsage.AutoSize = true;
-            this.lblPowerUsage.Location = new System.Drawing.Point(212, 99);
+            this.lblPowerUsage.Location = new System.Drawing.Point(224, 99);
             this.lblPowerUsage.Name = "lblPowerUsage";
             this.lblPowerUsage.Size = new System.Drawing.Size(69, 25);
             this.lblPowerUsage.TabIndex = 9;
@@ -224,7 +224,7 @@
             // lblTypicalUsage
             // 
             this.lblTypicalUsage.AutoSize = true;
-            this.lblTypicalUsage.Location = new System.Drawing.Point(212, 141);
+            this.lblTypicalUsage.Location = new System.Drawing.Point(224, 141);
             this.lblTypicalUsage.Name = "lblTypicalUsage";
             this.lblTypicalUsage.Size = new System.Drawing.Size(186, 25);
             this.lblTypicalUsage.TabIndex = 10;
@@ -233,7 +233,7 @@
             // lblModelYear
             // 
             this.lblModelYear.AutoSize = true;
-            this.lblModelYear.Location = new System.Drawing.Point(212, 183);
+            this.lblModelYear.Location = new System.Drawing.Point(224, 183);
             this.lblModelYear.Name = "lblModelYear";
             this.lblModelYear.Size = new System.Drawing.Size(56, 25);
             this.lblModelYear.TabIndex = 11;
@@ -242,7 +242,7 @@
             // lblPricePerMonth
             // 
             this.lblPricePerMonth.AutoSize = true;
-            this.lblPricePerMonth.Location = new System.Drawing.Point(212, 225);
+            this.lblPricePerMonth.Location = new System.Drawing.Point(224, 225);
             this.lblPricePerMonth.Name = "lblPricePerMonth";
             this.lblPricePerMonth.Size = new System.Drawing.Size(89, 25);
             this.lblPricePerMonth.TabIndex = 12;
@@ -251,7 +251,7 @@
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(212, 267);
+            this.lblDescription.Location = new System.Drawing.Point(224, 267);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(59, 25);
             this.lblDescription.TabIndex = 13;
@@ -259,8 +259,8 @@
             // 
             // frmHomeItems
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(544, 727);
             this.Controls.Add(this.tableLayoutPanel1);

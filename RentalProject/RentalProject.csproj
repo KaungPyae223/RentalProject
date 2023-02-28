@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAddItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddItem.Designer.cs">
+      <DependentUpon>frmAddItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,12 @@
     </Compile>
     <Compile Include="frmAdminProcess.Designer.cs">
       <DependentUpon>frmAdminProcess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBrandAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBrandAdd.Designer.cs">
+      <DependentUpon>frmBrandAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCraft.cs">
       <SubType>Form</SubType>
@@ -139,6 +151,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RentalDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RentalDataSet.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmAddItem.resx">
+      <DependentUpon>frmAddItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAdmin.resx">
       <DependentUpon>frmAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdminProcess.resx">
       <DependentUpon>frmAdminProcess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBrandAdd.resx">
+      <DependentUpon>frmBrandAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCraft.resx">
       <DependentUpon>frmCraft.cs</DependentUpon>
@@ -199,12 +222,21 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="RentalDataSet.xsc">
+      <DependentUpon>RentalDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="RentalDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RentalDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RentalDataSet.xss">
+      <DependentUpon>RentalDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Picture\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

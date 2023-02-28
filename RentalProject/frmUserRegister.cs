@@ -105,7 +105,7 @@ namespace RentalProject
 
         private void CheckTextBoxBlank(TextBox txt, Label lbl) // check the text box is blank or not
         {
-            if (txt.Text == string.Empty)
+            if (txt.Text.Trim() == string.Empty)
             {
                 lbl.Text = "Required!";
             }
