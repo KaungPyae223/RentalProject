@@ -11,6 +11,7 @@ namespace RentalProject
         }
         RentalDataSetTableAdapters.BrandTableAdapter objBrand = new RentalDataSetTableAdapters.BrandTableAdapter();
         RentalDataSetTableAdapters.TypeTableAdapter objType = new RentalDataSetTableAdapters.TypeTableAdapter();
+        RentalDataSetTableAdapters.DeliveryTableAdapter objDelivery = new RentalDataSetTableAdapters.DeliveryTableAdapter();
         private void frmItems_Load(object sender, EventArgs e)
         {
             cboList.SelectedIndex= 0;
@@ -29,9 +30,14 @@ namespace RentalProject
                 frmBrandandCategoryAdd frm = new frmBrandandCategoryAdd(true, false);
                 frm.ShowDialog();
             }
-            else
+            else if (cboList.SelectedIndex == 2)
             {
                 frmBrandandCategoryAdd frm = new frmBrandandCategoryAdd(false, false);
+                frm.ShowDialog();
+            }
+            else
+            {
+                frmDelivery frm = new frmDelivery();
                 frm.ShowDialog();
             }
             showData();
@@ -67,6 +73,14 @@ namespace RentalProject
                 dgvItem.DataSource= objType.GetType();
                 dgvItem.Columns[0].Width = (dgvItem.Width/100)* 20;
                 dgvItem.Columns[1].Width = (dgvItem.Width/100)* 80;
+            }
+            if (cboList.SelectedIndex == 3)
+            {
+                dgvItem.DataSource= objDelivery.GetDelivery();
+                dgvItem.Columns[0].Width = (dgvItem.Width/100)* 20;
+                dgvItem.Columns[1].Width = (dgvItem.Width/100)* 40;
+                dgvItem.Columns[2].Width = (dgvItem.Width/100)* 40;
+
             }
 
             dgvItem.Refresh();

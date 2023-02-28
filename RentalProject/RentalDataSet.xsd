@@ -57,7 +57,7 @@ SELECT BrandID, BrandName FROM Brand WHERE (BrandID = @BrandID)</CommandText>
               <Mapping SourceColumn="BrandName" DataSetColumn="BrandName" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="RentalDBConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteBrand" Modifier="Public" Name="DeleteBrand" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="DeleteBrand">
+              <DbSource ConnectionRef="RentalDBConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteBrand" Modifier="Public" Name="DeleteBrand" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteBrand">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM [Brand] WHERE [BrandID] = @Original_BrandID</CommandText>
@@ -67,7 +67,7 @@ SELECT BrandID, BrandName FROM Brand WHERE (BrandID = @BrandID)</CommandText>
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="RentalDBConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateBrand" Modifier="Public" Name="UpdateBrand" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateBrand">
+              <DbSource ConnectionRef="RentalDBConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateBrand" Modifier="Public" Name="UpdateBrand" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateBrand">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE [Brand] SET  [BrandName] = @BrandName 
@@ -132,7 +132,7 @@ SELECT TypeID, NameOfType FROM Type WHERE (TypeID = @TypeID)</CommandText>
               <Mapping SourceColumn="NameOfType" DataSetColumn="NameOfType" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="RentalDBConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteType" Modifier="Public" Name="DeleteType" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="DeleteType">
+              <DbSource ConnectionRef="RentalDBConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteType" Modifier="Public" Name="DeleteType" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteType">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM [Type] WHERE [TypeID] = @Original_TypeID</CommandText>
@@ -142,7 +142,7 @@ SELECT TypeID, NameOfType FROM Type WHERE (TypeID = @TypeID)</CommandText>
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="RentalDBConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateType" Modifier="Public" Name="UpdateType" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateType">
+              <DbSource ConnectionRef="RentalDBConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateType" Modifier="Public" Name="UpdateType" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateType">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE [Type] SET  [NameOfType] = @NameOfType
@@ -157,6 +157,64 @@ SELECT TypeID, NameOfType FROM Type WHERE (TypeID = @TypeID)</CommandText>
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DeliveryTableAdapter" GeneratorDataComponentClassName="DeliveryTableAdapter" Name="Delivery" UserDataComponentName="DeliveryTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="RentalDBConnectionString (Settings)" DbObjectName="RentalDB.dbo.Delivery" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDelivery" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetDelivery" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDelivery" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [Delivery] WHERE (([DeliveryID] = @Original_DeliveryID) AND ((@IsNull_DeliveryName = 1 AND [DeliveryName] IS NULL) OR ([DeliveryName] = @Original_DeliveryName)) AND ((@IsNull_DeliveryPhone = 1 AND [DeliveryPhone] IS NULL) OR ([DeliveryPhone] = @Original_DeliveryPhone)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_DeliveryID" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="DeliveryID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DeliveryName" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DeliveryName" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_DeliveryName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="DeliveryName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DeliveryPhone" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DeliveryPhone" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_DeliveryPhone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="DeliveryPhone" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [Delivery] ([DeliveryID], [DeliveryName], [DeliveryPhone]) VALUES (@DeliveryID, @DeliveryName, @DeliveryPhone);
+SELECT DeliveryID, DeliveryName, DeliveryPhone FROM Delivery WHERE (DeliveryID = @DeliveryID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@DeliveryID" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="DeliveryID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@DeliveryName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="DeliveryName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@DeliveryPhone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="DeliveryPhone" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Delivery.*
+FROM   Delivery</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [Delivery] SET [DeliveryID] = @DeliveryID, [DeliveryName] = @DeliveryName, [DeliveryPhone] = @DeliveryPhone WHERE (([DeliveryID] = @Original_DeliveryID) AND ((@IsNull_DeliveryName = 1 AND [DeliveryName] IS NULL) OR ([DeliveryName] = @Original_DeliveryName)) AND ((@IsNull_DeliveryPhone = 1 AND [DeliveryPhone] IS NULL) OR ([DeliveryPhone] = @Original_DeliveryPhone)));
+SELECT DeliveryID, DeliveryName, DeliveryPhone FROM Delivery WHERE (DeliveryID = @DeliveryID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@DeliveryID" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="DeliveryID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@DeliveryName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="DeliveryName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@DeliveryPhone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="DeliveryPhone" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_DeliveryID" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="DeliveryID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DeliveryName" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DeliveryName" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_DeliveryName" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="DeliveryName" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DeliveryPhone" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DeliveryPhone" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_DeliveryPhone" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="DeliveryPhone" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="DeliveryID" DataSetColumn="DeliveryID" />
+              <Mapping SourceColumn="DeliveryName" DataSetColumn="DeliveryName" />
+              <Mapping SourceColumn="DeliveryPhone" DataSetColumn="DeliveryPhone" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -165,17 +223,17 @@ SELECT TypeID, NameOfType FROM Type WHERE (TypeID = @TypeID)</CommandText>
   <xs:element name="RentalDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="RentalDataSet" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="RentalDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Brand" msprop:Generator_RowClassName="BrandRow" msprop:Generator_RowEvHandlerName="BrandRowChangeEventHandler" msprop:Generator_RowDeletedName="BrandRowDeleted" msprop:Generator_RowDeletingName="BrandRowDeleting" msprop:Generator_RowEvArgName="BrandRowChangeEvent" msprop:Generator_TablePropName="Brand" msprop:Generator_RowChangedName="BrandRowChanged" msprop:Generator_UserTableName="Brand" msprop:Generator_RowChangingName="BrandRowChanging" msprop:Generator_TableClassName="BrandDataTable" msprop:Generator_TableVarName="tableBrand">
+        <xs:element name="Brand" msprop:Generator_RowEvHandlerName="BrandRowChangeEventHandler" msprop:Generator_RowDeletedName="BrandRowDeleted" msprop:Generator_RowDeletingName="BrandRowDeleting" msprop:Generator_RowEvArgName="BrandRowChangeEvent" msprop:Generator_TablePropName="Brand" msprop:Generator_RowChangedName="BrandRowChanged" msprop:Generator_UserTableName="Brand" msprop:Generator_RowChangingName="BrandRowChanging" msprop:Generator_RowClassName="BrandRow" msprop:Generator_TableClassName="BrandDataTable" msprop:Generator_TableVarName="tableBrand">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="BrandID" msprop:Generator_UserColumnName="BrandID" msprop:Generator_ColumnPropNameInTable="BrandIDColumn" msprop:Generator_ColumnPropNameInRow="BrandID" msprop:Generator_ColumnVarNameInTable="columnBrandID">
+              <xs:element name="BrandID" msprop:Generator_ColumnPropNameInTable="BrandIDColumn" msprop:Generator_ColumnPropNameInRow="BrandID" msprop:Generator_UserColumnName="BrandID" msprop:Generator_ColumnVarNameInTable="columnBrandID">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="BrandName" msprop:Generator_UserColumnName="BrandName" msprop:Generator_ColumnPropNameInTable="BrandNameColumn" msprop:Generator_ColumnPropNameInRow="BrandName" msprop:Generator_ColumnVarNameInTable="columnBrandName" minOccurs="0">
+              <xs:element name="BrandName" msprop:Generator_ColumnPropNameInTable="BrandNameColumn" msprop:Generator_ColumnPropNameInRow="BrandName" msprop:Generator_UserColumnName="BrandName" msprop:Generator_ColumnVarNameInTable="columnBrandName" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -185,17 +243,44 @@ SELECT TypeID, NameOfType FROM Type WHERE (TypeID = @TypeID)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Type" msprop:Generator_RowEvHandlerName="TypeRowChangeEventHandler" msprop:Generator_RowDeletedName="TypeRowDeleted" msprop:Generator_RowDeletingName="TypeRowDeleting" msprop:Generator_RowEvArgName="TypeRowChangeEvent" msprop:Generator_TablePropName="Type" msprop:Generator_RowChangedName="TypeRowChanged" msprop:Generator_RowChangingName="TypeRowChanging" msprop:Generator_TableClassName="TypeDataTable" msprop:Generator_RowClassName="TypeRow" msprop:Generator_TableVarName="tableType" msprop:Generator_UserTableName="Type">
+        <xs:element name="Type" msprop:Generator_RowEvHandlerName="TypeRowChangeEventHandler" msprop:Generator_RowDeletedName="TypeRowDeleted" msprop:Generator_RowDeletingName="TypeRowDeleting" msprop:Generator_RowEvArgName="TypeRowChangeEvent" msprop:Generator_TablePropName="Type" msprop:Generator_RowChangedName="TypeRowChanged" msprop:Generator_UserTableName="Type" msprop:Generator_RowChangingName="TypeRowChanging" msprop:Generator_RowClassName="TypeRow" msprop:Generator_TableClassName="TypeDataTable" msprop:Generator_TableVarName="tableType">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="TypeID" msprop:Generator_ColumnPropNameInRow="TypeID" msprop:Generator_ColumnPropNameInTable="TypeIDColumn" msprop:Generator_ColumnVarNameInTable="columnTypeID" msprop:Generator_UserColumnName="TypeID">
+              <xs:element name="TypeID" msprop:Generator_ColumnPropNameInTable="TypeIDColumn" msprop:Generator_ColumnPropNameInRow="TypeID" msprop:Generator_UserColumnName="TypeID" msprop:Generator_ColumnVarNameInTable="columnTypeID">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="NameOfType" msprop:Generator_ColumnPropNameInRow="NameOfType" msprop:Generator_ColumnPropNameInTable="NameOfTypeColumn" msprop:Generator_ColumnVarNameInTable="columnNameOfType" msprop:Generator_UserColumnName="NameOfType" minOccurs="0">
+              <xs:element name="NameOfType" msprop:Generator_ColumnPropNameInTable="NameOfTypeColumn" msprop:Generator_ColumnPropNameInRow="NameOfType" msprop:Generator_UserColumnName="NameOfType" msprop:Generator_ColumnVarNameInTable="columnNameOfType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Delivery" msprop:Generator_RowEvHandlerName="DeliveryRowChangeEventHandler" msprop:Generator_RowDeletedName="DeliveryRowDeleted" msprop:Generator_RowDeletingName="DeliveryRowDeleting" msprop:Generator_RowEvArgName="DeliveryRowChangeEvent" msprop:Generator_TablePropName="Delivery" msprop:Generator_RowChangedName="DeliveryRowChanged" msprop:Generator_RowChangingName="DeliveryRowChanging" msprop:Generator_TableClassName="DeliveryDataTable" msprop:Generator_RowClassName="DeliveryRow" msprop:Generator_TableVarName="tableDelivery" msprop:Generator_UserTableName="Delivery">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DeliveryID" msprop:Generator_ColumnPropNameInRow="DeliveryID" msprop:Generator_ColumnPropNameInTable="DeliveryIDColumn" msprop:Generator_ColumnVarNameInTable="columnDeliveryID" msprop:Generator_UserColumnName="DeliveryID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DeliveryName" msprop:Generator_ColumnPropNameInRow="DeliveryName" msprop:Generator_ColumnPropNameInTable="DeliveryNameColumn" msprop:Generator_ColumnVarNameInTable="columnDeliveryName" msprop:Generator_UserColumnName="DeliveryName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DeliveryPhone" msprop:Generator_ColumnPropNameInRow="DeliveryPhone" msprop:Generator_ColumnPropNameInTable="DeliveryPhoneColumn" msprop:Generator_ColumnVarNameInTable="columnDeliveryPhone" msprop:Generator_UserColumnName="DeliveryPhone" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -214,6 +299,10 @@ SELECT TypeID, NameOfType FROM Type WHERE (TypeID = @TypeID)</CommandText>
     <xs:unique name="Type_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Type" />
       <xs:field xpath="mstns:TypeID" />
+    </xs:unique>
+    <xs:unique name="Delivery_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Delivery" />
+      <xs:field xpath="mstns:DeliveryID" />
     </xs:unique>
   </xs:element>
 </xs:schema>

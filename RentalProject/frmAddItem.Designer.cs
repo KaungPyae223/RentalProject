@@ -35,7 +35,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cboType = new System.Windows.Forms.ComboBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -52,7 +52,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboBrand = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -116,7 +116,7 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.54861F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.45139F));
-            this.tableLayoutPanel1.Controls.Add(this.comboBox2, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.cboType, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.textBox9, 1, 8);
             this.tableLayoutPanel1.Controls.Add(this.textBox8, 1, 7);
             this.tableLayoutPanel1.Controls.Add(this.textBox7, 1, 6);
@@ -133,7 +133,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label8, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.label9, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox1, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cboBrand, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 299);
@@ -153,14 +153,14 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(606, 462);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
-            // comboBox2
+            // cboType
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(217, 114);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(367, 33);
-            this.comboBox2.TabIndex = 19;
+            this.cboType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboType.FormattingEnabled = true;
+            this.cboType.Location = new System.Drawing.Point(217, 114);
+            this.cboType.Name = "cboType";
+            this.cboType.Size = new System.Drawing.Size(367, 33);
+            this.cboType.TabIndex = 19;
             // 
             // textBox9
             // 
@@ -301,16 +301,16 @@
             this.textBox1.Size = new System.Drawing.Size(367, 30);
             this.textBox1.TabIndex = 9;
             // 
-            // comboBox1
+            // cboBrand
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBox1.Location = new System.Drawing.Point(217, 66);
-            this.comboBox1.MaxDropDownItems = 30;
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(367, 33);
-            this.comboBox1.TabIndex = 18;
+            this.cboBrand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboBrand.FormattingEnabled = true;
+            this.cboBrand.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cboBrand.Location = new System.Drawing.Point(217, 66);
+            this.cboBrand.MaxDropDownItems = 30;
+            this.cboBrand.Name = "cboBrand";
+            this.cboBrand.Size = new System.Drawing.Size(367, 33);
+            this.cboBrand.TabIndex = 18;
             // 
             // frmAddItem
             // 
@@ -327,6 +327,7 @@
             this.Name = "frmAddItem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddItem";
+            this.Load += new System.EventHandler(this.frmAddItem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -359,7 +360,7 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboType;
+        private System.Windows.Forms.ComboBox cboBrand;
     }
 }

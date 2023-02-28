@@ -121,5 +121,10 @@ namespace RentalProject
             this.Close();
             
         }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

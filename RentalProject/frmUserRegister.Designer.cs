@@ -589,6 +589,7 @@
             this.btnRegister.TabIndex = 17;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = false;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // cboAggree
             // 
