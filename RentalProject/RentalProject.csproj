@@ -83,11 +83,11 @@
     <Compile Include="frmAdminProcess.Designer.cs">
       <DependentUpon>frmAdminProcess.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmBrandAdd.cs">
+    <Compile Include="frmBrandandCategoryAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBrandAdd.Designer.cs">
-      <DependentUpon>frmBrandAdd.cs</DependentUpon>
+    <Compile Include="frmBrandandCategoryAdd.Designer.cs">
+      <DependentUpon>frmBrandandCategoryAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCraft.cs">
       <SubType>Form</SubType>
@@ -171,8 +171,8 @@
     <EmbeddedResource Include="frmAdminProcess.resx">
       <DependentUpon>frmAdminProcess.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmBrandAdd.resx">
-      <DependentUpon>frmBrandAdd.cs</DependentUpon>
+    <EmbeddedResource Include="frmBrandandCategoryAdd.resx">
+      <DependentUpon>frmBrandandCategoryAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCraft.resx">
       <DependentUpon>frmCraft.cs</DependentUpon>

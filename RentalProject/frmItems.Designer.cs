@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmItems));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbNew = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.tslLabel = new System.Windows.Forms.ToolStripDropDownButton();
+            this.tsbEdit = new System.Windows.Forms.ToolStripButton();
+            this.tsbDelete = new System.Windows.Forms.ToolStripButton();
+            this.tsbSearch = new System.Windows.Forms.ToolStripDropDownButton();
             this.TsmCustomerName = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAmount = new System.Windows.Forms.ToolStripMenuItem();
             this.TsbItemName = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.tstSearch = new System.Windows.Forms.ToolStripTextBox();
             this.cboList = new System.Windows.Forms.ToolStripComboBox();
             this.dgvItem = new System.Windows.Forms.DataGridView();
             this.toolStrip1.SuspendLayout();
@@ -69,10 +69,10 @@
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbNew,
-            this.toolStripButton2,
-            this.toolStripButton1,
-            this.tslLabel,
-            this.toolStripTextBox1,
+            this.tsbEdit,
+            this.tsbDelete,
+            this.tsbSearch,
+            this.tstSearch,
             this.cboList});
             this.toolStrip1.Location = new System.Drawing.Point(0, 61);
             this.toolStrip1.Name = "toolStrip1";
@@ -93,69 +93,73 @@
             this.tsbNew.Text = "New";
             this.tsbNew.Click += new System.EventHandler(this.tsbNew_Click);
             // 
-            // toolStripButton2
+            // tsbEdit
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Padding = new System.Windows.Forms.Padding(5);
-            this.toolStripButton2.Size = new System.Drawing.Size(63, 44);
-            this.toolStripButton2.Text = "Edit";
+            this.tsbEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbEdit.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsbEdit.Image = ((System.Drawing.Image)(resources.GetObject("tsbEdit.Image")));
+            this.tsbEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEdit.Name = "tsbEdit";
+            this.tsbEdit.Padding = new System.Windows.Forms.Padding(5);
+            this.tsbEdit.Size = new System.Drawing.Size(63, 44);
+            this.tsbEdit.Text = "Edit";
+            this.tsbEdit.Click += new System.EventHandler(this.tsbEdit_Click);
             // 
-            // toolStripButton1
+            // tsbDelete
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Padding = new System.Windows.Forms.Padding(5);
-            this.toolStripButton1.Size = new System.Drawing.Size(90, 44);
-            this.toolStripButton1.Text = "Delete";
+            this.tsbDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbDelete.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsbDelete.Image = ((System.Drawing.Image)(resources.GetObject("tsbDelete.Image")));
+            this.tsbDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDelete.Name = "tsbDelete";
+            this.tsbDelete.Padding = new System.Windows.Forms.Padding(5);
+            this.tsbDelete.Size = new System.Drawing.Size(90, 44);
+            this.tsbDelete.Text = "Delete";
+            this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
             // 
-            // tslLabel
+            // tsbSearch
             // 
-            this.tslLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tslLabel.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbSearch.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TsmCustomerName,
             this.tsmAmount,
             this.TsbItemName});
-            this.tslLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tslLabel.Image = ((System.Drawing.Image)(resources.GetObject("tslLabel.Image")));
-            this.tslLabel.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tslLabel.Name = "tslLabel";
-            this.tslLabel.Size = new System.Drawing.Size(139, 44);
-            this.tslLabel.Text = "Item Name";
+            this.tsbSearch.Enabled = false;
+            this.tsbSearch.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsbSearch.Image = ((System.Drawing.Image)(resources.GetObject("tsbSearch.Image")));
+            this.tsbSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbSearch.Name = "tsbSearch";
+            this.tsbSearch.Size = new System.Drawing.Size(139, 44);
+            this.tsbSearch.Text = "Item Name";
             // 
             // TsmCustomerName
             // 
             this.TsmCustomerName.Name = "TsmCustomerName";
-            this.TsmCustomerName.Size = new System.Drawing.Size(224, 38);
+            this.TsmCustomerName.Size = new System.Drawing.Size(270, 38);
             this.TsmCustomerName.Text = "Item Name";
             // 
             // tsmAmount
             // 
             this.tsmAmount.Name = "tsmAmount";
-            this.tsmAmount.Size = new System.Drawing.Size(224, 38);
+            this.tsmAmount.Size = new System.Drawing.Size(270, 38);
             this.tsmAmount.Text = "Brand";
             // 
             // TsbItemName
             // 
             this.TsbItemName.Name = "TsbItemName";
-            this.TsbItemName.Size = new System.Drawing.Size(224, 38);
+            this.TsbItemName.Size = new System.Drawing.Size(270, 38);
             this.TsbItemName.Text = "Type";
             // 
-            // toolStripTextBox1
+            // tstSearch
             // 
-            this.toolStripTextBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.toolStripTextBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.toolStripTextBox1.AutoSize = false;
-            this.toolStripTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(250, 37);
+            this.tstSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.tstSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.tstSearch.AutoSize = false;
+            this.tstSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tstSearch.Enabled = false;
+            this.tstSearch.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tstSearch.Name = "tstSearch";
+            this.tstSearch.Size = new System.Drawing.Size(250, 37);
             // 
             // cboList
             // 
@@ -166,7 +170,7 @@
             this.cboList.Items.AddRange(new object[] {
             "Items",
             "Brand",
-            "Category"});
+            "Type"});
             this.cboList.Name = "cboList";
             this.cboList.Size = new System.Drawing.Size(160, 38);
             this.cboList.SelectedIndexChanged += new System.EventHandler(this.cboList_SelectedIndexChanged);
@@ -175,40 +179,40 @@
             // 
             this.dgvItem.AllowUserToResizeColumns = false;
             this.dgvItem.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(10);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.dgvItem.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.dgvItem.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvItem.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Snow;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvItem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Snow;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvItem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvItem.ColumnHeadersHeight = 55;
             this.dgvItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(10);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvItem.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvItem.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvItem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvItem.Location = new System.Drawing.Point(0, 120);
             this.dgvItem.Name = "dgvItem";
             this.dgvItem.ReadOnly = true;
             this.dgvItem.RowHeadersVisible = false;
             this.dgvItem.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(10);
-            this.dgvItem.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(10);
+            this.dgvItem.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvItem.RowTemplate.Height = 50;
             this.dgvItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvItem.Size = new System.Drawing.Size(940, 483);
@@ -239,13 +243,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsbNew;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripDropDownButton tslLabel;
+        private System.Windows.Forms.ToolStripButton tsbEdit;
+        private System.Windows.Forms.ToolStripButton tsbDelete;
+        private System.Windows.Forms.ToolStripDropDownButton tsbSearch;
         private System.Windows.Forms.ToolStripMenuItem TsmCustomerName;
         private System.Windows.Forms.ToolStripMenuItem tsmAmount;
         private System.Windows.Forms.ToolStripMenuItem TsbItemName;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripTextBox tstSearch;
         private System.Windows.Forms.ToolStripComboBox cboList;
         private System.Windows.Forms.DataGridView dgvItem;
     }
