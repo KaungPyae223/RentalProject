@@ -31,9 +31,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboBrand = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cboType = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,8 +56,8 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(10, 15);
-            this.label5.Margin = new System.Windows.Forms.Padding(10, 15, 3, 0);
+            this.label5.Location = new System.Drawing.Point(10, 20);
+            this.label5.Margin = new System.Windows.Forms.Padding(10, 20, 3, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(106, 25);
             this.label5.TabIndex = 0;
@@ -77,65 +77,65 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(35, 15);
-            this.label4.Margin = new System.Windows.Forms.Padding(35, 15, 3, 0);
+            this.label4.Location = new System.Drawing.Point(35, 20);
+            this.label4.Margin = new System.Windows.Forms.Padding(35, 20, 3, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 25);
             this.label4.TabIndex = 2;
             this.label4.Text = "Brand";
             // 
-            // comboBox1
+            // cboBrand
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(105, 15);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
-            this.comboBox1.MaxDropDownItems = 60;
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(177, 33);
-            this.comboBox1.TabIndex = 5;
+            this.cboBrand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboBrand.FormattingEnabled = true;
+            this.cboBrand.Location = new System.Drawing.Point(105, 15);
+            this.cboBrand.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
+            this.cboBrand.MaxDropDownItems = 60;
+            this.cboBrand.Name = "cboBrand";
+            this.cboBrand.Size = new System.Drawing.Size(177, 33);
+            this.cboBrand.TabIndex = 5;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(35, 15);
-            this.label2.Margin = new System.Windows.Forms.Padding(35, 15, 3, 0);
+            this.label2.Location = new System.Drawing.Point(35, 20);
+            this.label2.Margin = new System.Windows.Forms.Padding(35, 20, 3, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 25);
             this.label2.TabIndex = 4;
             this.label2.Text = "Type";
             // 
-            // comboBox2
+            // cboType
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(98, 15);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
-            this.comboBox2.MaxDropDownItems = 60;
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(177, 33);
-            this.comboBox2.TabIndex = 3;
+            this.cboType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboType.FormattingEnabled = true;
+            this.cboType.Location = new System.Drawing.Point(98, 15);
+            this.cboType.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
+            this.cboType.MaxDropDownItems = 60;
+            this.cboType.Name = "cboType";
+            this.cboType.Size = new System.Drawing.Size(177, 33);
+            this.cboType.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(35, 15);
-            this.label3.Margin = new System.Windows.Forms.Padding(35, 15, 3, 0);
+            this.label3.Location = new System.Drawing.Point(35, 20);
+            this.label3.Margin = new System.Windows.Forms.Padding(35, 20, 3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(129, 25);
+            this.label3.Size = new System.Drawing.Size(56, 25);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Power Usage";
+            this.label3.Text = "Price";
             // 
             // comboBox3
             // 
             this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(170, 15);
+            this.comboBox3.Location = new System.Drawing.Point(97, 15);
             this.comboBox3.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
             this.comboBox3.MaxDropDownItems = 60;
             this.comboBox3.Name = "comboBox3";
@@ -208,7 +208,7 @@
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.Controls.Add(this.label2);
-            this.flowLayoutPanel3.Controls.Add(this.comboBox2);
+            this.flowLayoutPanel3.Controls.Add(this.cboType);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(719, 3);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
@@ -228,7 +228,7 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.label4);
-            this.flowLayoutPanel1.Controls.Add(this.comboBox1);
+            this.flowLayoutPanel1.Controls.Add(this.cboBrand);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(361, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -265,9 +265,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboBrand;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cboType;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox3;

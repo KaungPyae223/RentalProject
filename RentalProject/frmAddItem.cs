@@ -20,28 +20,27 @@ namespace RentalProject
         RentalDataSetTableAdapters.TypeTableAdapter objType = new RentalDataSetTableAdapters.TypeTableAdapter(); //call a data set to use and modify data from database
         private void frmAddItem_Load(object sender, EventArgs e)
         {
-            AddBrandandCategory();    // call a method to add data to cboBrand and cboType
+            AddBrandandCategory(objBrand.SP_SelectBrand(0), cboBrand);    // call a method to add data to cboBrand 
+            AddBrandandCategory(objType.SP_SelectType(0), cboType);    // call a method to add data to cboType
         }
-        private void AddBrandandCategory()   // method to add data to cbo Brand and cbo type from the data base
+        private void AddBrandandCategory(DataTable DT,ComboBox cbo)   // method to add data to each combo box
         {
-            DataTable DT = new DataTable();
-            DT = objBrand.GetBrand();               // add the all the data from the Brand data set
-            cboBrand.Items.Clear();                 //clear all data from cboBrand
-            cboBrand.Items.Add("Select a Brand");   //add "Select a Brand" data to the cboBrand first
-            foreach (DataRow dr in DT.Rows)    // looping to select all the data from DT to each row
-            {
-                cboBrand.Items.Add(dr[1]);     //add data from the DT to the cboBrand
-            }
-            DT.Clear();                        // clear all data from the DT
-            DT = objType.GetType();            // add the all the data from the Type data set
-            cboType.Items.Clear();             //clear all data from cboType
-            cboType.Items.Add("Select a Type");     //add "Select a Type" data to the cboType first
-            foreach (DataRow dr in DT.Rows)
-            {
-                cboType.Items.Add(dr[1]);
-            }
-            cboBrand.SelectedIndex= 0;
-            cboType.SelectedIndex= 0;
+           
+            DataRow dr = DT.NewRow();   // create a new row from DT
+            dr[0] = "";                 // add data column index 0 of data row "dr"
+            dr[1] = "Select a Data";    // add data column index 1 of data row "dr"
+            DT.Rows.InsertAt(dr, 0);    // add data row "dr" to the DT at row index 0
+
+            cbo.DataSource = DT;        // add all data from DT to combo box      
+            cbo.DisplayMember= DT.Columns[1].ToString();    // to show data from the column index 1 in combo box
+            cbo.ValueMember = DT.Columns[0].ToString();     
+            cbo.SelectedValue="";  // make to select the item which have value ""
+            
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(cboBrand.SelectedValue.ToString());
         }
     }
 }

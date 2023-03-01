@@ -16,5 +16,11 @@ namespace RentalProject
         {
             InitializeComponent();
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmUserRegister frm = new frmUserRegister();
+            frm.ShowDialog();
+        }
     }
 }

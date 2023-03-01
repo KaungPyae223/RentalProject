@@ -23,8 +23,20 @@ namespace RentalProject
         {
             DataTable Dt = new DataTable();
             Dt = objDelivery.GetDelivery();
-            txtDeliveryID.Text = "D-"+(Dt.Rows.Count+1).ToString("000"); //auto ID add to the txtDeliveryID
-            
+            if (Dt.Rows.Count == 0)  //check there is data or not in Database
+            {
+                txtDeliveryID.Text = "D-001";
+            }
+            else
+            {
+                int lastIndx = Dt.Rows.Count- 1;                    //get the last Index
+                string BrandID = Dt.Rows[lastIndx][0].ToString();   //get the ID from last index
+                string[] MakeID = BrandID.Split('-');               // split the ID by using split function from B and 001 seprate to add the ID number
+                int IDNum = Convert.ToInt32(MakeID[1])+1;           // add the Id num from 001 to 002
+                MakeID[1] = IDNum.ToString("000");                  // get the ID number
+                txtDeliveryID.Text = MakeID[0]+"-"+MakeID[1];
+            }
+
         }
 
         private void btnSave_Click(object sender, EventArgs e)
