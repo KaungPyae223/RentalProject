@@ -30,13 +30,13 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtDeliveryPhone = new System.Windows.Forms.TextBox();
-            this.txtDeliveryName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtDeliveryName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDeliveryID = new System.Windows.Forms.TextBox();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,13 +67,6 @@
             this.txtDeliveryPhone.Size = new System.Drawing.Size(253, 30);
             this.txtDeliveryPhone.TabIndex = 6;
             // 
-            // txtDeliveryName
-            // 
-            this.txtDeliveryName.Location = new System.Drawing.Point(201, 66);
-            this.txtDeliveryName.Name = "txtDeliveryName";
-            this.txtDeliveryName.Size = new System.Drawing.Size(253, 30);
-            this.txtDeliveryName.TabIndex = 5;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -84,6 +77,13 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Delivery Name";
             // 
+            // txtDeliveryName
+            // 
+            this.txtDeliveryName.Location = new System.Drawing.Point(201, 66);
+            this.txtDeliveryName.Name = "txtDeliveryName";
+            this.txtDeliveryName.Size = new System.Drawing.Size(253, 30);
+            this.txtDeliveryName.TabIndex = 5;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -93,6 +93,24 @@
             this.label2.Size = new System.Drawing.Size(144, 25);
             this.label2.TabIndex = 2;
             this.label2.Text = "Delivery Phone";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 8);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(106, 25);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Delivery ID";
+            // 
+            // txtDeliveryID
+            // 
+            this.txtDeliveryID.Location = new System.Drawing.Point(201, 3);
+            this.txtDeliveryID.Name = "txtDeliveryID";
+            this.txtDeliveryID.ReadOnly = true;
+            this.txtDeliveryID.Size = new System.Drawing.Size(253, 30);
+            this.txtDeliveryID.TabIndex = 8;
             // 
             // btnCancel
             // 
@@ -113,28 +131,10 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 8);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 25);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Delivery ID";
-            // 
-            // txtDeliveryID
-            // 
-            this.txtDeliveryID.Location = new System.Drawing.Point(201, 3);
-            this.txtDeliveryID.Name = "txtDeliveryID";
-            this.txtDeliveryID.ReadOnly = true;
-            this.txtDeliveryID.Size = new System.Drawing.Size(253, 30);
-            this.txtDeliveryID.TabIndex = 8;
-            // 
             // frmDelivery
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(578, 365);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);

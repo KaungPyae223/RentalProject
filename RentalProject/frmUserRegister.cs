@@ -10,7 +10,7 @@ namespace RentalProject
         {
             InitializeComponent();
         }
-
+        string ImageLocation;
         private void txtPassport_TextChanged(object sender, EventArgs e)
         {
             //add Password from the txtPassport to the Password variable
@@ -125,6 +125,17 @@ namespace RentalProject
         private void btnRegister_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog diag = new OpenFileDialog();
+            diag.Filter = "png files(*.png)|*.png|jpg files(*.jpg)|*.jpb|All files(*.*)|*.*";
+            if (diag.ShowDialog() == DialogResult.OK)
+            {
+                ImageLocation = diag.FileName.ToString();
+                UserPicture.ImageLocation = ImageLocation;
+            }
         }
     }
 }

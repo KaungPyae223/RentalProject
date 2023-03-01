@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddItem));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ItemPicture = new System.Windows.Forms.PictureBox();
+            this.btnBrowse = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.cboType = new System.Windows.Forms.ComboBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtDescription = new System.Windows.Forms.TextBox();
+            this.txtPricePerMonth = new System.Windows.Forms.TextBox();
+            this.txtOnHandQty = new System.Windows.Forms.TextBox();
+            this.txtModelYear = new System.Windows.Forms.TextBox();
+            this.txtTypicalUsage = new System.Windows.Forms.TextBox();
+            this.txtPowerUsage = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,35 +51,36 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtItemName = new System.Windows.Forms.TextBox();
             this.cboBrand = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemPicture)).BeginInit();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // ItemPicture
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(606, 234);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.ItemPicture.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ItemPicture.Image = ((System.Drawing.Image)(resources.GetObject("ItemPicture.Image")));
+            this.ItemPicture.Location = new System.Drawing.Point(0, 0);
+            this.ItemPicture.Name = "ItemPicture";
+            this.ItemPicture.Size = new System.Drawing.Size(606, 234);
+            this.ItemPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ItemPicture.TabIndex = 0;
+            this.ItemPicture.TabStop = false;
             // 
-            // button1
+            // btnBrowse
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(198, 240);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(232, 53);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "         Browse Image";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnBrowse.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBrowse.Image = ((System.Drawing.Image)(resources.GetObject("btnBrowse.Image")));
+            this.btnBrowse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBrowse.Location = new System.Drawing.Point(198, 240);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(232, 53);
+            this.btnBrowse.TabIndex = 1;
+            this.btnBrowse.Text = "         Browse Image";
+            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // panel1
             // 
@@ -118,12 +119,12 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.54861F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.45139F));
             this.tableLayoutPanel1.Controls.Add(this.cboType, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.textBox9, 1, 8);
-            this.tableLayoutPanel1.Controls.Add(this.textBox8, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.textBox7, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.textBox6, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.textBox5, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.textBox4, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.txtDescription, 1, 8);
+            this.tableLayoutPanel1.Controls.Add(this.txtPricePerMonth, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.txtOnHandQty, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.txtModelYear, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.txtTypicalUsage, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.txtPowerUsage, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
@@ -133,7 +134,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.label8, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.label9, 0, 8);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txtItemName, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.cboBrand, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -164,47 +165,47 @@
             this.cboType.Size = new System.Drawing.Size(367, 33);
             this.cboType.TabIndex = 19;
             // 
-            // textBox9
+            // txtDescription
             // 
-            this.textBox9.Location = new System.Drawing.Point(217, 402);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(367, 30);
-            this.textBox9.TabIndex = 17;
+            this.txtDescription.Location = new System.Drawing.Point(217, 402);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(367, 30);
+            this.txtDescription.TabIndex = 17;
             // 
-            // textBox8
+            // txtPricePerMonth
             // 
-            this.textBox8.Location = new System.Drawing.Point(217, 354);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(367, 30);
-            this.textBox8.TabIndex = 16;
+            this.txtPricePerMonth.Location = new System.Drawing.Point(217, 354);
+            this.txtPricePerMonth.Name = "txtPricePerMonth";
+            this.txtPricePerMonth.Size = new System.Drawing.Size(367, 30);
+            this.txtPricePerMonth.TabIndex = 16;
             // 
-            // textBox7
+            // txtOnHandQty
             // 
-            this.textBox7.Location = new System.Drawing.Point(217, 306);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(367, 30);
-            this.textBox7.TabIndex = 15;
+            this.txtOnHandQty.Location = new System.Drawing.Point(217, 306);
+            this.txtOnHandQty.Name = "txtOnHandQty";
+            this.txtOnHandQty.Size = new System.Drawing.Size(367, 30);
+            this.txtOnHandQty.TabIndex = 15;
             // 
-            // textBox6
+            // txtModelYear
             // 
-            this.textBox6.Location = new System.Drawing.Point(217, 258);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(367, 30);
-            this.textBox6.TabIndex = 14;
+            this.txtModelYear.Location = new System.Drawing.Point(217, 258);
+            this.txtModelYear.Name = "txtModelYear";
+            this.txtModelYear.Size = new System.Drawing.Size(367, 30);
+            this.txtModelYear.TabIndex = 14;
             // 
-            // textBox5
+            // txtTypicalUsage
             // 
-            this.textBox5.Location = new System.Drawing.Point(217, 210);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(367, 30);
-            this.textBox5.TabIndex = 13;
+            this.txtTypicalUsage.Location = new System.Drawing.Point(217, 210);
+            this.txtTypicalUsage.Name = "txtTypicalUsage";
+            this.txtTypicalUsage.Size = new System.Drawing.Size(367, 30);
+            this.txtTypicalUsage.TabIndex = 13;
             // 
-            // textBox4
+            // txtPowerUsage
             // 
-            this.textBox4.Location = new System.Drawing.Point(217, 162);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(367, 30);
-            this.textBox4.TabIndex = 12;
+            this.txtPowerUsage.Location = new System.Drawing.Point(217, 162);
+            this.txtPowerUsage.Name = "txtPowerUsage";
+            this.txtPowerUsage.Size = new System.Drawing.Size(367, 30);
+            this.txtPowerUsage.TabIndex = 12;
             // 
             // label1
             // 
@@ -296,12 +297,12 @@
             this.label9.TabIndex = 8;
             this.label9.Text = "Description";
             // 
-            // textBox1
+            // txtItemName
             // 
-            this.textBox1.Location = new System.Drawing.Point(217, 18);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(367, 30);
-            this.textBox1.TabIndex = 9;
+            this.txtItemName.Location = new System.Drawing.Point(217, 18);
+            this.txtItemName.Name = "txtItemName";
+            this.txtItemName.Size = new System.Drawing.Size(367, 30);
+            this.txtItemName.TabIndex = 9;
             // 
             // cboBrand
             // 
@@ -321,8 +322,8 @@
             this.ClientSize = new System.Drawing.Size(606, 831);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.btnBrowse);
+            this.Controls.Add(this.ItemPicture);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -330,7 +331,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddItem";
             this.Load += new System.EventHandler(this.frmAddItem_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemPicture)).EndInit();
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -340,8 +341,8 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox ItemPicture;
+        private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
@@ -355,13 +356,13 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.TextBox txtPricePerMonth;
+        private System.Windows.Forms.TextBox txtOnHandQty;
+        private System.Windows.Forms.TextBox txtModelYear;
+        private System.Windows.Forms.TextBox txtTypicalUsage;
+        private System.Windows.Forms.TextBox txtPowerUsage;
+        private System.Windows.Forms.TextBox txtItemName;
         private System.Windows.Forms.ComboBox cboType;
         private System.Windows.Forms.ComboBox cboBrand;
     }

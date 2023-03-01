@@ -40,7 +40,6 @@
             this.btnUser = new System.Windows.Forms.Button();
             this.btnAdmin = new System.Windows.Forms.Button();
             this.Slider = new System.Windows.Forms.Panel();
-            this.btnDashBoard = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.mainPannel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -234,7 +233,6 @@
             // Slider
             // 
             this.Slider.BackColor = System.Drawing.Color.White;
-            this.Slider.Controls.Add(this.btnDashBoard);
             this.Slider.Controls.Add(this.btnExit);
             this.Slider.Controls.Add(this.btnAdmin);
             this.Slider.Controls.Add(this.btnUser);
@@ -252,26 +250,6 @@
             this.Slider.Name = "Slider";
             this.Slider.Size = new System.Drawing.Size(326, 841);
             this.Slider.TabIndex = 11;
-            // 
-            // btnDashBoard
-            // 
-            this.btnDashBoard.BackColor = System.Drawing.Color.White;
-            this.btnDashBoard.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
-            this.btnDashBoard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btnDashBoard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
-            this.btnDashBoard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDashBoard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashBoard.Image = ((System.Drawing.Image)(resources.GetObject("btnDashBoard.Image")));
-            this.btnDashBoard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashBoard.Location = new System.Drawing.Point(0, 690);
-            this.btnDashBoard.Margin = new System.Windows.Forms.Padding(0);
-            this.btnDashBoard.Name = "btnDashBoard";
-            this.btnDashBoard.Size = new System.Drawing.Size(326, 62);
-            this.btnDashBoard.TabIndex = 12;
-            this.btnDashBoard.Text = "           Admin Dashboard";
-            this.btnDashBoard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashBoard.UseVisualStyleBackColor = false;
-            this.btnDashBoard.Click += new System.EventHandler(this.btnDashBoard_Click);
             // 
             // btnExit
             // 
@@ -337,6 +315,5 @@
         private System.Windows.Forms.Panel Slider;
         private System.Windows.Forms.Panel mainPannel;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Button btnDashBoard;
     }
 }

@@ -55,12 +55,12 @@ namespace RentalProject
             {
                 if (MessageBox.Show("Sure to Save", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
                 {
-                    
                     objDelivery.Insert(txtDeliveryID.Text,txtDeliveryName.Text.Trim(), txtDeliveryPhone.Text.Trim());
                     MessageBox.Show("Successfully Save");
                     this.Close();
                 }
             }
         }
+        
     }
 }

@@ -56,7 +56,6 @@ namespace RentalProject
             btnItems.BackColor = Color.White;
             btnAdmin.BackColor = Color.White;
             btnUser.BackColor = Color.White;
-            btnDashBoard.BackColor = Color.White;
             btn.BackColor = Color.Silver;
         }
 
@@ -105,10 +104,6 @@ namespace RentalProject
 
         }
 
-        private void btnDashBoard_Click(object sender, EventArgs e)
-        {
-            loadform(new frmAdminDashboard());
-            MakeButtonColor(btnDashBoard);
-        }
+        
     }
 }

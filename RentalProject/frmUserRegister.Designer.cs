@@ -69,7 +69,7 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
             this.cboAggree = new System.Windows.Forms.CheckBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.UserPicture = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -91,7 +91,7 @@
             this.panel2.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UserPicture)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -602,15 +602,16 @@
             this.cboAggree.UseVisualStyleBackColor = true;
             this.cboAggree.CheckedChanged += new System.EventHandler(this.cboAggree_CheckedChanged);
             // 
-            // pictureBox1
+            // UserPicture
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(222, 94);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(223, 129);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 19;
-            this.pictureBox1.TabStop = false;
+            this.UserPicture.Image = ((System.Drawing.Image)(resources.GetObject("UserPicture.Image")));
+            this.UserPicture.Location = new System.Drawing.Point(222, 85);
+            this.UserPicture.Name = "UserPicture";
+            this.UserPicture.Size = new System.Drawing.Size(223, 138);
+            this.UserPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.UserPicture.TabIndex = 19;
+            this.UserPicture.TabStop = false;
+            this.UserPicture.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // tableLayoutPanel4
             // 
@@ -630,7 +631,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.MistyRose;
-            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Controls.Add(this.UserPicture);
             this.panel3.Controls.Add(this.btnRegister);
             this.panel3.Controls.Add(this.cboAggree);
             this.panel3.Controls.Add(this.btnClose);
@@ -724,7 +725,7 @@
             this.tableLayoutPanel7.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UserPicture)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -777,7 +778,7 @@
         private System.Windows.Forms.Label lblNRCWarning;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.CheckBox cboAggree;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox UserPicture;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel9;
