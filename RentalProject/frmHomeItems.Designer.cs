@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHomeItems));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.HomeItemPicture = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCraft = new System.Windows.Forms.Button();
             this.lblItemName = new System.Windows.Forms.Label();
@@ -48,27 +48,27 @@
             this.lblModelYear = new System.Windows.Forms.Label();
             this.lblPricePerMonth = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HomeItemPicture)).BeginInit();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // HomeItemPicture
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(544, 257);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.HomeItemPicture.Dock = System.Windows.Forms.DockStyle.Top;
+            this.HomeItemPicture.Image = ((System.Drawing.Image)(resources.GetObject("HomeItemPicture.Image")));
+            this.HomeItemPicture.Location = new System.Drawing.Point(0, 0);
+            this.HomeItemPicture.Name = "HomeItemPicture";
+            this.HomeItemPicture.Size = new System.Drawing.Size(544, 257);
+            this.HomeItemPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.HomeItemPicture.TabIndex = 1;
+            this.HomeItemPicture.TabStop = false;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.btnCraft);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 627);
+            this.panel1.Location = new System.Drawing.Point(0, 665);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(25, 20, 25, 20);
             this.panel1.Size = new System.Drawing.Size(544, 100);
@@ -121,14 +121,14 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(10, 15, 10, 5);
             this.tableLayoutPanel1.RowCount = 7;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(544, 317);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49094F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49094F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49094F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49094F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49094F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49094F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.05434F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(544, 355);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // label2
@@ -143,7 +143,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 57);
+            this.label3.Location = new System.Drawing.Point(13, 56);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 25);
             this.label3.TabIndex = 1;
@@ -152,7 +152,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 99);
+            this.label4.Location = new System.Drawing.Point(13, 97);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(129, 25);
             this.label4.TabIndex = 2;
@@ -161,7 +161,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 141);
+            this.label5.Location = new System.Drawing.Point(13, 138);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(137, 25);
             this.label5.TabIndex = 3;
@@ -170,7 +170,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 183);
+            this.label6.Location = new System.Drawing.Point(13, 179);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(112, 25);
             this.label6.TabIndex = 4;
@@ -179,7 +179,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 225);
+            this.label7.Location = new System.Drawing.Point(13, 220);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(149, 25);
             this.label7.TabIndex = 5;
@@ -188,7 +188,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 267);
+            this.label8.Location = new System.Drawing.Point(13, 261);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(109, 25);
             this.label8.TabIndex = 6;
@@ -197,7 +197,7 @@
             // lblBrand
             // 
             this.lblBrand.AutoSize = true;
-            this.lblBrand.Location = new System.Drawing.Point(224, 15);
+            this.lblBrand.Location = new System.Drawing.Point(223, 15);
             this.lblBrand.Name = "lblBrand";
             this.lblBrand.Size = new System.Drawing.Size(96, 25);
             this.lblBrand.TabIndex = 7;
@@ -206,7 +206,7 @@
             // lblType
             // 
             this.lblType.AutoSize = true;
-            this.lblType.Location = new System.Drawing.Point(224, 57);
+            this.lblType.Location = new System.Drawing.Point(223, 56);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(170, 25);
             this.lblType.TabIndex = 8;
@@ -215,7 +215,7 @@
             // lblPowerUsage
             // 
             this.lblPowerUsage.AutoSize = true;
-            this.lblPowerUsage.Location = new System.Drawing.Point(224, 99);
+            this.lblPowerUsage.Location = new System.Drawing.Point(223, 97);
             this.lblPowerUsage.Name = "lblPowerUsage";
             this.lblPowerUsage.Size = new System.Drawing.Size(69, 25);
             this.lblPowerUsage.TabIndex = 9;
@@ -224,7 +224,7 @@
             // lblTypicalUsage
             // 
             this.lblTypicalUsage.AutoSize = true;
-            this.lblTypicalUsage.Location = new System.Drawing.Point(224, 141);
+            this.lblTypicalUsage.Location = new System.Drawing.Point(223, 138);
             this.lblTypicalUsage.Name = "lblTypicalUsage";
             this.lblTypicalUsage.Size = new System.Drawing.Size(186, 25);
             this.lblTypicalUsage.TabIndex = 10;
@@ -233,7 +233,7 @@
             // lblModelYear
             // 
             this.lblModelYear.AutoSize = true;
-            this.lblModelYear.Location = new System.Drawing.Point(224, 183);
+            this.lblModelYear.Location = new System.Drawing.Point(223, 179);
             this.lblModelYear.Name = "lblModelYear";
             this.lblModelYear.Size = new System.Drawing.Size(56, 25);
             this.lblModelYear.TabIndex = 11;
@@ -242,7 +242,7 @@
             // lblPricePerMonth
             // 
             this.lblPricePerMonth.AutoSize = true;
-            this.lblPricePerMonth.Location = new System.Drawing.Point(224, 225);
+            this.lblPricePerMonth.Location = new System.Drawing.Point(223, 220);
             this.lblPricePerMonth.Name = "lblPricePerMonth";
             this.lblPricePerMonth.Size = new System.Drawing.Size(89, 25);
             this.lblPricePerMonth.TabIndex = 12;
@@ -251,7 +251,7 @@
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(224, 267);
+            this.lblDescription.Location = new System.Drawing.Point(223, 261);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(59, 25);
             this.lblDescription.TabIndex = 13;
@@ -262,15 +262,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(544, 727);
+            this.ClientSize = new System.Drawing.Size(544, 765);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.lblItemName);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.HomeItemPicture);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmHomeItems";
             this.Text = "frmHomeItems";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Load += new System.EventHandler(this.frmHomeItems_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.HomeItemPicture)).EndInit();
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -280,7 +281,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox HomeItemPicture;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnCraft;
         private System.Windows.Forms.Label lblItemName;

@@ -42,6 +42,7 @@
             this.Slider = new System.Windows.Forms.Panel();
             this.btnExit = new System.Windows.Forms.Button();
             this.mainPannel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBLogo)).BeginInit();
             this.Slider.SuspendLayout();
@@ -233,6 +234,7 @@
             // Slider
             // 
             this.Slider.BackColor = System.Drawing.Color.White;
+            this.Slider.Controls.Add(this.button1);
             this.Slider.Controls.Add(this.btnExit);
             this.Slider.Controls.Add(this.btnAdmin);
             this.Slider.Controls.Add(this.btnUser);
@@ -281,6 +283,25 @@
             this.mainPannel.Size = new System.Drawing.Size(1002, 841);
             this.mainPannel.TabIndex = 12;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(0, 690);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(326, 62);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "           Rental list";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
@@ -315,5 +336,6 @@
         private System.Windows.Forms.Panel Slider;
         private System.Windows.Forms.Panel mainPannel;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -141,11 +141,11 @@ namespace RentalProject
         }
         private void btnBrowse_Click(object sender, EventArgs e)
         {
-            OpenFileDialog diag = new OpenFileDialog();
-            diag.Filter = "Picture Files|*.bmp;*.jpg;*.jpeg;*.png;*.gif";
-            if (diag.ShowDialog() == DialogResult.OK)
+            OpenFileDialog OFdiag = new OpenFileDialog();
+            OFdiag.Filter = "Picture Files|*.bmp;*.jpg;*.jpeg;*.png;*.gif";
+            if (OFdiag.ShowDialog() == DialogResult.OK)
             {
-                imgLocation = diag.FileName.ToString();
+                imgLocation = OFdiag.FileName.ToString();
                 ItemPicture.ImageLocation = imgLocation;
             }
         }

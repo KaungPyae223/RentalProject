@@ -27,7 +27,7 @@ namespace RentalProject
         }
         RentalDataSetTableAdapters.BrandTableAdapter objBrand = new RentalDataSetTableAdapters.BrandTableAdapter();
         RentalDataSetTableAdapters.TypeTableAdapter objType = new RentalDataSetTableAdapters.TypeTableAdapter();
-
+        RentalDataSetTableAdapters.vi_ItemTableAdapter objItem = new RentalDataSetTableAdapters.vi_ItemTableAdapter();
         private void frmHome_Load(object sender, EventArgs e)
         {
             AddAppliaceItems();
@@ -49,11 +49,13 @@ namespace RentalProject
         }
         private void AddAppliaceItems()
         {
-            for (int i = 0; i< 18; i++)
+            DataTable DT = objItem.GetVi_Item();
+            foreach (DataRow dr in DT.Rows)
             {
-                frmHomeItems frm = new frmHomeItems();
-                frm.Width = ((label1.Width-26)/4)-6;
+                frmHomeItems frm = new frmHomeItems(dr);
+                frm.Width = ((label1.Width-26)/3)-6;
                 frm.Margin= new Padding(3);
+
                 loadform(frm);
             }
         }

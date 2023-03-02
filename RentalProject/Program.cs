@@ -12,16 +12,21 @@ namespace RentalProject
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
+
+
         static void Main()
         {
-            if(Environment.OSVersion.Version.Major >= 6)
+
+            if (Environment.OSVersion.Version.Major >= 6)
             {
                 SetProcessDPIAware();
             }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main());
+            Application.Run(new frmUserRegister());
         }
+        public static List<string> Properties = new List<string>();
+
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         private static extern bool SetProcessDPIAware();
     }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -11,6 +13,7 @@ namespace RentalProject
             InitializeComponent();
         }
         string ImageLocation;
+        RentalDataSetTableAdapters.CustomerTableAdapter objCustomer = new RentalDataSetTableAdapters.CustomerTableAdapter();
         private void txtPassport_TextChanged(object sender, EventArgs e)
         {
             //add Password from the txtPassport to the Password variable
@@ -90,10 +93,15 @@ namespace RentalProject
         {
             CheckComplete(); //call a method to check and make enable register
         }
+        private void txtLocation_TextChanged(object sender, EventArgs e)
+        {
+            CheckTextBoxBlank(txtLocation, lbLocationWarning); // call a method to check textbox blank or not
+
+        }
 
         private void CheckComplete() //This method is for checking all text boxes situation and make enable to the registers
         {
-            if (lblAccountNameWarning.Text == "" && lblNameWraning.Text == "" && lblEmailWarning.Text == "" && lblPhoneWarning.Text == "" && lblNRCWarning.Text == "" && lblPasswordWarning.Text== "" && lblConfirmPassportWarning.Text == "" && cboAggree.Checked == true)
+            if (lblAccountNameWarning.Text == "" && lblNameWraning.Text == "" && lblEmailWarning.Text == "" && lblPhoneWarning.Text == "" && lblNRCWarning.Text == "" && lblPasswordWarning.Text== "" && lblConfirmPassportWarning.Text == "" && lbLocationWarning.Text == "" && cboAggree.Checked == true)
             {
                 btnRegister.Enabled = true;
             }
@@ -108,6 +116,8 @@ namespace RentalProject
             if (txt.Text.Trim() == string.Empty)
             {
                 lbl.Text = "Required!";
+                CheckComplete(); //call a method to check and make enable register
+
             }
             else
             {
@@ -124,16 +134,45 @@ namespace RentalProject
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+            byte[] image = null;
+            FileStream File = new FileStream(ImageLocation, FileMode.Open, FileAccess.Read);
+            BinaryReader brs = new BinaryReader(File);
+            image = brs.ReadBytes((int)File.Length);
 
+            if (MessageBox.Show("Sure to Register", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
+            {
+                string ID = MakeCustomerID();
+                objCustomer.Insert(ID, "Bronze", txtAccountName.Text.Trim(), txtName.Text.Trim(), txtLocation.Text.Trim(), txtEmail.Text.Trim(), txtPhone.Text.Trim(), txtNRC.Text.Trim(), txtPassword.Text.Trim(), "", DateTime.Now, image);
+                MessageBox.Show("Successfully Register");
+                this.Close();
+            }
+        }
+        private string MakeCustomerID()
+        {
+            DataTable Dt = new DataTable();
+            Dt = objCustomer.GetCustomer();
+            if (Dt.Rows.Count == 0)  //check there is data or not in Database
+            {
+                return "C-00001";
+            }
+            else
+            {
+                int lastIndx = Dt.Rows.Count- 1;                    //get the last Index
+                string BrandID = Dt.Rows[lastIndx][0].ToString();   //get the ID from last index
+                string[] MakeID = BrandID.Split('-');               // split the ID by using split function from I and 001 seprate to add the ID number
+                int IDNum = Convert.ToInt32(MakeID[1])+1;           // add the Id num from behind '-'
+                MakeID[1] = IDNum.ToString("00000");                  // get the ID number
+                return MakeID[0]+"-"+MakeID[1];
+            }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void UserPicture_Click(object sender, EventArgs e)
         {
-            OpenFileDialog diag = new OpenFileDialog();
-            diag.Filter = "png files(*.png)|*.png|jpg files(*.jpg)|*.jpb|All files(*.*)|*.*";
-            if (diag.ShowDialog() == DialogResult.OK)
+            OpenFileDialog OFdiag = new OpenFileDialog();
+            OFdiag.Filter = "Picture Files|*.bmp;*.jpg;*.jpeg;*.png;*.gif";
+            if (OFdiag.ShowDialog() == DialogResult.OK)
             {
-                ImageLocation = diag.FileName.ToString();
+                ImageLocation = OFdiag.FileName.ToString();
                 UserPicture.ImageLocation = ImageLocation;
             }
         }
