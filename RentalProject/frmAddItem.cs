@@ -53,7 +53,7 @@ namespace RentalProject
             if (MessageBox.Show("Sure to Save", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
             {
                 string ID = MakeID();
-                objItem.Insert(ID, cboBrand.SelectedValue.ToString(), cboType.SelectedValue.ToString(), txtItemName.Text.Trim(), txtPowerUsage.Text.Trim(), txtTypicalUsage.Text.Trim(), txtModelYear.Text.Trim(), Convert.ToInt32(txtOnHandQty.Text), Convert.ToInt32(txtPricePerMonth.Text), txtDescription.Text, image);
+                objItem.Insert(ID, cboBrand.SelectedValue.ToString(), cboType.SelectedValue.ToString(), txtItemName.Text.Trim(), txtPowerUsage.Text.Trim(), txtTypicalUsage.Text.Trim(), txtModelYear.Text.Trim(), Convert.ToInt32(txtOnHandQty.Text), Convert.ToInt32(txtPricePerMonth.Text), txtDescription.Text, image,Convert.ToInt32(txtOnHandQty.Text));
                 MessageBox.Show("Successfully Save");
                 this.Close();
             }

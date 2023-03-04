@@ -283,7 +283,6 @@
 
         private System.Windows.Forms.PictureBox HomeItemPicture;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnCraft;
         private System.Windows.Forms.Label lblItemName;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label2;
@@ -300,5 +299,6 @@
         private System.Windows.Forms.Label lblModelYear;
         private System.Windows.Forms.Label lblPricePerMonth;
         private System.Windows.Forms.Label lblDescription;
+        public System.Windows.Forms.Button btnCraft;
     }
 }

@@ -9,6 +9,7 @@ namespace RentalProject
         {
             InitializeComponent();
         }
+        RentalDataSetTableAdapters.vi_ItemTableAdapter objItem = new RentalDataSetTableAdapters.vi_ItemTableAdapter();
         RentalDataSetTableAdapters.BrandTableAdapter objBrand = new RentalDataSetTableAdapters.BrandTableAdapter();
         RentalDataSetTableAdapters.TypeTableAdapter objType = new RentalDataSetTableAdapters.TypeTableAdapter();
         RentalDataSetTableAdapters.DeliveryTableAdapter objDelivery = new RentalDataSetTableAdapters.DeliveryTableAdapter();
@@ -61,28 +62,50 @@ namespace RentalProject
 
         private void showData() //method to show the data in data grid view
         {
-            if (cboList.SelectedIndex == 1)
+            if(cboList.SelectedIndex == 0)
             {
+                dgvItem.Columns.Clear();
+                dgvItem.DataSource= objItem.GetVi_Item();
+                dgvItem.Columns[0].Width = (label1.Width/100)* 10;
+                dgvItem.Columns[1].Visible = false;
+                dgvItem.Columns[2].Visible = false;
+                dgvItem.Columns[3].Width = (dgvItem.Width/100)* 25;
+                dgvItem.Columns[4].Width = (dgvItem.Width/100)* 10;
+                dgvItem.Columns[5].Width = (dgvItem.Width/100)* 15;
+                dgvItem.Columns[6].Width = (dgvItem.Width/100)* 10;
+                dgvItem.Columns[7].Width = (dgvItem.Width/100)* 10;
+                dgvItem.Columns[8].Width = (dgvItem.Width/100)* 10;
+                dgvItem.Columns[9].Visible = false;
+                dgvItem.Columns[10].Visible = false;
+                dgvItem.Columns[11].Width = (dgvItem.Width/100)* 10;
+                dgvItem.Columns[12].Width = (dgvItem.Width/100)* 10;
+                dgvItem.Columns[13].Width = (dgvItem.Width/100)* 10;
+                dgvItem.Columns[13].DisplayIndex = 8;
+            }
+            else if (cboList.SelectedIndex == 1)
+            {
+                dgvItem.Columns.Clear();
                 dgvItem.DataSource= objBrand.GetBrand();
                 dgvItem.Columns[0].Width = (dgvItem.Width/100)* 20;
                 dgvItem.Columns[1].Width = (dgvItem.Width/100)* 80;
-
+                
             }
-            if (cboList.SelectedIndex == 2)
+            else if (cboList.SelectedIndex == 2)
             {
+                dgvItem.Columns.Clear();
                 dgvItem.DataSource= objType.GetType();
                 dgvItem.Columns[0].Width = (dgvItem.Width/100)* 20;
                 dgvItem.Columns[1].Width = (dgvItem.Width/100)* 80;
             }
-            if (cboList.SelectedIndex == 3)
+            else if (cboList.SelectedIndex == 3)
             {
+                dgvItem.Columns.Clear();
                 dgvItem.DataSource= objDelivery.GetDelivery();
                 dgvItem.Columns[0].Width = (dgvItem.Width/100)* 20;
                 dgvItem.Columns[1].Width = (dgvItem.Width/100)* 40;
                 dgvItem.Columns[2].Width = (dgvItem.Width/100)* 40;
 
             }
-
             dgvItem.Refresh();
         }
 

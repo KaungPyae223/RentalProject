@@ -1348,6 +1348,8 @@ namespace RentalProject {
             
             private global::System.Data.DataColumn columnItemImage;
             
+            private global::System.Data.DataColumn columnTotalQty;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ItemDataTable() {
@@ -1471,6 +1473,14 @@ namespace RentalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TotalQtyColumn {
+                get {
+                    return this.columnTotalQty;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1506,7 +1516,7 @@ namespace RentalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ItemRow AddItemRow(string ItemID, string BrandID, string TypeID, string ItemName, string PowerUsage, string TypicalUsage, string ModelYear, int OnHandQty, int PricePerMonth, string Description, byte[] ItemImage) {
+            public ItemRow AddItemRow(string ItemID, string BrandID, string TypeID, string ItemName, string PowerUsage, string TypicalUsage, string ModelYear, int OnHandQty, int PricePerMonth, string Description, byte[] ItemImage, int TotalQty) {
                 ItemRow rowItemRow = ((ItemRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ItemID,
@@ -1519,7 +1529,8 @@ namespace RentalProject {
                         OnHandQty,
                         PricePerMonth,
                         Description,
-                        ItemImage};
+                        ItemImage,
+                        TotalQty};
                 rowItemRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowItemRow);
                 return rowItemRow;
@@ -1560,6 +1571,7 @@ namespace RentalProject {
                 this.columnPricePerMonth = base.Columns["PricePerMonth"];
                 this.columnDescription = base.Columns["Description"];
                 this.columnItemImage = base.Columns["ItemImage"];
+                this.columnTotalQty = base.Columns["TotalQty"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1587,6 +1599,8 @@ namespace RentalProject {
                 base.Columns.Add(this.columnDescription);
                 this.columnItemImage = new global::System.Data.DataColumn("ItemImage", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnItemImage);
+                this.columnTotalQty = new global::System.Data.DataColumn("TotalQty", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalQty);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnItemID}, true));
                 this.columnItemID.AllowDBNull = false;
@@ -3404,6 +3418,22 @@ namespace RentalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int TotalQty {
+                get {
+                    try {
+                        return ((int)(this[this.tableItem.TotalQtyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalQty\' in table \'Item\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableItem.TotalQtyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsBrandIDNull() {
                 return this.IsNull(this.tableItem.BrandIDColumn);
             }
@@ -3520,6 +3550,18 @@ namespace RentalProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetItemImageNull() {
                 this[this.tableItem.ItemImageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTotalQtyNull() {
+                return this.IsNull(this.tableItem.TotalQtyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTotalQtyNull() {
+                this[this.tableItem.TotalQtyColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6261,10 +6303,11 @@ SELECT DeliveryID, DeliveryName, DeliveryPhone FROM Delivery WHERE (DeliveryID =
             tableMapping.ColumnMappings.Add("PricePerMonth", "PricePerMonth");
             tableMapping.ColumnMappings.Add("Description", "Description");
             tableMapping.ColumnMappings.Add("ItemImage", "ItemImage");
+            tableMapping.ColumnMappings.Add("TotalQty", "TotalQty");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Item] WHERE (([ItemID] = @Original_ItemID) AND ((@IsNull_BrandID = 1 AND [BrandID] IS NULL) OR ([BrandID] = @Original_BrandID)) AND ((@IsNull_TypeID = 1 AND [TypeID] IS NULL) OR ([TypeID] = @Original_TypeID)) AND ((@IsNull_ItemName = 1 AND [ItemName] IS NULL) OR ([ItemName] = @Original_ItemName)) AND ((@IsNull_PowerUsage = 1 AND [PowerUsage] IS NULL) OR ([PowerUsage] = @Original_PowerUsage)) AND ((@IsNull_TypicalUsage = 1 AND [TypicalUsage] IS NULL) OR ([TypicalUsage] = @Original_TypicalUsage)) AND ((@IsNull_ModelYear = 1 AND [ModelYear] IS NULL) OR ([ModelYear] = @Original_ModelYear)) AND ((@IsNull_OnHandQty = 1 AND [OnHandQty] IS NULL) OR ([OnHandQty] = @Original_OnHandQty)) AND ((@IsNull_PricePerMonth = 1 AND [PricePerMonth] IS NULL) OR ([PricePerMonth] = @Original_PricePerMonth)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Item] WHERE (([ItemID] = @Original_ItemID) AND ((@IsNull_BrandID = 1 AND [BrandID] IS NULL) OR ([BrandID] = @Original_BrandID)) AND ((@IsNull_TypeID = 1 AND [TypeID] IS NULL) OR ([TypeID] = @Original_TypeID)) AND ((@IsNull_ItemName = 1 AND [ItemName] IS NULL) OR ([ItemName] = @Original_ItemName)) AND ((@IsNull_PowerUsage = 1 AND [PowerUsage] IS NULL) OR ([PowerUsage] = @Original_PowerUsage)) AND ((@IsNull_TypicalUsage = 1 AND [TypicalUsage] IS NULL) OR ([TypicalUsage] = @Original_TypicalUsage)) AND ((@IsNull_ModelYear = 1 AND [ModelYear] IS NULL) OR ([ModelYear] = @Original_ModelYear)) AND ((@IsNull_OnHandQty = 1 AND [OnHandQty] IS NULL) OR ([OnHandQty] = @Original_OnHandQty)) AND ((@IsNull_PricePerMonth = 1 AND [PricePerMonth] IS NULL) OR ([PricePerMonth] = @Original_PricePerMonth)) AND ((@IsNull_TotalQty = 1 AND [TotalQty] IS NULL) OR ([TotalQty] = @Original_TotalQty)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ItemID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BrandID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BrandID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -6283,10 +6326,12 @@ SELECT DeliveryID, DeliveryName, DeliveryPhone FROM Delivery WHERE (DeliveryID =
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OnHandQty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OnHandQty", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PricePerMonth", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PricePerMonth", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PricePerMonth", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PricePerMonth", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TotalQty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalQty", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TotalQty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalQty", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Item] ([ItemID], [BrandID], [TypeID], [ItemName], [PowerUsage], [TypicalUsage], [ModelYear], [OnHandQty], [PricePerMonth], [Description], [ItemImage]) VALUES (@ItemID, @BrandID, @TypeID, @ItemName, @PowerUsage, @TypicalUsage, @ModelYear, @OnHandQty, @PricePerMonth, @Description, @ItemImage);
-SELECT ItemID, BrandID, TypeID, ItemName, PowerUsage, TypicalUsage, ModelYear, OnHandQty, PricePerMonth, Description, ItemImage FROM Item WHERE (ItemID = @ItemID)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Item] ([ItemID], [BrandID], [TypeID], [ItemName], [PowerUsage], [TypicalUsage], [ModelYear], [OnHandQty], [PricePerMonth], [Description], [ItemImage], [TotalQty]) VALUES (@ItemID, @BrandID, @TypeID, @ItemName, @PowerUsage, @TypicalUsage, @ModelYear, @OnHandQty, @PricePerMonth, @Description, @ItemImage, @TotalQty);
+SELECT ItemID, BrandID, TypeID, ItemName, PowerUsage, TypicalUsage, ModelYear, OnHandQty, PricePerMonth, Description, ItemImage, TotalQty FROM Item WHERE (ItemID = @ItemID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BrandID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BrandID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -6299,10 +6344,11 @@ SELECT ItemID, BrandID, TypeID, ItemName, PowerUsage, TypicalUsage, ModelYear, O
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PricePerMonth", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PricePerMonth", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemImage", global::System.Data.SqlDbType.Image, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemImage", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalQty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalQty", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Item] SET [ItemID] = @ItemID, [BrandID] = @BrandID, [TypeID] = @TypeID, [ItemName] = @ItemName, [PowerUsage] = @PowerUsage, [TypicalUsage] = @TypicalUsage, [ModelYear] = @ModelYear, [OnHandQty] = @OnHandQty, [PricePerMonth] = @PricePerMonth, [Description] = @Description, [ItemImage] = @ItemImage WHERE (([ItemID] = @Original_ItemID) AND ((@IsNull_BrandID = 1 AND [BrandID] IS NULL) OR ([BrandID] = @Original_BrandID)) AND ((@IsNull_TypeID = 1 AND [TypeID] IS NULL) OR ([TypeID] = @Original_TypeID)) AND ((@IsNull_ItemName = 1 AND [ItemName] IS NULL) OR ([ItemName] = @Original_ItemName)) AND ((@IsNull_PowerUsage = 1 AND [PowerUsage] IS NULL) OR ([PowerUsage] = @Original_PowerUsage)) AND ((@IsNull_TypicalUsage = 1 AND [TypicalUsage] IS NULL) OR ([TypicalUsage] = @Original_TypicalUsage)) AND ((@IsNull_ModelYear = 1 AND [ModelYear] IS NULL) OR ([ModelYear] = @Original_ModelYear)) AND ((@IsNull_OnHandQty = 1 AND [OnHandQty] IS NULL) OR ([OnHandQty] = @Original_OnHandQty)) AND ((@IsNull_PricePerMonth = 1 AND [PricePerMonth] IS NULL) OR ([PricePerMonth] = @Original_PricePerMonth)));
-SELECT ItemID, BrandID, TypeID, ItemName, PowerUsage, TypicalUsage, ModelYear, OnHandQty, PricePerMonth, Description, ItemImage FROM Item WHERE (ItemID = @ItemID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Item] SET [ItemID] = @ItemID, [BrandID] = @BrandID, [TypeID] = @TypeID, [ItemName] = @ItemName, [PowerUsage] = @PowerUsage, [TypicalUsage] = @TypicalUsage, [ModelYear] = @ModelYear, [OnHandQty] = @OnHandQty, [PricePerMonth] = @PricePerMonth, [Description] = @Description, [ItemImage] = @ItemImage, [TotalQty] = @TotalQty WHERE (([ItemID] = @Original_ItemID) AND ((@IsNull_BrandID = 1 AND [BrandID] IS NULL) OR ([BrandID] = @Original_BrandID)) AND ((@IsNull_TypeID = 1 AND [TypeID] IS NULL) OR ([TypeID] = @Original_TypeID)) AND ((@IsNull_ItemName = 1 AND [ItemName] IS NULL) OR ([ItemName] = @Original_ItemName)) AND ((@IsNull_PowerUsage = 1 AND [PowerUsage] IS NULL) OR ([PowerUsage] = @Original_PowerUsage)) AND ((@IsNull_TypicalUsage = 1 AND [TypicalUsage] IS NULL) OR ([TypicalUsage] = @Original_TypicalUsage)) AND ((@IsNull_ModelYear = 1 AND [ModelYear] IS NULL) OR ([ModelYear] = @Original_ModelYear)) AND ((@IsNull_OnHandQty = 1 AND [OnHandQty] IS NULL) OR ([OnHandQty] = @Original_OnHandQty)) AND ((@IsNull_PricePerMonth = 1 AND [PricePerMonth] IS NULL) OR ([PricePerMonth] = @Original_PricePerMonth)) AND ((@IsNull_TotalQty = 1 AND [TotalQty] IS NULL) OR ([TotalQty] = @Original_TotalQty)));
+SELECT ItemID, BrandID, TypeID, ItemName, PowerUsage, TypicalUsage, ModelYear, OnHandQty, PricePerMonth, Description, ItemImage, TotalQty FROM Item WHERE (ItemID = @ItemID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BrandID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BrandID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -6315,6 +6361,7 @@ SELECT ItemID, BrandID, TypeID, ItemName, PowerUsage, TypicalUsage, ModelYear, O
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PricePerMonth", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PricePerMonth", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemImage", global::System.Data.SqlDbType.Image, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemImage", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalQty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalQty", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ItemID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BrandID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BrandID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BrandID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BrandID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -6332,6 +6379,8 @@ SELECT ItemID, BrandID, TypeID, ItemName, PowerUsage, TypicalUsage, ModelYear, O
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OnHandQty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OnHandQty", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PricePerMonth", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PricePerMonth", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PricePerMonth", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PricePerMonth", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TotalQty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalQty", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TotalQty", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalQty", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6408,7 +6457,7 @@ SELECT ItemID, BrandID, TypeID, ItemName, PowerUsage, TypicalUsage, ModelYear, O
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_ItemID, string Original_BrandID, string Original_TypeID, string Original_ItemName, string Original_PowerUsage, string Original_TypicalUsage, string Original_ModelYear, global::System.Nullable<int> Original_OnHandQty, global::System.Nullable<int> Original_PricePerMonth) {
+        public virtual int Delete(string Original_ItemID, string Original_BrandID, string Original_TypeID, string Original_ItemName, string Original_PowerUsage, string Original_TypicalUsage, string Original_ModelYear, global::System.Nullable<int> Original_OnHandQty, global::System.Nullable<int> Original_PricePerMonth, global::System.Nullable<int> Original_TotalQty) {
             if ((Original_ItemID == null)) {
                 throw new global::System.ArgumentNullException("Original_ItemID");
             }
@@ -6479,6 +6528,14 @@ SELECT ItemID, BrandID, TypeID, ItemName, PowerUsage, TypicalUsage, ModelYear, O
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
+            if ((Original_TotalQty.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((int)(Original_TotalQty.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6499,7 +6556,7 @@ SELECT ItemID, BrandID, TypeID, ItemName, PowerUsage, TypicalUsage, ModelYear, O
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string ItemID, string BrandID, string TypeID, string ItemName, string PowerUsage, string TypicalUsage, string ModelYear, global::System.Nullable<int> OnHandQty, global::System.Nullable<int> PricePerMonth, string Description, byte[] ItemImage) {
+        public virtual int Insert(string ItemID, string BrandID, string TypeID, string ItemName, string PowerUsage, string TypicalUsage, string ModelYear, global::System.Nullable<int> OnHandQty, global::System.Nullable<int> PricePerMonth, string Description, byte[] ItemImage, global::System.Nullable<int> TotalQty) {
             if ((ItemID == null)) {
                 throw new global::System.ArgumentNullException("ItemID");
             }
@@ -6566,6 +6623,12 @@ SELECT ItemID, BrandID, TypeID, ItemName, PowerUsage, TypicalUsage, ModelYear, O
             else {
                 this.Adapter.InsertCommand.Parameters[10].Value = ((byte[])(ItemImage));
             }
+            if ((TotalQty.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((int)(TotalQty.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6598,6 +6661,7 @@ SELECT ItemID, BrandID, TypeID, ItemName, PowerUsage, TypicalUsage, ModelYear, O
                     global::System.Nullable<int> PricePerMonth, 
                     string Description, 
                     byte[] ItemImage, 
+                    global::System.Nullable<int> TotalQty, 
                     string Original_ItemID, 
                     string Original_BrandID, 
                     string Original_TypeID, 
@@ -6606,7 +6670,8 @@ SELECT ItemID, BrandID, TypeID, ItemName, PowerUsage, TypicalUsage, ModelYear, O
                     string Original_TypicalUsage, 
                     string Original_ModelYear, 
                     global::System.Nullable<int> Original_OnHandQty, 
-                    global::System.Nullable<int> Original_PricePerMonth) {
+                    global::System.Nullable<int> Original_PricePerMonth, 
+                    global::System.Nullable<int> Original_TotalQty) {
             if ((ItemID == null)) {
                 throw new global::System.ArgumentNullException("ItemID");
             }
@@ -6673,75 +6738,89 @@ SELECT ItemID, BrandID, TypeID, ItemName, PowerUsage, TypicalUsage, ModelYear, O
             else {
                 this.Adapter.UpdateCommand.Parameters[10].Value = ((byte[])(ItemImage));
             }
+            if ((TotalQty.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(TotalQty.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
             if ((Original_ItemID == null)) {
                 throw new global::System.ArgumentNullException("Original_ItemID");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_ItemID));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_ItemID));
             }
             if ((Original_BrandID == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_BrandID));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_BrandID));
             }
             if ((Original_TypeID == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_TypeID));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_TypeID));
             }
             if ((Original_ItemName == null)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_ItemName));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_ItemName));
             }
             if ((Original_PowerUsage == null)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_PowerUsage));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_PowerUsage));
             }
             if ((Original_TypicalUsage == null)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_TypicalUsage));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_TypicalUsage));
             }
             if ((Original_ModelYear == null)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_ModelYear));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_ModelYear));
             }
             if ((Original_OnHandQty.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(Original_OnHandQty.Value));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((int)(Original_OnHandQty.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
             if ((Original_PricePerMonth.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(Original_PricePerMonth.Value));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(Original_PricePerMonth.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            if ((Original_TotalQty.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((int)(Original_TotalQty.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6774,6 +6853,7 @@ SELECT ItemID, BrandID, TypeID, ItemName, PowerUsage, TypicalUsage, ModelYear, O
                     global::System.Nullable<int> PricePerMonth, 
                     string Description, 
                     byte[] ItemImage, 
+                    global::System.Nullable<int> TotalQty, 
                     string Original_ItemID, 
                     string Original_BrandID, 
                     string Original_TypeID, 
@@ -6782,8 +6862,9 @@ SELECT ItemID, BrandID, TypeID, ItemName, PowerUsage, TypicalUsage, ModelYear, O
                     string Original_TypicalUsage, 
                     string Original_ModelYear, 
                     global::System.Nullable<int> Original_OnHandQty, 
-                    global::System.Nullable<int> Original_PricePerMonth) {
-            return this.Update(Original_ItemID, BrandID, TypeID, ItemName, PowerUsage, TypicalUsage, ModelYear, OnHandQty, PricePerMonth, Description, ItemImage, Original_ItemID, Original_BrandID, Original_TypeID, Original_ItemName, Original_PowerUsage, Original_TypicalUsage, Original_ModelYear, Original_OnHandQty, Original_PricePerMonth);
+                    global::System.Nullable<int> Original_PricePerMonth, 
+                    global::System.Nullable<int> Original_TotalQty) {
+            return this.Update(Original_ItemID, BrandID, TypeID, ItemName, PowerUsage, TypicalUsage, ModelYear, OnHandQty, PricePerMonth, Description, ItemImage, TotalQty, Original_ItemID, Original_BrandID, Original_TypeID, Original_ItemName, Original_PowerUsage, Original_TypicalUsage, Original_ModelYear, Original_OnHandQty, Original_PricePerMonth, Original_TotalQty);
         }
     }
     
@@ -6934,11 +7015,18 @@ SELECT ItemID, BrandID, TypeID, ItemName, PowerUsage, TypicalUsage, ModelYear, O
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT vi_Item.*\r\nFROM   vi_Item";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "dbo.SP_SelectItem";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@action", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6960,6 +7048,54 @@ SELECT ItemID, BrandID, TypeID, ItemName, PowerUsage, TypicalUsage, ModelYear, O
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual RentalDataSet.vi_ItemDataTable GetVi_Item() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            RentalDataSet.vi_ItemDataTable dataTable = new RentalDataSet.vi_ItemDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(RentalDataSet.vi_ItemDataTable dataTable, string ID, global::System.Nullable<int> action) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((ID == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(ID));
+            }
+            if ((action.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(action.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual RentalDataSet.vi_ItemDataTable GetSP_Item(string ID, global::System.Nullable<int> action) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((ID == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(ID));
+            }
+            if ((action.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(action.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
             RentalDataSet.vi_ItemDataTable dataTable = new RentalDataSet.vi_ItemDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

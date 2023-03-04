@@ -11,8 +11,8 @@ namespace RentalProject
         public Main()
         {
             InitializeComponent();
-            this.DT = Program.DT;
-            btnProfile.Text = DT.Rows[0]["AccountName"].ToString();
+          //  this.DT = Program.DT;
+         //   btnProfile.Text = DT.Rows[0]["AccountName"].ToString();
         }
         DataTable   DT = new DataTable();
         
@@ -64,16 +64,12 @@ namespace RentalProject
             btn.BackColor = Color.Silver;
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            loadform(new frmAdmin());
-            MakeButtonColor(btnAdmin);
-        }
+        
 
 
         private void Main_Load(object sender, EventArgs e)
         {
-            string[] properties = Program.Properties;
+            /*string[] properties = Program.Properties;
             for (int i = 0; i < properties.Length; i++)
             {
                 switch (properties[i])
@@ -107,7 +103,7 @@ namespace RentalProject
                         break;
                 }
             }
-
+*/
 
         }
         private void Enablebutton(ref Button btn)
@@ -148,6 +144,10 @@ namespace RentalProject
 
         }
 
-
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            loadform(new frmAdmin());
+            MakeButtonColor(btnAdmin);
+        }
     }
 }

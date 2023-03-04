@@ -24,18 +24,37 @@ namespace RentalProject
 
         private void AddInfo()
         {
-            lblName.Text = DT.Rows[0]["CustomerName"].ToString();
-            lblAccountName.Text = DT.Rows[0]["AccountName"].ToString();
-            lblEmail.Text = DT.Rows[0]["CustomerEmail"].ToString();
-            lblID.Text = DT.Rows[0]["CustomerID"].ToString();
-            lblLocation.Text = DT.Rows[0]["CustomerLocation"].ToString();
-            lblUserLevel.Text = DT.Rows[0]["CustomerLevel"].ToString();
-
-            if(DT.Rows[0]["CustomerPhoto"].ToString() != string.Empty)
+            if (Program.Type == "User")
             {
-                byte[] img = (byte[])(DT.Rows[0]["CustomerPhoto"]);
-                MemoryStream ms = new MemoryStream(img);
-                pictureBox1.Image = Image.FromStream(ms);
+                lblName.Text = DT.Rows[0]["CustomerName"].ToString();
+                lblAccountName.Text = DT.Rows[0]["AccountName"].ToString();
+                lblEmail.Text = DT.Rows[0]["CustomerEmail"].ToString();
+                lblID.Text = DT.Rows[0]["CustomerID"].ToString();
+                lblLocation.Text = DT.Rows[0]["CustomerLocation"].ToString();
+                lblUserLevel.Text = DT.Rows[0]["CustomerLevel"].ToString();
+
+                if (DT.Rows[0]["CustomerPhoto"].ToString() != string.Empty)
+                {
+                    byte[] img = (byte[])(DT.Rows[0]["CustomerPhoto"]);
+                    MemoryStream ms = new MemoryStream(img);
+                    pictureBox1.Image = Image.FromStream(ms);
+                }
+            }
+            else
+            {
+                lblName.Text = DT.Rows[0]["AdminName"].ToString();
+                lblAccountName.Text = DT.Rows[0]["AccountName"].ToString();
+                lblEmail.Text = DT.Rows[0]["AdminEmail"].ToString();
+                lblID.Text = DT.Rows[0]["AdminID"].ToString();
+                lblLocation.Text = DT.Rows[0]["AdminLocation"].ToString();
+                lblUserLevel.Text = DT.Rows[0]["AdminPost"].ToString();
+
+                if (DT.Rows[0]["AdminPhoto"].ToString() != string.Empty)
+                {
+                    byte[] img = (byte[])(DT.Rows[0]["AdminPhoto"]);
+                    MemoryStream ms = new MemoryStream(img);
+                    pictureBox1.Image = Image.FromStream(ms);
+                }
             }
         }
 

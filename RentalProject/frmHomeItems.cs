@@ -24,6 +24,7 @@ namespace RentalProject
             PowerUsage = dr[4].ToString();
             ModelYear = dr[6].ToString();
             PricePerMonth = dr[8].ToString();
+            ID = dr[0].ToString();
             byte[] img = (byte[])(dr[10]);
             MemoryStream ms = new MemoryStream(img);
             HomeItemPicture.Image = Image.FromStream(ms);
@@ -36,6 +37,7 @@ namespace RentalProject
         private string PowerUsage;
         private string ModelYear;
         private string PricePerMonth;
+        private string ID;
 
         private void SetInfo()
         {
@@ -52,7 +54,17 @@ namespace RentalProject
         }
         private void btnCraft_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if(btnCraft.Text == "Add to Craft")
+            {
+                Program.Craft.Add(ID);
+                btnCraft.Text = "Cancel";
+            }
+            else
+            {
+                btnCraft.Text = "Add to Craft";
+                Program.Craft.Remove(ID);
+            }
+
         }
 
         private void frmHomeItems_Load(object sender, EventArgs e)

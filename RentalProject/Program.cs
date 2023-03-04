@@ -24,10 +24,13 @@ namespace RentalProject
             }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LogIn());
+            Application.Run(new Main());
+         
         }
         public static string[] Properties = new string[] {};
+        public static List<string> Craft = new List<string>();
         public static DataTable DT;
+        public static string Type;
 
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         private static extern bool SetProcessDPIAware();

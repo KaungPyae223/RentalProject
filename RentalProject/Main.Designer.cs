@@ -128,7 +128,6 @@
             this.btnCraft.Text = "           Craft";
             this.btnCraft.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCraft.UseVisualStyleBackColor = false;
-            this.btnCraft.Visible = false;
             this.btnCraft.Click += new System.EventHandler(this.btnCraft_Click);
             // 
             // btnPayment
@@ -190,7 +189,6 @@
             this.btnItems.Text = "           Items";
             this.btnItems.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnItems.UseVisualStyleBackColor = false;
-            this.btnItems.Visible = false;
             this.btnItems.Click += new System.EventHandler(this.btnItems_Click);
             // 
             // btnUser
@@ -233,7 +231,7 @@
             this.btnAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdmin.UseVisualStyleBackColor = false;
             this.btnAdmin.Visible = false;
-            this.btnAdmin.Click += new System.EventHandler(this.button3_Click);
+            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
             // 
             // Slider
             // 

@@ -17,14 +17,7 @@ namespace RentalProject
             InitializeComponent();
         }
 
-        public void loadform(Form f)
-        {
-            f.TopLevel = false;
-            HomeMainPannel.Controls.Add(f);
-            HomeMainPannel.Tag = f;
-            f.Show();
-            
-        }
+        
         RentalDataSetTableAdapters.BrandTableAdapter objBrand = new RentalDataSetTableAdapters.BrandTableAdapter();
         RentalDataSetTableAdapters.TypeTableAdapter objType = new RentalDataSetTableAdapters.TypeTableAdapter();
         RentalDataSetTableAdapters.vi_ItemTableAdapter objItem = new RentalDataSetTableAdapters.vi_ItemTableAdapter();
@@ -47,6 +40,14 @@ namespace RentalProject
             cbo.SelectedValue = "";
 
         }
+        public void loadform(Form f)
+        {
+            f.TopLevel = false;
+            HomeMainPannel.Controls.Add(f);
+            HomeMainPannel.Tag = f;
+            f.Show();
+
+        }
         private void AddAppliaceItems()
         {
             DataTable DT = objItem.GetVi_Item();
@@ -55,7 +56,11 @@ namespace RentalProject
                 frmHomeItems frm = new frmHomeItems(dr);
                 frm.Width = ((label1.Width-26)/3)-6;
                 frm.Margin= new Padding(3);
-
+                foreach (string ID in Program.Craft)
+                {
+                    if (dr[0].ToString() == ID)
+                        frm.btnCraft.Text = "Cancel";
+                }
                 loadform(frm);
             }
         }

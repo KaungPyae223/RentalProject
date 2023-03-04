@@ -37,7 +37,7 @@ namespace RentalProject
                 string[] properties = level.Split(',');
                 Array.Resize(ref Program.Properties,properties.Length);
                 Program.Properties = properties;
-
+                Program.Type = "User";
                 Main main = new Main();
                 main.ShowDialog();
             }
@@ -53,7 +53,7 @@ namespace RentalProject
                     string[] properties = level.Split(',');
                     Array.Resize(ref Program.Properties, properties.Length);
                     Program.Properties = properties;
-
+                    Program.Type = "Admin";
                     Main main = new Main();
                     main.ShowDialog();
                 }
