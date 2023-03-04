@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,11 +24,14 @@ namespace RentalProject
             }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmUserRegister());
+            Application.Run(new LogIn());
         }
-        public static List<string> Properties = new List<string>();
+        public static string[] Properties = new string[] {};
+        public static DataTable DT;
 
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         private static extern bool SetProcessDPIAware();
+
+        
     }
 }

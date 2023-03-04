@@ -10,7 +10,7 @@ namespace RentalProject
         {
             InitializeComponent();
         }
-        
+
 
         public void loadform(object Form)
         {
@@ -65,8 +65,47 @@ namespace RentalProject
             MakeButtonColor(btnAdmin);
         }
 
-        
+
         private void Main_Load(object sender, EventArgs e)
+        {
+            string[] properties = Program.Properties;
+            for (int i = 0; i < properties.Length; i++)
+            {
+                switch (properties[i])
+                {
+                    case "Profile": 
+                        btnProfile.Visible = true; 
+                        break;
+                    case "Craft": 
+                        btnCraft.Visible = true; 
+                        break;
+                    case "Payment": 
+                        btnPayment.Visible = true; 
+                        break;
+                    case "Histort": 
+                        btnHistory.Visible = true; 
+                        break;
+                    case "Home":
+                        btnHome.Visible = true;
+                        break;
+                    case "Item":
+                        btnItems.Visible = true;
+                        break;
+                    case "User":
+                        btnUser.Visible = true;
+                        break;
+                    case "Admin":
+                        btnAdmin.Visible = true;
+                        break;
+                    case "List":
+                        btnList.Visible = true;
+                        break;
+                }
+            }
+
+
+        }
+        private void Enablebutton(ref Button btn)
         {
 
         }
@@ -95,7 +134,7 @@ namespace RentalProject
             MakeButtonColor(btnUser);
         }
 
-        
+
 
         private void btnHome_Click(object sender, EventArgs e)
         {
@@ -104,6 +143,6 @@ namespace RentalProject
 
         }
 
-        
+
     }
 }

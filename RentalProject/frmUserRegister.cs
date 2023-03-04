@@ -12,7 +12,7 @@ namespace RentalProject
         {
             InitializeComponent();
         }
-        string ImageLocation;
+        string ImageLocation = "";
         RentalDataSetTableAdapters.CustomerTableAdapter objCustomer = new RentalDataSetTableAdapters.CustomerTableAdapter();
         private void txtPassport_TextChanged(object sender, EventArgs e)
         {
@@ -135,9 +135,12 @@ namespace RentalProject
         private void btnRegister_Click(object sender, EventArgs e)
         {
             byte[] image = null;
-            FileStream File = new FileStream(ImageLocation, FileMode.Open, FileAccess.Read);
-            BinaryReader brs = new BinaryReader(File);
-            image = brs.ReadBytes((int)File.Length);
+            if(ImageLocation != string.Empty)
+            {
+                FileStream File = new FileStream(ImageLocation, FileMode.Open, FileAccess.Read);
+                BinaryReader brs = new BinaryReader(File);
+                image = brs.ReadBytes((int)File.Length);
+            }
 
             if (MessageBox.Show("Sure to Register", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
             {
