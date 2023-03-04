@@ -232,6 +232,7 @@
             this.btnAdmin.Text = "           Admin Controls";
             this.btnAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdmin.UseVisualStyleBackColor = false;
+            this.btnAdmin.Visible = false;
             this.btnAdmin.Click += new System.EventHandler(this.button3_Click);
             // 
             // Slider

@@ -38,17 +38,17 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblID = new System.Windows.Forms.Label();
+            this.lblPhone = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblLocation = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblUserLevel = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblAccountName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.dgvUserAppliances = new System.Windows.Forms.DataGridView();
@@ -77,9 +77,9 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.lblName);
             this.panel1.Controls.Add(this.linkLabel1);
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.lblAccountName);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 61);
@@ -114,14 +114,14 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.91166F));
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label7, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblID, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblPhone, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label8, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label9, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lblEmail, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.label10, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label11, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.lblLocation, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label13, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label14, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.lblUserLevel, 1, 4);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(251, 62);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
@@ -152,23 +152,23 @@
             this.label6.TabIndex = 2;
             this.label6.Text = "Phone Number";
             // 
-            // label5
+            // lblID
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(145, 10);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 20);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "C-00001";
+            this.lblID.AutoSize = true;
+            this.lblID.Location = new System.Drawing.Point(145, 10);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(70, 20);
+            this.lblID.TabIndex = 1;
+            this.lblID.Text = "C-00001";
             // 
-            // label7
+            // lblPhone
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(145, 47);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(99, 20);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "0979372911";
+            this.lblPhone.AutoSize = true;
+            this.lblPhone.Location = new System.Drawing.Point(145, 47);
+            this.lblPhone.Name = "lblPhone";
+            this.lblPhone.Size = new System.Drawing.Size(99, 20);
+            this.lblPhone.TabIndex = 3;
+            this.lblPhone.Text = "0979372911";
             // 
             // label8
             // 
@@ -179,14 +179,14 @@
             this.label8.TabIndex = 4;
             this.label8.Text = "Email";
             // 
-            // label9
+            // lblEmail
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(145, 84);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(165, 20);
-            this.label9.TabIndex = 5;
-            this.label9.Text = "HlWin232@gmail.com";
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(145, 84);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(165, 20);
+            this.lblEmail.TabIndex = 5;
+            this.lblEmail.Text = "HlWin232@gmail.com";
             // 
             // label10
             // 
@@ -197,42 +197,42 @@
             this.label10.TabIndex = 6;
             this.label10.Text = "Address";
             // 
-            // label11
+            // lblLocation
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(145, 121);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(288, 20);
-            this.label11.TabIndex = 7;
-            this.label11.Text = "No.(24) Ahlone Road,  Ahlone, Yangon ";
+            this.lblLocation.AutoSize = true;
+            this.lblLocation.Location = new System.Drawing.Point(145, 121);
+            this.lblLocation.Name = "lblLocation";
+            this.lblLocation.Size = new System.Drawing.Size(288, 20);
+            this.lblLocation.TabIndex = 7;
+            this.lblLocation.Text = "No.(24) Ahlone Road,  Ahlone, Yangon ";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(3, 158);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(81, 20);
+            this.label13.Size = new System.Drawing.Size(84, 20);
             this.label13.TabIndex = 8;
-            this.label13.Text = "User Type";
+            this.label13.Text = "User Level";
             // 
-            // label14
+            // lblUserLevel
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(145, 158);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(78, 20);
-            this.label14.TabIndex = 9;
-            this.label14.Text = "Customer";
+            this.lblUserLevel.AutoSize = true;
+            this.lblUserLevel.Location = new System.Drawing.Point(145, 158);
+            this.lblUserLevel.Name = "lblUserLevel";
+            this.lblUserLevel.Size = new System.Drawing.Size(78, 20);
+            this.lblUserLevel.TabIndex = 9;
+            this.lblUserLevel.Text = "Customer";
             // 
-            // label3
+            // lblName
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(251, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 39);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Hla Win";
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(251, 20);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(140, 39);
+            this.lblName.TabIndex = 3;
+            this.lblName.Text = "Hla Win";
             // 
             // linkLabel1
             // 
@@ -245,15 +245,15 @@
             this.linkLabel1.Text = "Edit Profile";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // label2
+            // lblAccountName
             // 
-            this.label2.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(13, 187);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(197, 50);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "HlWin232";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAccountName.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAccountName.Location = new System.Drawing.Point(13, 187);
+            this.lblAccountName.Name = "lblAccountName";
+            this.lblAccountName.Size = new System.Drawing.Size(197, 50);
+            this.lblAccountName.TabIndex = 1;
+            this.lblAccountName.Text = "HlWin232";
+            this.lblAccountName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
@@ -342,24 +342,24 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblAccountName;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblLocation;
+        private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label12;
         public System.Windows.Forms.DataGridView dgvUserAppliances;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblUserLevel;
         private System.Windows.Forms.Panel panel2;
     }
 }

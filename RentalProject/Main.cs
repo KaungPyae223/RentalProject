@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Data;
 using System.Drawing;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 namespace RentalProject
@@ -9,8 +11,11 @@ namespace RentalProject
         public Main()
         {
             InitializeComponent();
+            this.DT = Program.DT;
+            btnProfile.Text = DT.Rows[0]["AccountName"].ToString();
         }
-
+        DataTable   DT = new DataTable();
+        
 
         public void loadform(object Form)
         {
