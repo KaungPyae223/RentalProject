@@ -32,15 +32,15 @@ namespace RentalProject.Classes
 
         public void AddDelivery()
         {
-            objDelivery.Insert(_DeliveryID,_DeliveryName,_DeliveryPhone);
+            objDelivery.Insert(DeliveryID,DeliveryName,DeliveryPhone);
         }
         public void EditDelivery()
         {
-            objDelivery.UpdateDelivery(_DeliveryID,_DeliveryName,_DeliveryPhone);   
+            objDelivery.UpdateDelivery(DeliveryID,DeliveryName,DeliveryPhone);   
         }
         public void DeleteDelivery()
         {
-            objDelivery.DeleteDelivery(_DeliveryID);
+            objDelivery.DeleteDelivery(DeliveryID);
         }
         public DataTable GetDelivery()
         {

@@ -3,6 +3,7 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using RentalProject.Classes;
 
 namespace RentalProject
 {
@@ -12,7 +13,10 @@ namespace RentalProject
         {
             InitializeComponent();
         }
+
+        clsCustomer objclsCustomer = new clsCustomer();
         string ImageLocation = "";
+        byte[] image = null;
         RentalDataSetTableAdapters.CustomerTableAdapter objCustomer = new RentalDataSetTableAdapters.CustomerTableAdapter();
         private void txtPassport_TextChanged(object sender, EventArgs e)
         {
@@ -134,7 +138,6 @@ namespace RentalProject
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            byte[] image = null;
             if(ImageLocation != string.Empty)
             {
                 FileStream File = new FileStream(ImageLocation, FileMode.Open, FileAccess.Read);
@@ -144,11 +147,26 @@ namespace RentalProject
 
             if (MessageBox.Show("Sure to Register", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
             {
-                string ID = MakeCustomerID();
-                objCustomer.Insert(ID, "Bronze", txtAccountName.Text.Trim(), txtName.Text.Trim(), txtLocation.Text.Trim(), txtEmail.Text.Trim(), txtPhone.Text.Trim(), txtNRC.Text.Trim(), txtPassword.Text.Trim(), "", DateTime.Now, image);
+                AddData();
+                objclsCustomer.SaveUser();
                 MessageBox.Show("Successfully Register");
                 this.Close();
             }
+        }
+        private void AddData()
+        {
+            objclsCustomer.CustomerID = MakeCustomerID();
+            objclsCustomer.CustomerLevel = "Bronze";
+            objclsCustomer.UserNRC = txtNRC.Text.Trim();
+            objclsCustomer.UserEmail = txtEmail.Text.Trim();
+            objclsCustomer.UserPhone = txtPhone.Text.Trim();
+            objclsCustomer.UserPhoto = image;
+            objclsCustomer.AccountName = txtAccountName.Text.Trim();
+            objclsCustomer.UserPassword = txtPassword.Text.Trim();
+            objclsCustomer.UserInfo = "";
+            objclsCustomer.UserName = txtName.Text.Trim();
+            objclsCustomer.UserLocation = txtLocation.Text.Trim();
+
         }
         private string MakeCustomerID()
         {

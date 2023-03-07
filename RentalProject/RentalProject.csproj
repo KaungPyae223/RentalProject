@@ -39,7 +39,9 @@
   <PropertyGroup />
   <PropertyGroup />
   <ItemGroup>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
@@ -53,8 +55,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\clsCustomer.cs" />
+    <Compile Include="Classes\clsUser.cs" />
     <Compile Include="Classes\clsBrand.cs" />
     <Compile Include="Classes\clsDelivery.cs" />
+    <Compile Include="Classes\clsItem.cs" />
     <Compile Include="Classes\clsType.cs" />
     <Compile Include="frmAddItem.cs">
       <SubType>Form</SubType>

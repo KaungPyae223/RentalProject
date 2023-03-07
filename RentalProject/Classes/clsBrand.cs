@@ -28,11 +28,11 @@ namespace RentalProject.Classes
         }
         public void RemoveBrand()
         {
-            objBrand.DeleteBrand(_BrandID);
+            objBrand.DeleteBrand(BrandID);
         }
         public void EditBrand()
         {
-            objBrand.UpdateBrand(_BrandName, _BrandID);
+            objBrand.UpdateBrand(BrandName, BrandID);
         }
 
         public DataTable GetBrand()

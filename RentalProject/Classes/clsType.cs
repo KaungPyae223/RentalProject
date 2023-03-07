@@ -25,7 +25,7 @@ namespace RentalProject.Classes
 
         public void AddType()
         {
-            objType.Insert(_TypeID, _NameOfType);
+            objType.Insert(TypeID, NameOfType);
         }
         public void RemoveType()
         {
@@ -33,7 +33,7 @@ namespace RentalProject.Classes
         }
         public void EditType()
         {
-            objType.UpdateType(_TypeID, _NameOfType);
+            objType.UpdateType(TypeID, NameOfType);
         }
         public DataTable GetType()
         {
