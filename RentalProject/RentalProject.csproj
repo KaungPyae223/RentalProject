@@ -53,6 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\clsBrand.cs" />
+    <Compile Include="Classes\clsDelivery.cs" />
+    <Compile Include="Classes\clsType.cs" />
     <Compile Include="frmAddItem.cs">
       <SubType>Form</SubType>
     </Compile>

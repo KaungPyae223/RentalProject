@@ -53,7 +53,7 @@ namespace RentalProject
             DataTable DT = objItem.GetVi_Item();
             foreach (DataRow dr in DT.Rows)
             {
-                frmHomeItems frm = new frmHomeItems(dr);
+                frmHomeItems frm = new frmHomeItems(dr,false);
                 frm.Width = ((label1.Width-26)/3)-6;
                 frm.Margin= new Padding(3);
                 foreach (string ID in Program.Craft)

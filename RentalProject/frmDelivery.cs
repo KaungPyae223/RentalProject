@@ -8,21 +8,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using RentalProject.Classes;
 
 namespace RentalProject
 {
     public partial class frmDelivery : Form
     {
-        public frmDelivery()
+        public frmDelivery(Boolean IsEdit)
         {
             InitializeComponent();
+            this.IsEdit = IsEdit;
         }
-        RentalDataSetTableAdapters.DeliveryTableAdapter objDelivery = new RentalDataSetTableAdapters.DeliveryTableAdapter();
 
+        private Boolean IsEdit = false;
+        clsDelivery ClsDelivery = new clsDelivery();
         private void frmDelivery_Load(object sender, EventArgs e)
         {
+            if(!IsEdit)
+            {
+                AddID();
+            }
+
+        }
+        private void AddID()
+        {
             DataTable Dt = new DataTable();
-            Dt = objDelivery.GetDelivery();
+            Dt = ClsDelivery.GetDelivery();
             if (Dt.Rows.Count == 0)  //check there is data or not in Database
             {
                 txtDeliveryID.Text = "D-001";
@@ -36,7 +47,6 @@ namespace RentalProject
                 MakeID[1] = IDNum.ToString("000");                  // get the ID number
                 txtDeliveryID.Text = MakeID[0]+"-"+MakeID[1];
             }
-
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -53,13 +63,34 @@ namespace RentalProject
             }
             else
             {
-                if (MessageBox.Show("Sure to Save", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
+                if(IsEdit)
                 {
-                    objDelivery.Insert(txtDeliveryID.Text,txtDeliveryName.Text.Trim(), txtDeliveryPhone.Text.Trim());
-                    MessageBox.Show("Successfully Save");
-                    this.Close();
+                    if (MessageBox.Show("Sure to Edit", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
+                    {
+                        AddData();
+                        ClsDelivery.EditDelivery();
+                        MessageBox.Show("Successfully Edit");
+                        this.Close();
+                    }
                 }
+                else
+                {
+                    if (MessageBox.Show("Sure to Save", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
+                    {
+                        AddData();
+                        ClsDelivery.AddDelivery();
+                        MessageBox.Show("Successfully Save");
+                        this.Close();
+                    }
+                }
+                
             }
+        }
+        private void AddData()
+        {
+            ClsDelivery.DeliveryID = txtDeliveryID.Text.Trim();
+            ClsDelivery.DeliveryName = txtDeliveryName.Text.Trim();
+            ClsDelivery.DeliveryPhone = txtDeliveryPhone.Text.Trim();
         }
         
     }

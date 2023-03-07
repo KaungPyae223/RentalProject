@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RentalProject.Classes;
+using System;
 using System.Windows.Forms;
 
 namespace RentalProject
@@ -9,10 +10,12 @@ namespace RentalProject
         {
             InitializeComponent();
         }
+
+        clsBrand ClsBrand = new clsBrand();
+        clsType ClsType = new clsType();
+        clsDelivery ClsDelivery = new clsDelivery();
+
         RentalDataSetTableAdapters.vi_ItemTableAdapter objItem = new RentalDataSetTableAdapters.vi_ItemTableAdapter();
-        RentalDataSetTableAdapters.BrandTableAdapter objBrand = new RentalDataSetTableAdapters.BrandTableAdapter();
-        RentalDataSetTableAdapters.TypeTableAdapter objType = new RentalDataSetTableAdapters.TypeTableAdapter();
-        RentalDataSetTableAdapters.DeliveryTableAdapter objDelivery = new RentalDataSetTableAdapters.DeliveryTableAdapter();
         private void frmItems_Load(object sender, EventArgs e)
         {
             cboList.SelectedIndex= 0;
@@ -38,7 +41,7 @@ namespace RentalProject
             }
             else
             {
-                frmDelivery frm = new frmDelivery();
+                frmDelivery frm = new frmDelivery(false);
                 frm.ShowDialog();
             }
             showData();
@@ -85,7 +88,7 @@ namespace RentalProject
             else if (cboList.SelectedIndex == 1)
             {
                 dgvItem.Columns.Clear();
-                dgvItem.DataSource= objBrand.GetBrand();
+                dgvItem.DataSource= ClsBrand.GetBrand();
                 dgvItem.Columns[0].Width = (dgvItem.Width/100)* 20;
                 dgvItem.Columns[1].Width = (dgvItem.Width/100)* 80;
                 
@@ -93,14 +96,14 @@ namespace RentalProject
             else if (cboList.SelectedIndex == 2)
             {
                 dgvItem.Columns.Clear();
-                dgvItem.DataSource= objType.GetType();
+                dgvItem.DataSource= ClsType.GetType();
                 dgvItem.Columns[0].Width = (dgvItem.Width/100)* 20;
                 dgvItem.Columns[1].Width = (dgvItem.Width/100)* 80;
             }
             else if (cboList.SelectedIndex == 3)
             {
                 dgvItem.Columns.Clear();
-                dgvItem.DataSource= objDelivery.GetDelivery();
+                dgvItem.DataSource= ClsDelivery.GetDelivery();
                 dgvItem.Columns[0].Width = (dgvItem.Width/100)* 20;
                 dgvItem.Columns[1].Width = (dgvItem.Width/100)* 40;
                 dgvItem.Columns[2].Width = (dgvItem.Width/100)* 40;
@@ -121,15 +124,26 @@ namespace RentalProject
                 if (cboList.SelectedIndex == 1)
                 {
                     frmBrandandCategoryAdd frm = new frmBrandandCategoryAdd(true, true);
-                    frm.txtBrandID.Text = dgvItem.CurrentRow.Cells[0].Value.ToString();
-                    frm.txtBrand.Text = dgvItem.CurrentRow.Cells[1].Value.ToString();
+                    frm.txtID.Text = dgvItem.CurrentRow.Cells[0].Value.ToString();
+                    frm.txtName.Text = dgvItem.CurrentRow.Cells[1].Value.ToString();
+                    frm.btnAdd.Text = "Edit";
+                    frm.ShowDialog();
+                }
+                else if(cboList.SelectedIndex == 2)
+                {
+                    frmBrandandCategoryAdd frm = new frmBrandandCategoryAdd(false, true);
+                    frm.txtID.Text = dgvItem.CurrentRow.Cells[0].Value.ToString();
+                    frm.txtName.Text = dgvItem.CurrentRow.Cells[1].Value.ToString();
+                    frm.btnAdd.Text = "Edit";
                     frm.ShowDialog();
                 }
                 else
                 {
-                    frmBrandandCategoryAdd frm = new frmBrandandCategoryAdd(false, true);
-                    frm.txtBrandID.Text = dgvItem.CurrentRow.Cells[0].Value.ToString();
-                    frm.txtBrand.Text = dgvItem.CurrentRow.Cells[1].Value.ToString();
+                    frmDelivery frm = new frmDelivery(true);
+                    frm.txtDeliveryID.Text = dgvItem.CurrentRow.Cells[0].Value.ToString();
+                    frm.txtDeliveryName.Text = dgvItem.CurrentRow.Cells[1].Value.ToString();
+                    frm.txtDeliveryPhone.Text = dgvItem.CurrentRow.Cells[2].Value.ToString();
+                    frm.btnSave.Text = "Edit";
                     frm.ShowDialog();
                 }
             }
@@ -145,17 +159,24 @@ namespace RentalProject
             }
             else
             {
-                if (MessageBox.Show("Sure to Edit", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to delte
+                if (MessageBox.Show("Sure to Delete", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to delte
                 {
                     if (cboList.SelectedIndex == 1) // check which type to dele
                     {
-                        objBrand.DeleteBrand(dgvItem.CurrentRow.Cells[0].Value.ToString());
+                        ClsBrand.BrandID = dgvItem.CurrentRow.Cells[0].Value.ToString();
+                        ClsBrand.RemoveBrand();
                     }
-                    if (cboList.SelectedIndex == 2)
+                    else if (cboList.SelectedIndex == 2)
                     {
-                        objType.DeleteType(dgvItem.CurrentRow.Cells[0].Value.ToString());
+                        ClsType.TypeID = dgvItem.CurrentRow.Cells[0].Value.ToString();
+                        ClsType.RemoveType();
                     }
-                    MessageBox.Show("Successfully delet");
+                    else if (cboList.SelectedIndex == 3)
+                    {
+                        ClsDelivery.DeliveryID = dgvItem.CurrentRow.Cells[0].Value.ToString();
+                        ClsDelivery.DeleteDelivery();
+                    }
+                    MessageBox.Show("Successfully delete");
                     showData();
                 }
             }

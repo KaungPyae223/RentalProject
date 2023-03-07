@@ -157,13 +157,13 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TextBox txtDeliveryPhone;
-        private System.Windows.Forms.TextBox txtDeliveryName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtDeliveryID;
+        public System.Windows.Forms.TextBox txtDeliveryPhone;
+        public System.Windows.Forms.TextBox txtDeliveryName;
+        public System.Windows.Forms.Button btnSave;
+        public System.Windows.Forms.TextBox txtDeliveryID;
     }
 }

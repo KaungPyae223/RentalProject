@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RentalProject.Classes;
+using System;
 using System.Data;
 using System.Windows.Forms;
 
@@ -16,19 +17,20 @@ namespace RentalProject
             lblBrandID.Text = (kind) ? "Brand ID" : "Type ID";  //check and add the appropriate label
             btnAdd.Text = (IsEdit) ? "Edit" : "Add";
         }
+
         private Boolean kind;       // make a parameter to know to modify type or brand
         private Boolean IsEdit;     // make a parameter to know edit or add
 
+        clsBrand ClsBrand = new clsBrand();
+        clsType ClsType = new clsType();
 
-        RentalDataSetTableAdapters.BrandTableAdapter objBrand = new RentalDataSetTableAdapters.BrandTableAdapter(); //call a data set to use and modify data from database
-        RentalDataSetTableAdapters.TypeTableAdapter objType = new RentalDataSetTableAdapters.TypeTableAdapter();    //call a data set to use and modify data from database
-
+        
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (txtBrand.Text.Trim() == string.Empty)       //check the Brand is empty or not
+            if (txtName.Text.Trim() == string.Empty)       //check the Brand is empty or not
             {
                 MessageBox.Show("Plese type a Brand", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtBrand.Focus();
+                txtName.Focus();
             }
             else
             {
@@ -37,9 +39,15 @@ namespace RentalProject
                     if (MessageBox.Show("Sure to Edit", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
                     {
                         if (kind)   // check the kind and add data to appropriate database 
-                            objBrand.UpdateBrand(txtBrand.Text.Trim(), txtBrandID.Text.Trim());
+                        {
+                            AddData();
+                            ClsBrand.EditBrand();
+                        }
                         else
-                            objType.UpdateType(txtBrand.Text.Trim(), txtBrandID.Text.Trim());
+                        {
+                            AddData();
+                            ClsType.EditType();
+                        }
 
                         MessageBox.Show("Successfully Edit");
                         this.Close();
@@ -50,9 +58,15 @@ namespace RentalProject
                     if (MessageBox.Show("Sure to Save", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
                     {
                         if (kind)   // check the kind and add data to appropriate database 
-                            objBrand.Insert(txtBrandID.Text.Trim(), txtBrand.Text.Trim());
+                        {
+                            AddData();
+                            ClsBrand.AddBrand();
+                        }
                         else
-                            objType.Insert(txtBrandID.Text.Trim(), txtBrand.Text.Trim());
+                        {
+                            AddData();
+                            ClsType.AddType();
+                        }
 
                         MessageBox.Show("Successfully saved");
                         this.Close();
@@ -73,14 +87,14 @@ namespace RentalProject
 
 
             if (kind)   // check which ID to add
-                DT = objBrand.GetBrand();
+                DT = ClsBrand.GetBrand();
             else
-                DT = objType.GetType();
+                DT = ClsType.GetType();
 
 
             if (DT.Rows.Count == 0)  //check there is data or not in Database
             {
-                txtBrandID.Text = (kind) ? "B-001" : "T-001"; // check the which type of the ID to add and add the appropriate ID to txtBrand
+                txtID.Text = (kind) ? "B-001" : "T-001"; // check the which type of the ID to add and add the appropriate ID to txtBrand
             }
             else
             {
@@ -89,13 +103,27 @@ namespace RentalProject
                 string[] MakeID = BrandID.Split('-');               // split the ID by using split function from B and 001 seprate to add the ID number
                 int IDNum = Convert.ToInt32(MakeID[1])+1;           // add the Id num from 001 to 002
                 MakeID[1] = IDNum.ToString("000");                  // get the ID number
-                txtBrandID.Text = MakeID[0]+"-"+MakeID[1];
+                txtID.Text = MakeID[0]+"-"+MakeID[1];
             }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void AddData()
+        {
+            if (kind)
+            {
+                ClsBrand.BrandID = txtID.Text.Trim();
+                ClsBrand.BrandName = txtName.Text.Trim();
+            }
+            else
+            {
+                ClsType.TypeID = txtID.Text.Trim();
+                ClsType.NameOfType = txtName.Text.Trim();
+            }
         }
     }
 }

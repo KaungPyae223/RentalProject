@@ -13,7 +13,7 @@ namespace RentalProject
 {
     public partial class frmHomeItems : Form
     {
-        public frmHomeItems(DataRow dr)
+        public frmHomeItems(DataRow dr, bool drop)
         {
             InitializeComponent();
             ItemName = dr[3].ToString();
@@ -28,6 +28,7 @@ namespace RentalProject
             byte[] img = (byte[])(dr[10]);
             MemoryStream ms = new MemoryStream(img);
             HomeItemPicture.Image = Image.FromStream(ms);
+            Drop=drop;
         }
         private string ItemName;
         private string Description;
@@ -38,7 +39,7 @@ namespace RentalProject
         private string ModelYear;
         private string PricePerMonth;
         private string ID;
-
+        private Boolean Drop;
         private void SetInfo()
         {
             lblItemName.Text = ItemName;
@@ -59,6 +60,12 @@ namespace RentalProject
                 Program.Craft.Add(ID);
                 btnCraft.Text = "Cancel";
             }
+            else if(Drop)
+            {
+                btnCraft.Text = "Add to Craft";
+                Program.Craft.Remove(ID);
+                this.Close();
+            }
             else
             {
                 btnCraft.Text = "Add to Craft";
@@ -70,7 +77,6 @@ namespace RentalProject
         private void frmHomeItems_Load(object sender, EventArgs e)
         {
             SetInfo();
-            
         }
     }
 }

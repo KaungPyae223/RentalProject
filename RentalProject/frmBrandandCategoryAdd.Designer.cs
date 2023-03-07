@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.lblBrand = new System.Windows.Forms.Label();
-            this.txtBrand = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.lblBrandID = new System.Windows.Forms.Label();
-            this.txtBrandID = new System.Windows.Forms.TextBox();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblBrand
@@ -46,12 +46,12 @@
             this.lblBrand.TabIndex = 0;
             this.lblBrand.Text = "Brand";
             // 
-            // txtBrand
+            // txtName
             // 
-            this.txtBrand.Location = new System.Drawing.Point(190, 138);
-            this.txtBrand.Name = "txtBrand";
-            this.txtBrand.Size = new System.Drawing.Size(215, 30);
-            this.txtBrand.TabIndex = 1;
+            this.txtName.Location = new System.Drawing.Point(190, 138);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(215, 30);
+            this.txtName.TabIndex = 1;
             // 
             // btnCancel
             // 
@@ -83,24 +83,24 @@
             this.lblBrandID.TabIndex = 4;
             this.lblBrandID.Text = "Brand ID";
             // 
-            // txtBrandID
+            // txtID
             // 
-            this.txtBrandID.Location = new System.Drawing.Point(190, 60);
-            this.txtBrandID.Name = "txtBrandID";
-            this.txtBrandID.ReadOnly = true;
-            this.txtBrandID.Size = new System.Drawing.Size(215, 30);
-            this.txtBrandID.TabIndex = 5;
+            this.txtID.Location = new System.Drawing.Point(190, 60);
+            this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
+            this.txtID.Size = new System.Drawing.Size(215, 30);
+            this.txtID.TabIndex = 5;
             // 
             // frmBrandandCategoryAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(473, 331);
-            this.Controls.Add(this.txtBrandID);
+            this.Controls.Add(this.txtID);
             this.Controls.Add(this.lblBrandID);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.txtBrand);
+            this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblBrand);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -120,9 +120,9 @@
 
         private System.Windows.Forms.Label lblBrand;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label lblBrandID;
-        public System.Windows.Forms.TextBox txtBrandID;
-        public System.Windows.Forms.TextBox txtBrand;
+        public System.Windows.Forms.TextBox txtID;
+        public System.Windows.Forms.TextBox txtName;
+        public System.Windows.Forms.Button btnAdd;
     }
 }
