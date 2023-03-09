@@ -42,6 +42,7 @@
             this.Slider = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnList = new System.Windows.Forms.Button();
+            this.btnPaymentList = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.mainPannel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -87,7 +88,6 @@
             this.btnProfile.TabIndex = 4;
             this.btnProfile.Text = "Hla Win";
             this.btnProfile.UseVisualStyleBackColor = false;
-            this.btnProfile.Visible = false;
             this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
             // btnHome
@@ -148,7 +148,6 @@
             this.btnPayment.Text = "           Payment";
             this.btnPayment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPayment.UseVisualStyleBackColor = false;
-            this.btnPayment.Visible = false;
             this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
             // 
             // btnHistory
@@ -169,7 +168,6 @@
             this.btnHistory.Text = "           History";
             this.btnHistory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHistory.UseVisualStyleBackColor = false;
-            this.btnHistory.Visible = false;
             // 
             // btnItems
             // 
@@ -206,10 +204,9 @@
             this.btnUser.Name = "btnUser";
             this.btnUser.Size = new System.Drawing.Size(326, 62);
             this.btnUser.TabIndex = 9;
-            this.btnUser.Text = "           Users Control";
+            this.btnUser.Text = "           Customer Control";
             this.btnUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUser.UseVisualStyleBackColor = false;
-            this.btnUser.Visible = false;
             this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
             // 
             // btnAdmin
@@ -230,7 +227,6 @@
             this.btnAdmin.Text = "           Admin Controls";
             this.btnAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdmin.UseVisualStyleBackColor = false;
-            this.btnAdmin.Visible = false;
             this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
             // 
             // Slider
@@ -244,7 +240,7 @@
             this.Slider.MaximumSize = new System.Drawing.Size(326, 1000);
             this.Slider.MinimumSize = new System.Drawing.Size(65, 619);
             this.Slider.Name = "Slider";
-            this.Slider.Size = new System.Drawing.Size(326, 841);
+            this.Slider.Size = new System.Drawing.Size(326, 927);
             this.Slider.TabIndex = 11;
             // 
             // flowLayoutPanel1
@@ -258,13 +254,14 @@
             this.flowLayoutPanel1.Controls.Add(this.btnUser);
             this.flowLayoutPanel1.Controls.Add(this.btnAdmin);
             this.flowLayoutPanel1.Controls.Add(this.btnList);
+            this.flowLayoutPanel1.Controls.Add(this.btnPaymentList);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 175);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(326, 604);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(326, 690);
             this.flowLayoutPanel1.TabIndex = 12;
             // 
             // btnList
@@ -285,7 +282,25 @@
             this.btnList.Text = "           Rental list";
             this.btnList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnList.UseVisualStyleBackColor = false;
-            this.btnList.Visible = false;
+            // 
+            // btnPaymentList
+            // 
+            this.btnPaymentList.BackColor = System.Drawing.Color.White;
+            this.btnPaymentList.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.btnPaymentList.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btnPaymentList.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.btnPaymentList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPaymentList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPaymentList.Image = ((System.Drawing.Image)(resources.GetObject("btnPaymentList.Image")));
+            this.btnPaymentList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPaymentList.Location = new System.Drawing.Point(0, 578);
+            this.btnPaymentList.Margin = new System.Windows.Forms.Padding(0);
+            this.btnPaymentList.Name = "btnPaymentList";
+            this.btnPaymentList.Size = new System.Drawing.Size(326, 62);
+            this.btnPaymentList.TabIndex = 13;
+            this.btnPaymentList.Text = "           Payment List";
+            this.btnPaymentList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPaymentList.UseVisualStyleBackColor = false;
             // 
             // btnExit
             // 
@@ -298,7 +313,7 @@
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(0, 779);
+            this.btnExit.Location = new System.Drawing.Point(0, 865);
             this.btnExit.Margin = new System.Windows.Forms.Padding(0);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(326, 62);
@@ -314,14 +329,14 @@
             this.mainPannel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPannel.Location = new System.Drawing.Point(326, 0);
             this.mainPannel.Name = "mainPannel";
-            this.mainPannel.Size = new System.Drawing.Size(1002, 841);
+            this.mainPannel.Size = new System.Drawing.Size(1002, 927);
             this.mainPannel.TabIndex = 12;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1328, 841);
+            this.ClientSize = new System.Drawing.Size(1328, 927);
             this.Controls.Add(this.mainPannel);
             this.Controls.Add(this.Slider);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -354,5 +369,6 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnList;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button btnPaymentList;
     }
 }

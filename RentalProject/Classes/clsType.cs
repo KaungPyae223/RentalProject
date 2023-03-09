@@ -39,5 +39,9 @@ namespace RentalProject.Classes
         {
             return objType.GetType();
         }
+        public DataTable GetSP_GetType(int i)
+        {
+            return objType.SP_SelectType(i);
+        }
     }
 }

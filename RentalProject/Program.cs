@@ -16,7 +16,7 @@ namespace RentalProject
 
 
         static void Main()
-        {
+         {
 
             if (Environment.OSVersion.Version.Major >= 6)
             {
@@ -31,6 +31,7 @@ namespace RentalProject
         public static List<string> Craft = new List<string>();
         public static DataTable DT;
         public static string Type;
+        public static string AdminID = "I-001";
 
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         private static extern bool SetProcessDPIAware();
