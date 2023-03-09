@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data;
-using System.Windows.Forms;
 
 namespace RentalProject.Classes
 {
@@ -36,6 +35,5 @@ namespace RentalProject.Classes
         {
             return objCustomer.GetCustomer();
         }
-        
     }
 }

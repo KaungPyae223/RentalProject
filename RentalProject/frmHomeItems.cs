@@ -23,7 +23,7 @@ namespace RentalProject
             TypicalUsage = dr[5].ToString();
             PowerUsage = dr[4].ToString();
             ModelYear = dr[6].ToString();
-            PricePerMonth = dr[8].ToString() + " £";
+            PricePerMonth = dr[8].ToString();
             ID = dr[0].ToString();
             byte[] img = (byte[])(dr[10]);
             MemoryStream ms = new MemoryStream(img);

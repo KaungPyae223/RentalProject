@@ -337,7 +337,6 @@
             "User",
             "Admin",
             "List",
-            "RentalList",
             "PaymentList"});
             this.clbProperties.Location = new System.Drawing.Point(470, 226);
             this.clbProperties.Name = "clbProperties";

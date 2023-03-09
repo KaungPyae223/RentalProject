@@ -56,7 +56,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\clsCustomer.cs" />
-    <Compile Include="Classes\clsModify.cs" />
     <Compile Include="Classes\clsUser.cs" />
     <Compile Include="Classes\clsBrand.cs" />
     <Compile Include="Classes\clsDelivery.cs" />
@@ -246,6 +245,7 @@
     <None Include="RentalDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RentalDataSet.Designer.cs</LastGenOutput>
     </None>
     <None Include="RentalDataSet.xss">
       <DependentUpon>RentalDataSet.xsd</DependentUpon>

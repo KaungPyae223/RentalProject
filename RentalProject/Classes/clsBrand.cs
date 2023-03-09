@@ -39,10 +39,5 @@ namespace RentalProject.Classes
         {
             return objBrand.GetBrand();
         }
-
-        public DataTable GetSP_Brand(int i)
-        {
-            return objBrand.SP_SelectBrand(i);
-        }
     }
 }

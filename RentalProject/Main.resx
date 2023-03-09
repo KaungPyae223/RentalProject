@@ -798,18 +798,6 @@
         AdpLC0xDuTsEAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="btnPaymentList.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAYNJREFUaEPt
-        mNFtxSAMRTNCR+om7SjdoG+jdqN2g9b3w9IV5gL+yAuRfKQjPdkYeEmAKEdRFEVRTHgxP80f8+9iMQfM
-        JcXD7HV2pZjTMjtc+VbMaZleB+6veRbouzemu0yv2P02zwJ998Z0l+kVu6/mWaDv3phuQCU5zn6YZ4Mx
-        emPDgEpyHM8lbm3myr+ZXyYWHsRvxFbBWBizXRMBlVTxGTg/MFmuZ5FDmwxcH1BJFZ8xmryLNhm4NqCS
-        Kj7i3eS6kWi7CtcFVFLFR8y2QDazFXNdQCVVfETm9M6cqlwXUEkVHzE7RdnMac51AZVU8RG3f4Ruv4jB
-        yl3IXH3AtQGVVPEZOKRGfwK5px9k/iqQeZXAI4LJYrH6q0jmscFYGLPd2QIqyXH2li9zrZk7kQV998Z0
-        AyrJ8dbsIswwWj8woJIcb82collmp3lAJTOn6rPsnt7cgLnNZxVuwGCvRsEOdwJzkN+EuOEtqT9wNTvu
-        NnCZHXcbuMxOuw1bFEVRFILj+Ae/BcLpKxd9tgAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="btnExit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAARhJREFUaEPt
