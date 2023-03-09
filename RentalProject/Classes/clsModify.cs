@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -11,6 +12,8 @@ namespace RentalProject.Classes
     {
         private string _ItemID, _AdminID, _Transation;
         RentalTableAdapters.ModifyTableAdapter objModify = new RentalTableAdapters.ModifyTableAdapter();
+        RentalTableAdapters.vi_ModifyTableAdapter objvi_Modify = new RentalTableAdapters.vi_ModifyTableAdapter();
+
         public string ItemID
         {
             set { _ItemID = value; }
@@ -25,6 +28,10 @@ namespace RentalProject.Classes
         public void saveTransation()
         {
             objModify.Insert(_AdminID, ItemID, DateTime.Now, Transation);
+        }
+        public DataTable getModify()
+        {
+            return objvi_Modify.Getvi_modify();
         }
     }
 }

@@ -23,6 +23,7 @@ namespace RentalProject
         clsBrand objClsBrand = new clsBrand();
         clsType objclsType = new clsType();
         clsItem objClsItem = new clsItem();
+        clsModify objclsModify = new clsModify();
 
        private void frmAddItem_Load(object sender, EventArgs e)
         {
@@ -119,6 +120,7 @@ namespace RentalProject
                     SaveData();
                     objClsItem.InsertItem();
                     MessageBox.Show("Successfully Save");
+                    objclsModify.saveTransation();
                     this.Close();
                 }
 
@@ -138,6 +140,7 @@ namespace RentalProject
             objClsItem.Description = txtDescription.Text.Trim() ;
             objClsItem.PricePerMonth = Convert.ToInt32(txtPricePerMonth.Text);  
             objClsItem.ItemImage = image;
+            objclsModify.ItemID = MakeID();
         }
         private string MakeID()
         {
