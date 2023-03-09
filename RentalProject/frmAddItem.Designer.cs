@@ -340,8 +340,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox ItemPicture;
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -354,16 +352,17 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox txtDescription;
-        private System.Windows.Forms.TextBox txtPricePerMonth;
-        private System.Windows.Forms.TextBox txtOnHandQty;
-        private System.Windows.Forms.TextBox txtModelYear;
-        private System.Windows.Forms.TextBox txtTypicalUsage;
-        private System.Windows.Forms.TextBox txtPowerUsage;
-        private System.Windows.Forms.TextBox txtItemName;
-        private System.Windows.Forms.ComboBox cboType;
-        private System.Windows.Forms.ComboBox cboBrand;
+        public System.Windows.Forms.PictureBox ItemPicture;
+        public System.Windows.Forms.Button btnSave;
+        public System.Windows.Forms.TextBox txtDescription;
+        public System.Windows.Forms.TextBox txtPricePerMonth;
+        public System.Windows.Forms.TextBox txtOnHandQty;
+        public System.Windows.Forms.TextBox txtModelYear;
+        public System.Windows.Forms.TextBox txtTypicalUsage;
+        public System.Windows.Forms.TextBox txtPowerUsage;
+        public System.Windows.Forms.ComboBox cboType;
+        public System.Windows.Forms.ComboBox cboBrand;
+        public System.Windows.Forms.TextBox txtItemName;
     }
 }

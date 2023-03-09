@@ -1,5 +1,6 @@
 ﻿using RentalProject.Classes;
 using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace RentalProject
@@ -23,7 +24,7 @@ namespace RentalProject
         private void tsbNew_Click(object sender, EventArgs e)
         {
 
-            frmAddItem frm = new frmAddItem();
+            frmAddItem frm = new frmAddItem(false);
             frm.ShowDialog();
             showData();
 
@@ -79,7 +80,19 @@ namespace RentalProject
             }
             else
             {
-                
+                frmAddItem frm = new frmAddItem(true);
+                frm.image = (byte[])(dgvItem.CurrentRow.Cells[10].Value);
+                frm.txtItemName.Text = dgvItem.CurrentRow.Cells[3].Value.ToString();
+                frm.cboBrand.SelectedValue = dgvItem.CurrentRow.Cells[1].Value.ToString();
+                frm.cboType.SelectedValue = dgvItem.CurrentRow.Cells[2].Value.ToString();
+                frm.txtPowerUsage.Text = dgvItem.CurrentRow.Cells[4].Value.ToString();
+                frm.txtTypicalUsage.Text = dgvItem.CurrentRow.Cells[5].Value.ToString();
+                frm.txtModelYear.Text = dgvItem.CurrentRow.Cells[6].Value.ToString();
+                frm.txtOnHandQty.Text = dgvItem.CurrentRow.Cells[7].Value.ToString();
+                frm.txtPricePerMonth.Text = dgvItem.CurrentRow.Cells[8].Value.ToString();
+                frm.txtDescription.Text = dgvItem.CurrentRow.Cells[9].Value.ToString();
+                frm.btnSave.Text = "Edit";
+                frm.ShowDialog();
             }
 
             showData();

@@ -1,38 +1,43 @@
 ﻿using RentalProject.Classes;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RentalProject
 {
     public partial class frmAddItem : Form
     {
-        public frmAddItem()
+        public frmAddItem(Boolean IsEdit)
         {
             InitializeComponent();
+            this.IsEdit = IsEdit;
+            AddBrandandCategory(objClsBrand.GetSP_Brand(0), cboBrand);    // call a method to add data to cboBrand 
+            AddBrandandCategory(objclsType.GetSP_GetType(0), cboType);    // call a method to add data to cboType
+
         }
-        byte[] image = null;
+        public string ID;
+        private Boolean IsEdit;
+        public byte[] image = null;
         string imgLocation = "";
         clsBrand objClsBrand = new clsBrand();
         clsType objclsType = new clsType();
         clsItem objClsItem = new clsItem();
         clsModify objclsModify = new clsModify();
 
-       private void frmAddItem_Load(object sender, EventArgs e)
+        private void frmAddItem_Load(object sender, EventArgs e)
         {
-            AddBrandandCategory(objClsBrand.GetSP_Brand(0), cboBrand);    // call a method to add data to cboBrand 
-            AddBrandandCategory(objclsType.GetSP_GetType(0), cboType);    // call a method to add data to cboType
+            if (IsEdit && image!= null)
+            {
+                MemoryStream ms = new MemoryStream(image);
+                ItemPicture.Image = Image.FromStream(ms);
+
+            }
         }
-        private void AddBrandandCategory(DataTable DT,ComboBox cbo)   // method to add data to each combo box
+        private void AddBrandandCategory(DataTable DT, ComboBox cbo)   // method to add data to each combo box
         {
-           
+
             DataRow dr = DT.NewRow();   // create a new row from DT
             dr[0] = "";                 // add data column index 0 of data row "dr"
             dr[1] = "Select a Data";    // add data column index 1 of data row "dr"
@@ -40,9 +45,9 @@ namespace RentalProject
 
             cbo.DataSource = DT;        // add all data from DT to combo box      
             cbo.DisplayMember= DT.Columns[1].ToString();    // to show data from the column index 1 in combo box
-            cbo.ValueMember = DT.Columns[0].ToString();     
+            cbo.ValueMember = DT.Columns[0].ToString();
             cbo.SelectedValue="";  // make to select the item which have value ""
-            
+
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -114,15 +119,29 @@ namespace RentalProject
                     BinaryReader brs = new BinaryReader(File);
                     image = brs.ReadBytes((int)File.Length);
                 }
-
-                if (MessageBox.Show("Sure to Save", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
+                if (!IsEdit)
                 {
-                    SaveData();
-                    objClsItem.InsertItem();
-                    MessageBox.Show("Successfully Save");
-                    objclsModify.saveTransation();
-                    this.Close();
+                    if (MessageBox.Show("Sure to Save", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
+                    {
+
+                        SaveData();
+                        objClsItem.InsertItem();
+                        MessageBox.Show("Successfully Save");
+                        objclsModify.saveTransation();
+                        this.Close();
+                    }
                 }
+                else
+                {
+                    if (MessageBox.Show("Sure to Edit", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
+                    {
+
+                        SaveData();
+                        objClsItem.ItemID=ID;
+
+                    }
+                }
+
 
             }
 
@@ -137,8 +156,8 @@ namespace RentalProject
             objClsItem.TypicalUsage = txtTypicalUsage.Text.Trim();
             objClsItem.ModelYear = txtModelYear.Text.Trim();
             objClsItem.OnHandQty = Convert.ToInt32(txtOnHandQty.Text);
-            objClsItem.Description = txtDescription.Text.Trim() ;
-            objClsItem.PricePerMonth = Convert.ToInt32(txtPricePerMonth.Text);  
+            objClsItem.Description = txtDescription.Text.Trim();
+            objClsItem.PricePerMonth = Convert.ToInt32(txtPricePerMonth.Text);
             objClsItem.ItemImage = image;
             objclsModify.ItemID = MakeID();
         }
