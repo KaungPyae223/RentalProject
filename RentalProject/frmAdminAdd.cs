@@ -15,7 +15,7 @@ namespace RentalProject
         }
         string properties;
         string imageLocation;
-        RentalDataSetTableAdapters.AdminTableAdapter objAdmin = new RentalDataSetTableAdapters.AdminTableAdapter();
+        RentalTableAdapters.AdminTableAdapter objAdmin = new RentalTableAdapters.AdminTableAdapter();
         private void cboPost_SelectedIndexChanged(object sender, EventArgs e)
         {
 

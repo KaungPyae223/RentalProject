@@ -10,7 +10,7 @@ namespace RentalProject.Classes
     internal class clsModify
     {
         private string _ItemID, _AdminID, _Transation;
-        RentalDataSetTableAdapters.ModifyTableAdapter objModify = new RentalDataSetTableAdapters.ModifyTableAdapter();
+        RentalTableAdapters.ModifyTableAdapter objModify = new RentalTableAdapters.ModifyTableAdapter();
         public string ItemID
         {
             set { _ItemID = value; }

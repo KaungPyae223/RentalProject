@@ -7,8 +7,8 @@ namespace RentalProject.Classes
         private string _ItemID, _ItemName, _BrandID, _TypeID, _PowerUsage, _TypicalUsage, _ModelYear, _Description;
         private int _OnHandQty, _PricePerMonth;
         private byte[] _ItemImage;
-        RentalDataSetTableAdapters.ItemTableAdapter objItem = new RentalDataSetTableAdapters.ItemTableAdapter();
-        RentalDataSetTableAdapters.vi_ItemTableAdapter objvi_Item = new RentalDataSetTableAdapters.vi_ItemTableAdapter();
+        RentalTableAdapters.ItemTableAdapter objItem = new RentalTableAdapters.ItemTableAdapter();
+        RentalTableAdapters.vi_ItemTableAdapter objvi_Item = new RentalTableAdapters.vi_ItemTableAdapter();
         public string ItemID
         {
             get { return _ItemID; }

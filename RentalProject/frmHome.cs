@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RentalProject.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,15 +18,14 @@ namespace RentalProject
             InitializeComponent();
         }
 
-        
-        RentalDataSetTableAdapters.BrandTableAdapter objBrand = new RentalDataSetTableAdapters.BrandTableAdapter();
-        RentalDataSetTableAdapters.TypeTableAdapter objType = new RentalDataSetTableAdapters.TypeTableAdapter();
-        RentalDataSetTableAdapters.vi_ItemTableAdapter objItem = new RentalDataSetTableAdapters.vi_ItemTableAdapter();
-        private void frmHome_Load(object sender, EventArgs e)
+        clsItem objclsitem = new clsItem();
+        clsBrand objclsBrand = new clsBrand();
+        clsType objclsType = new clsType();
+         private void frmHome_Load(object sender, EventArgs e)
         {
             AddAppliaceItems();
-            AddComboBox(objBrand.SP_SelectBrand(0),cboBrand);
-            AddComboBox(objType.SP_SelectType(0), cboType);
+            AddComboBox(objclsBrand.GetSP_Brand(0),cboBrand);
+            AddComboBox(objclsType.GetSP_GetType(0), cboType);
 
         }
         private void AddComboBox(DataTable DT,ComboBox cbo)
@@ -50,7 +50,7 @@ namespace RentalProject
         }
         private void AddAppliaceItems()
         {
-            DataTable DT = objItem.GetVi_Item();
+            DataTable DT = objclsitem.GetItem();
             foreach (DataRow dr in DT.Rows)
             {
                 frmHomeItems frm = new frmHomeItems(dr,false);

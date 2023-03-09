@@ -17,7 +17,7 @@ namespace RentalProject
         clsCustomer objclsCustomer = new clsCustomer();
         string ImageLocation = "";
         byte[] image = null;
-        RentalDataSetTableAdapters.CustomerTableAdapter objCustomer = new RentalDataSetTableAdapters.CustomerTableAdapter();
+        RentalTableAdapters.CustomerTableAdapter objCustomer = new RentalTableAdapters.CustomerTableAdapter();
         private void txtPassport_TextChanged(object sender, EventArgs e)
         {
             //add Password from the txtPassport to the Password variable

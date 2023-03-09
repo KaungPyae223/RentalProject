@@ -166,10 +166,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RentalDataSet.Designer.cs">
+    <Compile Include="Rental.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>RentalDataSet.xsd</DependentUpon>
+      <DependentUpon>Rental.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="frmAddItem.resx">
       <DependentUpon>frmAddItem.cs</DependentUpon>
@@ -240,15 +240,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="RentalDataSet.xsc">
-      <DependentUpon>RentalDataSet.xsd</DependentUpon>
+    <None Include="Rental.xsc">
+      <DependentUpon>Rental.xsd</DependentUpon>
     </None>
-    <None Include="RentalDataSet.xsd">
+    <None Include="Rental.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Rental.Designer.cs</LastGenOutput>
     </None>
-    <None Include="RentalDataSet.xss">
-      <DependentUpon>RentalDataSet.xsd</DependentUpon>
+    <None Include="Rental.xss">
+      <DependentUpon>Rental.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

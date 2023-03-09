@@ -16,7 +16,7 @@ namespace RentalProject
         {
             InitializeComponent();
         }
-        RentalDataSetTableAdapters.AdminTableAdapter objAdmin = new RentalDataSetTableAdapters.AdminTableAdapter();
+        RentalTableAdapters.AdminTableAdapter objAdmin = new RentalTableAdapters.AdminTableAdapter();
         private void tsbNew_Click(object sender, EventArgs e)
         {
             frmAdminAdd frm = new frmAdminAdd();

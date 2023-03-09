@@ -9,7 +9,7 @@ namespace RentalProject.Classes
 {
     internal class clsType
     {
-        RentalDataSetTableAdapters.TypeTableAdapter objType = new RentalDataSetTableAdapters.TypeTableAdapter();
+        RentalTableAdapters.TypeTableAdapter objType = new RentalTableAdapters.TypeTableAdapter();
         private string _TypeID, _NameOfType;
 
         public string TypeID

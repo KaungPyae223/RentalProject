@@ -17,8 +17,8 @@ namespace RentalProject
             InitializeComponent();
         }
 
-        RentalDataSetTableAdapters.CustomerTableAdapter objCustomer = new RentalDataSetTableAdapters.CustomerTableAdapter();
-        RentalDataSetTableAdapters.AdminTableAdapter objAdmin = new RentalDataSetTableAdapters.AdminTableAdapter();
+        RentalTableAdapters.CustomerTableAdapter objCustomer = new RentalTableAdapters.CustomerTableAdapter();
+        RentalTableAdapters.AdminTableAdapter objAdmin = new RentalTableAdapters.AdminTableAdapter();
         private void btnCreateAccount_Click(object sender, EventArgs e)
         {
             frmUserRegister frm = new frmUserRegister();

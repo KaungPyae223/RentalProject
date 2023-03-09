@@ -10,7 +10,7 @@ namespace RentalProject.Classes
     internal class clsBrand
     {
         private string _BrandID, _BrandName;
-        RentalDataSetTableAdapters.BrandTableAdapter objBrand = new RentalDataSetTableAdapters.BrandTableAdapter();
+        RentalTableAdapters.BrandTableAdapter objBrand = new RentalTableAdapters.BrandTableAdapter();
 
         public string BrandID
         {

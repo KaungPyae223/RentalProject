@@ -8,7 +8,7 @@ namespace RentalProject.Classes
     {
 
         private string _CustomerID, _CustomerLevel;
-        RentalDataSetTableAdapters.CustomerTableAdapter objCustomer = new RentalDataSetTableAdapters.CustomerTableAdapter();
+        RentalTableAdapters.CustomerTableAdapter objCustomer = new RentalTableAdapters.CustomerTableAdapter();
 
         public string CustomerID
         {

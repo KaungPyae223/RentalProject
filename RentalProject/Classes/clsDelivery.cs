@@ -12,7 +12,7 @@ namespace RentalProject.Classes
     {
         private string _DeliveryID, _DeliveryName, _DeliveryPhone;
 
-        RentalDataSetTableAdapters.DeliveryTableAdapter objDelivery = new RentalDataSetTableAdapters.DeliveryTableAdapter();
+        RentalTableAdapters.DeliveryTableAdapter objDelivery = new RentalTableAdapters.DeliveryTableAdapter();
 
         public string DeliveryID
         {
