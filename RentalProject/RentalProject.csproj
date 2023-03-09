@@ -80,18 +80,6 @@
     <Compile Include="frmAdminAdd.Designer.cs">
       <DependentUpon>frmAdminAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAdminInfo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAdminInfo.Designer.cs">
-      <DependentUpon>frmAdminInfo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmAdminProcess.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAdminProcess.Designer.cs">
-      <DependentUpon>frmAdminProcess.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmBrandandCategoryAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,12 +167,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdminAdd.resx">
       <DependentUpon>frmAdminAdd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmAdminInfo.resx">
-      <DependentUpon>frmAdminInfo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmAdminProcess.resx">
-      <DependentUpon>frmAdminProcess.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBrandandCategoryAdd.resx">
       <DependentUpon>frmBrandandCategoryAdd.cs</DependentUpon>
