@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RentalProject.Classes;
+using System;
 using System.Data;
 using System.Windows.Forms;
 
@@ -13,7 +14,7 @@ namespace RentalProject
         int total = 0;
         int PricePerMont = 0;
         Boolean FirstTime = true;
-        RentalDataSetTableAdapters.vi_ItemTableAdapter objItem = new RentalDataSetTableAdapters.vi_ItemTableAdapter();
+        clsItem obClsLsItem = new clsItem();
         private void frmCraft_Load(object sender, EventArgs e)
         {
             
@@ -26,7 +27,7 @@ namespace RentalProject
             foreach (string ID in Program.Craft)
             {
 
-                DataTable DT = objItem.GetSP_Item(ID, 0);
+                DataTable DT = obClsLsItem.getSP_Item(ID, 0);
                 frmHomeItems frm = new frmHomeItems(DT.Rows[0],true);
                 frm.Width = ((label1.Width-26)/3)-6;
                 frm.Margin= new Padding(3);
@@ -39,7 +40,7 @@ namespace RentalProject
                     loadform(frm);
             }
             lblTotalQty.Text = total.ToString();
-            lblPPM.Text = PricePerMont.ToString();
+            lblPPM.Text = PricePerMont.ToString()+" £";
         }
         public void loadform(Form f)
         {

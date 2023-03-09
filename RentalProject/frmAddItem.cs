@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RentalProject.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,15 +18,16 @@ namespace RentalProject
         {
             InitializeComponent();
         }
-
+        byte[] image = null;
         string imgLocation = "";
-        RentalDataSetTableAdapters.BrandTableAdapter objBrand = new RentalDataSetTableAdapters.BrandTableAdapter(); //call a data set to use and modify data from database
-        RentalDataSetTableAdapters.TypeTableAdapter objType = new RentalDataSetTableAdapters.TypeTableAdapter(); //call a data set to use and modify data from database
-        RentalDataSetTableAdapters.ItemTableAdapter objItem = new RentalDataSetTableAdapters.ItemTableAdapter();
-        private void frmAddItem_Load(object sender, EventArgs e)
+        clsBrand objClsBrand = new clsBrand();
+        clsType objclsType = new clsType();
+        clsItem objClsItem = new clsItem();
+
+       private void frmAddItem_Load(object sender, EventArgs e)
         {
-            AddBrandandCategory(objBrand.SP_SelectBrand(0), cboBrand);    // call a method to add data to cboBrand 
-            AddBrandandCategory(objType.SP_SelectType(0), cboType);    // call a method to add data to cboType
+            AddBrandandCategory(objClsBrand.GetSP_Brand(0), cboBrand);    // call a method to add data to cboBrand 
+            AddBrandandCategory(objclsType.GetSP_GetType(0), cboType);    // call a method to add data to cboType
         }
         private void AddBrandandCategory(DataTable DT,ComboBox cbo)   // method to add data to each combo box
         {
@@ -44,48 +46,13 @@ namespace RentalProject
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            CheckData();
-            byte[] image = null;
-            FileStream File = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
-            BinaryReader brs = new BinaryReader(File);
-            image = brs.ReadBytes((int)File.Length);
-            
-            if (MessageBox.Show("Sure to Save", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
-            {
-                string ID = MakeID();
-                objItem.Insert(ID, cboBrand.SelectedValue.ToString(), cboType.SelectedValue.ToString(), txtItemName.Text.Trim(), txtPowerUsage.Text.Trim(), txtTypicalUsage.Text.Trim(), txtModelYear.Text.Trim(), Convert.ToInt32(txtOnHandQty.Text), Convert.ToInt32(txtPricePerMonth.Text), txtDescription.Text, image,Convert.ToInt32(txtOnHandQty.Text));
-                MessageBox.Show("Successfully Save");
-                this.Close();
-            }
-
-        }
-        private string MakeID()
-        {
-            DataTable Dt = new DataTable();
-            Dt = objItem.GetItem();
-            if (Dt.Rows.Count == 0)  //check there is data or not in Database
-            {
-                return "I-00001";
-            }
-            else
-            {
-                int lastIndx = Dt.Rows.Count- 1;                    //get the last Index
-                string BrandID = Dt.Rows[lastIndx][0].ToString();   //get the ID from last index
-                string[] MakeID = BrandID.Split('-');               // split the ID by using split function from I and 001 seprate to add the ID number
-                int IDNum = Convert.ToInt32(MakeID[1])+1;           // add the Id num from behind '-'
-                MakeID[1] = IDNum.ToString("00000");                  // get the ID number
-                return MakeID[0]+"-"+MakeID[1];
-            }
-        }
-        private void CheckData()
-        {
             int OK;
-            if(txtItemName.Text.Trim() == string.Empty)
+            if (txtItemName.Text.Trim() == string.Empty)
             {
                 MessageBox.Show("Plese type a Item Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtItemName.Focus();
             }
-            else if(cboBrand.SelectedIndex == 0)
+            else if (cboBrand.SelectedIndex == 0)
             {
                 MessageBox.Show("Plese select a Brand", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -108,7 +75,7 @@ namespace RentalProject
                 MessageBox.Show("Plese type a Model Year", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtModelYear.Focus();
             }
-            else if (int.TryParse(txtModelYear.Text,out OK) == false || txtModelYear.TextLength != 4 || Convert.ToInt32(txtModelYear.Text)<2000 || Convert.ToInt32(txtModelYear.Text)>3000)
+            else if (int.TryParse(txtModelYear.Text, out OK) == false || txtModelYear.TextLength != 4 || Convert.ToInt32(txtModelYear.Text)<2000 || Convert.ToInt32(txtModelYear.Text)>3000)
             {
                 MessageBox.Show("The model year is wrong format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtModelYear.Focus();
@@ -128,15 +95,67 @@ namespace RentalProject
                 MessageBox.Show("Plese type a Price Per Month", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPricePerMonth.Focus();
             }
-            else if (int.TryParse(txtPricePerMonth.Text, out OK) == false )
+            else if (int.TryParse(txtPricePerMonth.Text, out OK) == false)
             {
                 MessageBox.Show("The Price Per Month is wrong format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPricePerMonth.Focus();
             }
-            else if(txtDescription.Text.Trim() == string.Empty)
+            else if (txtDescription.Text.Trim() == string.Empty)
             {
                 MessageBox.Show("Plese type a Description", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtDescription.Focus();
+            }
+            else
+            {
+                if (imgLocation != string.Empty)
+                {
+                    FileStream File = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
+                    BinaryReader brs = new BinaryReader(File);
+                    image = brs.ReadBytes((int)File.Length);
+                }
+
+                if (MessageBox.Show("Sure to Save", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
+                {
+                    SaveData();
+                    objClsItem.InsertItem();
+                    MessageBox.Show("Successfully Save");
+                    this.Close();
+                }
+
+            }
+
+        }
+        private void SaveData()
+        {
+            objClsItem.ItemID = MakeID();
+            objClsItem.BrandID = cboBrand.SelectedValue.ToString();
+            objClsItem.TypeID = cboType.SelectedValue.ToString();
+            objClsItem.ItemName = txtItemName.Text.Trim();
+            objClsItem.PowerUsage = txtPowerUsage.Text.Trim();
+            objClsItem.TypicalUsage = txtTypicalUsage.Text.Trim();
+            objClsItem.ModelYear = txtModelYear.Text.Trim();
+            objClsItem.OnHandQty = Convert.ToInt32(txtOnHandQty.Text);
+            objClsItem.Description = txtDescription.Text.Trim() ;
+            objClsItem.PricePerMonth = Convert.ToInt32(txtPricePerMonth.Text);  
+            objClsItem.ItemImage = image;
+        }
+        private string MakeID()
+        {
+
+            DataTable Dt = new DataTable();
+            Dt = objClsItem.GetItem();
+            if (Dt.Rows.Count == 0)  //check there is data or not in Database
+            {
+                return "I-00001";
+            }
+            else
+            {
+                int lastIndx = Dt.Rows.Count- 1;                    //get the last Index
+                string BrandID = Dt.Rows[lastIndx][0].ToString();   //get the ID from last index
+                string[] MakeID = BrandID.Split('-');               // split the ID by using split function from I and 001 seprate to add the ID number
+                int IDNum = Convert.ToInt32(MakeID[1])+1;           // add the Id num from behind '-'
+                MakeID[1] = IDNum.ToString("00000");                  // get the ID number
+                return MakeID[0]+"-"+MakeID[1];
             }
         }
         private void btnBrowse_Click(object sender, EventArgs e)

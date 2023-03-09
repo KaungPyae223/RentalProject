@@ -31,15 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdminInfo));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbNew = new System.Windows.Forms.ToolStripButton();
             this.tsbEdit = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.dgvPawn = new System.Windows.Forms.DataGridView();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.dgvAdmin = new System.Windows.Forms.DataGridView();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPawn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAdmin)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -71,6 +73,7 @@
             this.tsbNew.Size = new System.Drawing.Size(71, 44);
             this.tsbNew.Text = "New";
             this.tsbNew.ToolTipText = "Pawn Big Add";
+            this.tsbNew.Click += new System.EventHandler(this.tsbNew_Click);
             // 
             // tsbEdit
             // 
@@ -94,6 +97,13 @@
             this.toolStripButton1.Size = new System.Drawing.Size(90, 44);
             this.toolStripButton1.Text = "Delete";
             // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(136, 44);
+            this.toolStripLabel1.Text = "Admin Name";
+            // 
             // toolStripTextBox1
             // 
             this.toolStripTextBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
@@ -104,61 +114,63 @@
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(250, 37);
             // 
-            // toolStripLabel1
+            // dgvAdmin
             // 
-            this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(136, 44);
-            this.toolStripLabel1.Text = "Admin Name";
-            // 
-            // dgvPawn
-            // 
-            this.dgvPawn.AllowUserToResizeRows = false;
-            this.dgvPawn.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPawn.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvPawn.ColumnHeadersHeight = 35;
-            this.dgvPawn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvAdmin.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.dgvAdmin.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvAdmin.BackgroundColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPawn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvPawn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvPawn.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
-            this.dgvPawn.Location = new System.Drawing.Point(0, 59);
-            this.dgvPawn.MultiSelect = false;
-            this.dgvPawn.Name = "dgvPawn";
-            this.dgvPawn.ReadOnly = true;
-            this.dgvPawn.RowHeadersVisible = false;
-            this.dgvPawn.RowHeadersWidth = 62;
-            this.dgvPawn.RowTemplate.Height = 28;
-            this.dgvPawn.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPawn.Size = new System.Drawing.Size(853, 391);
-            this.dgvPawn.TabIndex = 2;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Snow;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAdmin.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvAdmin.ColumnHeadersHeight = 55;
+            this.dgvAdmin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAdmin.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvAdmin.Location = new System.Drawing.Point(0, 59);
+            this.dgvAdmin.Name = "dgvAdmin";
+            this.dgvAdmin.ReadOnly = true;
+            this.dgvAdmin.RowHeadersVisible = false;
+            this.dgvAdmin.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(10);
+            this.dgvAdmin.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvAdmin.RowTemplate.Height = 50;
+            this.dgvAdmin.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAdmin.Size = new System.Drawing.Size(853, 391);
+            this.dgvAdmin.TabIndex = 6;
             // 
             // frmAdminInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(853, 450);
-            this.Controls.Add(this.dgvPawn);
+            this.Controls.Add(this.dgvAdmin);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAdminInfo";
             this.Text = "frmAdminInfo";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmAdminInfo_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPawn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAdmin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,6 +184,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        public System.Windows.Forms.DataGridView dgvPawn;
+        private System.Windows.Forms.DataGridView dgvAdmin;
     }
 }

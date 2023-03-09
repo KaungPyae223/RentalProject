@@ -1,5 +1,6 @@
 ﻿using RentalProject.Classes;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace RentalProject
@@ -14,12 +15,12 @@ namespace RentalProject
         clsBrand ClsBrand = new clsBrand();
         clsType ClsType = new clsType();
         clsDelivery ClsDelivery = new clsDelivery();
-
-        RentalDataSetTableAdapters.vi_ItemTableAdapter objItem = new RentalDataSetTableAdapters.vi_ItemTableAdapter();
+        clsItem objClsItem = new clsItem();
         private void frmItems_Load(object sender, EventArgs e)
         {
             cboList.SelectedIndex= 0;
         }
+        
 
         private void tsbNew_Click(object sender, EventArgs e)
         {
@@ -54,12 +55,10 @@ namespace RentalProject
             if(cboList.SelectedIndex == 0)
             {
                 tsbSearch.Enabled = true;
-                tstSearch.Enabled = true;
             }
             else
             {
                 tsbSearch.Enabled = false;
-                tstSearch.Enabled = false;
             }
         }
 
@@ -68,7 +67,7 @@ namespace RentalProject
             if(cboList.SelectedIndex == 0)
             {
                 dgvItem.Columns.Clear();
-                dgvItem.DataSource= objItem.GetVi_Item();
+                dgvItem.DataSource= objClsItem.GetItem();
                 dgvItem.Columns[0].Width = (label1.Width/100)* 10;
                 dgvItem.Columns[1].Visible = false;
                 dgvItem.Columns[2].Visible = false;
