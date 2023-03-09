@@ -27,7 +27,7 @@ namespace RentalProject.Classes
 
         public void saveTransation()
         {
-            objModify.Insert(_AdminID, ItemID, DateTime.Now, Transation);
+            objModify.Insert(Program.AdminID, ItemID, DateTime.Now, Transation);
         }
         public DataTable getModify()
         {

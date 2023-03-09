@@ -64,10 +64,14 @@ namespace RentalProject.Classes
             get { return _ItemImage; }
             set { _ItemImage = value; }
         }
-
+        
         public void InsertItem()
         {
             objItem.Insert(ItemID, BrandID, TypeID, ItemName, PowerUsage, TypicalUsage, ModelYear, OnHandQty, PricePerMonth, Description, ItemImage, OnHandQty);
+        }
+        public void UpdateItem()
+        {
+            objItem.UpdateItem(BrandID, TypeID, ItemName, PowerUsage,TypicalUsage,ModelYear, OnHandQty,PricePerMonth,Description,ItemImage,OnHandQty,ItemID);
         }
         public DataTable GetItem()
         {

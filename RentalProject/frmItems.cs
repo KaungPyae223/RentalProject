@@ -91,6 +91,7 @@ namespace RentalProject
                 frm.txtOnHandQty.Text = dgvItem.CurrentRow.Cells[7].Value.ToString();
                 frm.txtPricePerMonth.Text = dgvItem.CurrentRow.Cells[8].Value.ToString();
                 frm.txtDescription.Text = dgvItem.CurrentRow.Cells[9].Value.ToString();
+                frm.ID = dgvItem.CurrentRow.Cells[0].Value.ToString();
                 frm.btnSave.Text = "Edit";
                 frm.ShowDialog();
             }

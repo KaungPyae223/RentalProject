@@ -127,8 +127,17 @@ namespace RentalProject
                         SaveData();
                         objClsItem.InsertItem();
                         MessageBox.Show("Successfully Save");
+                        objclsModify.Transation = "Insert";
                         objclsModify.saveTransation();
-                        this.Close();
+                        txtItemName.Text = "";
+                        cboBrand.SelectedValue = "";
+                        cboType.SelectedValue = "";
+                        txtPowerUsage.Text = string.Empty;
+                        txtTypicalUsage.Text = string.Empty;
+                        txtModelYear.Text = string.Empty;
+                        txtOnHandQty.Text = string.Empty;
+                        txtPricePerMonth.Text = string.Empty;
+                        txtDescription.Text = string.Empty;
                     }
                 }
                 else
@@ -138,7 +147,12 @@ namespace RentalProject
 
                         SaveData();
                         objClsItem.ItemID=ID;
-
+                        objClsItem.UpdateItem();
+                        objclsModify.ItemID=ID;
+                        objclsModify.Transation = "Update";
+                        objclsModify.saveTransation();
+                        MessageBox.Show("Successfully Edit");
+                        this.Close();
                     }
                 }
 
