@@ -60,5 +60,11 @@ namespace RentalProject
             
             AddCraftItems();
         }
+
+        private void btnHire_Click(object sender, EventArgs e)
+        {
+            frmHire frm = new frmHire();
+            frm.Show();
+        }
     }
 }

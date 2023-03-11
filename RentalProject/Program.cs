@@ -27,6 +27,7 @@ namespace RentalProject
             Application.Run(new Main());
          
         }
+        public static string CustomerID = "C-00001";
         public static string[] Properties = new string[] {};
         public static List<string> Craft = new List<string>();
         public static DataTable DT;

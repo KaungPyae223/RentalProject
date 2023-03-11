@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\clsCustomer.cs" />
+    <Compile Include="Classes\clsHire.cs" />
     <Compile Include="Classes\clsModify.cs" />
     <Compile Include="Classes\clsUser.cs" />
     <Compile Include="Classes\clsBrand.cs" />
@@ -97,6 +98,12 @@
     </Compile>
     <Compile Include="frmDelivery.Designer.cs">
       <DependentUpon>frmDelivery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHire.Designer.cs">
+      <DependentUpon>frmHire.cs</DependentUpon>
     </Compile>
     <Compile Include="frmHome.cs">
       <SubType>Form</SubType>
@@ -176,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDelivery.resx">
       <DependentUpon>frmDelivery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHire.resx">
+      <DependentUpon>frmHire.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>

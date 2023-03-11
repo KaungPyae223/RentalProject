@@ -36,7 +36,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lblTotalQty = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnHire = new System.Windows.Forms.Button();
             this.craftMainPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -58,7 +58,7 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnHire);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 366);
             this.panel1.Name = "panel1";
@@ -118,23 +118,24 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Total Qty:";
             // 
-            // button1
+            // btnHire
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 60);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "       Rent";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnHire.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnHire.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnHire.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnHire.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnHire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHire.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHire.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnHire.Image = ((System.Drawing.Image)(resources.GetObject("btnHire.Image")));
+            this.btnHire.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHire.Location = new System.Drawing.Point(12, 12);
+            this.btnHire.Name = "btnHire";
+            this.btnHire.Size = new System.Drawing.Size(155, 60);
+            this.btnHire.TabIndex = 12;
+            this.btnHire.Text = "       Hire";
+            this.btnHire.UseVisualStyleBackColor = false;
+            this.btnHire.Click += new System.EventHandler(this.btnHire_Click);
             // 
             // craftMainPanel
             // 
@@ -172,7 +173,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnHire;
         private System.Windows.Forms.FlowLayoutPanel craftMainPanel;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblPPM;
