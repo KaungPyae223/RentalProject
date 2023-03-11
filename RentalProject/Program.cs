@@ -24,10 +24,9 @@ namespace RentalProject
             }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main());
+            Application.Run(new LogIn());
          
         }
-        public static string CustomerID = "C-00001";
         public static string[] Properties = new string[] {};
         public static List<string> Craft = new List<string>();
         public static DataTable DT;

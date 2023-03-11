@@ -33,23 +33,20 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtLocation = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtPhone = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblCustomerID = new System.Windows.Forms.Label();
+            this.lblNRC = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.CustomrePicture = new System.Windows.Forms.PictureBox();
+            this.lblName = new System.Windows.Forms.Label();
             this.PBLogo = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblToday = new System.Windows.Forms.Label();
@@ -61,27 +58,30 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.lblTotal = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
-            this.lblTotalHirePrice = new System.Windows.Forms.Label();
-            this.lblInsuranceCost = new System.Windows.Forms.Label();
             this.lblDeliveryCost = new System.Windows.Forms.Label();
             this.lblTotalQty = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.lblTax = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.cboDelivery = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblTax = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lblInsuranceCost = new System.Windows.Forms.Label();
+            this.lblTotalHirePrice = new System.Windows.Forms.Label();
             this.dgvItem = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomrePicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBLogo)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -90,13 +90,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvItem)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtLocation
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(221, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(297, 30);
-            this.textBox1.TabIndex = 10;
+            this.txtLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLocation.Location = new System.Drawing.Point(221, 3);
+            this.txtLocation.Name = "txtLocation";
+            this.txtLocation.Size = new System.Drawing.Size(297, 30);
+            this.txtLocation.TabIndex = 10;
             // 
             // label1
             // 
@@ -121,11 +121,13 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.tableLayoutPanel2);
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.CustomrePicture);
+            this.groupBox1.Controls.Add(this.lblName);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(23, 149);
             this.groupBox1.Name = "groupBox1";
@@ -134,46 +136,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Customer Info";
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(36, 421);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(337, 29);
-            this.checkBox1.TabIndex = 15;
-            this.checkBox1.Text = "Aggree the all therms and services";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.92308F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.07692F));
-            this.tableLayoutPanel2.Controls.Add(this.label6, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.label5, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label7, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.textBox2, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.textBox1, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.textBox3, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.txtPhone, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.txtLocation, 1, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(28, 244);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(521, 171);
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(521, 109);
             this.tableLayoutPanel2.TabIndex = 14;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 114);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(159, 25);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Customer Phone";
             // 
             // label5
             // 
@@ -189,35 +168,27 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 57);
+            this.label7.Location = new System.Drawing.Point(3, 54);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(159, 25);
             this.label7.TabIndex = 4;
             this.label7.Text = "Customer Phone";
             // 
-            // textBox2
+            // txtPhone
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(221, 60);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(297, 30);
-            this.textBox2.TabIndex = 11;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(221, 117);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(297, 30);
-            this.textBox3.TabIndex = 13;
+            this.txtPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPhone.Location = new System.Drawing.Point(221, 57);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(297, 30);
+            this.txtPhone.TabIndex = 11;
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label10, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label12, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lblCustomerID, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblNRC, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblEmail, 0, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(245, 96);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
@@ -227,55 +198,55 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(301, 107);
             this.tableLayoutPanel1.TabIndex = 13;
             // 
-            // label3
+            // lblCustomerID
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 25);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "C-0001";
+            this.lblCustomerID.AutoSize = true;
+            this.lblCustomerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomerID.Location = new System.Drawing.Point(3, 0);
+            this.lblCustomerID.Name = "lblCustomerID";
+            this.lblCustomerID.Size = new System.Drawing.Size(78, 25);
+            this.lblCustomerID.TabIndex = 12;
+            this.lblCustomerID.Text = "C-0001";
             // 
-            // label10
+            // lblNRC
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(3, 35);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(225, 25);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "12/KaKaKa(N) 0784960";
+            this.lblNRC.AutoSize = true;
+            this.lblNRC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNRC.Location = new System.Drawing.Point(3, 35);
+            this.lblNRC.Name = "lblNRC";
+            this.lblNRC.Size = new System.Drawing.Size(225, 25);
+            this.lblNRC.TabIndex = 7;
+            this.lblNRC.Text = "12/KaKaKa(N) 0784960";
             // 
-            // label12
+            // lblEmail
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(3, 70);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(242, 25);
-            this.label12.TabIndex = 9;
-            this.label12.Text = "MaThida2323@gmail.com";
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.Location = new System.Drawing.Point(3, 70);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(242, 25);
+            this.lblEmail.TabIndex = 9;
+            this.lblEmail.Text = "MaThida2323@gmail.com";
             // 
-            // pictureBox1
+            // CustomrePicture
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(36, 43);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(182, 160);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.CustomrePicture.Image = ((System.Drawing.Image)(resources.GetObject("CustomrePicture.Image")));
+            this.CustomrePicture.Location = new System.Drawing.Point(36, 43);
+            this.CustomrePicture.Name = "CustomrePicture";
+            this.CustomrePicture.Size = new System.Drawing.Size(182, 160);
+            this.CustomrePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.CustomrePicture.TabIndex = 1;
+            this.CustomrePicture.TabStop = false;
             // 
-            // label4
+            // lblName
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(238, 43);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(159, 37);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Ma Thida";
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(238, 43);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(159, 37);
+            this.lblName.TabIndex = 1;
+            this.lblName.Text = "Ma Thida";
             // 
             // PBLogo
             // 
@@ -423,24 +394,6 @@
             this.label25.TabIndex = 20;
             this.label25.Text = "Total";
             // 
-            // lblTotalHirePrice
-            // 
-            this.lblTotalHirePrice.AutoSize = true;
-            this.lblTotalHirePrice.Location = new System.Drawing.Point(199, 274);
-            this.lblTotalHirePrice.Name = "lblTotalHirePrice";
-            this.lblTotalHirePrice.Size = new System.Drawing.Size(34, 25);
-            this.lblTotalHirePrice.TabIndex = 19;
-            this.lblTotalHirePrice.Text = "70";
-            // 
-            // lblInsuranceCost
-            // 
-            this.lblInsuranceCost.AutoSize = true;
-            this.lblInsuranceCost.Location = new System.Drawing.Point(199, 142);
-            this.lblInsuranceCost.Name = "lblInsuranceCost";
-            this.lblInsuranceCost.Size = new System.Drawing.Size(45, 25);
-            this.lblInsuranceCost.TabIndex = 18;
-            this.lblInsuranceCost.Text = "250";
-            // 
             // lblDeliveryCost
             // 
             this.lblDeliveryCost.AutoSize = true;
@@ -458,51 +411,6 @@
             this.lblTotalQty.Size = new System.Drawing.Size(23, 25);
             this.lblTotalQty.TabIndex = 16;
             this.lblTotalQty.Text = "4";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(199, 98);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(128, 25);
-            this.label20.TabIndex = 15;
-            this.label20.Text = "Delivery Cost";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(199, 54);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(103, 25);
-            this.label19.TabIndex = 14;
-            this.label19.Text = "3 monthes";
-            // 
-            // lblTax
-            // 
-            this.lblTax.AutoSize = true;
-            this.lblTax.Location = new System.Drawing.Point(199, 318);
-            this.lblTax.Name = "lblTax";
-            this.lblTax.Size = new System.Drawing.Size(45, 25);
-            this.lblTax.TabIndex = 13;
-            this.lblTax.Text = "250";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(13, 54);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(107, 25);
-            this.label17.TabIndex = 12;
-            this.label17.Text = "Hire Month";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(13, 98);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(147, 25);
-            this.label16.TabIndex = 12;
-            this.label16.Text = "Dead Line Date";
             // 
             // label15
             // 
@@ -522,15 +430,6 @@
             this.label14.TabIndex = 8;
             this.label14.Text = "Delivery Cost";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(13, 318);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(46, 25);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "Tax";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -549,14 +448,59 @@
             this.cboDelivery.Size = new System.Drawing.Size(223, 33);
             this.cboDelivery.TabIndex = 1;
             // 
-            // label11
+            // label17
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(13, 274);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(145, 25);
-            this.label11.TabIndex = 3;
-            this.label11.Text = "Total Hire Price";
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(13, 54);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(107, 25);
+            this.label17.TabIndex = 12;
+            this.label17.Text = "Hire Month";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(13, 98);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(147, 25);
+            this.label16.TabIndex = 12;
+            this.label16.Text = "Dead Line Date";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(199, 54);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(103, 25);
+            this.label19.TabIndex = 14;
+            this.label19.Text = "3 monthes";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(199, 98);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(128, 25);
+            this.label20.TabIndex = 15;
+            this.label20.Text = "Delivery Cost";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(13, 318);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(46, 25);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Tax";
+            // 
+            // lblTax
+            // 
+            this.lblTax.AutoSize = true;
+            this.lblTax.Location = new System.Drawing.Point(199, 318);
+            this.lblTax.Name = "lblTax";
+            this.lblTax.Size = new System.Drawing.Size(45, 25);
+            this.lblTax.TabIndex = 13;
+            this.lblTax.Text = "250";
             // 
             // label13
             // 
@@ -566,6 +510,33 @@
             this.label13.Size = new System.Drawing.Size(144, 25);
             this.label13.TabIndex = 4;
             this.label13.Text = "Insurance Cost";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(13, 274);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(145, 25);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "Total Hire Price";
+            // 
+            // lblInsuranceCost
+            // 
+            this.lblInsuranceCost.AutoSize = true;
+            this.lblInsuranceCost.Location = new System.Drawing.Point(199, 142);
+            this.lblInsuranceCost.Name = "lblInsuranceCost";
+            this.lblInsuranceCost.Size = new System.Drawing.Size(45, 25);
+            this.lblInsuranceCost.TabIndex = 18;
+            this.lblInsuranceCost.Text = "250";
+            // 
+            // lblTotalHirePrice
+            // 
+            this.lblTotalHirePrice.AutoSize = true;
+            this.lblTotalHirePrice.Location = new System.Drawing.Point(199, 274);
+            this.lblTotalHirePrice.Name = "lblTotalHirePrice";
+            this.lblTotalHirePrice.Size = new System.Drawing.Size(34, 25);
+            this.lblTotalHirePrice.TabIndex = 19;
+            this.lblTotalHirePrice.Text = "70";
             // 
             // dgvItem
             // 
@@ -578,7 +549,7 @@
             this.dgvItem.BackgroundColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.MistyRose;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Desktop;
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -589,7 +560,7 @@
             this.dgvItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(10);
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -608,6 +579,35 @@
             this.dgvItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvItem.Size = new System.Drawing.Size(424, 445);
             this.dgvItem.TabIndex = 10;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(31, 373);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(350, 25);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "If you aggree the terms and  policy type";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(387, 373);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(179, 25);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "\"I aggree with all\"";
+            // 
+            // textBox3
+            // 
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(36, 411);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(513, 30);
+            this.textBox3.TabIndex = 17;
             // 
             // frmHire
             // 
@@ -634,7 +634,7 @@
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomrePicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBLogo)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -654,22 +654,19 @@
         private System.Windows.Forms.PictureBox PBLogo;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.Label lblNRC;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txtLocation;
+        private System.Windows.Forms.TextBox txtPhone;
+        private System.Windows.Forms.PictureBox CustomrePicture;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblCustomerID;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgvItem;
         private System.Windows.Forms.Label lblToday;
@@ -693,5 +690,8 @@
         private System.Windows.Forms.ComboBox cboDelivery;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
     }
 }

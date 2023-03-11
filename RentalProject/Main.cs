@@ -11,8 +11,8 @@ namespace RentalProject
         public Main()
         {
             InitializeComponent();
-            this.DT = Program.DT;
-            //btnProfile.Text = DT.Rows[0]["AccountName"].ToString();
+            /*this.DT = Program.DT;
+            btnProfile.Text = DT.Rows[0]["AccountName"].ToString();*/
         }
         DataTable   DT = new DataTable();
         
@@ -74,17 +74,17 @@ namespace RentalProject
             {
                 switch (properties[i])
                 {
-                    case "Profile": 
-                        btnProfile.Visible = true; 
+                    case "Profile":
+                        btnProfile.Visible = true;
                         break;
-                    case "Craft": 
-                        btnCraft.Visible = true; 
+                    case "Craft":
+                        btnCraft.Visible = true;
                         break;
-                    case "Payment": 
-                        btnPayment.Visible = true; 
+                    case "Payment":
+                        btnPayment.Visible = true;
                         break;
-                    case "History": 
-                        btnHistory.Visible = true; 
+                    case "History":
+                        btnHistory.Visible = true;
                         break;
                     case "Home":
                         btnHome.Visible = true;
@@ -105,12 +105,8 @@ namespace RentalProject
                         btnPaymentList.Visible = true;
                         break;
                 }
-            }
-            */
+            }*/
 
-        }
-        private void Enablebutton(ref Button btn)
-        {
 
         }
 

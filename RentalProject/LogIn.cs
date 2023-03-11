@@ -53,6 +53,7 @@ namespace RentalProject
                     string[] properties = level.Split(',');
                     Array.Resize(ref Program.Properties, properties.Length);
                     Program.Properties = properties;
+                    Program.AdminID = dt.Rows[0][0].ToString();
                     Program.Type = "Admin";
                     Main main = new Main();
                     main.ShowDialog();

@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace RentalProject
@@ -17,7 +18,21 @@ namespace RentalProject
             cboDelivery.ValueMember = DT.Columns[0].ColumnName;
             cboDelivery.SelectedIndex = 0;
             lblToday.Text = DateTime.Now.ToString("dd-MMMM-yyyy");
+            DataTable Customer = Program.DT;
+            lblName.Text = Customer.Rows[0][3].ToString();
+            lblEmail.Text = Customer.Rows[0][5].ToString();
+            lblCustomerID.Text = Customer.Rows[0][0].ToString();
+            lblNRC.Text = Customer.Rows[0][7].ToString();
+            txtLocation.Text = Customer.Rows[0][4].ToString();
+            txtPhone.Text = Customer.Rows[0][6].ToString();
+            if (Customer.Rows[0]["CustomerPhoto"].ToString() != string.Empty)
+            {
+                byte[] img = (byte[])(Customer.Rows[0]["CustomerPhoto"]);
+                MemoryStream ms = new MemoryStream(img);
+                CustomrePicture.Image = Image.FromStream(ms);
+            }
         }
+        clsCustomer objClsCustomer = new clsCustomer();
         clsDelivery objClsDelivery = new clsDelivery();
         clsItem objClsItem = new clsItem();
         private void frmHire_Load(object sender, EventArgs e)

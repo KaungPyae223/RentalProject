@@ -3480,9 +3480,9 @@ namespace RentalProject {
             
             private global::System.Data.DataColumn columnItemName;
             
-            private global::System.Data.DataColumn columnModifyDate;
-            
             private global::System.Data.DataColumn columnTransation;
+            
+            private global::System.Data.DataColumn columnModifyDate;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -3535,17 +3535,17 @@ namespace RentalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ModifyDateColumn {
+            public global::System.Data.DataColumn TransationColumn {
                 get {
-                    return this.columnModifyDate;
+                    return this.columnTransation;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TransationColumn {
+            public global::System.Data.DataColumn ModifyDateColumn {
                 get {
-                    return this.columnTransation;
+                    return this.columnModifyDate;
                 }
             }
             
@@ -3586,13 +3586,13 @@ namespace RentalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public vi_ModifyRow Addvi_ModifyRow(string AdminName, string ItemName, System.DateTime ModifyDate, string Transation) {
+            public vi_ModifyRow Addvi_ModifyRow(string AdminName, string ItemName, string Transation, string ModifyDate) {
                 vi_ModifyRow rowvi_ModifyRow = ((vi_ModifyRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         AdminName,
                         ItemName,
-                        ModifyDate,
-                        Transation};
+                        Transation,
+                        ModifyDate};
                 rowvi_ModifyRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowvi_ModifyRow);
                 return rowvi_ModifyRow;
@@ -3617,8 +3617,8 @@ namespace RentalProject {
             internal void InitVars() {
                 this.columnAdminName = base.Columns["AdminName"];
                 this.columnItemName = base.Columns["ItemName"];
-                this.columnModifyDate = base.Columns["ModifyDate"];
                 this.columnTransation = base.Columns["Transation"];
+                this.columnModifyDate = base.Columns["ModifyDate"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3628,13 +3628,15 @@ namespace RentalProject {
                 base.Columns.Add(this.columnAdminName);
                 this.columnItemName = new global::System.Data.DataColumn("ItemName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnItemName);
-                this.columnModifyDate = new global::System.Data.DataColumn("ModifyDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnModifyDate);
                 this.columnTransation = new global::System.Data.DataColumn("Transation", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTransation);
+                this.columnModifyDate = new global::System.Data.DataColumn("ModifyDate", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnModifyDate);
                 this.columnAdminName.MaxLength = 50;
                 this.columnItemName.MaxLength = 50;
                 this.columnTransation.MaxLength = 10;
+                this.columnModifyDate.ReadOnly = true;
+                this.columnModifyDate.MaxLength = 4000;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5912,22 +5914,6 @@ namespace RentalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime ModifyDate {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tablevi_Modify.ModifyDateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ModifyDate\' in table \'vi_Modify\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablevi_Modify.ModifyDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Transation {
                 get {
                     try {
@@ -5939,6 +5925,22 @@ namespace RentalProject {
                 }
                 set {
                     this[this.tablevi_Modify.TransationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ModifyDate {
+                get {
+                    try {
+                        return ((string)(this[this.tablevi_Modify.ModifyDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ModifyDate\' in table \'vi_Modify\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevi_Modify.ModifyDateColumn] = value;
                 }
             }
             
@@ -5968,18 +5970,6 @@ namespace RentalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsModifyDateNull() {
-                return this.IsNull(this.tablevi_Modify.ModifyDateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetModifyDateNull() {
-                this[this.tablevi_Modify.ModifyDateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsTransationNull() {
                 return this.IsNull(this.tablevi_Modify.TransationColumn);
             }
@@ -5988,6 +5978,18 @@ namespace RentalProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetTransationNull() {
                 this[this.tablevi_Modify.TransationColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsModifyDateNull() {
+                return this.IsNull(this.tablevi_Modify.ModifyDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetModifyDateNull() {
+                this[this.tablevi_Modify.ModifyDateColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -11432,8 +11434,8 @@ SELECT AdminID, AdminPost, AdminProperites, AccountName, AdminName, AdminLocatio
             tableMapping.DataSetTable = "vi_Modify";
             tableMapping.ColumnMappings.Add("AdminName", "AdminName");
             tableMapping.ColumnMappings.Add("ItemName", "ItemName");
-            tableMapping.ColumnMappings.Add("ModifyDate", "ModifyDate");
             tableMapping.ColumnMappings.Add("Transation", "Transation");
+            tableMapping.ColumnMappings.Add("ModifyDate", "ModifyDate");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

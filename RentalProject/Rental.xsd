@@ -805,7 +805,7 @@ SELECT AdminID, AdminPost, AdminProperites, AccountName, AdminName, AdminLocatio
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vi_ModifyTableAdapter" GeneratorDataComponentClassName="vi_ModifyTableAdapter" Name="vi_Modify" UserDataComponentName="vi_ModifyTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="RentalDBConnectionString (Settings)" DbObjectName="RentalDB.dbo.vi_Modify" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="Getvi_modify" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="Getvi_modify" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="Getvi_modify" UserSourceName="Fill">
+              <DbSource ConnectionRef="RentalDBConnectionString (Settings)" DbObjectName="RentalDB.dbo.vi_Modify" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="Getvi_modify" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="Getvi_modify" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="Getvi_modify" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT vi_Modify.*
@@ -818,8 +818,8 @@ FROM   vi_Modify</CommandText>
             <Mappings>
               <Mapping SourceColumn="AdminName" DataSetColumn="AdminName" />
               <Mapping SourceColumn="ItemName" DataSetColumn="ItemName" />
-              <Mapping SourceColumn="ModifyDate" DataSetColumn="ModifyDate" />
               <Mapping SourceColumn="Transation" DataSetColumn="Transation" />
+              <Mapping SourceColumn="ModifyDate" DataSetColumn="ModifyDate" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -1373,7 +1373,6 @@ SELECT HireID, CustomerID, DeliveryID, DeliveryCost, GrandTotalHirePricePerMonth
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ModifyDate" msprop:Generator_ColumnPropNameInTable="ModifyDateColumn" msprop:Generator_ColumnPropNameInRow="ModifyDate" msprop:Generator_UserColumnName="ModifyDate" msprop:Generator_ColumnVarNameInTable="columnModifyDate" type="xs:dateTime" minOccurs="0" />
               <xs:element name="Transation" msprop:Generator_ColumnPropNameInTable="TransationColumn" msprop:Generator_ColumnPropNameInRow="Transation" msprop:Generator_UserColumnName="Transation" msprop:Generator_ColumnVarNameInTable="columnTransation" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -1381,54 +1380,61 @@ SELECT HireID, CustomerID, DeliveryID, DeliveryCost, GrandTotalHirePricePerMonth
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="ModifyDate" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="ModifyDate" msprop:Generator_ColumnPropNameInTable="ModifyDateColumn" msprop:Generator_ColumnVarNameInTable="columnModifyDate" msprop:Generator_UserColumnName="ModifyDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Hire" msprop:Generator_RowEvHandlerName="HireRowChangeEventHandler" msprop:Generator_RowDeletedName="HireRowDeleted" msprop:Generator_RowDeletingName="HireRowDeleting" msprop:Generator_RowEvArgName="HireRowChangeEvent" msprop:Generator_TablePropName="Hire" msprop:Generator_RowChangedName="HireRowChanged" msprop:Generator_RowChangingName="HireRowChanging" msprop:Generator_TableClassName="HireDataTable" msprop:Generator_RowClassName="HireRow" msprop:Generator_TableVarName="tableHire" msprop:Generator_UserTableName="Hire">
+        <xs:element name="Hire" msprop:Generator_RowClassName="HireRow" msprop:Generator_RowEvHandlerName="HireRowChangeEventHandler" msprop:Generator_RowDeletedName="HireRowDeleted" msprop:Generator_RowDeletingName="HireRowDeleting" msprop:Generator_RowEvArgName="HireRowChangeEvent" msprop:Generator_TablePropName="Hire" msprop:Generator_RowChangedName="HireRowChanged" msprop:Generator_UserTableName="Hire" msprop:Generator_RowChangingName="HireRowChanging" msprop:Generator_TableClassName="HireDataTable" msprop:Generator_TableVarName="tableHire">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="HireID" msprop:Generator_ColumnPropNameInRow="HireID" msprop:Generator_ColumnPropNameInTable="HireIDColumn" msprop:Generator_ColumnVarNameInTable="columnHireID" msprop:Generator_UserColumnName="HireID">
+              <xs:element name="HireID" msprop:Generator_UserColumnName="HireID" msprop:Generator_ColumnPropNameInTable="HireIDColumn" msprop:Generator_ColumnPropNameInRow="HireID" msprop:Generator_ColumnVarNameInTable="columnHireID">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="30" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CustomerID" msprop:Generator_ColumnPropNameInRow="CustomerID" msprop:Generator_ColumnPropNameInTable="CustomerIDColumn" msprop:Generator_ColumnVarNameInTable="columnCustomerID" msprop:Generator_UserColumnName="CustomerID" minOccurs="0">
+              <xs:element name="CustomerID" msprop:Generator_UserColumnName="CustomerID" msprop:Generator_ColumnPropNameInTable="CustomerIDColumn" msprop:Generator_ColumnPropNameInRow="CustomerID" msprop:Generator_ColumnVarNameInTable="columnCustomerID" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DeliveryID" msprop:Generator_ColumnPropNameInRow="DeliveryID" msprop:Generator_ColumnPropNameInTable="DeliveryIDColumn" msprop:Generator_ColumnVarNameInTable="columnDeliveryID" msprop:Generator_UserColumnName="DeliveryID" minOccurs="0">
+              <xs:element name="DeliveryID" msprop:Generator_UserColumnName="DeliveryID" msprop:Generator_ColumnPropNameInTable="DeliveryIDColumn" msprop:Generator_ColumnPropNameInRow="DeliveryID" msprop:Generator_ColumnVarNameInTable="columnDeliveryID" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DeliveryCost" msprop:Generator_ColumnPropNameInRow="DeliveryCost" msprop:Generator_ColumnPropNameInTable="DeliveryCostColumn" msprop:Generator_ColumnVarNameInTable="columnDeliveryCost" msprop:Generator_UserColumnName="DeliveryCost" type="xs:int" minOccurs="0" />
-              <xs:element name="GrandTotalHirePricePerMonth" msprop:Generator_ColumnPropNameInRow="GrandTotalHirePricePerMonth" msprop:Generator_ColumnPropNameInTable="GrandTotalHirePricePerMonthColumn" msprop:Generator_ColumnVarNameInTable="columnGrandTotalHirePricePerMonth" msprop:Generator_UserColumnName="GrandTotalHirePricePerMonth" type="xs:int" minOccurs="0" />
-              <xs:element name="HireDate" msprop:Generator_ColumnPropNameInRow="HireDate" msprop:Generator_ColumnPropNameInTable="HireDateColumn" msprop:Generator_ColumnVarNameInTable="columnHireDate" msprop:Generator_UserColumnName="HireDate" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="HireLocation" msprop:Generator_ColumnPropNameInRow="HireLocation" msprop:Generator_ColumnPropNameInTable="HireLocationColumn" msprop:Generator_ColumnVarNameInTable="columnHireLocation" msprop:Generator_UserColumnName="HireLocation" minOccurs="0">
+              <xs:element name="DeliveryCost" msprop:Generator_UserColumnName="DeliveryCost" msprop:Generator_ColumnPropNameInTable="DeliveryCostColumn" msprop:Generator_ColumnPropNameInRow="DeliveryCost" msprop:Generator_ColumnVarNameInTable="columnDeliveryCost" type="xs:int" minOccurs="0" />
+              <xs:element name="GrandTotalHirePricePerMonth" msprop:Generator_UserColumnName="GrandTotalHirePricePerMonth" msprop:Generator_ColumnPropNameInTable="GrandTotalHirePricePerMonthColumn" msprop:Generator_ColumnPropNameInRow="GrandTotalHirePricePerMonth" msprop:Generator_ColumnVarNameInTable="columnGrandTotalHirePricePerMonth" type="xs:int" minOccurs="0" />
+              <xs:element name="HireDate" msprop:Generator_UserColumnName="HireDate" msprop:Generator_ColumnPropNameInTable="HireDateColumn" msprop:Generator_ColumnPropNameInRow="HireDate" msprop:Generator_ColumnVarNameInTable="columnHireDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="HireLocation" msprop:Generator_UserColumnName="HireLocation" msprop:Generator_ColumnPropNameInTable="HireLocationColumn" msprop:Generator_ColumnPropNameInRow="HireLocation" msprop:Generator_ColumnVarNameInTable="columnHireLocation" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CustomerPhone" msprop:Generator_ColumnPropNameInRow="CustomerPhone" msprop:Generator_ColumnPropNameInTable="CustomerPhoneColumn" msprop:Generator_ColumnVarNameInTable="columnCustomerPhone" msprop:Generator_UserColumnName="CustomerPhone" minOccurs="0">
+              <xs:element name="CustomerPhone" msprop:Generator_UserColumnName="CustomerPhone" msprop:Generator_ColumnPropNameInTable="CustomerPhoneColumn" msprop:Generator_ColumnPropNameInRow="CustomerPhone" msprop:Generator_ColumnVarNameInTable="columnCustomerPhone" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DeadLineDate" msprop:Generator_ColumnPropNameInRow="DeadLineDate" msprop:Generator_ColumnPropNameInTable="DeadLineDateColumn" msprop:Generator_ColumnVarNameInTable="columnDeadLineDate" msprop:Generator_UserColumnName="DeadLineDate" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="InsurienceCost" msprop:Generator_ColumnPropNameInRow="InsurienceCost" msprop:Generator_ColumnPropNameInTable="InsurienceCostColumn" msprop:Generator_ColumnVarNameInTable="columnInsurienceCost" msprop:Generator_UserColumnName="InsurienceCost" type="xs:int" minOccurs="0" />
-              <xs:element name="ReturnDate" msprop:Generator_ColumnPropNameInRow="ReturnDate" msprop:Generator_ColumnPropNameInTable="ReturnDateColumn" msprop:Generator_ColumnVarNameInTable="columnReturnDate" msprop:Generator_UserColumnName="ReturnDate" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="TotalHireQty" msprop:Generator_ColumnPropNameInRow="TotalHireQty" msprop:Generator_ColumnPropNameInTable="TotalHireQtyColumn" msprop:Generator_ColumnVarNameInTable="columnTotalHireQty" msprop:Generator_UserColumnName="TotalHireQty" type="xs:int" minOccurs="0" />
+              <xs:element name="DeadLineDate" msprop:Generator_UserColumnName="DeadLineDate" msprop:Generator_ColumnPropNameInTable="DeadLineDateColumn" msprop:Generator_ColumnPropNameInRow="DeadLineDate" msprop:Generator_ColumnVarNameInTable="columnDeadLineDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="InsurienceCost" msprop:Generator_UserColumnName="InsurienceCost" msprop:Generator_ColumnPropNameInTable="InsurienceCostColumn" msprop:Generator_ColumnPropNameInRow="InsurienceCost" msprop:Generator_ColumnVarNameInTable="columnInsurienceCost" type="xs:int" minOccurs="0" />
+              <xs:element name="ReturnDate" msprop:Generator_UserColumnName="ReturnDate" msprop:Generator_ColumnPropNameInTable="ReturnDateColumn" msprop:Generator_ColumnPropNameInRow="ReturnDate" msprop:Generator_ColumnVarNameInTable="columnReturnDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TotalHireQty" msprop:Generator_UserColumnName="TotalHireQty" msprop:Generator_ColumnPropNameInTable="TotalHireQtyColumn" msprop:Generator_ColumnPropNameInRow="TotalHireQty" msprop:Generator_ColumnVarNameInTable="columnTotalHireQty" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
