@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Data;
 
 namespace RentalProject.Classes
 {
     internal class clsHire
     {
-        RentalTableAdapters.ItemTableAdapter objHire = new RentalTableAdapters.ItemTableAdapter();
+        RentalTableAdapters.HireTableAdapter objHire = new RentalTableAdapters.HireTableAdapter();
+        RentalTableAdapters.SP_ExtendedDateTableAdapter objDate = new RentalTableAdapters.SP_ExtendedDateTableAdapter();
 
         private string _HireID, _CustomerID, _DeliveryID, _HireLocation, _CustomerPhone;
         private int _DeliveryCost, _TotalHirePricePerMonth, _InsuranceCost, _TotalHireQty;
@@ -70,6 +72,12 @@ namespace RentalProject.Classes
         {
             get { return _ReturnDate; }
             set { _ReturnDate = value; }
+        }
+        public void SaveHire()
+        {
+            DataTable DT = objDate.GetDate(DateTime.Now, 3);
+            DateTime Deadline = Convert.ToDateTime(DT.Rows[0][0]);
+            objHire.Insert(HireID, CustomerID, DeliveryID, DeliveryCost, TotalHirePricePerMonth, DateTime.Now, HireLocation, CustomerPhone, Deadline, InsuranceCost, null, TotalHireQty);
         }
 
     }

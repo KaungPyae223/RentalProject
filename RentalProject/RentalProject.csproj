@@ -56,8 +56,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\clsCustomer.cs" />
+    <Compile Include="Classes\clsHieDetails.cs" />
     <Compile Include="Classes\clsHire.cs" />
     <Compile Include="Classes\clsModify.cs" />
+    <Compile Include="Classes\clsPayment.cs" />
     <Compile Include="Classes\clsUser.cs" />
     <Compile Include="Classes\clsBrand.cs" />
     <Compile Include="Classes\clsDelivery.cs" />

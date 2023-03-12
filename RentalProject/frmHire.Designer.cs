@@ -37,10 +37,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtAggree = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
+            this.cboPayment = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblCustomerID = new System.Windows.Forms.Label();
             this.lblNRC = new System.Windows.Forms.Label();
@@ -52,8 +57,8 @@
             this.lblToday = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnHire = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.lblTotal = new System.Windows.Forms.Label();
@@ -67,7 +72,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
+            this.lblDeadLine = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lblTax = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -75,9 +80,6 @@
             this.lblInsuranceCost = new System.Windows.Forms.Label();
             this.lblTotalHirePrice = new System.Windows.Forms.Label();
             this.dgvItem = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -121,7 +123,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.txtAggree);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.tableLayoutPanel2);
@@ -136,23 +138,64 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Customer Info";
             // 
+            // txtAggree
+            // 
+            this.txtAggree.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAggree.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAggree.Location = new System.Drawing.Point(36, 420);
+            this.txtAggree.Name = "txtAggree";
+            this.txtAggree.Size = new System.Drawing.Size(513, 30);
+            this.txtAggree.TabIndex = 17;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(387, 389);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(179, 25);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "\"I aggree with all\"";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(31, 389);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(350, 25);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "If you aggree the terms and  policy type";
+            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.92308F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.07692F));
+            this.tableLayoutPanel2.Controls.Add(this.label6, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.label5, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label7, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.txtPhone, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.txtLocation, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.cboPayment, 1, 2);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(28, 244);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(521, 109);
+            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(521, 126);
             this.tableLayoutPanel2.TabIndex = 14;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(3, 84);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(159, 25);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Customer Phone";
             // 
             // label5
             // 
@@ -168,7 +211,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 54);
+            this.label7.Location = new System.Drawing.Point(3, 42);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(159, 25);
             this.label7.TabIndex = 4;
@@ -177,10 +220,26 @@
             // txtPhone
             // 
             this.txtPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhone.Location = new System.Drawing.Point(221, 57);
+            this.txtPhone.Location = new System.Drawing.Point(221, 45);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(297, 30);
             this.txtPhone.TabIndex = 11;
+            // 
+            // cboPayment
+            // 
+            this.cboPayment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboPayment.FormattingEnabled = true;
+            this.cboPayment.Items.AddRange(new object[] {
+            "Select a Payment",
+            "Cash",
+            "Pay Pal",
+            "Master",
+            "Visa"});
+            this.cboPayment.Location = new System.Drawing.Point(221, 87);
+            this.cboPayment.Name = "cboPayment";
+            this.cboPayment.Size = new System.Drawing.Size(297, 33);
+            this.cboPayment.TabIndex = 13;
             // 
             // tableLayoutPanel1
             // 
@@ -295,31 +354,32 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btnCancel);
+            this.panel2.Controls.Add(this.btnHire);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 650);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1564, 81);
             this.panel2.TabIndex = 6;
             // 
-            // button2
+            // btnCancel
             // 
-            this.button2.Location = new System.Drawing.Point(1206, 22);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(118, 47);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCancel.Location = new System.Drawing.Point(1206, 22);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(118, 47);
+            this.btnCancel.TabIndex = 1;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnHire
             // 
-            this.button1.Location = new System.Drawing.Point(1379, 22);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 47);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Hire";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnHire.Location = new System.Drawing.Point(1379, 22);
+            this.btnHire.Name = "btnHire";
+            this.btnHire.Size = new System.Drawing.Size(118, 47);
+            this.btnHire.TabIndex = 0;
+            this.btnHire.Text = "Hire";
+            this.btnHire.UseVisualStyleBackColor = true;
+            this.btnHire.Click += new System.EventHandler(this.btnHire_Click);
             // 
             // groupBox2
             // 
@@ -350,7 +410,7 @@
             this.tableLayoutPanel3.Controls.Add(this.label17, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.label16, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.label19, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.label20, 1, 2);
+            this.tableLayoutPanel3.Controls.Add(this.lblDeadLine, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.label9, 0, 7);
             this.tableLayoutPanel3.Controls.Add(this.lblTax, 1, 7);
             this.tableLayoutPanel3.Controls.Add(this.label13, 0, 3);
@@ -475,14 +535,14 @@
             this.label19.TabIndex = 14;
             this.label19.Text = "3 monthes";
             // 
-            // label20
+            // lblDeadLine
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(199, 98);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(128, 25);
-            this.label20.TabIndex = 15;
-            this.label20.Text = "Delivery Cost";
+            this.lblDeadLine.AutoSize = true;
+            this.lblDeadLine.Location = new System.Drawing.Point(199, 98);
+            this.lblDeadLine.Name = "lblDeadLine";
+            this.lblDeadLine.Size = new System.Drawing.Size(128, 25);
+            this.lblDeadLine.TabIndex = 15;
+            this.lblDeadLine.Text = "Delivery Cost";
             // 
             // label9
             // 
@@ -580,35 +640,6 @@
             this.dgvItem.Size = new System.Drawing.Size(424, 445);
             this.dgvItem.TabIndex = 10;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(31, 373);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(350, 25);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "If you aggree the terms and  policy type";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(387, 373);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(179, 25);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "\"I aggree with all\"";
-            // 
-            // textBox3
-            // 
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(36, 411);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(513, 30);
-            this.textBox3.TabIndex = 17;
-            // 
             // frmHire
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
@@ -659,8 +690,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnHire;
         private System.Windows.Forms.TextBox txtLocation;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.PictureBox CustomrePicture;
@@ -678,7 +709,7 @@
         private System.Windows.Forms.Label lblInsuranceCost;
         private System.Windows.Forms.Label lblDeliveryCost;
         private System.Windows.Forms.Label lblTotalQty;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label lblDeadLine;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label lblTax;
         private System.Windows.Forms.Label label17;
@@ -690,8 +721,10 @@
         private System.Windows.Forms.ComboBox cboDelivery;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtAggree;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cboPayment;
     }
 }

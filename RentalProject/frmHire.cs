@@ -31,7 +31,12 @@ namespace RentalProject
                 MemoryStream ms = new MemoryStream(img);
                 CustomrePicture.Image = Image.FromStream(ms);
             }
+            cboPayment.SelectedIndex = 0;
+            DataTable Date = objDate.GetDate(DateTime.Now, 3);
+            lblDeadLine.Text = Convert.ToDateTime(Date.Rows[0][0]).ToString("dd-MMMM-yyyy");
         }
+
+        RentalTableAdapters.SP_ExtendedDateTableAdapter objDate = new RentalTableAdapters.SP_ExtendedDateTableAdapter();
         clsCustomer objClsCustomer = new clsCustomer();
         clsDelivery objClsDelivery = new clsDelivery();
         clsItem objClsItem = new clsItem();
@@ -71,6 +76,34 @@ namespace RentalProject
             int Tax = (MainTotal/100)*5;
             lblTax.Text = Tax.ToString()+" £";
             lblTotal.Text = (MainTotal+Tax).ToString()+" £";
+        }
+
+        private void btnHire_Click(object sender, EventArgs e)
+        {
+            if(txtLocation.Text == string.Empty)
+            {
+                MessageBox.Show("Plese type a Location", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtLocation.Focus();
+            }
+            else if(txtPhone.Text == string.Empty)
+            {
+                MessageBox.Show("Plese type a Phone", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPhone.Focus();
+            }
+            else if(cboPayment.SelectedIndex == 0)
+            {
+                MessageBox.Show("Plese Select a payment", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            else if(txtAggree.Text != "I aggree with all")
+            {
+                MessageBox.Show("Plese type a \"I aggree with all\"", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtAggree.Focus();
+            }
+            else
+            {
+
+            }
         }
     }
 }
