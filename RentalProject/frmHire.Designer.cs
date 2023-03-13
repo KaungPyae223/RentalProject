@@ -35,7 +35,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtLocation = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblHireID = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtAggree = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -110,15 +110,15 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Hire ID :";
             // 
-            // label2
+            // lblHireID
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(157, 39);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(250, 32);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Hire-0000000001";
+            this.lblHireID.AutoSize = true;
+            this.lblHireID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHireID.Location = new System.Drawing.Point(157, 39);
+            this.lblHireID.Name = "lblHireID";
+            this.lblHireID.Size = new System.Drawing.Size(250, 32);
+            this.lblHireID.TabIndex = 2;
+            this.lblHireID.Text = "Hire-0000000001";
             // 
             // groupBox1
             // 
@@ -324,7 +324,7 @@
             this.panel1.Controls.Add(this.lblToday);
             this.panel1.Controls.Add(this.label27);
             this.panel1.Controls.Add(this.PBLogo);
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.lblHireID);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -680,7 +680,7 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblHireID;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox PBLogo;
         private System.Windows.Forms.Panel panel1;

@@ -107,6 +107,12 @@
     <Compile Include="frmHire.Designer.cs">
       <DependentUpon>frmHire.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmHireList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHireList.Designer.cs">
+      <DependentUpon>frmHireList.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,12 @@
     </Compile>
     <Compile Include="frmPayment.Designer.cs">
       <DependentUpon>frmPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPaymentLists.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPaymentLists.Designer.cs">
+      <DependentUpon>frmPaymentLists.cs</DependentUpon>
     </Compile>
     <Compile Include="frmProfile.cs">
       <SubType>Form</SubType>
@@ -189,6 +201,9 @@
     <EmbeddedResource Include="frmHire.resx">
       <DependentUpon>frmHire.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmHireList.resx">
+      <DependentUpon>frmHireList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>
     </EmbeddedResource>
@@ -200,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPayment.resx">
       <DependentUpon>frmPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPaymentLists.resx">
+      <DependentUpon>frmPaymentLists.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmProfile.resx">
       <DependentUpon>frmProfile.cs</DependentUpon>

@@ -37,9 +37,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnMenu = new System.Windows.Forms.Button();
-            this.dgvAdmin = new System.Windows.Forms.DataGridView();
+            this.dgvPayment = new System.Windows.Forms.DataGridView();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAdmin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPayment)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -96,15 +96,15 @@
             this.btnMenu.Text = "       Make a Payment";
             this.btnMenu.UseVisualStyleBackColor = false;
             // 
-            // dgvAdmin
+            // dgvPayment
             // 
-            this.dgvAdmin.AllowUserToResizeRows = false;
+            this.dgvPayment.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(10);
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.dgvAdmin.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvAdmin.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvPayment.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvPayment.BackgroundColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Snow;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -113,9 +113,9 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAdmin.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvAdmin.ColumnHeadersHeight = 55;
-            this.dgvAdmin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvPayment.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvPayment.ColumnHeadersHeight = 55;
+            this.dgvPayment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -124,34 +124,36 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAdmin.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvAdmin.Location = new System.Drawing.Point(0, 150);
-            this.dgvAdmin.Name = "dgvAdmin";
-            this.dgvAdmin.ReadOnly = true;
-            this.dgvAdmin.RowHeadersVisible = false;
-            this.dgvAdmin.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvPayment.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvPayment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvPayment.Location = new System.Drawing.Point(0, 150);
+            this.dgvPayment.Name = "dgvPayment";
+            this.dgvPayment.ReadOnly = true;
+            this.dgvPayment.RowHeadersVisible = false;
+            this.dgvPayment.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(10);
-            this.dgvAdmin.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvAdmin.RowTemplate.Height = 50;
-            this.dgvAdmin.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAdmin.Size = new System.Drawing.Size(800, 537);
-            this.dgvAdmin.TabIndex = 8;
+            this.dgvPayment.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvPayment.RowTemplate.Height = 50;
+            this.dgvPayment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPayment.Size = new System.Drawing.Size(800, 537);
+            this.dgvPayment.TabIndex = 8;
             // 
             // frmPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(800, 769);
-            this.Controls.Add(this.dgvAdmin);
+            this.Controls.Add(this.dgvPayment);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPayment";
             this.Text = "frmPayment";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmPayment_Load);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAdmin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPayment)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -162,6 +164,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnMenu;
-        private System.Windows.Forms.DataGridView dgvAdmin;
+        private System.Windows.Forms.DataGridView dgvPayment;
     }
 }

@@ -38,7 +38,7 @@
             this.cboType = new System.Windows.Forms.ComboBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.txtPricePerMonth = new System.Windows.Forms.TextBox();
-            this.txtOnHandQty = new System.Windows.Forms.TextBox();
+            this.txtTotalQty = new System.Windows.Forms.TextBox();
             this.txtModelYear = new System.Windows.Forms.TextBox();
             this.txtTypicalUsage = new System.Windows.Forms.TextBox();
             this.txtPowerUsage = new System.Windows.Forms.TextBox();
@@ -121,7 +121,7 @@
             this.tableLayoutPanel1.Controls.Add(this.cboType, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtDescription, 1, 8);
             this.tableLayoutPanel1.Controls.Add(this.txtPricePerMonth, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.txtOnHandQty, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.txtTotalQty, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.txtModelYear, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.txtTypicalUsage, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.txtPowerUsage, 1, 3);
@@ -179,12 +179,12 @@
             this.txtPricePerMonth.Size = new System.Drawing.Size(367, 30);
             this.txtPricePerMonth.TabIndex = 16;
             // 
-            // txtOnHandQty
+            // txtTotalQty
             // 
-            this.txtOnHandQty.Location = new System.Drawing.Point(217, 306);
-            this.txtOnHandQty.Name = "txtOnHandQty";
-            this.txtOnHandQty.Size = new System.Drawing.Size(367, 30);
-            this.txtOnHandQty.TabIndex = 15;
+            this.txtTotalQty.Location = new System.Drawing.Point(217, 306);
+            this.txtTotalQty.Name = "txtTotalQty";
+            this.txtTotalQty.Size = new System.Drawing.Size(367, 30);
+            this.txtTotalQty.TabIndex = 15;
             // 
             // txtModelYear
             // 
@@ -283,9 +283,9 @@
             this.label8.Location = new System.Drawing.Point(18, 306);
             this.label8.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(127, 25);
+            this.label8.Size = new System.Drawing.Size(92, 25);
             this.label8.TabIndex = 7;
-            this.label8.Text = "On Hand Qty";
+            this.label8.Text = "Total Qty";
             // 
             // label9
             // 
@@ -357,7 +357,7 @@
         public System.Windows.Forms.Button btnSave;
         public System.Windows.Forms.TextBox txtDescription;
         public System.Windows.Forms.TextBox txtPricePerMonth;
-        public System.Windows.Forms.TextBox txtOnHandQty;
+        public System.Windows.Forms.TextBox txtTotalQty;
         public System.Windows.Forms.TextBox txtModelYear;
         public System.Windows.Forms.TextBox txtTypicalUsage;
         public System.Windows.Forms.TextBox txtPowerUsage;

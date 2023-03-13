@@ -16,6 +16,9 @@ namespace RentalProject
         public frmHome()
         {
             InitializeComponent();
+            AddComboBox(objclsBrand.GetSP_Brand(0), cboBrand);
+            AddComboBox(objclsType.GetSP_GetType(0), cboType);
+
         }
 
         clsItem objclsitem = new clsItem();
@@ -24,9 +27,7 @@ namespace RentalProject
          private void frmHome_Load(object sender, EventArgs e)
         {
             AddAppliaceItems();
-            AddComboBox(objclsBrand.GetSP_Brand(0),cboBrand);
-            AddComboBox(objclsType.GetSP_GetType(0), cboType);
-
+            
         }
         private void AddComboBox(DataTable DT,ComboBox cbo)
         {
@@ -53,15 +54,19 @@ namespace RentalProject
             DataTable DT = objclsitem.GetItem();
             foreach (DataRow dr in DT.Rows)
             {
-                frmHomeItems frm = new frmHomeItems(dr,false);
-                frm.Width = ((label1.Width-26)/3)-6;
-                frm.Margin= new Padding(3);
-                foreach (string ID in Program.Craft)
+                int OnHandQty = Convert.ToInt32(dr[7]);
+                if(OnHandQty > 0)
                 {
-                    if (dr[0].ToString() == ID)
-                        frm.btnCraft.Text = "Cancel";
+                    frmHomeItems frm = new frmHomeItems(dr, false);
+                    frm.Width = ((label1.Width-26)/3)-6;
+                    frm.Margin= new Padding(3);
+                    foreach (string ID in Program.Craft)
+                    {
+                        if (dr[0].ToString() == ID)
+                            frm.btnCraft.Text = "Cancel";
+                    }
+                    loadform(frm);
                 }
-                loadform(frm);
             }
         }
         

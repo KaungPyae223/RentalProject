@@ -17,6 +17,8 @@ namespace RentalProject
             AddBrandandCategory(objclsType.GetSP_GetType(0), cboType);    // call a method to add data to cboType
 
         }
+        public int OnHandQty;
+        public int TotalQty;
         public string ID;
         private Boolean IsEdit;
         public byte[] image = null;
@@ -86,15 +88,15 @@ namespace RentalProject
                 MessageBox.Show("The model year is wrong format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtModelYear.Focus();
             }
-            else if (txtOnHandQty.Text.Trim() == string.Empty)
+            else if (txtTotalQty.Text.Trim() == string.Empty)
             {
                 MessageBox.Show("Plese type a On Hand Qty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtOnHandQty.Focus();
+                txtTotalQty.Focus();
             }
-            else if (int.TryParse(txtOnHandQty.Text, out OK) == false)
+            else if (int.TryParse(txtTotalQty.Text, out OK) == false)
             {
                 MessageBox.Show("The On Hand Qty is wrong format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtOnHandQty.Focus();
+                txtTotalQty.Focus();
             }
             else if (txtPricePerMonth.Text.Trim() == string.Empty)
             {
@@ -126,7 +128,7 @@ namespace RentalProject
 
                         SaveData();
                         objClsItem.InsertItem();
-                        MessageBox.Show("Successfully Save");
+                        
                         objclsModify.Transation = "Insert";
                         objclsModify.saveTransation();
                         txtItemName.Text = "";
@@ -135,9 +137,10 @@ namespace RentalProject
                         txtPowerUsage.Text = string.Empty;
                         txtTypicalUsage.Text = string.Empty;
                         txtModelYear.Text = string.Empty;
-                        txtOnHandQty.Text = string.Empty;
+                        txtTotalQty.Text = string.Empty;
                         txtPricePerMonth.Text = string.Empty;
                         txtDescription.Text = string.Empty;
+                        MessageBox.Show("Successfully Save");
                     }
                 }
                 else
@@ -147,6 +150,7 @@ namespace RentalProject
 
                         SaveData();
                         objClsItem.ItemID=ID;
+                        objClsItem.OnHandQty = Convert.ToInt32(txtTotalQty.Text) - (TotalQty-OnHandQty);
                         objClsItem.UpdateItem();
                         objclsModify.ItemID=ID;
                         objclsModify.Transation = "Update";
@@ -169,7 +173,7 @@ namespace RentalProject
             objClsItem.PowerUsage = txtPowerUsage.Text.Trim();
             objClsItem.TypicalUsage = txtTypicalUsage.Text.Trim();
             objClsItem.ModelYear = txtModelYear.Text.Trim();
-            objClsItem.OnHandQty = Convert.ToInt32(txtOnHandQty.Text);
+            objClsItem.TotalQty = Convert.ToInt32(txtTotalQty.Text);
             objClsItem.Description = txtDescription.Text.Trim();
             objClsItem.PricePerMonth = Convert.ToInt32(txtPricePerMonth.Text);
             objClsItem.ItemImage = image;

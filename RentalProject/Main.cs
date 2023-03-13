@@ -141,5 +141,16 @@ namespace RentalProject
             loadform(new frmAdmin());
             MakeButtonColor(btnAdmin);
         }
+
+        private void btnHireList_Click(object sender, EventArgs e)
+        {
+            loadform(new frmHireList());
+        }
+
+        private void btnPaymentList_Click(object sender, EventArgs e)
+        {
+            loadform(new frmPaymentLists());
+
+        }
     }
 }

@@ -88,10 +88,13 @@ namespace RentalProject
                 frm.txtPowerUsage.Text = dgvItem.CurrentRow.Cells[4].Value.ToString();
                 frm.txtTypicalUsage.Text = dgvItem.CurrentRow.Cells[5].Value.ToString();
                 frm.txtModelYear.Text = dgvItem.CurrentRow.Cells[6].Value.ToString();
-                frm.txtOnHandQty.Text = dgvItem.CurrentRow.Cells[7].Value.ToString();
+                frm.txtTotalQty.Text = dgvItem.CurrentRow.Cells[11].Value.ToString();
                 frm.txtPricePerMonth.Text = dgvItem.CurrentRow.Cells[8].Value.ToString();
                 frm.txtDescription.Text = dgvItem.CurrentRow.Cells[9].Value.ToString();
                 frm.ID = dgvItem.CurrentRow.Cells[0].Value.ToString();
+                frm.OnHandQty = Convert.ToInt32(dgvItem.CurrentRow.Cells[7].Value);
+                frm.OnHandQty = Convert.ToInt32(dgvItem.CurrentRow.Cells[11].Value);
+
                 frm.btnSave.Text = "Edit";
                 frm.ShowDialog();
             }

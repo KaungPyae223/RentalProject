@@ -41,7 +41,7 @@
             this.btnAdmin = new System.Windows.Forms.Button();
             this.Slider = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnList = new System.Windows.Forms.Button();
+            this.btnHireList = new System.Windows.Forms.Button();
             this.btnPaymentList = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.mainPannel = new System.Windows.Forms.Panel();
@@ -253,7 +253,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnItems);
             this.flowLayoutPanel1.Controls.Add(this.btnUser);
             this.flowLayoutPanel1.Controls.Add(this.btnAdmin);
-            this.flowLayoutPanel1.Controls.Add(this.btnList);
+            this.flowLayoutPanel1.Controls.Add(this.btnHireList);
             this.flowLayoutPanel1.Controls.Add(this.btnPaymentList);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
@@ -264,24 +264,25 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(326, 690);
             this.flowLayoutPanel1.TabIndex = 12;
             // 
-            // btnList
+            // btnHireList
             // 
-            this.btnList.BackColor = System.Drawing.Color.White;
-            this.btnList.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
-            this.btnList.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btnList.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
-            this.btnList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnList.Image = ((System.Drawing.Image)(resources.GetObject("btnList.Image")));
-            this.btnList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnList.Location = new System.Drawing.Point(0, 516);
-            this.btnList.Margin = new System.Windows.Forms.Padding(0);
-            this.btnList.Name = "btnList";
-            this.btnList.Size = new System.Drawing.Size(326, 62);
-            this.btnList.TabIndex = 12;
-            this.btnList.Text = "           Rental list";
-            this.btnList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnList.UseVisualStyleBackColor = false;
+            this.btnHireList.BackColor = System.Drawing.Color.White;
+            this.btnHireList.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.btnHireList.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btnHireList.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.btnHireList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHireList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHireList.Image = ((System.Drawing.Image)(resources.GetObject("btnHireList.Image")));
+            this.btnHireList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHireList.Location = new System.Drawing.Point(0, 516);
+            this.btnHireList.Margin = new System.Windows.Forms.Padding(0);
+            this.btnHireList.Name = "btnHireList";
+            this.btnHireList.Size = new System.Drawing.Size(326, 62);
+            this.btnHireList.TabIndex = 12;
+            this.btnHireList.Text = "           Rental list";
+            this.btnHireList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHireList.UseVisualStyleBackColor = false;
+            this.btnHireList.Click += new System.EventHandler(this.btnHireList_Click);
             // 
             // btnPaymentList
             // 
@@ -301,6 +302,7 @@
             this.btnPaymentList.Text = "           Payment List";
             this.btnPaymentList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPaymentList.UseVisualStyleBackColor = false;
+            this.btnPaymentList.Click += new System.EventHandler(this.btnPaymentList_Click);
             // 
             // btnExit
             // 
@@ -367,7 +369,7 @@
         private System.Windows.Forms.Panel Slider;
         private System.Windows.Forms.Panel mainPannel;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Button btnList;
+        private System.Windows.Forms.Button btnHireList;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnPaymentList;
     }

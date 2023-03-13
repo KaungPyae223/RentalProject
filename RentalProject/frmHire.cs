@@ -34,19 +34,40 @@ namespace RentalProject
             cboPayment.SelectedIndex = 0;
             DataTable Date = objDate.GetDate(DateTime.Now, 3);
             lblDeadLine.Text = Convert.ToDateTime(Date.Rows[0][0]).ToString("dd-MMMM-yyyy");
-        }
 
+            DataTable Dt = new DataTable();
+            Dt = objClsHire.GetHireList();
+            if (Dt.Rows.Count == 0)  //check there is data or not in Database
+            {
+                lblHireID.Text = "H-0000001";
+            }
+            else
+            {
+                int lastIndx = Dt.Rows.Count- 1;                    //get the last Index
+                string BrandID = Dt.Rows[lastIndx][0].ToString();   //get the ID from last index
+                string[] MakeID = BrandID.Split('-');               // split the ID by using split function from I and 001 seprate to add the ID number
+                int IDNum = Convert.ToInt32(MakeID[1])+1;           // add the Id num from behind '-'
+                MakeID[1] = IDNum.ToString("0000000");                  // get the ID number
+                lblHireID.Text = MakeID[0]+"-"+MakeID[1];
+            }
+        }
+        int Quantity = 0;
+        int Total = 0;
+        int MainTotal;
         RentalTableAdapters.SP_ExtendedDateTableAdapter objDate = new RentalTableAdapters.SP_ExtendedDateTableAdapter();
         clsCustomer objClsCustomer = new clsCustomer();
         clsDelivery objClsDelivery = new clsDelivery();
         clsItem objClsItem = new clsItem();
+        clsHire objClsHire = new clsHire();
+        clsPayment objClsPayment = new clsPayment();
+        clsHieDetails objClsHireDetails = new clsHieDetails();
         private void frmHire_Load(object sender, EventArgs e)
         {
             DataTable Item = new DataTable();
             Item.Columns.Add("Item Name");
             Item.Columns.Add("Price");
-            int Total = 0;
-            int Quantity = 0;
+
+
             foreach (string ID in Program.Craft)
             {
                 Quantity++;
@@ -72,7 +93,7 @@ namespace RentalProject
             lblDeliveryCost.Text = (Quantity*25).ToString()+" £";
             lblInsuranceCost.Text = (Total*6).ToString()+" £";
             lblTotalHirePrice.Text = (Total*3).ToString()+" £";
-            int MainTotal = ((Total*9)+(Quantity*25));
+            MainTotal = ((Total*9)+(Quantity*25));
             int Tax = (MainTotal/100)*5;
             lblTax.Text = Tax.ToString()+" £";
             lblTotal.Text = (MainTotal+Tax).ToString()+" £";
@@ -80,30 +101,72 @@ namespace RentalProject
 
         private void btnHire_Click(object sender, EventArgs e)
         {
-            if(txtLocation.Text == string.Empty)
+            if (txtLocation.Text == string.Empty)
             {
                 MessageBox.Show("Plese type a Location", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtLocation.Focus();
             }
-            else if(txtPhone.Text == string.Empty)
+            else if (txtPhone.Text == string.Empty)
             {
                 MessageBox.Show("Plese type a Phone", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPhone.Focus();
             }
-            else if(cboPayment.SelectedIndex == 0)
+            else if (cboPayment.SelectedIndex == 0)
             {
                 MessageBox.Show("Plese Select a payment", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-            else if(txtAggree.Text != "I aggree with all")
+            else if (txtAggree.Text != "I aggree with all")
             {
-                MessageBox.Show("Plese type a \"I aggree with all\"", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Plese type a \"I aggree with all\" ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtAggree.Focus();
             }
             else
             {
 
+                if (MessageBox.Show("Sure to Hire all Appliances", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
+                {
+                    saveData();
+                    objClsHire.SaveHire();
+                    foreach (string ID in Program.Craft)
+                    {
+
+                        objClsHireDetails.ItemID = ID;
+                        objClsHireDetails.HireID = lblHireID.Text;
+                        objClsHireDetails.AddHireDetails();
+                        DataTable DT = objClsItem.getSP_Item(ID, 0);
+                        int OnHandQty = Convert.ToInt32(DT.Rows[0][7])-1;
+                        clsItem Item = new clsItem();
+                        Item.ItemID = ID;
+                        Item.OnHandQty = OnHandQty;
+                        Item.UpdateOnHandQty();
+
+                    }
+                    objClsPayment.AddPayment();
+                    MessageBox.Show("Successfully Hire the Home Appliances \nThe Home appliances will deliver to your location within one week", "Successfully Hire");
+                    this.Close();
+                }
             }
+        }
+        public void saveData()
+        {
+            objClsHire.CustomerID = lblCustomerID.Text;
+            objClsHire.HireID = lblHireID.Text;
+            objClsHire.DeliveryID = cboDelivery.SelectedValue.ToString();
+            objClsHire.HireLocation = txtLocation.Text;
+            objClsHire.CustomerPhone = txtPhone.Text;
+            objClsHire.DeliveryCost = (Quantity*25);
+            objClsHire.TotalHirePricePerMonth = Total;
+            objClsHire.InsuranceCost = (Total*6);
+            objClsHire.TotalHireQty = Quantity;
+            objClsPayment.Tax =  (MainTotal/100)*5;
+            objClsPayment.Description = "New Hire with 3 monthes extended";
+            objClsPayment.HireID = lblHireID.Text;
+            objClsPayment.PaymentType = cboPayment.SelectedItem.ToString();
+            objClsPayment.HireAmount = MainTotal;
+            objClsPayment.TotalPaymentAmont = MainTotal+(MainTotal/100)*5;
+
+
         }
     }
 }
