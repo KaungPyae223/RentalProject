@@ -6,7 +6,6 @@ namespace RentalProject.Classes
     internal class clsHire
     {
         RentalTableAdapters.HireTableAdapter objHire = new RentalTableAdapters.HireTableAdapter();
-        RentalTableAdapters.SP_ExtendedDateTableAdapter objDate = new RentalTableAdapters.SP_ExtendedDateTableAdapter();
         RentalTableAdapters.vi_HireTableAdapter objvi_Hire = new RentalTableAdapters.vi_HireTableAdapter();
 
         private string _HireID, _CustomerID, _DeliveryID, _HireLocation, _CustomerPhone;
@@ -76,9 +75,9 @@ namespace RentalProject.Classes
         }
         public void SaveHire()
         {
-            DataTable DT = objDate.GetDate(DateTime.Now, 3);
-            DateTime Deadline = Convert.ToDateTime(DT.Rows[0][0]);
-            objHire.Insert(HireID, CustomerID, DeliveryID, DeliveryCost, TotalHirePricePerMonth, DateTime.Now, HireLocation, CustomerPhone, Deadline, InsuranceCost, null, TotalHireQty);
+            DateTime Now = DateTime.Now;
+            DateTime DeadLine = Now.AddMonths(3);
+            objHire.Insert(HireID, CustomerID, DeliveryID, DeliveryCost, TotalHirePricePerMonth, DateTime.Now, HireLocation, CustomerPhone, DeadLine, InsuranceCost, null, TotalHireQty);
         }
         public DataTable GetHireList()
         {

@@ -17,7 +17,7 @@ namespace RentalProject
             cboDelivery.DisplayMember = DT.Columns[1].ColumnName;
             cboDelivery.ValueMember = DT.Columns[0].ColumnName;
             cboDelivery.SelectedIndex = 0;
-            lblToday.Text = DateTime.Now.ToString("dd-MMMM-yyyy");
+            lblToday.Text = DateTime.Now.ToString("dd MMMM yyyy");
             DataTable Customer = Program.DT;
             lblName.Text = Customer.Rows[0][3].ToString();
             lblEmail.Text = Customer.Rows[0][5].ToString();
@@ -32,8 +32,9 @@ namespace RentalProject
                 CustomrePicture.Image = Image.FromStream(ms);
             }
             cboPayment.SelectedIndex = 0;
-            DataTable Date = objDate.GetDate(DateTime.Now, 3);
-            lblDeadLine.Text = Convert.ToDateTime(Date.Rows[0][0]).ToString("dd-MMMM-yyyy");
+            DateTime DeadLine = DateTime.Now.AddMonths(3);
+
+            lblDeadLine.Text = DeadLine.ToString("dd MMMM yyyy");
 
             DataTable Dt = new DataTable();
             Dt = objClsHire.GetHireList();
@@ -54,7 +55,6 @@ namespace RentalProject
         int Quantity = 0;
         int Total = 0;
         int MainTotal;
-        RentalTableAdapters.SP_ExtendedDateTableAdapter objDate = new RentalTableAdapters.SP_ExtendedDateTableAdapter();
         clsCustomer objClsCustomer = new clsCustomer();
         clsDelivery objClsDelivery = new clsDelivery();
         clsItem objClsItem = new clsItem();
