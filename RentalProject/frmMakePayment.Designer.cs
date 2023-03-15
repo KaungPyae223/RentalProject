@@ -35,26 +35,26 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvPayment = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.cboPaymentType = new System.Windows.Forms.ComboBox();
+            this.lblGrandTotal = new System.Windows.Forms.Label();
+            this.lblTotalTax = new System.Windows.Forms.Label();
+            this.lblTotalHireAmont = new System.Windows.Forms.Label();
+            this.lblNewDueDate = new System.Windows.Forms.Label();
+            this.lblOldDueDate = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
+            this.lblToday = new System.Windows.Forms.Label();
             this.cboMonth = new System.Windows.Forms.ComboBox();
-            this.cboPaymentType = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnPayment = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPayment)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -106,7 +106,7 @@
             this.dgvPayment.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvPayment.Dock = System.Windows.Forms.DockStyle.Left;
             this.dgvPayment.Location = new System.Drawing.Point(0, 76);
-            this.dgvPayment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvPayment.Margin = new System.Windows.Forms.Padding(4);
             this.dgvPayment.Name = "dgvPayment";
             this.dgvPayment.ReadOnly = true;
             this.dgvPayment.RowHeadersVisible = false;
@@ -124,11 +124,11 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.cboPaymentType, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.label19, 1, 8);
-            this.tableLayoutPanel1.Controls.Add(this.label18, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.label17, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.label15, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label14, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.lblGrandTotal, 1, 8);
+            this.tableLayoutPanel1.Controls.Add(this.lblTotalTax, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.lblTotalHireAmont, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.lblNewDueDate, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.lblOldDueDate, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label12, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label10, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 4);
@@ -139,7 +139,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.label8, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.label9, 0, 7);
-            this.tableLayoutPanel1.Controls.Add(this.label11, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblToday, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.cboMonth, 1, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(496, 76);
@@ -157,6 +157,98 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(565, 554);
             this.tableLayoutPanel1.TabIndex = 10;
+            // 
+            // cboPaymentType
+            // 
+            this.cboPaymentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPaymentType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboPaymentType.FormattingEnabled = true;
+            this.cboPaymentType.Items.AddRange(new object[] {
+            "Select a Payment",
+            "Cash",
+            "Pay Pal",
+            "Master",
+            "Visa"});
+            this.cboPaymentType.Location = new System.Drawing.Point(285, 313);
+            this.cboPaymentType.Name = "cboPaymentType";
+            this.cboPaymentType.Size = new System.Drawing.Size(262, 33);
+            this.cboPaymentType.TabIndex = 19;
+            // 
+            // lblGrandTotal
+            // 
+            this.lblGrandTotal.AutoSize = true;
+            this.lblGrandTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGrandTotal.Location = new System.Drawing.Point(285, 481);
+            this.lblGrandTotal.Name = "lblGrandTotal";
+            this.lblGrandTotal.Size = new System.Drawing.Size(48, 32);
+            this.lblGrandTotal.TabIndex = 17;
+            this.lblGrandTotal.Text = "40";
+            // 
+            // lblTotalTax
+            // 
+            this.lblTotalTax.AutoSize = true;
+            this.lblTotalTax.Location = new System.Drawing.Point(285, 424);
+            this.lblTotalTax.Name = "lblTotalTax";
+            this.lblTotalTax.Size = new System.Drawing.Size(23, 25);
+            this.lblTotalTax.TabIndex = 16;
+            this.lblTotalTax.Text = "0";
+            // 
+            // lblTotalHireAmont
+            // 
+            this.lblTotalHireAmont.AutoSize = true;
+            this.lblTotalHireAmont.Location = new System.Drawing.Point(285, 367);
+            this.lblTotalHireAmont.Name = "lblTotalHireAmont";
+            this.lblTotalHireAmont.Size = new System.Drawing.Size(23, 25);
+            this.lblTotalHireAmont.TabIndex = 15;
+            this.lblTotalHireAmont.Text = "0";
+            // 
+            // lblNewDueDate
+            // 
+            this.lblNewDueDate.AutoSize = true;
+            this.lblNewDueDate.Location = new System.Drawing.Point(285, 253);
+            this.lblNewDueDate.Name = "lblNewDueDate";
+            this.lblNewDueDate.Size = new System.Drawing.Size(132, 25);
+            this.lblNewDueDate.TabIndex = 13;
+            this.lblNewDueDate.Text = "12 June 2023";
+            // 
+            // lblOldDueDate
+            // 
+            this.lblOldDueDate.AutoSize = true;
+            this.lblOldDueDate.Location = new System.Drawing.Point(285, 196);
+            this.lblOldDueDate.Name = "lblOldDueDate";
+            this.lblOldDueDate.Size = new System.Drawing.Size(143, 25);
+            this.lblOldDueDate.TabIndex = 12;
+            this.lblOldDueDate.Text = "12 March 2023";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(285, 82);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(77, 25);
+            this.label12.TabIndex = 10;
+            this.label12.Text = "H-0001";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(18, 481);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(83, 32);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "Total";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(18, 253);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(138, 25);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "New Due Date";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
@@ -198,16 +290,6 @@
             this.label5.Text = "Old Due Date";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(18, 253);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(138, 25);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "New Due Date";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -238,79 +320,14 @@
             this.label9.Text = "Tax";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label10
+            // lblToday
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(18, 481);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(83, 32);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "Total";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(285, 25);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(143, 25);
-            this.label11.TabIndex = 9;
-            this.label11.Text = "12 March 2023";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(285, 82);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(77, 25);
-            this.label12.TabIndex = 10;
-            this.label12.Text = "H-0001";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(285, 196);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(143, 25);
-            this.label14.TabIndex = 12;
-            this.label14.Text = "12 March 2023";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(285, 253);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(132, 25);
-            this.label15.TabIndex = 13;
-            this.label15.Text = "12 June 2023";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(285, 367);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(75, 25);
-            this.label17.TabIndex = 15;
-            this.label17.Text = "label17";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(285, 424);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(75, 25);
-            this.label18.TabIndex = 16;
-            this.label18.Text = "label18";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(285, 481);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(75, 25);
-            this.label19.TabIndex = 17;
-            this.label19.Text = "label19";
+            this.lblToday.AutoSize = true;
+            this.lblToday.Location = new System.Drawing.Point(285, 25);
+            this.lblToday.Name = "lblToday";
+            this.lblToday.Size = new System.Drawing.Size(143, 25);
+            this.lblToday.TabIndex = 9;
+            this.lblToday.Text = "12 March 2023";
             // 
             // cboMonth
             // 
@@ -334,45 +351,32 @@
             this.cboMonth.Name = "cboMonth";
             this.cboMonth.Size = new System.Drawing.Size(262, 33);
             this.cboMonth.TabIndex = 18;
+            this.cboMonth.SelectedIndexChanged += new System.EventHandler(this.cboMonth_SelectedIndexChanged);
             // 
-            // cboPaymentType
+            // btnCancel
             // 
-            this.cboPaymentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboPaymentType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboPaymentType.FormattingEnabled = true;
-            this.cboPaymentType.Items.AddRange(new object[] {
-            "Select a Payment",
-            "Cash",
-            "Pay Pal",
-            "Master",
-            "Visa"});
-            this.cboPaymentType.Location = new System.Drawing.Point(285, 313);
-            this.cboPaymentType.Name = "cboPaymentType";
-            this.cboPaymentType.Size = new System.Drawing.Size(262, 33);
-            this.cboPaymentType.TabIndex = 19;
+            this.btnCancel.Location = new System.Drawing.Point(253, 29);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(128, 50);
+            this.btnCancel.TabIndex = 11;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // button1
+            // btnPayment
             // 
-            this.button1.Location = new System.Drawing.Point(253, 29);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(128, 50);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Cancel";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(419, 29);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(128, 50);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Payment";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnPayment.Location = new System.Drawing.Point(419, 29);
+            this.btnPayment.Name = "btnPayment";
+            this.btnPayment.Size = new System.Drawing.Size(128, 50);
+            this.btnPayment.TabIndex = 12;
+            this.btnPayment.Text = "Payment";
+            this.btnPayment.UseVisualStyleBackColor = true;
+            this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnPayment);
+            this.groupBox1.Controls.Add(this.btnCancel);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox1.Location = new System.Drawing.Point(496, 619);
             this.groupBox1.Name = "groupBox1";
@@ -382,8 +386,8 @@
             // 
             // frmMakePayment
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1061, 719);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -391,7 +395,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmMakePayment";
@@ -412,11 +416,11 @@
         private System.Windows.Forms.DataGridView dgvPayment;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblGrandTotal;
+        private System.Windows.Forms.Label lblTotalTax;
+        private System.Windows.Forms.Label lblTotalHireAmont;
+        private System.Windows.Forms.Label lblNewDueDate;
+        private System.Windows.Forms.Label lblOldDueDate;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label6;
@@ -426,11 +430,11 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblToday;
         private System.Windows.Forms.ComboBox cboMonth;
         private System.Windows.Forms.ComboBox cboPaymentType;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnPayment;
         private System.Windows.Forms.GroupBox groupBox1;
     }
 }

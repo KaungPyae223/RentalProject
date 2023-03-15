@@ -54,7 +54,18 @@ namespace RentalProject
 
         private void btnPayment_Click(object sender, EventArgs e)
         {
+            if (dgvPayment.CurrentRow.Cells[0].Value.ToString() == string.Empty)
+            {
+                MessageBox.Show("Plese choose a payment to you want to make", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+            }
+            else
+            {
+                string HireID = dgvPayment.CurrentRow.Cells[0].Value.ToString();
+                DateTime DeadLineDate = Convert.ToDateTime(dgvPayment.CurrentRow.Cells[8].Value);
+                frmMakePayment payment = new frmMakePayment(HireID,DeadLineDate);
+                payment.ShowDialog();
+            }
         }
     }
 }

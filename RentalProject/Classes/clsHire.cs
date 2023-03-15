@@ -79,6 +79,10 @@ namespace RentalProject.Classes
             DateTime DeadLine = Now.AddMonths(3);
             objHire.Insert(HireID, CustomerID, DeliveryID, DeliveryCost, TotalHirePricePerMonth, DateTime.Now, HireLocation, CustomerPhone, DeadLine, InsuranceCost, null, TotalHireQty);
         }
+        public void UpdateHire()
+        {
+            objHire.UpdateDeadLine(DeadlineDate.ToString(),HireID);
+        }
         public DataTable GetHireList()
         {
             return objvi_Hire.GetData();

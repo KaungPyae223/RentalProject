@@ -113,6 +113,12 @@
     <Compile Include="frmHireList.Designer.cs">
       <DependentUpon>frmHireList.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHistory.Designer.cs">
+      <DependentUpon>frmHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmHome.cs">
       <SubType>Form</SubType>
     </Compile>

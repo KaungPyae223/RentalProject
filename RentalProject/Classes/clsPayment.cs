@@ -46,7 +46,6 @@ namespace RentalProject.Classes
         {
             return objPayment.GetPayment();
 
-
         }
     }
 }

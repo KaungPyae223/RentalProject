@@ -113,7 +113,7 @@ namespace RentalProject
             }
             else if (cboPayment.SelectedIndex == 0)
             {
-                MessageBox.Show("Plese Select a payment", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Plese choose a payment type", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
             else if (txtAggree.Text != "I aggree with all")
