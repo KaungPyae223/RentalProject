@@ -21,19 +21,39 @@ namespace RentalProject
         {
             DataTable dt = Program.DT;
             string ID = dt.Rows[0][0].ToString();
-            dgvPayment.DataSource = objHire.GetPayment(ID);
+            DataTable DT = objHire.GetPayment(ID);
+            DataColumn DCHire = new DataColumn("Hire Date", typeof(string));
+            DataColumn DCDue = new DataColumn("Due Date",typeof(string));
+            DT.Columns.Add(DCHire);
+            DT.Columns.Add(DCDue);
+            foreach(DataRow dr in DT.Rows)
+            {
+                string Hire = Convert.ToDateTime(dr[5]).ToString("dd MMMM yyyy");
+
+                string DueDate = Convert.ToDateTime(dr[8]).ToString("dd MMMM yyyy");
+                dr["Due Date"]=DueDate;
+                dr["Hire Date"]=Hire;
+            }
+            dgvPayment.DataSource =DT; 
             dgvPayment.Columns[0].Width = (dgvPayment.Width/100)*15;
             dgvPayment.Columns[1].Visible = false;
             dgvPayment.Columns[2].Visible = false;
             dgvPayment.Columns[3].Visible = false;
             dgvPayment.Columns[4].Width = (dgvPayment.Width/100)*23;
-            dgvPayment.Columns[5].Width = (dgvPayment.Width/100)*23;
+            dgvPayment.Columns[5].Visible = false;
             dgvPayment.Columns[6].Visible = false;
             dgvPayment.Columns[7].Visible = false;
-            dgvPayment.Columns[8].Width = (dgvPayment.Width/100)*20;
+            dgvPayment.Columns[8].Visible = false;
             dgvPayment.Columns[9].Visible = false;
             dgvPayment.Columns[10].Visible = false;
             dgvPayment.Columns[11].Width = (dgvPayment.Width/100)*20;
+            dgvPayment.Columns[12].Width = (dgvPayment.Width/100)*20;
+            dgvPayment.Columns[13].Width = (dgvPayment.Width/100)*20;
+            dgvPayment.Columns[11].DisplayIndex = 13;
+        }
+
+        private void btnPayment_Click(object sender, EventArgs e)
+        {
 
         }
     }

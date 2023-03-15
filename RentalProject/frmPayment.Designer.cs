@@ -36,7 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnMenu = new System.Windows.Forms.Button();
+            this.btnPayment = new System.Windows.Forms.Button();
             this.dgvPayment = new System.Windows.Forms.DataGridView();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPayment)).BeginInit();
@@ -71,30 +71,31 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.panel2.Controls.Add(this.btnMenu);
+            this.panel2.Controls.Add(this.btnPayment);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 687);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(800, 82);
             this.panel2.TabIndex = 4;
             // 
-            // btnMenu
+            // btnPayment
             // 
-            this.btnMenu.BackColor = System.Drawing.Color.White;
-            this.btnMenu.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
-            this.btnMenu.FlatAppearance.BorderSize = 0;
-            this.btnMenu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btnMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
-            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnMenu.Image")));
-            this.btnMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenu.Location = new System.Drawing.Point(25, 15);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(259, 55);
-            this.btnMenu.TabIndex = 2;
-            this.btnMenu.Text = "       Make a Payment";
-            this.btnMenu.UseVisualStyleBackColor = false;
+            this.btnPayment.BackColor = System.Drawing.Color.White;
+            this.btnPayment.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.btnPayment.FlatAppearance.BorderSize = 0;
+            this.btnPayment.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btnPayment.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.btnPayment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPayment.Image = ((System.Drawing.Image)(resources.GetObject("btnPayment.Image")));
+            this.btnPayment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPayment.Location = new System.Drawing.Point(25, 15);
+            this.btnPayment.Name = "btnPayment";
+            this.btnPayment.Size = new System.Drawing.Size(259, 55);
+            this.btnPayment.TabIndex = 2;
+            this.btnPayment.Text = "       Make a Payment";
+            this.btnPayment.UseVisualStyleBackColor = false;
+            this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
             // 
             // dgvPayment
             // 
@@ -163,7 +164,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnMenu;
+        private System.Windows.Forms.Button btnPayment;
         private System.Windows.Forms.DataGridView dgvPayment;
     }
 }

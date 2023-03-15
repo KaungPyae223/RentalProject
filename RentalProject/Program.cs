@@ -24,7 +24,7 @@ namespace RentalProject
             }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LogIn());
+            Application.Run(new frmMakePayment());
          
         }
         public static string[] Properties = new string[] {};

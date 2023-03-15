@@ -30,7 +30,7 @@ namespace RentalProject
             dgvPaymentList.Columns[5].Width = (dgvPaymentList.Width/100)*25;
             dgvPaymentList.Columns[6].Width = (dgvPaymentList.Width/100)*10;
             dgvPaymentList.Columns[7].Width = (dgvPaymentList.Width/100)*15;
-
+            dgvPaymentList.Columns[2].DisplayIndex=6;
         }
     }
 }
