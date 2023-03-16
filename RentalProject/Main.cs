@@ -12,8 +12,8 @@ namespace RentalProject
         {
             InitializeComponent();
             /*this.DT = Program.DT;
-            btnProfile.Text = DT.Rows[0]["AccountName"].ToString();*/
-        }
+            btnProfile.Text = DT.Rows[0]["AccountName"].ToString();
+       */ }
         DataTable   DT = new DataTable();
         
 
@@ -56,7 +56,8 @@ namespace RentalProject
             btnPayment.BackColor = Color.White;
             btnProfile.BackColor = Color.White;
             btnHistory.BackColor = Color.White;
-            btnHistory.BackColor = Color.White;
+            btnHireList.BackColor = Color.White;
+            btnPaymentList.BackColor = Color.White;
             btnHome.BackColor = Color.White;
             btnItems.BackColor = Color.White;
             btnAdmin.BackColor = Color.White;
@@ -98,16 +99,15 @@ namespace RentalProject
                     case "Admin":
                         btnAdmin.Visible = true;
                         break;
-                    case "List":
-                        btnList.Visible = true;
+                    case "RentalList":
+                        btnHireList.Visible = true;
                         break;
                     case "PaymentList":
                         btnPaymentList.Visible = true;
                         break;
                 }
-            }*/
-
-
+            }
+            */
         }
 
         private void btnItems_Click(object sender, EventArgs e)
@@ -145,12 +145,21 @@ namespace RentalProject
         private void btnHireList_Click(object sender, EventArgs e)
         {
             loadform(new frmHireList());
+            MakeButtonColor(btnHireList);
+
         }
 
         private void btnPaymentList_Click(object sender, EventArgs e)
         {
             loadform(new frmPaymentLists());
+            MakeButtonColor(btnPaymentList);
 
+        }
+
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+            loadform(new frmHistory());
+            MakeButtonColor(btnHistory);
         }
     }
 }

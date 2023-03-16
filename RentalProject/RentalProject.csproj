@@ -216,6 +216,9 @@
     <EmbeddedResource Include="frmHireList.resx">
       <DependentUpon>frmHireList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmHistory.resx">
+      <DependentUpon>frmHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>
     </EmbeddedResource>

@@ -29,13 +29,12 @@
         private void InitializeComponent()
         {
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtItemName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cboBrand = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cboType = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.HomeMainPannel = new System.Windows.Forms.FlowLayoutPanel();
@@ -44,6 +43,7 @@
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.txtMaxPrice = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
@@ -63,15 +63,17 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Item Name";
             // 
-            // textBox2
+            // txtItemName
             // 
-            this.textBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(122, 15);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(177, 30);
-            this.textBox2.TabIndex = 1;
+            this.txtItemName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtItemName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtItemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtItemName.Location = new System.Drawing.Point(122, 15);
+            this.txtItemName.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
+            this.txtItemName.Name = "txtItemName";
+            this.txtItemName.Size = new System.Drawing.Size(216, 30);
+            this.txtItemName.TabIndex = 1;
+            this.txtItemName.TextChanged += new System.EventHandler(this.txtItemName_TextChanged);
             // 
             // label4
             // 
@@ -95,6 +97,7 @@
             this.cboBrand.Name = "cboBrand";
             this.cboBrand.Size = new System.Drawing.Size(177, 33);
             this.cboBrand.TabIndex = 5;
+            this.cboBrand.SelectedIndexChanged += new System.EventHandler(this.cboBrand_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -118,6 +121,7 @@
             this.cboType.Name = "cboType";
             this.cboType.Size = new System.Drawing.Size(177, 33);
             this.cboType.TabIndex = 3;
+            this.cboType.SelectedIndexChanged += new System.EventHandler(this.cboType_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -126,21 +130,9 @@
             this.label3.Location = new System.Drawing.Point(35, 20);
             this.label3.Margin = new System.Windows.Forms.Padding(35, 20, 3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 25);
+            this.label3.Size = new System.Drawing.Size(99, 25);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Price";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(97, 15);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
-            this.comboBox3.MaxDropDownItems = 60;
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(177, 33);
-            this.comboBox3.TabIndex = 6;
+            this.label3.Text = "Max Price";
             // 
             // label1
             // 
@@ -200,7 +192,7 @@
             // flowLayoutPanel4
             // 
             this.flowLayoutPanel4.Controls.Add(this.label3);
-            this.flowLayoutPanel4.Controls.Add(this.comboBox3);
+            this.flowLayoutPanel4.Controls.Add(this.txtMaxPrice);
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel4.Location = new System.Drawing.Point(1077, 3);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
@@ -220,7 +212,7 @@
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.label5);
-            this.flowLayoutPanel2.Controls.Add(this.textBox2);
+            this.flowLayoutPanel2.Controls.Add(this.txtItemName);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
@@ -236,6 +228,18 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(352, 90);
             this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // txtMaxPrice
+            // 
+            this.txtMaxPrice.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtMaxPrice.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtMaxPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaxPrice.Location = new System.Drawing.Point(140, 15);
+            this.txtMaxPrice.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
+            this.txtMaxPrice.Name = "txtMaxPrice";
+            this.txtMaxPrice.Size = new System.Drawing.Size(158, 30);
+            this.txtMaxPrice.TabIndex = 8;
+            this.txtMaxPrice.TextChanged += new System.EventHandler(this.txtMaxPrice_TextChanged);
             // 
             // frmHome
             // 
@@ -265,14 +269,13 @@
 
         #endregion
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtItemName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cboBrand;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cboType;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.FlowLayoutPanel HomeMainPannel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -280,5 +283,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.TextBox txtMaxPrice;
     }
 }

@@ -20,13 +20,13 @@ namespace RentalProject
         {
 
             if (cboPost.SelectedIndex == 0)
-                properties = "Home,Profile,Item,List";
+                properties = "Home,Profile,Item";
             else if (cboPost.SelectedIndex == 1)
-                properties = "Home,Profile,Item,List,User";
+                properties = "Home,Profile,Item,User";
             else if (cboPost.SelectedIndex == 2)
-                properties = "Home,Profile,Item,List,User,RentalList";
+                properties = "Home,Profile,Item,User,RentalList";
             else if (cboPost.SelectedIndex == 3)
-                properties = "Home,Profile,Item,List,User,RentalList,PaymentList,Admin";
+                properties = "Home,Profile,Item,User,RentalList,PaymentList,Admin";
 
             ShowProperties();
 
@@ -81,6 +81,8 @@ namespace RentalProject
                 BinaryReader brs = new BinaryReader(File);
                 image = brs.ReadBytes((int)File.Length);
                 objAdmin.Insert(txtID.Text, cboPost.Text, properties, txtAccountName.Text, txtName.Text, txtLocation.Text, txtEmail.Text, txtPhone.Text, txtNRC.Text, txtPassword.Text, txtInfo.Text, DateTime.Now, image);
+                MessageBox.Show("Successfully Save");
+                this.Close();
             }
             
         }
