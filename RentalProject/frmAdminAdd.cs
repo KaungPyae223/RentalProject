@@ -15,6 +15,7 @@ namespace RentalProject
         }
         string properties;
         string imageLocation;
+        byte[] image;
         RentalTableAdapters.AdminTableAdapter objAdmin = new RentalTableAdapters.AdminTableAdapter();
         private void cboPost_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -76,10 +77,14 @@ namespace RentalProject
         {
             if(CheckData())
             {
-                byte[] image = null;
-                FileStream File = new FileStream(imageLocation, FileMode.Open, FileAccess.Read);
-                BinaryReader brs = new BinaryReader(File);
-                image = brs.ReadBytes((int)File.Length);
+                image = null;
+                if(imageLocation != string.Empty)
+                {
+                    FileStream File = new FileStream(imageLocation, FileMode.Open, FileAccess.Read);
+                    BinaryReader brs = new BinaryReader(File);
+                    image = brs.ReadBytes((int)File.Length);
+                }
+                
                 objAdmin.Insert(txtID.Text, cboPost.Text, properties, txtAccountName.Text, txtName.Text, txtLocation.Text, txtEmail.Text, txtPhone.Text, txtNRC.Text, txtPassword.Text, txtInfo.Text, DateTime.Now, image);
                 MessageBox.Show("Successfully Save");
                 this.Close();

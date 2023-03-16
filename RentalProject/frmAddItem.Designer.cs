@@ -325,11 +325,12 @@
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.ItemPicture);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAddItem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmAddItem";
+            this.Text = "Add Item";
             this.Load += new System.EventHandler(this.frmAddItem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ItemPicture)).EndInit();
             this.panel1.ResumeLayout(false);

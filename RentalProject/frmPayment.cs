@@ -15,26 +15,13 @@ namespace RentalProject
         public frmPayment()
         {
             InitializeComponent();
+            dt = Program.DT;
         }
+        DataTable dt;
         RentalTableAdapters.HireTableAdapter objHire = new RentalTableAdapters.HireTableAdapter();
         private void frmPayment_Load(object sender, EventArgs e)
         {
-            DataTable dt = Program.DT;
-            string ID = dt.Rows[0][0].ToString();
-            DataTable DT = objHire.GetPayment(ID);
-            DataColumn DCHire = new DataColumn("Hire Date", typeof(string));
-            DataColumn DCDue = new DataColumn("Due Date",typeof(string));
-            DT.Columns.Add(DCHire);
-            DT.Columns.Add(DCDue);
-            foreach(DataRow dr in DT.Rows)
-            {
-                string Hire = Convert.ToDateTime(dr[5]).ToString("dd MMMM yyyy");
-
-                string DueDate = Convert.ToDateTime(dr[8]).ToString("dd MMMM yyyy");
-                dr["Due Date"]=DueDate;
-                dr["Hire Date"]=Hire;
-            }
-            dgvPayment.DataSource =DT; 
+            GridViewShow();
             dgvPayment.Columns[0].Width = (dgvPayment.Width/100)*15;
             dgvPayment.Columns[1].Visible = false;
             dgvPayment.Columns[2].Visible = false;
@@ -51,7 +38,24 @@ namespace RentalProject
             dgvPayment.Columns[13].Width = (dgvPayment.Width/100)*20;
             dgvPayment.Columns[11].DisplayIndex = 13;
         }
+        private void GridViewShow()
+        {
+            string ID = dt.Rows[0][0].ToString();
+            DataTable DT = objHire.GetPayment(ID);
+            DataColumn DCHire = new DataColumn("Hire Date", typeof(string));
+            DataColumn DCDue = new DataColumn("Due Date", typeof(string));
+            DT.Columns.Add(DCHire);
+            DT.Columns.Add(DCDue);
+            foreach (DataRow dr in DT.Rows)
+            {
+                string Hire = Convert.ToDateTime(dr[5]).ToString("dd MMMM yyyy");
 
+                string DueDate = Convert.ToDateTime(dr[8]).ToString("dd MMMM yyyy");
+                dr["Due Date"]=DueDate;
+                dr["Hire Date"]=Hire;
+            }
+            dgvPayment.DataSource =DT;
+        }
         private void btnPayment_Click(object sender, EventArgs e)
         {
             if (dgvPayment.CurrentRow.Cells[0].Value.ToString() == string.Empty)
@@ -65,6 +69,7 @@ namespace RentalProject
                 DateTime DeadLineDate = Convert.ToDateTime(dgvPayment.CurrentRow.Cells[8].Value);
                 frmMakePayment payment = new frmMakePayment(HireID,DeadLineDate);
                 payment.ShowDialog();
+                GridViewShow();
             }
         }
     }

@@ -118,18 +118,21 @@ namespace RentalProject
         {
             frmBrandandCategoryAdd frm = new frmBrandandCategoryAdd(true, false);
             frm.ShowDialog();
+            showData();
         }
 
         private void tsbTypeNew_Click(object sender, EventArgs e)
         {
             frmBrandandCategoryAdd frm = new frmBrandandCategoryAdd(false, false);
             frm.ShowDialog();
+            showData();
         }
 
         private void tsbDeliveryNew_Click(object sender, EventArgs e)
         {
             frmDelivery frm = new frmDelivery(false);
             frm.ShowDialog();
+            showData();
         }
 
         private void tsbBrandEdit_Click(object sender, EventArgs e)
@@ -196,6 +199,7 @@ namespace RentalProject
                 {
                     ClsBrand.BrandID = dgvItem.CurrentRow.Cells[0].Value.ToString();
                     ClsBrand.RemoveBrand();
+                    showData();
                 }
             }
         }
@@ -212,6 +216,7 @@ namespace RentalProject
                 {
                     ClsType.TypeID = dgvItem.CurrentRow.Cells[0].Value.ToString();
                     ClsType.RemoveType();
+                    showData();
                 }
             }
         }
@@ -228,6 +233,7 @@ namespace RentalProject
                 {
                     ClsDelivery.DeliveryID = dgvItem.CurrentRow.Cells[0].Value.ToString();
                     ClsDelivery.DeleteDelivery();
+                    showData();
                 }
             }
         }

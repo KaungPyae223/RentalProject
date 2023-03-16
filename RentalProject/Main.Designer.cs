@@ -109,6 +109,7 @@
             this.btnHome.Text = "           Home";
             this.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHome.UseVisualStyleBackColor = false;
+            this.btnHome.Visible = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // btnCraft
@@ -352,6 +353,8 @@
             this.Controls.Add(this.mainPannel);
             this.Controls.Add(this.Slider);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1350, 897);
             this.Name = "Main";
             this.Text = "Alexa";

@@ -11,9 +11,9 @@ namespace RentalProject
         public Main()
         {
             InitializeComponent();
-            /*this.DT = Program.DT;
+            this.DT = Program.DT;
             btnProfile.Text = DT.Rows[0]["AccountName"].ToString();
-       */ }
+        }
         DataTable   DT = new DataTable();
         
 
@@ -70,7 +70,7 @@ namespace RentalProject
 
         private void Main_Load(object sender, EventArgs e)
         {
-            /*string[] properties = Program.Properties;
+            string[] properties = Program.Properties;
             for (int i = 0; i < properties.Length; i++)
             {
                 switch (properties[i])
@@ -107,7 +107,7 @@ namespace RentalProject
                         break;
                 }
             }
-            */
+
         }
 
         private void btnItems_Click(object sender, EventArgs e)
