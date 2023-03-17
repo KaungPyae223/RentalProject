@@ -1,5 +1,6 @@
 ﻿using RentalProject.Classes;
 using System;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -27,9 +28,12 @@ namespace RentalProject
 
         }
         clsHire objClsHire = new clsHire();
+        RentalTableAdapters.vi_HireTableAdapter objHire = new RentalTableAdapters.vi_HireTableAdapter();
         private void frmHireList_Load(object sender, EventArgs e)
         {
             MakeColor();
+            cboType.SelectedIndex = 0;
+            Suggestion();
         }
         private void MakeColor()
         {
@@ -50,9 +54,40 @@ namespace RentalProject
                 }
             }
         }
-
+        public void Suggestion()
+        {
+            AutoCompleteStringCollection sourse = new AutoCompleteStringCollection();
+            DataTable DT = objHire.GetHireList(txtCustomerName.Text.ToString(), cboType.SelectedIndex);
+            if (DT.Rows.Count > 0)
+            {
+                txtCustomerName.AutoCompleteCustomSource.Clear();
+                foreach (DataRow dr in DT.Rows)
+                {
+                    sourse.Add(dr[1].ToString());
+                }
+                txtCustomerName.AutoCompleteCustomSource = sourse;
+                txtCustomerName.Text = "";
+                txtCustomerName.Focus();
+            }
+        }
         private void dgvHireList_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            MakeColor();
+        }
+
+        private void cboType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Suggestion();
+            AddData();
+        }
+
+        private void txtCustomerName_TextChanged(object sender, EventArgs e)
+        {
+            AddData();
+        }
+        private void AddData()
+        {
+            dgvHireList.DataSource = objHire.GetHireList(txtCustomerName.Text.ToString(),cboType.SelectedIndex);
             MakeColor();
         }
     }

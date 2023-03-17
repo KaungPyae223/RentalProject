@@ -21,13 +21,13 @@ namespace RentalProject
         {
 
             if (cboPost.SelectedIndex == 0)
-                properties = "Home,Profile,Item";
+                properties = "Profile,Home,Item";
             else if (cboPost.SelectedIndex == 1)
-                properties = "Home,Profile,Item,User";
+                properties = "Profile,Home,Item,User";
             else if (cboPost.SelectedIndex == 2)
-                properties = "Home,Profile,Item,User,RentalList";
+                properties = "Profile,Home,Item,User,RentalList";
             else if (cboPost.SelectedIndex == 3)
-                properties = "Home,Profile,Item,User,RentalList,PaymentList,Admin";
+                properties = "Profile,Home,Item,User,RentalList,PaymentList,Admin";
 
             ShowProperties();
 

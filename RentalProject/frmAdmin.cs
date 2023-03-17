@@ -51,5 +51,7 @@ namespace RentalProject
             dgvAdminProcess.Columns[3].Width = (dgvAdminProcess.Width/100) * 25;
 
         }
+
+        
     }
 }

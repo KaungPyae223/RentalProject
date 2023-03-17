@@ -43,6 +43,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnHireList = new System.Windows.Forms.Button();
             this.btnPaymentList = new System.Windows.Forms.Button();
+            this.btnReport = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.mainPannel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -249,7 +250,7 @@
             this.Slider.MaximumSize = new System.Drawing.Size(326, 1000);
             this.Slider.MinimumSize = new System.Drawing.Size(65, 619);
             this.Slider.Name = "Slider";
-            this.Slider.Size = new System.Drawing.Size(326, 927);
+            this.Slider.Size = new System.Drawing.Size(326, 1000);
             this.Slider.TabIndex = 11;
             // 
             // flowLayoutPanel1
@@ -264,13 +265,14 @@
             this.flowLayoutPanel1.Controls.Add(this.btnAdmin);
             this.flowLayoutPanel1.Controls.Add(this.btnHireList);
             this.flowLayoutPanel1.Controls.Add(this.btnPaymentList);
+            this.flowLayoutPanel1.Controls.Add(this.btnReport);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 175);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(326, 690);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(326, 763);
             this.flowLayoutPanel1.TabIndex = 12;
             // 
             // btnHireList
@@ -315,6 +317,25 @@
             this.btnPaymentList.Visible = false;
             this.btnPaymentList.Click += new System.EventHandler(this.btnPaymentList_Click);
             // 
+            // btnReport
+            // 
+            this.btnReport.BackColor = System.Drawing.Color.White;
+            this.btnReport.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.btnReport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btnReport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReport.Image = ((System.Drawing.Image)(resources.GetObject("btnReport.Image")));
+            this.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReport.Location = new System.Drawing.Point(0, 640);
+            this.btnReport.Margin = new System.Windows.Forms.Padding(0);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(326, 62);
+            this.btnReport.TabIndex = 14;
+            this.btnReport.Text = "           Report";
+            this.btnReport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReport.UseVisualStyleBackColor = false;
+            // 
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.White;
@@ -326,7 +347,7 @@
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(0, 865);
+            this.btnExit.Location = new System.Drawing.Point(0, 938);
             this.btnExit.Margin = new System.Windows.Forms.Padding(0);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(326, 62);
@@ -342,14 +363,14 @@
             this.mainPannel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPannel.Location = new System.Drawing.Point(326, 0);
             this.mainPannel.Name = "mainPannel";
-            this.mainPannel.Size = new System.Drawing.Size(1002, 927);
+            this.mainPannel.Size = new System.Drawing.Size(1002, 1008);
             this.mainPannel.TabIndex = 12;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1328, 927);
+            this.ClientSize = new System.Drawing.Size(1328, 1008);
             this.Controls.Add(this.mainPannel);
             this.Controls.Add(this.Slider);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -384,5 +405,6 @@
         private System.Windows.Forms.Button btnHireList;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnPaymentList;
+        private System.Windows.Forms.Button btnReport;
     }
 }
