@@ -1,12 +1,7 @@
 ﻿using RentalProject.Classes;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RentalProject
@@ -18,7 +13,7 @@ namespace RentalProject
             InitializeComponent();
             dt = Program.DT;
             GridViewShow();
-            
+
         }
         DataTable dt;
         clsItem objClsItem = new clsItem();
@@ -48,30 +43,23 @@ namespace RentalProject
             int lastIndex = dgvPayment.Rows.Count - 1;
             for (int i = 0; i < lastIndex; i++)
             {
-
-                if (dgvPayment.Rows[i].Cells[10].Value.ToString() == string.Empty)
+                DateTime Duedate = Convert.ToDateTime(dgvPayment.Rows[i].Cells[8].Value);
+                if (Duedate < DateTime.Now)
                 {
-                    DateTime Duedate = Convert.ToDateTime(dgvPayment.Rows[i].Cells[8].Value);
-                    if (Duedate < DateTime.Now)
-                    {
-                        dgvPayment.Rows[i].DefaultCellStyle.BackColor = Color.Red;
-                        dgvPayment.Rows[i].DefaultCellStyle.ForeColor = Color.White;
-                    }
-                }
-                else
-                {
-                    dgvPayment.Rows.RemoveAt(i);
+                    dgvPayment.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                    dgvPayment.Rows[i].DefaultCellStyle.ForeColor = Color.White;
                 }
             }
         }
         private void GridViewShow()
         {
             string ID = dt.Rows[0][0].ToString();
-            DataTable DT = objHire.GetPayment(ID);
+            DataTable DT = objHire.GetToPayment(ID);
             DataColumn DCHire = new DataColumn("Hire Date", typeof(string));
             DataColumn DCDue = new DataColumn("Due Date", typeof(string));
             DT.Columns.Add(DCHire);
             DT.Columns.Add(DCDue);
+            int i = 0;
             foreach (DataRow dr in DT.Rows)
             {
                 string Hire = Convert.ToDateTime(dr[5]).ToString("dd MMMM yyyy");
@@ -79,9 +67,10 @@ namespace RentalProject
                 string DueDate = Convert.ToDateTime(dr[8]).ToString("dd MMMM yyyy");
                 dr["Due Date"]=DueDate;
                 dr["Hire Date"]=Hire;
+
             }
             dgvPayment.DataSource =DT;
-            
+
         }
         private void btnPayment_Click(object sender, EventArgs e)
         {
@@ -94,7 +83,7 @@ namespace RentalProject
             {
                 string HireID = dgvPayment.CurrentRow.Cells[0].Value.ToString();
                 DateTime DeadLineDate = Convert.ToDateTime(dgvPayment.CurrentRow.Cells[8].Value);
-                frmMakePayment payment = new frmMakePayment(HireID,DeadLineDate);
+                frmMakePayment payment = new frmMakePayment(HireID, DeadLineDate);
                 payment.ShowDialog();
                 GridViewShow();
                 MakeColor();
@@ -115,7 +104,7 @@ namespace RentalProject
             }
             else
             {
-                if(MessageBox.Show("Are you confirm to Return the Hire Items","Confirm",MessageBoxButtons.OKCancel,MessageBoxIcon.Question)==DialogResult.OK)
+                if (MessageBox.Show("Are you confirm to Return the Hire Items", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK)
                 {
                     string HireID = dgvPayment.CurrentRow.Cells[0].Value.ToString();
                     DataTable DT = objHireDetails.GetDataByHireID(HireID);
@@ -123,7 +112,7 @@ namespace RentalProject
                     {
                         DataTable Item = objClsItem.getSP_Item(dr[0].ToString(), 0);
                         int OnHandQty = Convert.ToInt32(Item.Rows[0][7])+1;
-                        
+
                         objClsItem.UpdateOnHandQty(OnHandQty, dr[0].ToString());
 
                     }
