@@ -151,7 +151,6 @@
             this.btnPayment.Text = "           Payment";
             this.btnPayment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPayment.UseVisualStyleBackColor = false;
-            this.btnPayment.Visible = false;
             this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
             // 
             // btnHistory
@@ -172,7 +171,6 @@
             this.btnHistory.Text = "           History";
             this.btnHistory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHistory.UseVisualStyleBackColor = false;
-            this.btnHistory.Visible = false;
             this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
             // 
             // btnItems
@@ -291,7 +289,6 @@
             this.btnHireList.Text = "           Rental list";
             this.btnHireList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHireList.UseVisualStyleBackColor = false;
-            this.btnHireList.Visible = false;
             this.btnHireList.Click += new System.EventHandler(this.btnHireList_Click);
             // 
             // btnPaymentList
@@ -354,7 +351,6 @@
             this.Controls.Add(this.Slider);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1350, 897);
             this.Name = "Main";
             this.Text = "Alexa";

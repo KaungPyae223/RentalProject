@@ -136,10 +136,8 @@ namespace RentalProject
                         objClsHireDetails.AddHireDetails();
                         DataTable DT = objClsItem.getSP_Item(ID, 0);
                         int OnHandQty = Convert.ToInt32(DT.Rows[0][7])-1;
-                        clsItem Item = new clsItem();
-                        Item.ItemID = ID;
-                        Item.OnHandQty = OnHandQty;
-                        Item.UpdateOnHandQty();
+                        
+                        objClsItem.UpdateOnHandQty(OnHandQty,ID);
 
                     }
                     objClsPayment.AddPayment();

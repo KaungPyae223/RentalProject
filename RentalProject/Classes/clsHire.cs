@@ -87,6 +87,10 @@ namespace RentalProject.Classes
         {
             return objvi_Hire.GetData();
         }
+        public void UpdateReturnDate(string ReturnDate,string HireID)
+        {
+            objHire.UpdateReturnDate(ReturnDate, HireID);
+        }
 
     }
 }

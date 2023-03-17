@@ -87,9 +87,9 @@ namespace RentalProject.Classes
         {
             return objvi_Item.GetSP_Item(ID, a);
         }
-        public void UpdateOnHandQty()
+        public void UpdateOnHandQty(int Qty,string ID)
         {
-            objItem.UpdateOnHandQty(OnHandQty, ItemID);
+            objItem.UpdateOnHandQty(Qty, ID);
         }
         
         

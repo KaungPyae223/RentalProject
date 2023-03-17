@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RentalProject.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,12 +17,15 @@ namespace RentalProject
         {
             InitializeComponent();
             dt = Program.DT;
+            GridViewShow();
+            
         }
         DataTable dt;
+        clsItem objClsItem = new clsItem();
+        RentalTableAdapters.HireDetailsTableAdapter objHireDetails = new RentalTableAdapters.HireDetailsTableAdapter();
         RentalTableAdapters.HireTableAdapter objHire = new RentalTableAdapters.HireTableAdapter();
         private void frmPayment_Load(object sender, EventArgs e)
         {
-            GridViewShow();
             dgvPayment.Columns[0].Width = (dgvPayment.Width/100)*15;
             dgvPayment.Columns[1].Visible = false;
             dgvPayment.Columns[2].Visible = false;
@@ -37,6 +41,28 @@ namespace RentalProject
             dgvPayment.Columns[12].Width = (dgvPayment.Width/100)*20;
             dgvPayment.Columns[13].Width = (dgvPayment.Width/100)*20;
             dgvPayment.Columns[11].DisplayIndex = 13;
+            MakeColor();
+        }
+        private void MakeColor()
+        {
+            int lastIndex = dgvPayment.Rows.Count - 1;
+            for (int i = 0; i < lastIndex; i++)
+            {
+
+                if (dgvPayment.Rows[i].Cells[10].Value.ToString() == string.Empty)
+                {
+                    DateTime Duedate = Convert.ToDateTime(dgvPayment.Rows[i].Cells[8].Value);
+                    if (Duedate < DateTime.Now)
+                    {
+                        dgvPayment.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                        dgvPayment.Rows[i].DefaultCellStyle.ForeColor = Color.White;
+                    }
+                }
+                else
+                {
+                    dgvPayment.Rows.RemoveAt(i);
+                }
+            }
         }
         private void GridViewShow()
         {
@@ -55,6 +81,7 @@ namespace RentalProject
                 dr["Hire Date"]=Hire;
             }
             dgvPayment.DataSource =DT;
+            
         }
         private void btnPayment_Click(object sender, EventArgs e)
         {
@@ -70,6 +97,42 @@ namespace RentalProject
                 frmMakePayment payment = new frmMakePayment(HireID,DeadLineDate);
                 payment.ShowDialog();
                 GridViewShow();
+                MakeColor();
+            }
+        }
+
+        private void dgvPayment_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            MakeColor();
+        }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            if (dgvPayment.CurrentRow.Cells[0].Value.ToString() == string.Empty)
+            {
+                MessageBox.Show("Plese choose a payment to you want to make", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            else
+            {
+                if(MessageBox.Show("Are you confirm to Return the Hire Items","Confirm",MessageBoxButtons.OKCancel,MessageBoxIcon.Question)==DialogResult.OK)
+                {
+                    string HireID = dgvPayment.CurrentRow.Cells[0].Value.ToString();
+                    DataTable DT = objHireDetails.GetDataByHireID(HireID);
+                    foreach (DataRow dr in DT.Rows)
+                    {
+                        DataTable Item = objClsItem.getSP_Item(dr[0].ToString(), 0);
+                        int OnHandQty = Convert.ToInt32(Item.Rows[0][7])+1;
+                        
+                        objClsItem.UpdateOnHandQty(OnHandQty, dr[0].ToString());
+
+                    }
+                    clsHire objclsHire = new clsHire();
+                    objclsHire.UpdateReturnDate(DateTime.Now.ToString(), HireID);
+                    GridViewShow();
+                    MakeColor();
+                    MessageBox.Show("Our Appliances will take back less than one week and you do not need to give anything about it.\nThe insurance cost will return to you less than one month after checking the home appliances.\nThank you for your rent", "Thank you");
+                }
             }
         }
     }
