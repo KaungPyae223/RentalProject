@@ -1,6 +1,7 @@
 ﻿using RentalProject.Classes;
 using System;
-using System.IO;
+using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace RentalProject
@@ -10,8 +11,11 @@ namespace RentalProject
         public frmItems()
         {
             InitializeComponent();
+            dgvItem.Columns.Clear();
+            dgvItem.DataSource= objClsItem.GetItem();
+            cboSearch.SelectedIndex = 0;
         }
-
+        clsModify objClsModify = new clsModify();
         clsBrand ClsBrand = new clsBrand();
         clsType ClsType = new clsType();
         clsDelivery ClsDelivery = new clsDelivery();
@@ -19,6 +23,7 @@ namespace RentalProject
         private void frmItems_Load(object sender, EventArgs e)
         {
             showData();
+            MakeColor();
         }
 
         private void tsbNew_Click(object sender, EventArgs e)
@@ -32,8 +37,7 @@ namespace RentalProject
 
         private void showData() //method to show the data in data grid view
         {
-            dgvItem.Columns.Clear();
-            dgvItem.DataSource= objClsItem.GetItem();
+
             dgvItem.Columns[0].Width = (label1.Width/100)* 10;
             dgvItem.Columns[1].Visible = false;
             dgvItem.Columns[2].Visible = false;
@@ -71,7 +75,18 @@ namespace RentalProject
             dgvType.Refresh();
             dgvDelivery.Refresh();
         }
+        private void MakeColor()
+        {
+            for (int i = 0; i< dgvItem.Rows.Count - 1; i++)
+            {
+                if (Convert.ToInt32(dgvItem.Rows[i].Cells[13].Value) == 0)
+                {
+                    dgvItem.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                    dgvItem.Rows[i].DefaultCellStyle.ForeColor = Color.White;
 
+                }
+            }
+        }
         private void tsbEdit_Click(object sender, EventArgs e)
         {
             if (dgvItem.CurrentRow.Cells[0].Value.ToString() == string.Empty) // check the user choose which data to update or not
@@ -97,6 +112,7 @@ namespace RentalProject
 
                 frm.btnSave.Text = "Edit";
                 frm.ShowDialog();
+
             }
 
             showData();
@@ -110,7 +126,7 @@ namespace RentalProject
             }
             else
             {
-                
+
             }
         }
 
@@ -210,7 +226,7 @@ namespace RentalProject
             {
                 MessageBox.Show("Plese select a row to Edit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else 
+            else
             {
                 if (MessageBox.Show("Sure to Delete", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to delte
                 {
@@ -227,7 +243,7 @@ namespace RentalProject
             {
                 MessageBox.Show("Plese select a row to Edit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else 
+            else
             {
                 if (MessageBox.Show("Sure to Delete", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to delte
                 {
@@ -237,5 +253,52 @@ namespace RentalProject
                 }
             }
         }
+
+        private void dgvItem_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            MakeColor();
+        }
+
+        private void cboSearch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboSearch.SelectedIndex == 0)
+            {
+                Suggestion("ItemName");
+            }
+            else if (cboSearch.SelectedIndex == 1)
+            {
+                Suggestion("NameOfType");
+            }
+            if (cboSearch.SelectedIndex == 2)
+            {
+                Suggestion("BrandName");
+            }
+            txtSearch.Text = "";
+        }
+        public void Suggestion(string FieldName)
+        {
+            AutoCompleteStringCollection sourse = new AutoCompleteStringCollection();
+            DataTable DT = objClsItem.GetItem();
+            if (DT.Rows.Count > 0)
+            {
+                txtSearch.AutoCompleteCustomSource.Clear();
+                foreach (DataRow dr in DT.Rows)
+                {
+                    sourse.Add(dr[FieldName].ToString());
+                }
+                txtSearch.AutoCompleteCustomSource = sourse;
+                txtSearch.Text = "";
+                txtSearch.Focus();
+            }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+            dgvItem.DataSource = objClsItem.ItemSearch(cboSearch.SelectedIndex, txtSearch.Text);
+            MakeColor();
+        }
+
+
     }
 }

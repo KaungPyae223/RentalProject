@@ -91,7 +91,10 @@ namespace RentalProject.Classes
         {
             objItem.UpdateOnHandQty(Qty, ID);
         }
-        
-        
+        public DataTable ItemSearch(int Action, string Search)
+        {
+           return objvi_Item.GetDataBy(Search,Action);
+        }
+
     }
 }

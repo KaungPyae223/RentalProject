@@ -194,7 +194,6 @@
             this.btnItems.Text = "           Items";
             this.btnItems.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnItems.UseVisualStyleBackColor = false;
-            this.btnItems.Visible = false;
             this.btnItems.Click += new System.EventHandler(this.btnItems_Click);
             // 
             // btnUser
@@ -215,7 +214,6 @@
             this.btnUser.Text = "           Customer Control";
             this.btnUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUser.UseVisualStyleBackColor = false;
-            this.btnUser.Visible = false;
             this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
             // 
             // btnAdmin
@@ -236,7 +234,6 @@
             this.btnAdmin.Text = "           Admin Controls";
             this.btnAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdmin.UseVisualStyleBackColor = false;
-            this.btnAdmin.Visible = false;
             this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
             // 
             // Slider
@@ -293,7 +290,6 @@
             this.btnHireList.Text = "           Rental list";
             this.btnHireList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHireList.UseVisualStyleBackColor = false;
-            this.btnHireList.Visible = false;
             this.btnHireList.Click += new System.EventHandler(this.btnHireList_Click);
             // 
             // btnPaymentList
@@ -314,7 +310,6 @@
             this.btnPaymentList.Text = "           Payment List";
             this.btnPaymentList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPaymentList.UseVisualStyleBackColor = false;
-            this.btnPaymentList.Visible = false;
             this.btnPaymentList.Click += new System.EventHandler(this.btnPaymentList_Click);
             // 
             // btnReport

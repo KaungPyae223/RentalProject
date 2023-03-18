@@ -17,6 +17,7 @@ namespace RentalProject
         {
             InitializeComponent();
         }
+        RentalTableAdapters.PaymentTableAdapter objPayment = new RentalTableAdapters.PaymentTableAdapter();
         clsPayment objclsPayment = new clsPayment();
         private void frmPaymentLists_Load(object sender, EventArgs e)
         {
@@ -31,6 +32,11 @@ namespace RentalProject
             dgvPaymentList.Columns[6].Width = (dgvPaymentList.Width/100)*10;
             dgvPaymentList.Columns[7].Width = (dgvPaymentList.Width/100)*15;
             dgvPaymentList.Columns[2].DisplayIndex=6;
+        }
+
+        private void txtHireID_TextChanged(object sender, EventArgs e)
+        {
+            dgvPaymentList.DataSource = objPayment.GetPaymentListByHireID(txtHireID.Text); 
         }
     }
 }

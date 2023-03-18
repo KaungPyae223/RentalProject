@@ -20,7 +20,7 @@ namespace RentalProject
         clsCustomer objClsCustomer = new clsCustomer();
         private void frmUserControl_Load(object sender, EventArgs e)
         {
-            Suggestion("CustomerName");
+            
             dgvUser.DataSource = objClsCustomer.SelectUser();
             dgvUser.Columns[0].Width = (dgvUser.Width/100)*15;
             dgvUser.Columns[1].Width = (dgvUser.Width/100)*15;
@@ -34,28 +34,10 @@ namespace RentalProject
             dgvUser.Columns[9].Visible = false;
             dgvUser.Columns[10].Visible = false;
             dgvUser.Columns[11].Visible = false;
-
+            cboType.SelectedIndex = 0;
         }
 
-        private void TsmCustomerName_Click(object sender, EventArgs e)
-        {
-            tslLabel.Text = "Customer Name";
-            Suggestion("CustomerName");
-        }
-
-        private void TsmEmail_Click(object sender, EventArgs e)
-        {
-            tslLabel.Text = "Customer Email";
-            Suggestion( "CustomerEmail");
-
-        }
-
-        private void TsmAccountName_Click(object sender, EventArgs e)
-        {
-            tslLabel.Text = "Account Name";
-            Suggestion( "AccountName");
-
-        }
+       
         public void Suggestion( string FieldName)
         {
             AutoCompleteStringCollection sourse = new AutoCompleteStringCollection();
@@ -70,6 +52,18 @@ namespace RentalProject
                 txtUser.AutoCompleteCustomSource = sourse;
                 txtUser.Text = "";
                 txtUser.Focus();
+            }
+        }
+
+        private void cboType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cboType.SelectedIndex == 0)
+            {
+                Suggestion("CustomerName");
+            }
+            else
+            {
+                Suggestion("CustomerEmail");
             }
         }
     }

@@ -29,19 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserControl));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.tslLabel = new System.Windows.Forms.ToolStripDropDownButton();
-            this.TsmCustomerName = new System.Windows.Forms.ToolStripMenuItem();
-            this.TsmEmail = new System.Windows.Forms.ToolStripMenuItem();
-            this.TsmAccountName = new System.Windows.Forms.ToolStripMenuItem();
             this.txtUser = new System.Windows.Forms.ToolStripTextBox();
             this.dgvUser = new System.Windows.Forms.DataGridView();
+            this.cboType = new System.Windows.Forms.ToolStripComboBox();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).BeginInit();
             this.SuspendLayout();
@@ -66,7 +63,7 @@
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
-            this.tslLabel,
+            this.cboType,
             this.txtUser});
             this.toolStrip1.Location = new System.Drawing.Point(0, 61);
             this.toolStrip1.Name = "toolStrip1";
@@ -86,41 +83,6 @@
             this.toolStripButton1.Size = new System.Drawing.Size(154, 44);
             this.toolStripButton1.Text = "Update Level";
             // 
-            // tslLabel
-            // 
-            this.tslLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tslLabel.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TsmCustomerName,
-            this.TsmEmail,
-            this.TsmAccountName});
-            this.tslLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tslLabel.Image = ((System.Drawing.Image)(resources.GetObject("tslLabel.Image")));
-            this.tslLabel.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tslLabel.Name = "tslLabel";
-            this.tslLabel.Size = new System.Drawing.Size(189, 44);
-            this.tslLabel.Text = "Customer Name";
-            // 
-            // TsmCustomerName
-            // 
-            this.TsmCustomerName.Name = "TsmCustomerName";
-            this.TsmCustomerName.Size = new System.Drawing.Size(274, 38);
-            this.TsmCustomerName.Text = "Customer Name";
-            this.TsmCustomerName.Click += new System.EventHandler(this.TsmCustomerName_Click);
-            // 
-            // TsmEmail
-            // 
-            this.TsmEmail.Name = "TsmEmail";
-            this.TsmEmail.Size = new System.Drawing.Size(274, 38);
-            this.TsmEmail.Text = "Customer Email";
-            this.TsmEmail.Click += new System.EventHandler(this.TsmEmail_Click);
-            // 
-            // TsmAccountName
-            // 
-            this.TsmAccountName.Name = "TsmAccountName";
-            this.TsmAccountName.Size = new System.Drawing.Size(274, 38);
-            this.TsmAccountName.Text = "Account Name";
-            this.TsmAccountName.Click += new System.EventHandler(this.TsmAccountName_Click);
-            // 
             // txtUser
             // 
             this.txtUser.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
@@ -134,44 +96,55 @@
             // dgvUser
             // 
             this.dgvUser.AllowUserToResizeRows = false;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle21.Padding = new System.Windows.Forms.Padding(10);
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.dgvUser.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.dgvUser.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvUser.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.Snow;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle22.Padding = new System.Windows.Forms.Padding(10);
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Snow;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvUser.ColumnHeadersHeight = 55;
             this.dgvUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle23.Padding = new System.Windows.Forms.Padding(10);
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUser.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUser.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvUser.Location = new System.Drawing.Point(0, 120);
             this.dgvUser.Name = "dgvUser";
             this.dgvUser.ReadOnly = true;
             this.dgvUser.RowHeadersVisible = false;
             this.dgvUser.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle24.Padding = new System.Windows.Forms.Padding(10);
-            this.dgvUser.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(10);
+            this.dgvUser.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvUser.RowTemplate.Height = 50;
             this.dgvUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUser.Size = new System.Drawing.Size(800, 330);
             this.dgvUser.TabIndex = 7;
+            // 
+            // cboType
+            // 
+            this.cboType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboType.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboType.Items.AddRange(new object[] {
+            "CustomerName",
+            "CustomerEmail"});
+            this.cboType.Name = "cboType";
+            this.cboType.Size = new System.Drawing.Size(195, 49);
+            this.cboType.SelectedIndexChanged += new System.EventHandler(this.cboType_SelectedIndexChanged);
             // 
             // frmUserControl
             // 
@@ -199,11 +172,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripDropDownButton tslLabel;
-        private System.Windows.Forms.ToolStripMenuItem TsmCustomerName;
-        private System.Windows.Forms.ToolStripMenuItem TsmEmail;
         private System.Windows.Forms.ToolStripTextBox txtUser;
-        private System.Windows.Forms.ToolStripMenuItem TsmAccountName;
         private System.Windows.Forms.DataGridView dgvUser;
+        private System.Windows.Forms.ToolStripComboBox cboType;
     }
 }
