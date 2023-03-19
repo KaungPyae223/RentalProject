@@ -1,6 +1,7 @@
 ﻿using RentalProject.Classes;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace RentalProject
@@ -32,7 +33,8 @@ namespace RentalProject
                 frm.Width = ((label1.Width-26)/3)-6;
                 frm.Margin= new Padding(3);
                 frm.btnCraft.Text = "Cancel";
-                
+                frm.btnCraft.BackColor = Color.Orange;
+                frm.btnCraft.ForeColor = Color.White;
                 total ++;
                 PricePerMont += Convert.ToInt32(DT.Rows[0][8]);
 

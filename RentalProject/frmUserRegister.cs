@@ -13,7 +13,6 @@ namespace RentalProject
         {
             InitializeComponent();
         }
-
         clsCustomer objclsCustomer = new clsCustomer();
         string ImageLocation = "";
         byte[] image = null;
@@ -144,13 +143,21 @@ namespace RentalProject
                 BinaryReader brs = new BinaryReader(File);
                 image = brs.ReadBytes((int)File.Length);
             }
-
-            if (MessageBox.Show("Sure to Register", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
+            DataTable DT = new DataTable();
+            DT = objCustomer.CheckCustomer(txtEmail.Text.Trim());
+            if(DT.Rows.Count == 0)
             {
-                AddData();
-                objclsCustomer.SaveUser();
-                MessageBox.Show("Successfully Register");
-                this.Close();
+                if (MessageBox.Show("Sure to Register", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
+                {
+                    AddData();
+                    objclsCustomer.SaveUser();
+                    MessageBox.Show("Successfully Register");
+                    this.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("The user is already exit","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
         private void AddData()

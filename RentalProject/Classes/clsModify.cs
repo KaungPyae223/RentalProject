@@ -33,5 +33,9 @@ namespace RentalProject.Classes
         {
             return objvi_Modify.Getvi_modify();
         }
+        public DataTable GetModifyByID(string Name)
+        {
+            return objvi_Modify.GetModifyByAdminName(Name);
+        }
     }
 }

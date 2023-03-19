@@ -49,9 +49,31 @@ namespace RentalProject
             dgvAdminProcess.Columns[1].Width = (dgvAdminProcess.Width/100) * 25;
             dgvAdminProcess.Columns[2].Width = (dgvAdminProcess.Width/100) * 25;
             dgvAdminProcess.Columns[3].Width = (dgvAdminProcess.Width/100) * 25;
-
+            Suggestion();
         }
 
-        
+        public void Suggestion()
+        {
+            AutoCompleteStringCollection sourse = new AutoCompleteStringCollection();
+            DataTable DT = objClsModify.getModify();
+            if (DT.Rows.Count > 0)
+            {
+                txtAdminName.AutoCompleteCustomSource.Clear();
+                foreach (DataRow dr in DT.Rows)
+                {
+                    sourse.Add(dr[0].ToString());
+                }
+                txtAdminName.AutoCompleteCustomSource = sourse;
+                txtAdminName.Text = "";
+                txtAdminName.Focus();
+            }
+        }
+
+        private void txtAdminName_TextChanged(object sender, EventArgs e)
+        {
+            dgvAdminProcess.DataSource = objClsModify.GetModifyByID(txtAdminName.Text);
+            dgvAdminProcess.Refresh();
+        }
     }
+    
 }

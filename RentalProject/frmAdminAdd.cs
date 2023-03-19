@@ -84,10 +84,19 @@ namespace RentalProject
                     BinaryReader brs = new BinaryReader(File);
                     image = brs.ReadBytes((int)File.Length);
                 }
-                
-                objAdmin.Insert(txtID.Text, cboPost.Text, properties, txtAccountName.Text, txtName.Text, txtLocation.Text, txtEmail.Text, txtPhone.Text, txtNRC.Text, txtPassword.Text, txtInfo.Text, DateTime.Now, image);
-                MessageBox.Show("Successfully Save");
-                this.Close();
+                DataTable DT = new DataTable();
+                DT = objAdmin.CheckAdmin(txtEmail.Text.Trim());
+                if(DT.Rows.Count == 0)
+                {
+                    objAdmin.Insert(txtID.Text, cboPost.Text, properties, txtAccountName.Text, txtName.Text, txtLocation.Text, txtEmail.Text, txtPhone.Text, txtNRC.Text, txtPassword.Text, txtInfo.Text, DateTime.Now, image);
+                    MessageBox.Show("Successfully Save");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("This Admin is already exit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
             }
             
         }

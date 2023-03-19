@@ -76,13 +76,18 @@
             // 
             // btnCraft
             // 
+            this.btnCraft.BackColor = System.Drawing.Color.Bisque;
             this.btnCraft.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCraft.FlatAppearance.BorderSize = 0;
+            this.btnCraft.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Info;
+            this.btnCraft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCraft.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCraft.Location = new System.Drawing.Point(25, 20);
             this.btnCraft.Name = "btnCraft";
             this.btnCraft.Size = new System.Drawing.Size(494, 60);
             this.btnCraft.TabIndex = 0;
             this.btnCraft.Text = "Add to Craft";
-            this.btnCraft.UseVisualStyleBackColor = true;
+            this.btnCraft.UseVisualStyleBackColor = false;
             this.btnCraft.Click += new System.EventHandler(this.btnCraft_Click);
             // 
             // lblItemName

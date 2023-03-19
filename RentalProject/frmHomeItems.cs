@@ -59,6 +59,8 @@ namespace RentalProject
             {
                 Program.Craft.Add(ID);
                 btnCraft.Text = "Cancel";
+                btnCraft.BackColor = Color.Orange;
+                btnCraft.ForeColor = Color.White;
             }
             else if(Drop)
             {
@@ -70,6 +72,8 @@ namespace RentalProject
             {
                 btnCraft.Text = "Add to Craft";
                 Program.Craft.Remove(ID);
+                btnCraft.BackColor = Color.Bisque;
+                btnCraft.ForeColor = Color.Black;
             }
 
         }
