@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProfile));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -51,13 +53,13 @@
             this.lblAccountName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.dgvUserAppliances = new System.Windows.Forms.DataGridView();
+            this.dgvUserHistory = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUserAppliances)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUserHistory)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -276,50 +278,57 @@
             this.label12.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.label12.Size = new System.Drawing.Size(1690, 58);
             this.label12.TabIndex = 2;
-            this.label12.Text = "Details of Hire Appliances";
+            this.label12.Text = "Details of User History";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // dgvUserAppliances
+            // dgvUserHistory
             // 
-            this.dgvUserAppliances.AllowUserToResizeRows = false;
-            this.dgvUserAppliances.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUserAppliances.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvUserAppliances.ColumnHeadersHeight = 35;
-            this.dgvUserAppliances.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvUserHistory.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.dgvUserHistory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvUserHistory.BackgroundColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUserAppliances.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvUserAppliances.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvUserAppliances.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
-            this.dgvUserAppliances.Location = new System.Drawing.Point(0, 416);
-            this.dgvUserAppliances.MultiSelect = false;
-            this.dgvUserAppliances.Name = "dgvUserAppliances";
-            this.dgvUserAppliances.ReadOnly = true;
-            this.dgvUserAppliances.RowHeadersVisible = false;
-            this.dgvUserAppliances.RowHeadersWidth = 62;
-            this.dgvUserAppliances.RowTemplate.Height = 28;
-            this.dgvUserAppliances.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUserAppliances.Size = new System.Drawing.Size(1690, 205);
-            this.dgvUserAppliances.TabIndex = 3;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Snow;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUserHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvUserHistory.ColumnHeadersHeight = 55;
+            this.dgvUserHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUserHistory.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvUserHistory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvUserHistory.Location = new System.Drawing.Point(0, 416);
+            this.dgvUserHistory.Name = "dgvUserHistory";
+            this.dgvUserHistory.ReadOnly = true;
+            this.dgvUserHistory.RowHeadersVisible = false;
+            this.dgvUserHistory.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(10);
+            this.dgvUserHistory.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvUserHistory.RowTemplate.Height = 50;
+            this.dgvUserHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvUserHistory.Size = new System.Drawing.Size(1690, 205);
+            this.dgvUserHistory.TabIndex = 9;
             // 
             // frmProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1690, 621);
-            this.Controls.Add(this.dgvUserAppliances);
+            this.Controls.Add(this.dgvUserHistory);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
@@ -333,7 +342,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUserAppliances)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUserHistory)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -357,9 +366,9 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label12;
-        public System.Windows.Forms.DataGridView dgvUserAppliances;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label lblUserLevel;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView dgvUserHistory;
     }
 }

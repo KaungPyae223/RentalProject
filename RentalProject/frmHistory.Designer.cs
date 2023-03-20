@@ -41,12 +41,12 @@
             this.HireHistory = new System.Windows.Forms.TabPage();
             this.dgvHire = new System.Windows.Forms.DataGridView();
             this.PaymentHistory = new System.Windows.Forms.TabPage();
-            this.dgvBrand = new System.Windows.Forms.DataGridView();
+            this.dgvCustomerPayment = new System.Windows.Forms.DataGridView();
             this.dgvPayment.SuspendLayout();
             this.HireHistory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHire)).BeginInit();
             this.PaymentHistory.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBrand)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerPayment)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -133,7 +133,7 @@
             // 
             // PaymentHistory
             // 
-            this.PaymentHistory.Controls.Add(this.dgvBrand);
+            this.PaymentHistory.Controls.Add(this.dgvCustomerPayment);
             this.PaymentHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PaymentHistory.Location = new System.Drawing.Point(4, 56);
             this.PaymentHistory.Margin = new System.Windows.Forms.Padding(0);
@@ -143,15 +143,15 @@
             this.PaymentHistory.Text = "Payment";
             this.PaymentHistory.UseVisualStyleBackColor = true;
             // 
-            // dgvBrand
+            // dgvCustomerPayment
             // 
-            this.dgvBrand.AllowUserToResizeRows = false;
+            this.dgvCustomerPayment.AllowUserToResizeRows = false;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(10);
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.dgvBrand.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvBrand.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvCustomerPayment.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvCustomerPayment.BackgroundColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.MistyRose;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -160,30 +160,30 @@
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBrand.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvBrand.ColumnHeadersHeight = 55;
-            this.dgvBrand.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvCustomerPayment.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvCustomerPayment.ColumnHeadersHeight = 55;
+            this.dgvCustomerPayment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(10);
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBrand.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvBrand.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvBrand.Location = new System.Drawing.Point(0, 0);
-            this.dgvBrand.Name = "dgvBrand";
-            this.dgvBrand.ReadOnly = true;
-            this.dgvBrand.RowHeadersVisible = false;
-            this.dgvBrand.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvCustomerPayment.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvCustomerPayment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCustomerPayment.Location = new System.Drawing.Point(0, 0);
+            this.dgvCustomerPayment.Name = "dgvCustomerPayment";
+            this.dgvCustomerPayment.ReadOnly = true;
+            this.dgvCustomerPayment.RowHeadersVisible = false;
+            this.dgvCustomerPayment.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(10);
-            this.dgvBrand.RowsDefaultCellStyle = dataGridViewCellStyle8;
-            this.dgvBrand.RowTemplate.Height = 50;
-            this.dgvBrand.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBrand.Size = new System.Drawing.Size(1059, 441);
-            this.dgvBrand.TabIndex = 10;
+            this.dgvCustomerPayment.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvCustomerPayment.RowTemplate.Height = 50;
+            this.dgvCustomerPayment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCustomerPayment.Size = new System.Drawing.Size(1059, 441);
+            this.dgvCustomerPayment.TabIndex = 10;
             // 
             // frmHistory
             // 
@@ -203,7 +203,7 @@
             this.HireHistory.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHire)).EndInit();
             this.PaymentHistory.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBrand)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerPayment)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -215,6 +215,6 @@
         private System.Windows.Forms.TabPage HireHistory;
         private System.Windows.Forms.DataGridView dgvHire;
         private System.Windows.Forms.TabPage PaymentHistory;
-        private System.Windows.Forms.DataGridView dgvBrand;
+        private System.Windows.Forms.DataGridView dgvCustomerPayment;
     }
 }

@@ -95,6 +95,9 @@ namespace RentalProject.Classes
         {
            return objvi_Item.GetDataBy(Search,Action);
         }
-
+        public void DeleteItems(string ID)
+        {
+            objItem.DeleteItem(ID);
+        }
     }
 }

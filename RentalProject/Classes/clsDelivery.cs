@@ -13,6 +13,7 @@ namespace RentalProject.Classes
         private string _DeliveryID, _DeliveryName, _DeliveryPhone;
 
         RentalTableAdapters.DeliveryTableAdapter objDelivery = new RentalTableAdapters.DeliveryTableAdapter();
+        RentalTableAdapters.HireTableAdapter objHire = new RentalTableAdapters.HireTableAdapter();
 
         public string DeliveryID
         {
@@ -45,6 +46,10 @@ namespace RentalProject.Classes
         public DataTable GetDelivery()
         {
             return objDelivery.GetDelivery();
+        }
+        public DataTable CheckDelivery(string DeliveryID)
+        {
+            return objHire.CheckDelivery(DeliveryID);
         }
     }
 }

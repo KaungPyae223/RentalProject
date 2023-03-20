@@ -16,10 +16,11 @@ namespace RentalProject
             cboSearch.SelectedIndex = 0;
         }
         clsModify objClsModify = new clsModify();
-        clsBrand ClsBrand = new clsBrand();
-        clsType ClsType = new clsType();
-        clsDelivery ClsDelivery = new clsDelivery();
+        clsBrand objClsBrand = new clsBrand();
+        clsType objClsType = new clsType();
+        clsDelivery objClsDelivery = new clsDelivery();
         clsItem objClsItem = new clsItem();
+        RentalTableAdapters.HireDetailsTableAdapter objHire = new RentalTableAdapters.HireDetailsTableAdapter();
         RentalTableAdapters.ItemTableAdapter objItem = new RentalTableAdapters.ItemTableAdapter();
         private void frmItems_Load(object sender, EventArgs e)
         {
@@ -56,17 +57,17 @@ namespace RentalProject
             dgvItem.Columns[13].DisplayIndex = 8;
 
             dgvBrand.Columns.Clear();
-            dgvBrand.DataSource= ClsBrand.GetBrand();
+            dgvBrand.DataSource= objClsBrand.GetBrand();
             dgvBrand.Columns[0].Width = (dgvBrand.Width/100)* 20;
             dgvBrand.Columns[1].Width = (dgvBrand.Width/100)* 80;
 
             dgvType.Columns.Clear();
-            dgvType.DataSource= ClsType.GetType();
+            dgvType.DataSource= objClsType.GetType();
             dgvType.Columns[0].Width = (dgvType.Width/100)* 20;
             dgvType.Columns[1].Width = (dgvType.Width/100)* 80;
 
             dgvDelivery.Columns.Clear();
-            dgvDelivery.DataSource= ClsDelivery.GetDelivery();
+            dgvDelivery.DataSource= objClsDelivery.GetDelivery();
             dgvDelivery.Columns[0].Width = (dgvDelivery.Width/100)* 20;
             dgvDelivery.Columns[1].Width = (dgvDelivery.Width/100)* 40;
             dgvDelivery.Columns[2].Width = (dgvDelivery.Width/100)* 40;
@@ -127,7 +128,21 @@ namespace RentalProject
             }
             else
             {
+                DataTable DT = new DataTable();
+                DT = objHire.CheckItem(dgvItem.CurrentRow.Cells[0].Value.ToString());
+                if(DT.Rows.Count == 0)
+                {
+                    if (MessageBox.Show("Sure to Delete", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to delte
+                    {
+                        objClsItem.DeleteItems(dgvItem.CurrentRow.Cells[0].Value.ToString());
+                        MessageBox.Show("Successfully delete");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("This Item is already hire", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                }
             }
         }
 
@@ -218,8 +233,8 @@ namespace RentalProject
                 {
                     if (MessageBox.Show("Sure to Delete", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to delte
                     {
-                        ClsBrand.BrandID = dgvBrand.CurrentRow.Cells[0].Value.ToString();
-                        ClsBrand.RemoveBrand();
+                        objClsBrand.BrandID = dgvBrand.CurrentRow.Cells[0].Value.ToString();
+                        objClsBrand.RemoveBrand();
                         showData();
                     }
                 }
@@ -245,15 +260,14 @@ namespace RentalProject
                 {
                     if (MessageBox.Show("Sure to Delete", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to delte
                     {
-                        ClsType.TypeID = dgvItem.CurrentRow.Cells[0].Value.ToString();
-                        ClsType.RemoveType();
+                        objClsType.TypeID = dgvItem.CurrentRow.Cells[0].Value.ToString();
+                        objClsType.RemoveType();
                         showData();
                     }
                 }
                 else
                 {
                     MessageBox.Show("The type is already used in Item", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                 }
             }
         }
@@ -266,10 +280,12 @@ namespace RentalProject
             }
             else
             {
+                DataTable DT = new DataTable();
+                DT = objClsDelivery.CheckDelivery(dgvDelivery.CurrentRow.Cells[0].Value.ToString());
                 if (MessageBox.Show("Sure to Delete", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to delte
                 {
-                    ClsDelivery.DeliveryID = dgvItem.CurrentRow.Cells[0].Value.ToString();
-                    ClsDelivery.DeleteDelivery();
+                    objClsDelivery.DeliveryID = dgvItem.CurrentRow.Cells[0].Value.ToString();
+                    objClsDelivery.DeleteDelivery();
                     showData();
                 }
             }
@@ -300,17 +316,26 @@ namespace RentalProject
         {
             AutoCompleteStringCollection sourse = new AutoCompleteStringCollection();
             DataTable DT = objClsItem.GetItem();
-            if (DT.Rows.Count > 0)
+            if(DT.Rows.Count == 0)
             {
-                txtSearch.AutoCompleteCustomSource.Clear();
-                foreach (DataRow dr in DT.Rows)
+                if (DT.Rows.Count > 0)
                 {
-                    sourse.Add(dr[FieldName].ToString());
+                    txtSearch.AutoCompleteCustomSource.Clear();
+                    foreach (DataRow dr in DT.Rows)
+                    {
+                        sourse.Add(dr[FieldName].ToString());
+                    }
+                    txtSearch.AutoCompleteCustomSource = sourse;
+                    txtSearch.Text = "";
+                    txtSearch.Focus();
                 }
-                txtSearch.AutoCompleteCustomSource = sourse;
-                txtSearch.Text = "";
-                txtSearch.Focus();
             }
+            else
+            {
+                MessageBox.Show("The Delivery is already exit in Hire", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)

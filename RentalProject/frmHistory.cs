@@ -24,13 +24,14 @@ namespace RentalProject
                 string DueDate = Convert.ToDateTime(dr[8]).ToString("dd MMMM yyyy");
                 dr["Due Date"]=DueDate;
                 dr["Hire Date"]=Hire;
-            }
-            dgvHire.DataSource =DT;
+            }   
 
-            
+            dgvHire.DataSource = DT;
+            dgvCustomerPayment.DataSource = objCustomerPayment.GetData(ID);
 
         }
         DataTable DT;
+        RentalTableAdapters.vi_CustomerPaymentTableAdapter objCustomerPayment = new RentalTableAdapters.vi_CustomerPaymentTableAdapter();
         RentalTableAdapters.HireTableAdapter objHire = new RentalTableAdapters.HireTableAdapter();
         private void frmHistory_Load(object sender, EventArgs e)
         {
@@ -49,6 +50,17 @@ namespace RentalProject
             dgvHire.Columns[12].Width = (dgvHire.Width/100)*18;
             dgvHire.Columns[13].Width = (dgvHire.Width/100)*18;
             dgvHire.Columns[11].DisplayIndex = 13;
+
+            dgvCustomerPayment.Columns[0].Width = (dgvCustomerPayment.Width/100)*10;
+            dgvCustomerPayment.Columns[1].Width = (dgvCustomerPayment.Width/100)*15;
+            dgvCustomerPayment.Columns[2].Visible = false;
+            dgvCustomerPayment.Columns[3].Width = (dgvCustomerPayment.Width/100)*10;
+            dgvCustomerPayment.Columns[4].Width = (dgvCustomerPayment.Width/100)*15;
+            dgvCustomerPayment.Columns[5].Width = (dgvCustomerPayment.Width/100)*10;
+            dgvCustomerPayment.Columns[6].Width = (dgvCustomerPayment.Width/100)*25;
+            dgvCustomerPayment.Columns[7].Width = (dgvCustomerPayment.Width/100)*10;
+            dgvCustomerPayment.Columns[8].Width = (dgvCustomerPayment.Width/100)*10;
+            dgvCustomerPayment.Columns[9].Visible = false;
 
             MakeColor();
         }
