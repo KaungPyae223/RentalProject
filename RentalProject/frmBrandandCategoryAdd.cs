@@ -20,6 +20,8 @@ namespace RentalProject
 
         private Boolean kind;       // make a parameter to know to modify type or brand
         private Boolean IsEdit;     // make a parameter to know edit or add
+        RentalTableAdapters.BrandTableAdapter objBrand = new RentalTableAdapters.BrandTableAdapter();
+        RentalTableAdapters.TypeTableAdapter objType = new RentalTableAdapters.TypeTableAdapter();
 
         clsBrand ClsBrand = new clsBrand();
         clsType ClsType = new clsType();
@@ -55,17 +57,36 @@ namespace RentalProject
                 }
                 else
                 {
+
+                    DataTable DT = new DataTable();
                     if (MessageBox.Show("Sure to Save", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
                     {
                         if (kind)   // check the kind and add data to appropriate database 
                         {
-                            AddData();
-                            ClsBrand.AddBrand();
+                            DT = objBrand.CheckBrand(txtName.Text.Trim());
+                            if (DT.Rows.Count == 0)
+                            {
+                                AddData();
+                                ClsBrand.AddBrand();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Plese Brand is already Exit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                         else
                         {
-                            AddData();
-                            ClsType.AddType();
+                            DT = objType.TypeCheck(txtName.Text.Trim());
+                            if(DT.Rows.Count == 0)
+                            {
+                                AddData();
+                                ClsType.AddType();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Plese Type is already Exit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                            }
                         }
 
                         MessageBox.Show("Successfully saved");

@@ -20,6 +20,7 @@ namespace RentalProject
             this.IsEdit = IsEdit;
         }
 
+        RentalTableAdapters.DeliveryTableAdapter objDelivery = new RentalTableAdapters.DeliveryTableAdapter();
         private Boolean IsEdit = false;
         clsDelivery ClsDelivery = new clsDelivery();
         private void frmDelivery_Load(object sender, EventArgs e)
@@ -75,12 +76,22 @@ namespace RentalProject
                 }
                 else
                 {
-                    if (MessageBox.Show("Sure to Save", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
+                    DataTable DT = new DataTable();
+                    DT = objDelivery.CheckDelivery(txtDeliveryName.Text.Trim());
+                    if(DT.Rows.Count == 0 ) 
                     {
-                        AddData();
-                        ClsDelivery.AddDelivery();
-                        MessageBox.Show("Successfully Save");
-                        this.Close();
+                        if (MessageBox.Show("Sure to Save", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
+                        {
+                            AddData();
+                            ClsDelivery.AddDelivery();
+                            MessageBox.Show("Successfully Save");
+                            this.Close();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("This Delvery is already exit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                     }
                 }
                 

@@ -20,6 +20,7 @@ namespace RentalProject
         clsType ClsType = new clsType();
         clsDelivery ClsDelivery = new clsDelivery();
         clsItem objClsItem = new clsItem();
+        RentalTableAdapters.ItemTableAdapter objItem = new RentalTableAdapters.ItemTableAdapter();
         private void frmItems_Load(object sender, EventArgs e)
         {
             showData();
@@ -211,11 +212,21 @@ namespace RentalProject
             }
             else
             {
-                if (MessageBox.Show("Sure to Delete", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to delte
+                DataTable DT = new DataTable();
+                DT = objItem.ChecktoDelete(dgvBrand.CurrentRow.Cells[0].Value.ToString(), dgvBrand.CurrentRow.Cells[0].Value.ToString());
+                if(DT.Rows.Count == 0)
                 {
-                    ClsBrand.BrandID = dgvItem.CurrentRow.Cells[0].Value.ToString();
-                    ClsBrand.RemoveBrand();
-                    showData();
+                    if (MessageBox.Show("Sure to Delete", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to delte
+                    {
+                        ClsBrand.BrandID = dgvBrand.CurrentRow.Cells[0].Value.ToString();
+                        ClsBrand.RemoveBrand();
+                        showData();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("The Brand is used in Item", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
             }
         }
@@ -228,11 +239,21 @@ namespace RentalProject
             }
             else
             {
-                if (MessageBox.Show("Sure to Delete", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to delte
+                DataTable DT = new DataTable();
+                DT = objItem.ChecktoDelete(dgvType.CurrentRow.Cells[0].Value.ToString(), dgvType.CurrentRow.Cells[0].Value.ToString());
+                if(DT.Rows.Count == 0)
                 {
-                    ClsType.TypeID = dgvItem.CurrentRow.Cells[0].Value.ToString();
-                    ClsType.RemoveType();
-                    showData();
+                    if (MessageBox.Show("Sure to Delete", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to delte
+                    {
+                        ClsType.TypeID = dgvItem.CurrentRow.Cells[0].Value.ToString();
+                        ClsType.RemoveType();
+                        showData();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("The type is already used in Item", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
             }
         }
