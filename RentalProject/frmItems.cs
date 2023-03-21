@@ -130,7 +130,7 @@ namespace RentalProject
             {
                 DataTable DT = new DataTable();
                 DT = objHire.CheckItem(dgvItem.CurrentRow.Cells[0].Value.ToString());
-                if(DT.Rows.Count == 0)
+                if (DT.Rows.Count == 0)
                 {
                     if (MessageBox.Show("Sure to Delete", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to delte
                     {
@@ -229,7 +229,7 @@ namespace RentalProject
             {
                 DataTable DT = new DataTable();
                 DT = objItem.ChecktoDelete(dgvBrand.CurrentRow.Cells[0].Value.ToString(), dgvBrand.CurrentRow.Cells[0].Value.ToString());
-                if(DT.Rows.Count == 0)
+                if (DT.Rows.Count == 0)
                 {
                     if (MessageBox.Show("Sure to Delete", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to delte
                     {
@@ -256,7 +256,7 @@ namespace RentalProject
             {
                 DataTable DT = new DataTable();
                 DT = objItem.ChecktoDelete(dgvType.CurrentRow.Cells[0].Value.ToString(), dgvType.CurrentRow.Cells[0].Value.ToString());
-                if(DT.Rows.Count == 0)
+                if (DT.Rows.Count == 0)
                 {
                     if (MessageBox.Show("Sure to Delete", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to delte
                     {
@@ -282,11 +282,18 @@ namespace RentalProject
             {
                 DataTable DT = new DataTable();
                 DT = objClsDelivery.CheckDelivery(dgvDelivery.CurrentRow.Cells[0].Value.ToString());
-                if (MessageBox.Show("Sure to Delete", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to delte
+                if(DT.Rows.Count == 0)
                 {
-                    objClsDelivery.DeliveryID = dgvItem.CurrentRow.Cells[0].Value.ToString();
-                    objClsDelivery.DeleteDelivery();
-                    showData();
+                    if (MessageBox.Show("Sure to Delete", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to delte
+                    {
+                        objClsDelivery.DeliveryID = dgvItem.CurrentRow.Cells[0].Value.ToString();
+                        objClsDelivery.DeleteDelivery();
+                        showData();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("The delivery is already used in Hire", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -316,25 +323,20 @@ namespace RentalProject
         {
             AutoCompleteStringCollection sourse = new AutoCompleteStringCollection();
             DataTable DT = objClsItem.GetItem();
-            if(DT.Rows.Count == 0)
-            {
-                if (DT.Rows.Count > 0)
-                {
-                    txtSearch.AutoCompleteCustomSource.Clear();
-                    foreach (DataRow dr in DT.Rows)
-                    {
-                        sourse.Add(dr[FieldName].ToString());
-                    }
-                    txtSearch.AutoCompleteCustomSource = sourse;
-                    txtSearch.Text = "";
-                    txtSearch.Focus();
-                }
-            }
-            else
-            {
-                MessageBox.Show("The Delivery is already exit in Hire", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+            if (DT.Rows.Count > 0)
+            {
+                txtSearch.AutoCompleteCustomSource.Clear();
+                foreach (DataRow dr in DT.Rows)
+                {
+                    sourse.Add(dr[FieldName].ToString());
+                }
+                txtSearch.AutoCompleteCustomSource = sourse;
+                txtSearch.Text = "";
+                txtSearch.Focus();
             }
+
+
 
         }
 

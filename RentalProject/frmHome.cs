@@ -1,6 +1,7 @@
 ﻿using RentalProject.Classes;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace RentalProject
@@ -63,7 +64,12 @@ namespace RentalProject
                     foreach (string ID in Program.Craft)
                     {
                         if (dr[0].ToString() == ID)
+                        {
                             frm.btnCraft.Text = "Cancel";
+                            frm.btnCraft.BackColor = Color.Orange;
+                            frm.btnCraft.ForeColor = Color.White;
+                        }
+
                     }
                     loadform(frm);
                 }
