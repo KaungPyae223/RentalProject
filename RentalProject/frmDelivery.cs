@@ -103,6 +103,10 @@ namespace RentalProject
             ClsDelivery.DeliveryName = txtDeliveryName.Text.Trim();
             ClsDelivery.DeliveryPhone = txtDeliveryPhone.Text.Trim();
         }
-        
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

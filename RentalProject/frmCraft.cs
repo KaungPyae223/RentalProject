@@ -1,6 +1,7 @@
 ﻿using RentalProject.Classes;
 using System;
 using System.Data;
+using System.Diagnostics.Contracts;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -65,8 +66,20 @@ namespace RentalProject
 
         private void btnHire_Click(object sender, EventArgs e)
         {
-            frmHire frm = new frmHire();
-            frm.Show();
+            if(craftMainPanel.Controls.Count > 0)
+            {
+                frmHire frm = new frmHire();
+                frm.Show();
+                craftMainPanel.Controls.Clear();
+                Program.Craft.Clear();
+                lblPPM.Text = "0 £";
+                lblTotalQty.Text = "0";
+            }
+            else
+            {
+                MessageBox.Show("There is no items in Craft", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
     }
 }

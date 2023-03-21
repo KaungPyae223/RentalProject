@@ -116,9 +116,9 @@ namespace RentalProject
                 MessageBox.Show("Plese choose a payment type", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-            else if (txtAggree.Text != "I aggree with all")
+            else if (txtAggree.Text != "I agree with all")
             {
-                MessageBox.Show("Plese type a \"I aggree with all\" ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Plese type a \"I agree with all\" ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtAggree.Focus();
             }
             else

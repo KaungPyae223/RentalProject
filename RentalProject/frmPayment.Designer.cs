@@ -93,9 +93,9 @@
             this.btnReturn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReturn.Location = new System.Drawing.Point(331, 15);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(271, 55);
+            this.btnReturn.Size = new System.Drawing.Size(264, 55);
             this.btnReturn.TabIndex = 3;
-            this.btnReturn.Text = "       Return all Hire Items";
+            this.btnReturn.Text = "       Return Hire Items";
             this.btnReturn.UseVisualStyleBackColor = false;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 

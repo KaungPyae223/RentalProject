@@ -42,7 +42,7 @@
             this.lblTotalHireAmont = new System.Windows.Forms.Label();
             this.lblNewDueDate = new System.Windows.Forms.Label();
             this.lblOldDueDate = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.lblHireID = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -130,7 +130,7 @@
             this.tableLayoutPanel1.Controls.Add(this.lblTotalHireAmont, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.lblNewDueDate, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.lblOldDueDate, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label12, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblHireID, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label10, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
@@ -221,14 +221,14 @@
             this.lblOldDueDate.TabIndex = 12;
             this.lblOldDueDate.Text = "12 March 2023";
             // 
-            // label12
+            // lblHireID
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(285, 82);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(77, 25);
-            this.label12.TabIndex = 10;
-            this.label12.Text = "H-0001";
+            this.lblHireID.AutoSize = true;
+            this.lblHireID.Location = new System.Drawing.Point(285, 82);
+            this.lblHireID.Name = "lblHireID";
+            this.lblHireID.Size = new System.Drawing.Size(77, 25);
+            this.lblHireID.TabIndex = 10;
+            this.lblHireID.Text = "H-0001";
             // 
             // label10
             // 
@@ -423,7 +423,7 @@
         private System.Windows.Forms.Label lblTotalHireAmont;
         private System.Windows.Forms.Label lblNewDueDate;
         private System.Windows.Forms.Label lblOldDueDate;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblHireID;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;

@@ -35,6 +35,7 @@ namespace RentalProject
             lblToday.Text = DateTime.Now.ToString("dd MMMM yyyy");
             lblOldDueDate.Text = OldDueDate.ToString("dd MMMM yyyy");
             cboPaymentType.SelectedIndex = 0;
+            lblHireID.Text = HireID;
         }
         clsPayment objClsPayment = new clsPayment();
         clsHire objClsHire = new clsHire();

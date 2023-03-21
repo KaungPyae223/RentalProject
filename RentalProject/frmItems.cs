@@ -110,7 +110,7 @@ namespace RentalProject
                 frm.txtDescription.Text = dgvItem.CurrentRow.Cells[9].Value.ToString();
                 frm.ID = dgvItem.CurrentRow.Cells[0].Value.ToString();
                 frm.OnHandQty = Convert.ToInt32(dgvItem.CurrentRow.Cells[7].Value);
-                frm.OnHandQty = Convert.ToInt32(dgvItem.CurrentRow.Cells[11].Value);
+                frm.OnHandQty = Convert.ToInt32(dgvItem.CurrentRow.Cells[13].Value);
 
                 frm.btnSave.Text = "Edit";
                 frm.ShowDialog();
@@ -335,8 +335,6 @@ namespace RentalProject
                 txtSearch.Text = "";
                 txtSearch.Focus();
             }
-
-
 
         }
 
