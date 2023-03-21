@@ -396,15 +396,6 @@
         private System.Windows.Forms.PictureBox AdminPicture;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TextBox txtInfo;
-        private System.Windows.Forms.TextBox txtConfirmPassword;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.TextBox txtNRC;
-        private System.Windows.Forms.TextBox txtPhone;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtLocation;
-        private System.Windows.Forms.TextBox txtAccountName;
-        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -416,9 +407,18 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.ComboBox cboPost;
+        public System.Windows.Forms.TextBox txtConfirmPassword;
+        public System.Windows.Forms.TextBox txtPassword;
+        public System.Windows.Forms.TextBox txtInfo;
+        public System.Windows.Forms.TextBox txtNRC;
+        public System.Windows.Forms.TextBox txtPhone;
+        public System.Windows.Forms.TextBox txtEmail;
+        public System.Windows.Forms.TextBox txtLocation;
+        public System.Windows.Forms.TextBox txtAccountName;
+        public System.Windows.Forms.TextBox txtName;
+        public System.Windows.Forms.TextBox txtID;
+        public System.Windows.Forms.Button btnSave;
+        public System.Windows.Forms.ComboBox cboPost;
     }
 }

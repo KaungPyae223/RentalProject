@@ -74,6 +74,13 @@ namespace RentalProject
             dgvAdminProcess.DataSource = objClsModify.GetModifyByID(txtAdminName.Text);
             dgvAdminProcess.Refresh();
         }
+
+        private void tsbEdit_Click(object sender, EventArgs e)
+        {
+            frmAdminAdd frm = new frmAdminAdd();
+            frm.txtPassword.Visible = false;
+            frm.txtConfirmPassword.Visible = false;
+        }
     }
     
 }

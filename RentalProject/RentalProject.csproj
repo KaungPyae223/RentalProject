@@ -161,6 +161,12 @@
     <Compile Include="frmProfile.Designer.cs">
       <DependentUpon>frmProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmUpdatePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUpdatePassword.Designer.cs">
+      <DependentUpon>frmUpdatePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUserControl.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,6 +245,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmProfile.resx">
       <DependentUpon>frmProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUpdatePassword.resx">
+      <DependentUpon>frmUpdatePassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUserControl.resx">
       <DependentUpon>frmUserControl.cs</DependentUpon>

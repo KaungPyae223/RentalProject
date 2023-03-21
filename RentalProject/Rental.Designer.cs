@@ -14225,7 +14225,7 @@ SELECT AdminID, AdminPost, AdminProperites, AccountName, AdminName, AdminLocatio
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Admin.*\r\nFROM   Admin";
@@ -14243,6 +14243,12 @@ SELECT AdminID, AdminPost, AdminProperites, AccountName, AdminName, AdminLocatio
             this._commandCollection[2].CommandText = "SELECT Admin.*\r\nFROM   Admin\r\nwhere AdminEmail = @Email";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "AdminEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "UPDATE [Admin] SET [AdminPassword] = @AdminPassword WHERE (AdminID = @AdminID)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AdminPassword", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "AdminPassword", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AdminID", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "AdminID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14856,6 +14862,41 @@ SELECT AdminID, AdminPost, AdminProperites, AccountName, AdminName, AdminLocatio
                     string Original_AdminInfo, 
                     global::System.Nullable<global::System.DateTime> Original_AdminRegisterDate) {
             return this.Update(Original_AdminID, AdminPost, AdminProperites, AccountName, AdminName, AdminLocation, AdminEmail, AdminPhone, AdminNRC, AdminPassword, AdminInfo, AdminRegisterDate, AdminPhoto, Original_AdminID, Original_AdminPost, Original_AdminProperites, Original_AccountName, Original_AdminName, Original_AdminLocation, Original_AdminEmail, Original_AdminPhone, Original_AdminNRC, Original_AdminPassword, Original_AdminInfo, Original_AdminRegisterDate);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdatePassword(string AdminPassword, string AdminID) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            if ((AdminPassword == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((string)(AdminPassword));
+            }
+            if ((AdminID == null)) {
+                throw new global::System.ArgumentNullException("AdminID");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(AdminID));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     

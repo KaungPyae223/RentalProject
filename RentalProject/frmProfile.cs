@@ -99,10 +99,18 @@ namespace RentalProject
             }
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void btnEditProfile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmUserRegister frm = new frmUserRegister();
-            frm.ShowDialog();
+            if (Program.AdminID == "")
+            {
+                frmUpdatePassword frm = new frmUpdatePassword(DT.Rows[0][9].ToString(), DT.Rows[0]["AdminID"].ToString());
+                frm.Show();
+            }
+            else
+            {
+                frmUserRegister frm = new frmUserRegister();
+                frm.Show();
+            }
         }
     }
 }

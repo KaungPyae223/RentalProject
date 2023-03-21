@@ -49,7 +49,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.lblUserLevel = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.btnEditProfile = new System.Windows.Forms.LinkLabel();
             this.lblAccountName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -80,7 +80,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Controls.Add(this.lblName);
-            this.panel1.Controls.Add(this.linkLabel1);
+            this.panel1.Controls.Add(this.btnEditProfile);
             this.panel1.Controls.Add(this.lblAccountName);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -236,16 +236,16 @@
             this.lblName.TabIndex = 3;
             this.lblName.Text = "Hla Win";
             // 
-            // linkLabel1
+            // btnEditProfile
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(67, 237);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(85, 20);
-            this.linkLabel1.TabIndex = 2;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Edit Profile";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.btnEditProfile.AutoSize = true;
+            this.btnEditProfile.Location = new System.Drawing.Point(67, 237);
+            this.btnEditProfile.Name = "btnEditProfile";
+            this.btnEditProfile.Size = new System.Drawing.Size(85, 20);
+            this.btnEditProfile.TabIndex = 2;
+            this.btnEditProfile.TabStop = true;
+            this.btnEditProfile.Text = "Edit Profile";
+            this.btnEditProfile.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.btnEditProfile_LinkClicked);
             // 
             // lblAccountName
             // 
@@ -353,7 +353,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblAccountName;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel btnEditProfile;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;

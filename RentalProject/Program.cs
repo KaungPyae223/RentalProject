@@ -31,7 +31,7 @@ namespace RentalProject
         public static List<string> Craft = new List<string>();
         public static DataTable DT;
         public static string Type;
-        public static string AdminID = "A-001";
+        public static string AdminID = "";
 
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         private static extern bool SetProcessDPIAware();
