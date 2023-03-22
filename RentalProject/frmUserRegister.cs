@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -15,7 +16,9 @@ namespace RentalProject
         }
         clsCustomer objclsCustomer = new clsCustomer();
         string ImageLocation = "";
-        byte[] image = null;
+        public byte[] image = null;
+        public Boolean IsEdit = false;
+        public string CustomerID;
         RentalTableAdapters.CustomerTableAdapter objCustomer = new RentalTableAdapters.CustomerTableAdapter();
         private void txtPassport_TextChanged(object sender, EventArgs e)
         {
@@ -162,7 +165,7 @@ namespace RentalProject
         }
         private void AddData()
         {
-            objclsCustomer.CustomerID = MakeCustomerID();
+            objclsCustomer.CustomerID = CustomerID;
             objclsCustomer.CustomerLevel = "Bronze";
             objclsCustomer.UserNRC = txtNRC.Text.Trim();
             objclsCustomer.UserEmail = txtEmail.Text.Trim();
@@ -203,6 +206,17 @@ namespace RentalProject
                 ImageLocation = OFdiag.FileName.ToString();
                 UserPicture.ImageLocation = ImageLocation;
             }
+        }
+
+        private void frmUserRegister_Load(object sender, EventArgs e)
+        {
+            if(image != null && IsEdit == true)
+            {
+                MemoryStream ms = new MemoryStream(image);
+                UserPicture.Image = Image.FromStream(ms);
+            }
+            if (IsEdit == false)
+                CustomerID = MakeCustomerID();
         }
     }
 }

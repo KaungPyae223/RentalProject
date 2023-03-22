@@ -193,6 +193,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rental.cs">
+      <DependentUpon>Rental.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Rental.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

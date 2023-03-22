@@ -303,6 +303,7 @@
             // 
             // cboPost
             // 
+            this.cboPost.DisplayMember = "d";
             this.cboPost.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPost.FormattingEnabled = true;
             this.cboPost.Items.AddRange(new object[] {

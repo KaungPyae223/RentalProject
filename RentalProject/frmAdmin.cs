@@ -40,7 +40,6 @@ namespace RentalProject
             dgvAdmin.Columns[8].Width = (dgvAdmin.Width/100)*15;
             dgvAdmin.Columns[9].Visible = false;
             dgvAdmin.Columns[10].Width = (dgvAdmin.Width/100)*15;
-
             dgvAdmin.Columns[11].Visible = false;
             dgvAdmin.Columns[12].Visible = false;
 
@@ -77,9 +76,45 @@ namespace RentalProject
 
         private void tsbEdit_Click(object sender, EventArgs e)
         {
-            frmAdminAdd frm = new frmAdminAdd();
-            frm.txtPassword.Visible = false;
-            frm.txtConfirmPassword.Visible = false;
+            if (dgvAdmin.CurrentRow.Cells[0].Value.ToString() == string.Empty)
+            {
+                MessageBox.Show("Please select a row to Edit","Error",MessageBoxButtons.OK,MessageBoxIcon.Error); 
+            }
+            else
+            {
+                frmAdminAdd frm = new frmAdminAdd();
+                frm.txtPassword.Visible = false;
+                frm.txtConfirmPassword.Visible = false;
+                frm.txtID.Text = dgvAdmin.CurrentRow.Cells[0].Value.ToString();
+                frm.txtEmail.Text = dgvAdmin.CurrentRow.Cells[6].Value.ToString();
+                frm.txtLocation.Text = dgvAdmin.CurrentRow.Cells[5].Value.ToString();
+                frm.txtName.Text = dgvAdmin.CurrentRow.Cells[4].Value.ToString();
+                frm.txtAccountName.Text = dgvAdmin.CurrentRow.Cells[3].Value.ToString();
+                frm.txtPhone.Text = dgvAdmin.CurrentRow.Cells[7].Value.ToString();
+                frm.txtNRC.Text = dgvAdmin.CurrentRow.Cells[8].Value.ToString();
+                frm.txtInfo.Text = dgvAdmin.CurrentRow.Cells[10].Value.ToString();
+                frm.cboPost.SelectedValue = dgvAdmin.CurrentRow.Cells[2].Value.ToString();
+                frm.IsEdit = true;
+                frm.image = (byte[])(dgvAdmin.CurrentRow.Cells[12].Value);
+                frm.Show();
+            }
+            
+        }
+
+        private void tsbDelete_Click(object sender, EventArgs e)
+        {
+            if (dgvAdmin.CurrentRow.Cells[0].Value.ToString() == string.Empty)
+            {
+                MessageBox.Show("Please select a row to Delete", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if(MessageBox.Show("Are you sure to remove "+dgvAdmin.CurrentRow.Cells[4].Value.ToString(),"Confirm",MessageBoxButtons.OKCancel,MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    objAdmin.RemoveAdmin("", dgvAdmin.CurrentRow.Cells[0].Value.ToString());
+                    MessageBox.Show("Successfully Delete");
+                }
+            }
         }
     }
     

@@ -38,7 +38,7 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.txtUser = new System.Windows.Forms.ToolStripTextBox();
             this.dgvUser = new System.Windows.Forms.DataGridView();
-            this.cboType = new System.Windows.Forms.ToolStripComboBox();
+            this.cboType = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).BeginInit();
             this.SuspendLayout();
@@ -92,6 +92,7 @@
             this.txtUser.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(250, 37);
+            this.txtUser.TextChanged += new System.EventHandler(this.txtUser_TextChanged);
             // 
             // dgvUser
             // 
@@ -137,14 +138,10 @@
             // 
             // cboType
             // 
-            this.cboType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboType.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboType.Items.AddRange(new object[] {
-            "CustomerName",
-            "CustomerEmail"});
+            this.cboType.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboType.Name = "cboType";
-            this.cboType.Size = new System.Drawing.Size(195, 49);
-            this.cboType.SelectedIndexChanged += new System.EventHandler(this.cboType_SelectedIndexChanged);
+            this.cboType.Size = new System.Drawing.Size(180, 44);
+            this.cboType.Text = "Customer Name";
             // 
             // frmUserControl
             // 
@@ -174,6 +171,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripTextBox txtUser;
         private System.Windows.Forms.DataGridView dgvUser;
-        private System.Windows.Forms.ToolStripComboBox cboType;
+        private System.Windows.Forms.ToolStripLabel cboType;
     }
 }

@@ -764,6 +764,7 @@
             this.Name = "frmUserRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register Account";
+            this.Load += new System.EventHandler(this.frmUserRegister_Load);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.panel8.ResumeLayout(false);

@@ -1,12 +1,6 @@
 ﻿using RentalProject.Classes;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RentalProject
@@ -18,9 +12,10 @@ namespace RentalProject
             InitializeComponent();
         }
         clsCustomer objClsCustomer = new clsCustomer();
+        RentalTableAdapters.CustomerTableAdapter objcustomer = new RentalTableAdapters.CustomerTableAdapter();
         private void frmUserControl_Load(object sender, EventArgs e)
         {
-            
+
             dgvUser.DataSource = objClsCustomer.SelectUser();
             dgvUser.Columns[0].Width = (dgvUser.Width/100)*15;
             dgvUser.Columns[1].Width = (dgvUser.Width/100)*15;
@@ -34,11 +29,11 @@ namespace RentalProject
             dgvUser.Columns[9].Visible = false;
             dgvUser.Columns[10].Visible = false;
             dgvUser.Columns[11].Visible = false;
-            cboType.SelectedIndex = 0;
+            Suggestion();
         }
 
-       
-        public void Suggestion( string FieldName)
+
+        public void Suggestion()
         {
             AutoCompleteStringCollection sourse = new AutoCompleteStringCollection();
             DataTable DT = objClsCustomer.SelectUser();
@@ -47,7 +42,7 @@ namespace RentalProject
                 txtUser.AutoCompleteCustomSource.Clear();
                 foreach (DataRow dr in DT.Rows)
                 {
-                    sourse.Add(dr[FieldName].ToString());
+                    sourse.Add(dr[3].ToString());
                 }
                 txtUser.AutoCompleteCustomSource = sourse;
                 txtUser.Text = "";
@@ -55,16 +50,13 @@ namespace RentalProject
             }
         }
 
-        private void cboType_SelectedIndexChanged(object sender, EventArgs e)
+
+
+        private void txtUser_TextChanged(object sender, EventArgs e)
         {
-            if(cboType.SelectedIndex == 0)
-            {
-                Suggestion("CustomerName");
-            }
-            else
-            {
-                Suggestion("CustomerEmail");
-            }
+
+            dgvUser.DataSource = objcustomer.GetCustomerByName(txtUser.Text);
+
         }
     }
 }

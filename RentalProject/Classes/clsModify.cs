@@ -35,7 +35,7 @@ namespace RentalProject.Classes
         }
         public DataTable GetModifyByID(string Name)
         {
-            return objvi_Modify.GetModifyByAdminName(Name);
+            return objvi_Modify.GetModifyByAdmin(Name);
         }
     }
 }

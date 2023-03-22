@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Data;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace RentalProject
 {
@@ -12,23 +14,26 @@ namespace RentalProject
         public frmAdminAdd()
         {
             InitializeComponent();
+            DataTable DT = new DataTable();
+            DT.Columns.Add("Display",typeof(string));
+            DT.Columns.Add("Value", typeof(string));
+            DT.Rows.Add("Junior Admin", "Profile,Home,Item");
+            DT.Rows.Add("Mid Admin", "Profile,Home,Item,User");
+            DT.Rows.Add("Senior Admin", "Profile,Home,Item,User,RentalList");
+            DT.Rows.Add("Super Admin", "Profile,Home,Item,User,RentalList,PaymentList,Admin");
+            cboPost.DataSource = DT;
+            cboPost.DisplayMember = "Display";
+            cboPost.ValueMember = "Value";
         }
+        public Boolean IsEdit = false;
         string properties;
         string imageLocation;
-        byte[] image;
+        public byte[] image;
         RentalTableAdapters.AdminTableAdapter objAdmin = new RentalTableAdapters.AdminTableAdapter();
         private void cboPost_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (cboPost.SelectedIndex == 0)
-                properties = "Profile,Home,Item";
-            else if (cboPost.SelectedIndex == 1)
-                properties = "Profile,Home,Item,User";
-            else if (cboPost.SelectedIndex == 2)
-                properties = "Profile,Home,Item,User,RentalList";
-            else if (cboPost.SelectedIndex == 3)
-                properties = "Profile,Home,Item,User,RentalList,PaymentList,Admin";
-
+            properties =cboPost.SelectedValue.ToString();
             ShowProperties();
 
         }
@@ -52,8 +57,16 @@ namespace RentalProject
 
         private void frmAdminAdd_Load(object sender, EventArgs e)
         {
-            cboPost.SelectedIndex= 0;
-            AddID();
+            if(IsEdit == false)
+            {
+                cboPost.SelectedIndex= 0;
+                AddID();
+            }
+            if (IsEdit && image != null)
+            {
+                MemoryStream ms = new MemoryStream(image);
+                AdminPicture.Image = Image.FromStream(ms);
+            }
         }
         private void AddID()
         {
