@@ -37,5 +37,6 @@ namespace RentalProject.Classes
             return objCustomer.GetCustomer();
         }
         
+        
     }
 }

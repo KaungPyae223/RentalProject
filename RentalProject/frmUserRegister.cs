@@ -146,21 +146,34 @@ namespace RentalProject
                 BinaryReader brs = new BinaryReader(File);
                 image = brs.ReadBytes((int)File.Length);
             }
-            DataTable DT = new DataTable();
-            DT = objCustomer.CheckCustomer(txtEmail.Text.Trim());
-            if(DT.Rows.Count == 0)
+            if(IsEdit == false)
             {
-                if (MessageBox.Show("Sure to Register", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
+                DataTable DT = new DataTable();
+                DT = objCustomer.CheckCustomer(txtEmail.Text.Trim());
+                if (DT.Rows.Count == 0)
                 {
-                    AddData();
-                    objclsCustomer.SaveUser();
-                    MessageBox.Show("Successfully Register");
-                    this.Close();
+                    if (MessageBox.Show("Sure to Register", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
+                    {
+                        AddData();
+                        objclsCustomer.SaveUser();
+                        MessageBox.Show("Successfully Register");
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("The user is already exit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("The user is already exit","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                if (MessageBox.Show("Sure to Update", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
+                {
+                    AddData();
+                    objclsCustomer.EditUser();
+                    MessageBox.Show("Successfully Update");
+                    this.Close();
+                }
             }
         }
         private void AddData()

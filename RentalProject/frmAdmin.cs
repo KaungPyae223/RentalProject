@@ -1,12 +1,7 @@
 ﻿using RentalProject.Classes;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RentalProject
@@ -24,6 +19,8 @@ namespace RentalProject
         {
             frmAdminAdd frm = new frmAdminAdd();
             frm.ShowDialog();
+            dgvAdmin.DataSource = objAdmin.GetAdmin();
+            MakeColor();
         }
 
         private void frmAdmin_Load(object sender, EventArgs e)
@@ -42,6 +39,7 @@ namespace RentalProject
             dgvAdmin.Columns[10].Width = (dgvAdmin.Width/100)*15;
             dgvAdmin.Columns[11].Visible = false;
             dgvAdmin.Columns[12].Visible = false;
+            MakeColor();
 
             dgvAdminProcess.DataSource = objClsModify.getModify();
             dgvAdminProcess.Columns[0].Width = (dgvAdminProcess.Width/100) * 25;
@@ -71,6 +69,7 @@ namespace RentalProject
         private void txtAdminName_TextChanged(object sender, EventArgs e)
         {
             dgvAdminProcess.DataSource = objClsModify.GetModifyByID(txtAdminName.Text);
+            MakeColor();
             dgvAdminProcess.Refresh();
         }
 
@@ -78,7 +77,7 @@ namespace RentalProject
         {
             if (dgvAdmin.CurrentRow.Cells[0].Value.ToString() == string.Empty)
             {
-                MessageBox.Show("Please select a row to Edit","Error",MessageBoxButtons.OK,MessageBoxIcon.Error); 
+                MessageBox.Show("Please select a row to Edit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -97,8 +96,10 @@ namespace RentalProject
                 frm.IsEdit = true;
                 frm.image = (byte[])(dgvAdmin.CurrentRow.Cells[12].Value);
                 frm.Show();
+                dgvAdmin.DataSource = objAdmin.GetAdmin();
+                MakeColor();
             }
-            
+
         }
 
         private void tsbDelete_Click(object sender, EventArgs e)
@@ -109,13 +110,34 @@ namespace RentalProject
             }
             else
             {
-                if(MessageBox.Show("Are you sure to remove "+dgvAdmin.CurrentRow.Cells[4].Value.ToString(),"Confirm",MessageBoxButtons.OKCancel,MessageBoxIcon.Question) == DialogResult.OK)
+                if (MessageBox.Show("Are you sure to remove "+dgvAdmin.CurrentRow.Cells[4].Value.ToString(), "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
                     objAdmin.RemoveAdmin("", dgvAdmin.CurrentRow.Cells[0].Value.ToString());
-                    MessageBox.Show("Successfully Delete");
+                    dgvAdmin.DataSource = objAdmin.GetAdmin();
+                    MakeColor();
+                    MessageBox.Show("Successfully remove");
                 }
             }
         }
+        private void MakeColor()
+        {
+            int lastIndex = dgvAdmin.Rows.Count - 1;
+            for (int i = 0; i < lastIndex; i++)
+            {
+                if (dgvAdmin.Rows[i].Cells[2].Value.ToString() == "")
+                {
+
+                    dgvAdmin.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                    dgvAdmin.Rows[i].DefaultCellStyle.ForeColor = Color.White;
+
+                }
+            }
+        }
+
+        private void dgvAdmin_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            MakeColor();
+        }
     }
-    
+
 }

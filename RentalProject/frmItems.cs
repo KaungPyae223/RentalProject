@@ -15,7 +15,6 @@ namespace RentalProject
             dgvItem.DataSource= objClsItem.GetItem();
             cboSearch.SelectedIndex = 0;
         }
-        clsModify objClsModify = new clsModify();
         clsBrand objClsBrand = new clsBrand();
         clsType objClsType = new clsType();
         clsDelivery objClsDelivery = new clsDelivery();
@@ -33,8 +32,9 @@ namespace RentalProject
 
             frmAddItem frm = new frmAddItem(false);
             frm.ShowDialog();
+            dgvItem.DataSource= objClsItem.GetItem();
             showData();
-
+            MakeColor();
         }
 
         private void showData() //method to show the data in data grid view
@@ -114,7 +114,8 @@ namespace RentalProject
 
                 frm.btnSave.Text = "Edit";
                 frm.ShowDialog();
-
+                dgvItem.DataSource= objClsItem.GetItem();
+                MakeColor();
             }
 
             showData();
@@ -135,7 +136,13 @@ namespace RentalProject
                     if (MessageBox.Show("Sure to Delete", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to delte
                     {
                         objClsItem.DeleteItems(dgvItem.CurrentRow.Cells[0].Value.ToString());
+                        clsModify objClsModify = new clsModify();
+                        objClsModify.ItemID = dgvItem.CurrentRow.Cells[0].Value.ToString();
+                        objClsModify.Transation = "Delete an Item";
+                        objClsModify.saveTransation();
                         MessageBox.Show("Successfully delete");
+                        dgvItem.DataSource= objClsItem.GetItem();
+                        MakeColor();
                     }
                 }
                 else
@@ -151,6 +158,7 @@ namespace RentalProject
             frmBrandandCategoryAdd frm = new frmBrandandCategoryAdd(true, false);
             frm.ShowDialog();
             showData();
+
         }
 
         private void tsbTypeNew_Click(object sender, EventArgs e)
@@ -158,6 +166,7 @@ namespace RentalProject
             frmBrandandCategoryAdd frm = new frmBrandandCategoryAdd(false, false);
             frm.ShowDialog();
             showData();
+
         }
 
         private void tsbDeliveryNew_Click(object sender, EventArgs e)
@@ -181,6 +190,7 @@ namespace RentalProject
                 frm.btnAdd.Text = "Edit";
                 frm.ShowDialog();
                 showData();
+
             }
         }
 
@@ -198,6 +208,7 @@ namespace RentalProject
                 frm.btnAdd.Text = "Edit";
                 frm.ShowDialog();
                 showData();
+
             }
         }
 
@@ -236,6 +247,8 @@ namespace RentalProject
                         objClsBrand.BrandID = dgvBrand.CurrentRow.Cells[0].Value.ToString();
                         objClsBrand.RemoveBrand();
                         showData();
+                        dgvBrand.DataSource= objClsBrand.GetBrand();
+
                     }
                 }
                 else
@@ -282,7 +295,7 @@ namespace RentalProject
             {
                 DataTable DT = new DataTable();
                 DT = objClsDelivery.CheckDelivery(dgvDelivery.CurrentRow.Cells[0].Value.ToString());
-                if(DT.Rows.Count == 0)
+                if (DT.Rows.Count == 0)
                 {
                     if (MessageBox.Show("Sure to Delete", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to delte
                     {

@@ -4,8 +4,6 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace RentalProject
 {
@@ -15,7 +13,7 @@ namespace RentalProject
         {
             InitializeComponent();
             DataTable DT = new DataTable();
-            DT.Columns.Add("Display",typeof(string));
+            DT.Columns.Add("Display", typeof(string));
             DT.Columns.Add("Value", typeof(string));
             DT.Rows.Add("Junior Admin", "Profile,Home,Item");
             DT.Rows.Add("Mid Admin", "Profile,Home,Item,User");
@@ -28,7 +26,7 @@ namespace RentalProject
         public Boolean IsEdit = false;
         string properties;
         string imageLocation;
-        public byte[] image;
+        public byte[] image = null;
         RentalTableAdapters.AdminTableAdapter objAdmin = new RentalTableAdapters.AdminTableAdapter();
         private void cboPost_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -57,7 +55,7 @@ namespace RentalProject
 
         private void frmAdminAdd_Load(object sender, EventArgs e)
         {
-            if(IsEdit == false)
+            if (IsEdit == false)
             {
                 cboPost.SelectedIndex= 0;
                 AddID();
@@ -88,30 +86,45 @@ namespace RentalProject
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if(CheckData())
+            if (CheckData())
             {
-                image = null;
-                if(imageLocation != string.Empty)
+
+                if (imageLocation != string.Empty)
                 {
                     FileStream File = new FileStream(imageLocation, FileMode.Open, FileAccess.Read);
                     BinaryReader brs = new BinaryReader(File);
                     image = brs.ReadBytes((int)File.Length);
                 }
-                DataTable DT = new DataTable();
-                DT = objAdmin.CheckAdmin(txtEmail.Text.Trim());
-                if(DT.Rows.Count == 0)
+                if (IsEdit == false)
                 {
-                    objAdmin.Insert(txtID.Text, cboPost.Text, properties, txtAccountName.Text, txtName.Text, txtLocation.Text, txtEmail.Text, txtPhone.Text, txtNRC.Text, txtPassword.Text, txtInfo.Text, DateTime.Now, image);
-                    MessageBox.Show("Successfully Save");
-                    this.Close();
+                    DataTable DT = new DataTable();
+                    DT = objAdmin.CheckAdmin(txtEmail.Text.Trim());
+                    if (DT.Rows.Count == 0)
+                    {
+                        if (MessageBox.Show("Are you sure to add Admin", "Confirm", MessageBoxButtons.OKCancel)== DialogResult.OK)
+                        {
+                            objAdmin.Insert(txtID.Text, cboPost.Text, properties, txtAccountName.Text, txtName.Text, txtLocation.Text, txtEmail.Text, txtPhone.Text, txtNRC.Text, txtPassword.Text, txtInfo.Text, DateTime.Now, image);
+                            MessageBox.Show("Successfully Save");
+                            this.Close();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("This Admin is already exit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("This Admin is already exit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                    if (MessageBox.Show("Are you sure to Edit Admin", "Confirm", MessageBoxButtons.OKCancel)== DialogResult.OK)
+                    {
+                        objAdmin.UpdateAdmin(cboPost.Text, properties, txtAccountName.Text, txtName.Text, txtLocation.Text, txtEmail.Text, txtPhone.Text, txtNRC.Text, txtInfo.Text, image, txtID.Text);
+                        MessageBox.Show("Successfully Edit");
+                        this.Close();
+                    }
                 }
             }
-            
+
         }
         private Boolean CheckData()
         {
@@ -157,49 +170,49 @@ namespace RentalProject
                 return false;
 
             }
-            else if (txtPassword.Text.Trim() == string.Empty)
+            else if (txtPassword.Text.Trim() == string.Empty && IsEdit == false)
             {
                 MessageBox.Show("Plese type a Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPassword.Focus();
                 return false;
 
             }
-            else if (Password.Length < 8 || Password.Length>16) //check password length greater than 8 and less than 16
+            else if ((Password.Length < 8 || Password.Length>16) && IsEdit == false) //check password length greater than 8 and less than 16
             {
                 MessageBox.Show("Password length have to between 8 and 16", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPassword.Focus();
                 return false;
 
             }
-            else if (!Password.Any(char.IsUpper)) //check password contains upper case
+            else if (!Password.Any(char.IsUpper) && IsEdit == false) //check password contains upper case
             {
                 MessageBox.Show("Password have to contain Upper case", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPassword.Focus();
                 return false;
 
             }
-            else if (!Password.Any(char.IsLower)) //check password contains lower case
+            else if (!Password.Any(char.IsLower) && IsEdit == false) //check password contains lower case
             {
                 MessageBox.Show("Password have to contain Lower case", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPassword.Focus();
                 return false;
 
             }
-            else if (!Password.Any(char.IsDigit)) //check password contains digit
+            else if (!Password.Any(char.IsDigit) && IsEdit == false) //check password contains digit
             {
                 MessageBox.Show("Password have to contain Digit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPassword.Focus();
                 return false;
 
             }
-            else if (txtPassword.Text != txtConfirmPassword.Text)
+            else if ((txtPassword.Text != txtConfirmPassword.Text) && IsEdit == false)
             {
                 MessageBox.Show("Password and Confirm Password have to same", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPassword.Focus();
                 return false;
 
             }
-            else if(txtInfo.Text.Trim() == string.Empty)
+            else if (txtInfo.Text.Trim() == string.Empty)
             {
                 MessageBox.Show("Please enter a Info", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtInfo.Focus();
