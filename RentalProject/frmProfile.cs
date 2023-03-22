@@ -22,7 +22,7 @@ namespace RentalProject
 
         private void AddHistory()
         {
-            if(Program.AdminID == "")
+            if(Program.Type == "User")
             {
                 string Description;
                 DataTable Return = new DataTable();

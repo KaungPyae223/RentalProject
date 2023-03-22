@@ -38,6 +38,7 @@ namespace RentalProject
                 Array.Resize(ref Program.Properties,properties.Length);
                 Program.Properties = properties;
                 Program.Type = "User";
+                
                 Main main = new Main();
                 main.ShowDialog();
             }
