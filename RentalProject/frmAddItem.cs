@@ -115,50 +115,57 @@ namespace RentalProject
             }
             else
             {
-                if (imgLocation != string.Empty)
+                try
                 {
-                    FileStream File = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
-                    BinaryReader brs = new BinaryReader(File);
-                    image = brs.ReadBytes((int)File.Length);
-                }
-                if (!IsEdit)
-                {
-                    if (MessageBox.Show("Sure to Save", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
+                    if (imgLocation != string.Empty)
                     {
-
-                        SaveData();
-                        objClsItem.InsertItem();
-                        
-                        objclsModify.Transation = "Insert";
-                        objclsModify.saveTransation();
-                        txtItemName.Text = "";
-                        cboBrand.SelectedValue = "";
-                        cboType.SelectedValue = "";
-                        txtPowerUsage.Text = string.Empty;
-                        txtTypicalUsage.Text = string.Empty;
-                        txtModelYear.Text = string.Empty;
-                        txtTotalQty.Text = string.Empty;
-                        txtPricePerMonth.Text = string.Empty;
-                        txtDescription.Text = string.Empty;
-                        MessageBox.Show("Successfully Save");
+                        FileStream File = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
+                        BinaryReader brs = new BinaryReader(File);
+                        image = brs.ReadBytes((int)File.Length);
                     }
-                }
-                else
-                {
-                    if (MessageBox.Show("Sure to Edit", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
+                    if (!IsEdit)
                     {
+                        if (MessageBox.Show("Sure to Save", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
+                        {
 
-                        SaveData();
-                        objClsItem.ItemID=ID;
-                        objClsItem.OnHandQty = (Convert.ToInt32(txtTotalQty.Text) - TotalQty)+OnHandQty;
-                        objClsItem.UpdateItem();
-                        objclsModify.ItemID=ID;
-                        objclsModify.Transation = "Update";
-                        objclsModify.saveTransation();
-                        MessageBox.Show("Successfully Edit");
-                        this.Close();
+                            SaveData();
+                            objClsItem.InsertItem();
+
+                            objclsModify.Transation = "Insert";
+                            objclsModify.saveTransation();
+                            txtItemName.Text = "";
+                            cboBrand.SelectedValue = "";
+                            cboType.SelectedValue = "";
+                            txtPowerUsage.Text = string.Empty;
+                            txtTypicalUsage.Text = string.Empty;
+                            txtModelYear.Text = string.Empty;
+                            txtTotalQty.Text = string.Empty;
+                            txtPricePerMonth.Text = string.Empty;
+                            txtDescription.Text = string.Empty;
+                            MessageBox.Show("Successfully Save");
+                        }
                     }
+                    else
+                    {
+                        if (MessageBox.Show("Sure to Edit", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
+                        {
+
+                            SaveData();
+                            objClsItem.ItemID=ID;
+                            objClsItem.OnHandQty = (Convert.ToInt32(txtTotalQty.Text) - TotalQty)+OnHandQty;
+                            objClsItem.UpdateItem();
+                            objclsModify.ItemID=ID;
+                            objclsModify.Transation = "Update";
+                            objclsModify.saveTransation();
+                            MessageBox.Show("Successfully Edit");
+                            this.Close();
+                        }
+                    }
+                }catch(Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
                 }
+                
 
 
             }

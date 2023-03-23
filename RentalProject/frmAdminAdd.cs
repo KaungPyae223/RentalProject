@@ -103,9 +103,16 @@ namespace RentalProject
                     {
                         if (MessageBox.Show("Are you sure to add Admin", "Confirm", MessageBoxButtons.OKCancel)== DialogResult.OK)
                         {
-                            objAdmin.Insert(txtID.Text, cboPost.Text, properties, txtAccountName.Text, txtName.Text, txtLocation.Text, txtEmail.Text, txtPhone.Text, txtNRC.Text, txtPassword.Text, txtInfo.Text, DateTime.Now, image);
-                            MessageBox.Show("Successfully Save");
-                            this.Close();
+                            try
+                            {
+                                objAdmin.Insert(txtID.Text, cboPost.Text, properties, txtAccountName.Text, txtName.Text, txtLocation.Text, txtEmail.Text, txtPhone.Text, txtNRC.Text, txtPassword.Text, txtInfo.Text, DateTime.Now, image);
+                                MessageBox.Show("Successfully Save");
+                                this.Close();
+                            }
+                            catch(Exception)
+                            {
+                                MessageBox.Show("There is an error in Save");
+                            }
                         }
                     }
                     else
@@ -118,9 +125,16 @@ namespace RentalProject
                 {
                     if (MessageBox.Show("Are you sure to Edit Admin", "Confirm", MessageBoxButtons.OKCancel)== DialogResult.OK)
                     {
-                        objAdmin.UpdateAdmin(cboPost.Text, properties, txtAccountName.Text, txtName.Text, txtLocation.Text, txtEmail.Text, txtPhone.Text, txtNRC.Text, txtInfo.Text, image, txtID.Text);
-                        MessageBox.Show("Successfully Edit");
-                        this.Close();
+                        try
+                        {
+                            objAdmin.UpdateAdmin(cboPost.Text, properties, txtAccountName.Text, txtName.Text, txtLocation.Text, txtEmail.Text, txtPhone.Text, txtNRC.Text, txtInfo.Text, image, txtID.Text);
+                            MessageBox.Show("Successfully Edit");
+                            this.Close();
+                        }
+                        catch(Exception)
+                        {
+                            MessageBox.Show("Error in Eidt");
+                        }
                     }
                 }
             }

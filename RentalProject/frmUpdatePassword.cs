@@ -72,6 +72,7 @@ namespace RentalProject
             {
                 objAdmin.UpdatePassword(txtPassword.Text, ID);
                 MessageBox.Show("Successfully Update");
+                this.Close();
             }
         }
     }

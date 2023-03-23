@@ -94,18 +94,25 @@ namespace RentalProject
             {
                 if (MessageBox.Show("Sure to Hire all Appliances", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
                 {
-                    objClsHire.DeadlineDate = NewDueDate;
-                    objClsHire.HireID = HireID;
-                    objClsHire.UpdateHire();
-                    objClsPayment.Tax = tax;
-                    objClsPayment.HireID = HireID;
-                    objClsPayment.HireAmount = total;
-                    objClsPayment.TotalPaymentAmont = GrandTotal;
-                    objClsPayment.PaymentType = cboPaymentType.SelectedItem.ToString();
-                    objClsPayment.Description = "Extended "+cboMonth.SelectedItem.ToString();
-                    objClsPayment.AddPayment();
-                    MessageBox.Show("Successfully Make a Payment. \nPlease check an due date");
-                    this.Close();
+                    try
+                    {
+                        objClsHire.DeadlineDate = NewDueDate;
+                        objClsHire.HireID = HireID;
+                        objClsHire.UpdateHire();
+                        objClsPayment.Tax = tax;
+                        objClsPayment.HireID = HireID;
+                        objClsPayment.HireAmount = total;
+                        objClsPayment.TotalPaymentAmont = GrandTotal;
+                        objClsPayment.PaymentType = cboPaymentType.SelectedItem.ToString();
+                        objClsPayment.Description = "Extended "+cboMonth.SelectedItem.ToString();
+                        objClsPayment.AddPayment();
+                        MessageBox.Show("Successfully Make a Payment. \nPlease check an due date");
+                        this.Close();
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
                 }
             }
         }

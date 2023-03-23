@@ -106,21 +106,29 @@ namespace RentalProject
             {
                 if (MessageBox.Show("Are you confirm to Return the Hire Items", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK)
                 {
-                    string HireID = dgvPayment.CurrentRow.Cells[0].Value.ToString();
-                    DataTable DT = objHireDetails.GetDataByHireID(HireID);
-                    foreach (DataRow dr in DT.Rows)
+                    try
                     {
-                        DataTable Item = objClsItem.getSP_Item(dr[0].ToString(), 0);
-                        int OnHandQty = Convert.ToInt32(Item.Rows[0][7])+1;
+                        string HireID = dgvPayment.CurrentRow.Cells[0].Value.ToString();
+                        DataTable DT = objHireDetails.GetDataByHireID(HireID);
+                        foreach (DataRow dr in DT.Rows)
+                        {
+                            DataTable Item = objClsItem.getSP_Item(dr[0].ToString(), 0);
+                            int OnHandQty = Convert.ToInt32(Item.Rows[0][7])+1;
 
-                        objClsItem.UpdateOnHandQty(OnHandQty, dr[0].ToString());
+                            objClsItem.UpdateOnHandQty(OnHandQty, dr[0].ToString());
+
+                        }
+                        clsHire objclsHire = new clsHire();
+                        objclsHire.UpdateReturnDate(DateTime.Now.ToString(), HireID);
+                        GridViewShow();
+                        MakeColor();
+                        MessageBox.Show("Our Appliances will take back less than one week and you do not need to give anything about it.\nThe insurance cost will return to you less than one month after checking the home appliances.\nThank you for your rent", "Thank you");
 
                     }
-                    clsHire objclsHire = new clsHire();
-                    objclsHire.UpdateReturnDate(DateTime.Now.ToString(), HireID);
-                    GridViewShow();
-                    MakeColor();
-                    MessageBox.Show("Our Appliances will take back less than one week and you do not need to give anything about it.\nThe insurance cost will return to you less than one month after checking the home appliances.\nThank you for your rent", "Thank you");
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
                 }
             }
         }

@@ -126,23 +126,30 @@ namespace RentalProject
 
                 if (MessageBox.Show("Sure to Hire all Appliances", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
                 {
-                    saveData();
-                    objClsHire.SaveHire();
-                    foreach (string ID in Program.Craft)
+                    try
                     {
+                        saveData();
+                        objClsHire.SaveHire();
+                        foreach (string ID in Program.Craft)
+                        {
 
-                        objClsHireDetails.ItemID = ID;
-                        objClsHireDetails.HireID = lblHireID.Text;
-                        objClsHireDetails.AddHireDetails();
-                        DataTable DT = objClsItem.getSP_Item(ID, 0);
-                        int OnHandQty = Convert.ToInt32(DT.Rows[0][7])-1;
-                        
-                        objClsItem.UpdateOnHandQty(OnHandQty,ID);
+                            objClsHireDetails.ItemID = ID;
+                            objClsHireDetails.HireID = lblHireID.Text;
+                            objClsHireDetails.AddHireDetails();
+                            DataTable DT = objClsItem.getSP_Item(ID, 0);
+                            int OnHandQty = Convert.ToInt32(DT.Rows[0][7])-1;
 
+                            objClsItem.UpdateOnHandQty(OnHandQty, ID);
+
+                        }
+                        objClsPayment.AddPayment();
+                        MessageBox.Show("Successfully Hire the Home Appliances \nThe Home appliances will deliver to your location within one week", "Successfully Hire");
+                        this.Close();
                     }
-                    objClsPayment.AddPayment();
-                    MessageBox.Show("Successfully Hire the Home Appliances \nThe Home appliances will deliver to your location within one week", "Successfully Hire");
-                    this.Close();
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
                 }
             }
         }

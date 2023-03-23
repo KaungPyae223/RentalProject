@@ -148,16 +148,24 @@ namespace RentalProject
             }
             if(IsEdit == false)
             {
+                
                 DataTable DT = new DataTable();
                 DT = objCustomer.CheckCustomer(txtEmail.Text.Trim());
                 if (DT.Rows.Count == 0)
                 {
                     if (MessageBox.Show("Sure to Register", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
                     {
-                        AddData();
-                        objclsCustomer.SaveUser();
-                        MessageBox.Show("Successfully Register");
-                        this.Close();
+                        try
+                        {
+                            AddData();
+                            objclsCustomer.SaveUser();
+                            MessageBox.Show("Successfully Register");
+                            this.Close();
+                        }
+                        catch(Exception)
+                        {
+                            MessageBox.Show("The Error in User Register");
+                        }
                     }
                 }
                 else
@@ -169,10 +177,18 @@ namespace RentalProject
             {
                 if (MessageBox.Show("Sure to Update", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
                 {
-                    AddData();
-                    objclsCustomer.EditUser();
-                    MessageBox.Show("Successfully Update");
-                    this.Close();
+                    try
+                    {
+                        AddData();
+                        objclsCustomer.EditUser();
+                        MessageBox.Show("Successfully Update");
+                        this.Close();
+                    }
+                    catch(Exception)
+                    {
+                        MessageBox.Show("There is an error in Update");
+                    }
+                    
                 }
             }
         }

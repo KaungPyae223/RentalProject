@@ -32,9 +32,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtOldPassword = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtConfirmPassword = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtOldPassword = new System.Windows.Forms.TextBox();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
@@ -90,12 +90,12 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(523, 183);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
-            // txtOldPassword
+            // txtConfirmPassword
             // 
-            this.txtOldPassword.Location = new System.Drawing.Point(231, 3);
-            this.txtOldPassword.Name = "txtOldPassword";
-            this.txtOldPassword.Size = new System.Drawing.Size(289, 30);
-            this.txtOldPassword.TabIndex = 4;
+            this.txtConfirmPassword.Location = new System.Drawing.Point(231, 125);
+            this.txtConfirmPassword.Name = "txtConfirmPassword";
+            this.txtConfirmPassword.Size = new System.Drawing.Size(289, 30);
+            this.txtConfirmPassword.TabIndex = 6;
             // 
             // txtPassword
             // 
@@ -104,12 +104,12 @@
             this.txtPassword.Size = new System.Drawing.Size(289, 30);
             this.txtPassword.TabIndex = 5;
             // 
-            // txtConfirmPassword
+            // txtOldPassword
             // 
-            this.txtConfirmPassword.Location = new System.Drawing.Point(231, 125);
-            this.txtConfirmPassword.Name = "txtConfirmPassword";
-            this.txtConfirmPassword.Size = new System.Drawing.Size(289, 30);
-            this.txtConfirmPassword.TabIndex = 6;
+            this.txtOldPassword.Location = new System.Drawing.Point(231, 3);
+            this.txtOldPassword.Name = "txtOldPassword";
+            this.txtOldPassword.Size = new System.Drawing.Size(289, 30);
+            this.txtOldPassword.TabIndex = 4;
             // 
             // btnConfirm
             // 
@@ -133,15 +133,15 @@
             // 
             // frmUpdatePassword
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(719, 368);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmUpdatePassword";
