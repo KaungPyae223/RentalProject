@@ -115,7 +115,7 @@ namespace RentalProject
 
         private void btnEditProfile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (Program.AdminID != "")
+            if (Program.Type == "Admin")
             {
                 frmUpdatePassword frm = new frmUpdatePassword(DT.Rows[0][9].ToString(), DT.Rows[0]["AdminID"].ToString());
                 frm.Show();
@@ -133,6 +133,8 @@ namespace RentalProject
                 frm.IsEdit = true;
                 frm.image = (byte[])(DT.Rows[0]["CustomerPhoto"]);
                 frm.CustomerID = DT.Rows[0]["CustomerID"].ToString();
+                frm.Text = "The Customer Edit";
+                frm.btnRegister.Text = "Edit";
                 frm.Show();
             }
         }

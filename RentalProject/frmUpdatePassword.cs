@@ -39,25 +39,25 @@ namespace RentalProject
                 txtPassword.Focus();
 
             }
-            else if (Password.Length < 8 || Password.Length>16) //check password length greater than 8 and less than 16
+            else if (txtPassword.Text.Length < 8 || txtPassword.Text.Length>16) //check password length greater than 8 and less than 16
             {
                 MessageBox.Show("Password length have to between 8 and 16", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPassword.Focus();
 
             }
-            else if (!Password.Any(char.IsUpper)) //check password contains upper case
+            else if (!txtPassword.Text.Any(char.IsUpper)) //check password contains upper case
             {
                 MessageBox.Show("Password have to contain Upper case", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPassword.Focus();
 
             }
-            else if (!Password.Any(char.IsLower)) //check password contains lower case
+            else if (!txtPassword.Text.Any(char.IsLower)) //check password contains lower case
             {
                 MessageBox.Show("Password have to contain Lower case", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPassword.Focus();
 
             }
-            else if (!Password.Any(char.IsDigit)) //check password contains digit
+            else if (!txtPassword.Text.Any(char.IsDigit)) //check password contains digit
             {
                 MessageBox.Show("Password have to contain Digit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPassword.Focus();
@@ -71,6 +71,7 @@ namespace RentalProject
             else
             {
                 objAdmin.UpdatePassword(txtPassword.Text, ID);
+                MessageBox.Show("Successfully Update");
             }
         }
     }

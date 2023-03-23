@@ -150,7 +150,7 @@ namespace RentalProject
 
                         SaveData();
                         objClsItem.ItemID=ID;
-                        objClsItem.OnHandQty = Convert.ToInt32(txtTotalQty.Text) - (TotalQty-OnHandQty);
+                        objClsItem.OnHandQty = (Convert.ToInt32(txtTotalQty.Text) - TotalQty)+OnHandQty;
                         objClsItem.UpdateItem();
                         objclsModify.ItemID=ID;
                         objclsModify.Transation = "Update";

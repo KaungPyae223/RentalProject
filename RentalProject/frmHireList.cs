@@ -90,5 +90,13 @@ namespace RentalProject
             dgvHireList.DataSource = objHire.GetHireList(txtCustomerName.Text.ToString(),cboType.SelectedIndex);
             MakeColor();
         }
+
+        private void dgvHireList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            frmHireDetailsView frm = new frmHireDetailsView(dgvHireList.CurrentRow.Cells[0].Value.ToString());
+            frm.Text = "Hire Details of "+ dgvHireList.CurrentRow.Cells[0].Value.ToString();
+            frm.ShowDialog();
+            
+        }
     }
 }

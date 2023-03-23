@@ -816,7 +816,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label8;
@@ -863,5 +862,6 @@
         public System.Windows.Forms.TextBox txtPhone;
         public System.Windows.Forms.TextBox txtNRC;
         public System.Windows.Forms.TextBox txtLocation;
+        public System.Windows.Forms.Button btnRegister;
     }
 }
