@@ -10,30 +10,43 @@ namespace RentalProject
         public Main()
         {
             InitializeComponent();
-            this.DT = Program.DT;
+            this.DT = Program.DT;   
+            //call the data table DT from program and add the DT in the Main.cs
+
             btnProfile.Text = DT.Rows[0]["AccountName"].ToString();
         }
         DataTable DT = new DataTable();
 
-
+        // method for the appropriate window form to run on the main panel
         public void loadform(object Form)
         {
+            // check form run on the maim panel
             if (this.mainPannel.Controls.Count > 0)
             {
                 this.mainPannel.Controls.RemoveAt(0);
+                // if there, close the form run on main panel
             }
-            Form f = Form as Form;
+            Form f = Form as Form; // call the form
             f.TopLevel = false;
-            f.Dock = DockStyle.Fill;
+
+            f.Dock = DockStyle.Fill; 
+            // form to make dock fill to show full space in main panel
+
             this.mainPannel.Controls.Add(f);
             this.mainPannel.Tag = f;
+            // add form to the main panel as a control
+
             f.Show();
+            // show a form
         }
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
-            loadform(new frmProfile());
+            loadform(new frmProfile()); 
+            // call a method to show a Profile on the main panel
+
             MakeButtonColor(btnProfile);
+            // to change the button color when click the button
         }
 
         private void btnCraft_Click(object sender, EventArgs e)
@@ -49,6 +62,8 @@ namespace RentalProject
             MakeButtonColor(btnPayment);
 
         }
+
+        // method to change the button color when click it
         public void MakeButtonColor(Button btn)
         {
             btnCraft.BackColor = Color.White;
@@ -69,12 +84,13 @@ namespace RentalProject
 
         private void Main_Load(object sender, EventArgs e)
         {
+            // add data from the program.properties to the main properties
             string[] properties = Program.Properties;
-            for (int i = 0; i < properties.Length; i++)
+            for (int i = 0; i < properties.Length; i++) // loop all the data in array
             {
-                switch (properties[i])
+                switch (properties[i]) // check the properties to user allow to use
                 {
-                    case "Profile":
+                    case "Profile": // if the properties contain Profile, user can use Profile
                         btnProfile.Visible = true;
                         break;
                     case "Craft":
@@ -106,8 +122,9 @@ namespace RentalProject
                         break;
                 }
             }
-            loadform(new frmProfile());
-            MakeButtonColor(btnProfile);
+
+            loadform(new frmProfile()); // call a method to show Profile in main panel when start Main form
+            MakeButtonColor(btnProfile);    
         }
 
         private void btnItems_Click(object sender, EventArgs e)

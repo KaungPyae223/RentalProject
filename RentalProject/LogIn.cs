@@ -21,32 +21,41 @@ namespace RentalProject
         RentalTableAdapters.AdminTableAdapter objAdmin = new RentalTableAdapters.AdminTableAdapter();
         private void btnCreateAccount_Click(object sender, EventArgs e)
         {
-            frmUserRegister frm = new frmUserRegister();
+            frmUserRegister frm = new frmUserRegister(); //call a register form
             frm.ShowDialog();
         }
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            dt = objCustomer.GetSP_Customer(txtEmail.Text, txtPassword.Text, 0);
-            if(dt.Rows.Count > 0 )
+            dt = objCustomer.GetSP_Customer(txtEmail.Text, txtPassword.Text, 0);    
+            // select data from the User table
+
+            if(dt.Rows.Count > 0 ) // check the user ID and password correct or not
             {
                 clearData();
                 Program.DT = dt;
                 string level = "Profile,Home,Craft,Payment,History";
                 string[] properties = level.Split(',');
-                Array.Resize(ref Program.Properties,properties.Length);
-                Program.Properties = properties;
-                Program.Type = "User";
-                
-                Main main = new Main();
+                // split the properties with "," and add to the array
+
+                Array.Resize(ref Program.Properties, properties.Length);
+
+                Program.Properties = properties;                                    
+                // add properties to the Program.cs's propertes array
+
+                Program.Type = "User";                                              
+                // add type to the Program.cs's type variable
+
+                Main main = new Main();                                             
+                // call a Main form
                 main.ShowDialog();
             }
             else
             {
                 dt.Clear();
                 dt = objAdmin.GetSP_Admin(txtEmail.Text,txtPassword.Text,0);
-                if(dt.Rows.Count > 0 )
+                if(dt.Rows.Count > 0)  // check the user ID and password correct or not
                 {
                     clearData();
                     Program.DT = dt;
@@ -67,8 +76,8 @@ namespace RentalProject
         }
         private void clearData()
         {
-            txtPassword.Text = string.Empty;
-            txtEmail.Text = string.Empty;
+            txtPassword.Text = string.Empty;    //clear password from the password text box
+            txtEmail.Text = string.Empty;       //clear Email from the Email text box
         }
     }
 }
