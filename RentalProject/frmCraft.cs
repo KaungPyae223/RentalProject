@@ -13,39 +13,57 @@ namespace RentalProject
         {
             InitializeComponent();
         }
-        int total = 0;
-        int PricePerMont = 0;
+        int total = 0;  // calculate total qty
+        int PricePerMont = 0;   // calculate total hire price per month
         Boolean FirstTime = true;
         clsItem obClsLsItem = new clsItem();
         private void frmCraft_Load(object sender, EventArgs e)
         {
             
-            AddCraftItems();
-            FirstTime = false;
+            AddCraftItems();    // method to show items in craft
+            FirstTime = false;  
         }
         
         public void AddCraftItems()
         {
-            foreach (string ID in Program.Craft)
+            //looping all items in craft
+            foreach (string ID in Program.Craft)   
             {
 
-                DataTable DT = obClsLsItem.getSP_Item(ID, 0);
+                DataTable DT = obClsLsItem.getSP_Item(ID, 0);   
+                // select a item data from the data base with ID
+
+                // add item data to the frmHomeItems and show on Craft
                 frmHomeItems frm = new frmHomeItems(DT.Rows[0],true);
                 frm.Width = ((label1.Width-26)/3)-6;
                 frm.Margin= new Padding(3);
                 frm.btnCraft.Text = "Cancel";
                 frm.btnCraft.BackColor = Color.Orange;
                 frm.btnCraft.ForeColor = Color.White;
-                total ++;
-                PricePerMont += Convert.ToInt32(DT.Rows[0][8]);
+                total ++;   // add 1 to get total Qty
+                PricePerMont += Convert.ToInt32(DT.Rows[0][8]); 
+                // add hire price per month to get total hire price per month
 
-                if (FirstTime)
-                    loadform(frm);
+                if (FirstTime)  // check first time
+                    loadform(frm);  // method to add form to the craft
             }
-            lblTotalQty.Text = total.ToString();
-            lblPPM.Text = PricePerMont.ToString()+" £";
+            lblTotalQty.Text = total.ToString();  // add total Qty to the craft
+            lblPPM.Text = PricePerMont.ToString()+" £"; // add total Hire Qty to the craft
+       
+        
+            /* 
+                Disclaimer
+
+                This method is also used for calculate total hir qty 
+                and total Price per month. So, use first time boolean
+                variable and when run this method first time, add form to 
+                Craft main panel and when second time, only the calculation 
+                make
+             
+             */
+        
         }
-        public void loadform(Form f)
+        public void loadform(Form f)    // method to add form in CraftMainPanel
         {
 
             f.TopLevel = false;
@@ -55,24 +73,25 @@ namespace RentalProject
         }
 
         
-
+        // method if the control is removed
         private void craftMainPanel_ControlRemoved(object sender, ControlEventArgs e)
         {
             total = 0;
             PricePerMont = 0;
             
             AddCraftItems();
+            // method to change the PricePerMonth and qty
         }
 
         private void btnHire_Click(object sender, EventArgs e)
         {
-            if(craftMainPanel.Controls.Count > 0)
+            if(craftMainPanel.Controls.Count > 0) // check ther is an item in craft
             {
-                frmHire frm = new frmHire();
-                frm.Show();
+                frmHire frm = new frmHire();    // call a hire form
+                frm.Show();                     // show a hire form
                 craftMainPanel.Controls.Clear();
                 Program.Craft.Clear();
-                lblPPM.Text = "0 £";
+                lblPPM.Text = "0 £";        
                 lblTotalQty.Text = "0";
             }
             else

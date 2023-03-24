@@ -17,7 +17,7 @@ namespace RentalProject
             DataColumn DCDue = new DataColumn("Due Date", typeof(string));
             DT.Columns.Add(DCHire);
             DT.Columns.Add(DCDue);
-            foreach (DataRow dr in DT.Rows)
+            foreach (DataRow dr in DT.Rows) // to chage date time format
             {
                 string Hire = Convert.ToDateTime(dr[5]).ToString("dd MMMM yyyy");
 
@@ -35,6 +35,7 @@ namespace RentalProject
         RentalTableAdapters.HireTableAdapter objHire = new RentalTableAdapters.HireTableAdapter();
         private void frmHistory_Load(object sender, EventArgs e)
         {
+            // design hire list
             dgvHire.Columns[0].Width = (dgvHire.Width/100)*15;
             dgvHire.Columns[1].Visible = false;
             dgvHire.Columns[2].Visible = false;
@@ -51,6 +52,7 @@ namespace RentalProject
             dgvHire.Columns[13].Width = (dgvHire.Width/100)*18;
             dgvHire.Columns[11].DisplayIndex = 13;
 
+            // design payment list
             dgvCustomerPayment.Columns[0].Width = (dgvCustomerPayment.Width/100)*10;
             dgvCustomerPayment.Columns[1].Width = (dgvCustomerPayment.Width/100)*15;
             dgvCustomerPayment.Columns[2].Visible = false;
@@ -64,17 +66,17 @@ namespace RentalProject
 
             MakeColor();
         }
-        private void MakeColor()
+        private void MakeColor() // make color if the hire is still hire
         {
-            int lastIndex = dgvHire.Rows.Count - 1;
-            for (int i = 0; i < lastIndex; i++)
+            
+            for (int i = 0; i < dgvHire.RowCount; i++)
             {
                 if (dgvHire.Rows[i].Cells[10].Value.ToString() == string.Empty)
                 {
                     dgvHire.Rows[i].DefaultCellStyle.BackColor = Color.Yellow;
 
                     DateTime Duedate = Convert.ToDateTime(dgvHire.Rows[i].Cells[8].Value);
-                    if (Duedate < DateTime.Now)
+                    if (Duedate < DateTime.Now) // make color red if the due date is over
                     {
                         dgvHire.Rows[i].DefaultCellStyle.BackColor = Color.Red;
                         dgvHire.Rows[i].DefaultCellStyle.ForeColor = Color.White;

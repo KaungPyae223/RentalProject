@@ -10,6 +10,7 @@ namespace RentalProject
     {
         public frmMakePayment(string HireID,DateTime OldDueDate)
         {
+            // add data to the Payment form
             InitializeComponent();
             this.HireID = HireID;
             this.OldDueDate = OldDueDate;
@@ -17,6 +18,7 @@ namespace RentalProject
             DataTable Item = new DataTable();
             Item.Columns.Add("Item Name");
             Item.Columns.Add("Price");
+            // add hire items to the form
             foreach (DataRow dr in DT.Rows)
             {
                 DataRow DRItem = Item.NewRow();
@@ -32,6 +34,9 @@ namespace RentalProject
             dgvPayment.DataSource = Item;
             dgvPayment.Columns[0].Width = (dgvPayment.Width/100)*75;
             dgvPayment.Columns[1].Width = (dgvPayment.Width/100)*35;
+            // design the item grid view
+
+            // chage the date time format
             lblToday.Text = DateTime.Now.ToString("dd MMMM yyyy");
             lblOldDueDate.Text = OldDueDate.ToString("dd MMMM yyyy");
             cboPaymentType.SelectedIndex = 0;
@@ -51,10 +56,11 @@ namespace RentalProject
         private void frmMakePayment_Load(object sender, EventArgs e)
         {
             cboMonth.SelectedIndex = 0;
-            dgvPayment.Rows[dgvPayment.Rows.Count- 2].DefaultCellStyle.BackColor= Color.Yellow;
+            dgvPayment.Rows[dgvPayment.Rows.Count- 1].DefaultCellStyle.BackColor= Color.Yellow;
             dgvPayment.Refresh();
         }
 
+        // method when the month selected inedx change, due date and total cost auto calculate
         private void cboMonth_SelectedIndexChanged(object sender, EventArgs e)
         {
             total = totalPricePerMonth*cboMonth.SelectedIndex;
@@ -80,12 +86,12 @@ namespace RentalProject
 
         private void btnPayment_Click(object sender, EventArgs e)
         {
-            if (cboMonth.SelectedIndex == 0)
+            if (cboMonth.SelectedIndex == 0) // check Month is select or not
             {
                 MessageBox.Show("Plese choose a extended month", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-            else if (cboPaymentType.SelectedIndex == 0)
+            else if (cboPaymentType.SelectedIndex == 0) // check payment type select or not
             {
                 MessageBox.Show("Plese choose a payment type", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 

@@ -12,13 +12,17 @@ namespace RentalProject
         public frmHire()
         {
             InitializeComponent();
+
+            // Add delivery data to the cboDelivery
             DataTable DT = objClsDelivery.GetDelivery();
             cboDelivery.DataSource = DT;
             cboDelivery.DisplayMember = DT.Columns[1].ColumnName;
             cboDelivery.ValueMember = DT.Columns[0].ColumnName;
             cboDelivery.SelectedIndex = 0;
+
+            // Add data to the form
             lblToday.Text = DateTime.Now.ToString("dd MMMM yyyy");
-            DataTable Customer = Program.DT;
+            DataTable Customer = Program.DT; // customer data to the form
             lblName.Text = Customer.Rows[0][3].ToString();
             lblEmail.Text = Customer.Rows[0][5].ToString();
             lblCustomerID.Text = Customer.Rows[0][0].ToString();
@@ -32,10 +36,12 @@ namespace RentalProject
                 CustomrePicture.Image = Image.FromStream(ms);
             }
             cboPayment.SelectedIndex = 0;
-            DateTime DeadLine = DateTime.Now.AddMonths(3);
 
+            // add deadline day
+            DateTime DeadLine = DateTime.Now.AddMonths(3);
             lblDeadLine.Text = DeadLine.ToString("dd MMMM yyyy");
 
+            // add ID
             DataTable Dt = new DataTable();
             Dt = objClsHire.GetHireList();
             if (Dt.Rows.Count == 0)  //check there is data or not in Database
@@ -48,7 +54,7 @@ namespace RentalProject
                 string BrandID = Dt.Rows[lastIndx][0].ToString();   //get the ID from last index
                 string[] MakeID = BrandID.Split('-');               // split the ID by using split function from I and 001 seprate to add the ID number
                 int IDNum = Convert.ToInt32(MakeID[1])+1;           // add the Id num from behind '-'
-                MakeID[1] = IDNum.ToString("0000000");                  // get the ID number
+                MakeID[1] = IDNum.ToString("0000000");              // get the ID number
                 lblHireID.Text = MakeID[0]+"-"+MakeID[1];
             }
         }
@@ -67,28 +73,34 @@ namespace RentalProject
             Item.Columns.Add("Item Name");
             Item.Columns.Add("Price");
 
-
+            // Add hite Items in the form
             foreach (string ID in Program.Craft)
             {
                 Quantity++;
                 DataTable DT = objClsItem.getSP_Item(ID, 0);
                 string Name = DT.Rows[0][3].ToString();
                 string Price = DT.Rows[0][8].ToString()+ " £";
-                Total += Convert.ToInt32(DT.Rows[0][8]);
+                Total += Convert.ToInt32(DT.Rows[0][8]); // calculate total price per month
                 DataRow ItemDR = Item.NewRow();
                 ItemDR["Item Name"]=Name;
                 ItemDR["Price"]=Price;
                 Item.Rows.Add(ItemDR);
             }
+
+            // add total hire qty to the table
             DataRow DR = Item.NewRow();
             DR["Item Name"]="Total Hire Price Per Month";
             DR["Price"]=Total.ToString()+" £";
             Item.Rows.Add(DR);
+
+            // Add data from the data table Item to the dgvItem to show 
             dgvItem.DataSource = Item;
             dgvItem.Columns[1].Width = (dgvItem.Width/100)*30;
             dgvItem.Columns[0].Width = (dgvItem.Width/100)*70;
             dgvItem.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgvItem.Rows[dgvItem.Rows.Count- 2].DefaultCellStyle.BackColor= Color.Yellow;
+            dgvItem.Rows[dgvItem.Rows.Count-1].DefaultCellStyle.BackColor= Color.Yellow;
+            
+            // show the prices in the form
             lblTotalQty.Text = Quantity.ToString();
             lblDeliveryCost.Text = (Quantity*25).ToString()+" £";
             lblInsuranceCost.Text = (Total*6).ToString()+" £";
@@ -101,7 +113,7 @@ namespace RentalProject
 
         private void btnHire_Click(object sender, EventArgs e)
         {
-            if (txtLocation.Text == string.Empty)
+            if (txtLocation.Text == string.Empty)   // check location is empty
             {
                 MessageBox.Show("Plese type a Location", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtLocation.Focus();
@@ -111,7 +123,7 @@ namespace RentalProject
                 MessageBox.Show("Plese type a Phone", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPhone.Focus();
             }
-            else if (cboPayment.SelectedIndex == 0)
+            else if (cboPayment.SelectedIndex == 0) // check cboPayment is not selected
             {
                 MessageBox.Show("Plese choose a payment type", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -130,7 +142,7 @@ namespace RentalProject
                     {
                         saveData();
                         objClsHire.SaveHire();
-                        foreach (string ID in Program.Craft)
+                        foreach (string ID in Program.Craft) // loop items to change On Hand Qty
                         {
 
                             objClsHireDetails.ItemID = ID;
@@ -139,7 +151,7 @@ namespace RentalProject
                             DataTable DT = objClsItem.getSP_Item(ID, 0);
                             int OnHandQty = Convert.ToInt32(DT.Rows[0][7])-1;
 
-                            objClsItem.UpdateOnHandQty(OnHandQty, ID);
+                            objClsItem.UpdateOnHandQty(OnHandQty, ID); // update on Hand Qty
 
                         }
                         objClsPayment.AddPayment();
@@ -153,7 +165,7 @@ namespace RentalProject
                 }
             }
         }
-        public void saveData()
+        public void saveData() // method to save data to the class Hire
         {
             objClsHire.CustomerID = lblCustomerID.Text;
             objClsHire.HireID = lblHireID.Text;

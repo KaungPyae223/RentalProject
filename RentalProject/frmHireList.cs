@@ -37,8 +37,8 @@ namespace RentalProject
         }
         private void MakeColor()
         {
-            int lastIndex = dgvHireList.Rows.Count - 1;
-            for (int i = 0; i < lastIndex; i++)
+            
+            for (int i = 0; i < dgvHireList.Rows.Count; i++)
             {
                 if (dgvHireList.Rows[i].Cells[11].Value.ToString() == string.Empty)
                 {

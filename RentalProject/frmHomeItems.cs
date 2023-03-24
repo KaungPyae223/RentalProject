@@ -13,9 +13,11 @@ namespace RentalProject
 {
     public partial class frmHomeItems : Form
     {
-        public frmHomeItems(DataRow dr, bool drop)
+        public frmHomeItems(DataRow dr, bool drop)  
         {
             InitializeComponent();
+
+            //add all data get from parameter to the form
             ItemName = dr[3].ToString();
             Description = dr[9].ToString();
             Brand = dr[11].ToString();
@@ -25,9 +27,9 @@ namespace RentalProject
             ModelYear = dr[6].ToString();
             PricePerMonth = dr[8].ToString() + " £";
             ID = dr[0].ToString();
-            byte[] img = (byte[])(dr[10]);
-            MemoryStream ms = new MemoryStream(img);
-            HomeItemPicture.Image = Image.FromStream(ms);
+            byte[] img = (byte[])(dr[10]);  
+            MemoryStream ms = new MemoryStream(img);    // change byte to memoary stream
+            HomeItemPicture.Image = Image.FromStream(ms);   //change memoary stream to Image
             Drop=drop;
         }
         private string ItemName;
@@ -55,17 +57,18 @@ namespace RentalProject
         }
         private void btnCraft_Click(object sender, EventArgs e)
         {
-            if(btnCraft.Text == "Add to Craft")
+            if(btnCraft.Text == "Add to Craft") // check the button text
             {
-                Program.Craft.Add(ID);
+                Program.Craft.Add(ID);  // add item Id to the program's Craft list
                 btnCraft.Text = "Cancel";
                 btnCraft.BackColor = Color.Orange;
                 btnCraft.ForeColor = Color.White;
+                // change appearance
             }
             else if(Drop)
             {
                 btnCraft.Text = "Add to Craft";
-                Program.Craft.Remove(ID);
+                Program.Craft.Remove(ID);   //remove Id from program's craft
                 this.Close();
             }
             else
@@ -82,5 +85,14 @@ namespace RentalProject
         {
             SetInfo();
         }
+
+        /*  
+         
+            Disclaimer
+
+            This form is do not run separately. It is used for
+            show the items in Home page as a control.
+         
+         */
     }
 }

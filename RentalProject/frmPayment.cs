@@ -37,21 +37,21 @@ namespace RentalProject
             dgvPayment.Columns[13].Width = (dgvPayment.Width/100)*20;
             dgvPayment.Columns[11].DisplayIndex = 13;
             MakeColor();
+            // make data grid view design
         }
-        private void MakeColor()
+        private void MakeColor() // make color red to row if the due date is over
         {
-            int lastIndex = dgvPayment.Rows.Count - 1;
-            for (int i = 0; i < lastIndex; i++)
+            for (int i = 0; i < dgvPayment.Rows.Count; i++)
             {
                 DateTime Duedate = Convert.ToDateTime(dgvPayment.Rows[i].Cells[8].Value);
-                if (Duedate < DateTime.Now)
+                if (Duedate < DateTime.Now) // compare due date and today
                 {
                     dgvPayment.Rows[i].DefaultCellStyle.BackColor = Color.Red;
                     dgvPayment.Rows[i].DefaultCellStyle.ForeColor = Color.White;
                 }
             }
         }
-        private void GridViewShow()
+        private void GridViewShow() // add data to the grid view
         {
             string ID = dt.Rows[0][0].ToString();
             DataTable DT = objHire.GetToPayment(ID);
@@ -59,8 +59,7 @@ namespace RentalProject
             DataColumn DCDue = new DataColumn("Due Date", typeof(string));
             DT.Columns.Add(DCHire);
             DT.Columns.Add(DCDue);
-            int i = 0;
-            foreach (DataRow dr in DT.Rows)
+            foreach (DataRow dr in DT.Rows) // loop to chage date time format of Hire and Due date
             {
                 string Hire = Convert.ToDateTime(dr[5]).ToString("dd MMMM yyyy");
 
@@ -74,7 +73,8 @@ namespace RentalProject
         }
         private void btnPayment_Click(object sender, EventArgs e)
         {
-            if (dgvPayment.CurrentRow.Cells[0].Value.ToString() == string.Empty)
+            // check select to make payment
+            if (dgvPayment.CurrentRow.Cells[0].Value.ToString() == string.Empty)  
             {
                 MessageBox.Show("Plese choose a payment to you want to make", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -97,6 +97,7 @@ namespace RentalProject
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
+            // check select hire to make a payment
             if (dgvPayment.CurrentRow.Cells[0].Value.ToString() == string.Empty)
             {
                 MessageBox.Show("Plese choose a payment to you want to make", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -108,9 +109,10 @@ namespace RentalProject
                 {
                     try
                     {
+
                         string HireID = dgvPayment.CurrentRow.Cells[0].Value.ToString();
                         DataTable DT = objHireDetails.GetDataByHireID(HireID);
-                        foreach (DataRow dr in DT.Rows)
+                        foreach (DataRow dr in DT.Rows) //loop to updat on HandQty
                         {
                             DataTable Item = objClsItem.getSP_Item(dr[0].ToString(), 0);
                             int OnHandQty = Convert.ToInt32(Item.Rows[0][7])+1;
