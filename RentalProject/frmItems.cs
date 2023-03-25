@@ -39,7 +39,7 @@ namespace RentalProject
 
         private void showData() //method to show the data in data grid view
         {
-
+            // design the Item grid view
             dgvItem.Columns[0].Width = (label1.Width/100)* 10;
             dgvItem.Columns[1].Visible = false;
             dgvItem.Columns[2].Visible = false;
@@ -56,16 +56,19 @@ namespace RentalProject
             dgvItem.Columns[13].Width = (dgvItem.Width/100)* 10;
             dgvItem.Columns[13].DisplayIndex = 8;
 
+            // design the Brand grid view
             dgvBrand.Columns.Clear();
             dgvBrand.DataSource= objClsBrand.GetBrand();
             dgvBrand.Columns[0].Width = (dgvBrand.Width/100)* 20;
             dgvBrand.Columns[1].Width = (dgvBrand.Width/100)* 80;
 
+            // design the Type grid view
             dgvType.Columns.Clear();
             dgvType.DataSource= objClsType.GetType();
             dgvType.Columns[0].Width = (dgvType.Width/100)* 20;
             dgvType.Columns[1].Width = (dgvType.Width/100)* 80;
 
+            // design the Delivery grid view
             dgvDelivery.Columns.Clear();
             dgvDelivery.DataSource= objClsDelivery.GetDelivery();
             dgvDelivery.Columns[0].Width = (dgvDelivery.Width/100)* 20;
@@ -77,9 +80,9 @@ namespace RentalProject
             dgvType.Refresh();
             dgvDelivery.Refresh();
         }
-        private void MakeColor()
+        private void MakeColor()  // make color red if the item has on hand qty 0
         {
-            for (int i = 0; i< dgvItem.Rows.Count - 1; i++)
+            for (int i = 0; i< dgvItem.Rows.Count; i++)
             {
                 if (Convert.ToInt32(dgvItem.Rows[i].Cells[13].Value) == 0)
                 {
@@ -97,6 +100,7 @@ namespace RentalProject
             }
             else
             {
+                // add data to the item add form to edit
                 frmAddItem frm = new frmAddItem(true);
                 frm.image = (byte[])(dgvItem.CurrentRow.Cells[10].Value);
                 frm.txtItemName.Text = dgvItem.CurrentRow.Cells[3].Value.ToString();
@@ -312,6 +316,7 @@ namespace RentalProject
             MakeColor();
         }
 
+        // method to change the suggestion according to the combobox select
         private void cboSearch_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cboSearch.SelectedIndex == 0)
@@ -328,6 +333,8 @@ namespace RentalProject
             }
             txtSearch.Text = "";
         }
+
+        // add suggestion to the item name txt
         public void Suggestion(string FieldName)
         {
             AutoCompleteStringCollection sourse = new AutoCompleteStringCollection();

@@ -25,27 +25,28 @@ namespace RentalProject
             dgvHireList.Columns[10].Width = (dgvHireList.Width/100)*10;
             dgvHireList.Columns[11].Width = (dgvHireList.Width/100)*13;
             dgvHireList.Columns[12].Width = (dgvHireList.Width/100)*13;
+            // design the user list
 
         }
         clsHire objClsHire = new clsHire();
         RentalTableAdapters.vi_HireTableAdapter objHire = new RentalTableAdapters.vi_HireTableAdapter();
         private void frmHireList_Load(object sender, EventArgs e)
         {
-            MakeColor();
+            MakeColor();    // call a method to make color
             cboType.SelectedIndex = 0;
-            Suggestion();
+            Suggestion();   //call a method to add suggestion
         }
         private void MakeColor()
         {
             
             for (int i = 0; i < dgvHireList.Rows.Count; i++)
             {
-                if (dgvHireList.Rows[i].Cells[11].Value.ToString() == string.Empty)
+                if (dgvHireList.Rows[i].Cells[11].Value.ToString() == string.Empty) // check still hire
                 {
                     dgvHireList.Rows[i].DefaultCellStyle.BackColor = Color.Yellow;
 
                     DateTime Duedate = Convert.ToDateTime(dgvHireList.Rows[i].Cells[9].Value);
-                    if (Duedate < DateTime.Now)
+                    if (Duedate < DateTime.Now) // check due date is over
                     {
                         dgvHireList.Rows[i].DefaultCellStyle.BackColor = Color.Red;
                         dgvHireList.Rows[i].DefaultCellStyle.ForeColor = Color.White;
@@ -54,7 +55,7 @@ namespace RentalProject
                 }
             }
         }
-        public void Suggestion()
+        public void Suggestion()    // method to add suggestion
         {
             AutoCompleteStringCollection sourse = new AutoCompleteStringCollection();
             DataTable DT = objHire.GetHireList(txtCustomerName.Text.ToString(), cboType.SelectedIndex);
@@ -78,19 +79,20 @@ namespace RentalProject
         private void cboType_SelectedIndexChanged(object sender, EventArgs e)
         {
             Suggestion();
-            AddData();
+            AddData();  // call a method to change the data
         }
 
         private void txtCustomerName_TextChanged(object sender, EventArgs e)
         {
-            AddData();
+            AddData();  
         }
-        private void AddData()
+        private void AddData()  // method to chage the data according to the user action
         {
             dgvHireList.DataSource = objHire.GetHireList(txtCustomerName.Text.ToString(),cboType.SelectedIndex);
             MakeColor();
         }
 
+        // method show all hire items when double click hire
         private void dgvHireList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             frmHireDetailsView frm = new frmHireDetailsView(dgvHireList.CurrentRow.Cells[0].Value.ToString());

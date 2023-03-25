@@ -146,5 +146,7 @@ namespace RentalProject
                 ClsType.NameOfType = txtName.Text.Trim();
             }
         }
+
+        /* This page is used to add or edit a brand or category */
     }
 }

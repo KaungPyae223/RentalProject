@@ -41,7 +41,7 @@ namespace RentalProject
 
         private void frmHireDetailsView_Load(object sender, EventArgs e)
         {
-            dgvHireDetals.Rows[dgvHireDetals.Rows.Count- 2].DefaultCellStyle.BackColor= Color.Yellow;
+            dgvHireDetals.Rows[dgvHireDetals.Rows.Count- 1].DefaultCellStyle.BackColor= Color.Yellow;
 
         }
     }

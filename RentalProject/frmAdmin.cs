@@ -17,7 +17,7 @@ namespace RentalProject
 
         private void tsbNew_Click(object sender, EventArgs e)
         {
-            frmAdminAdd frm = new frmAdminAdd();
+            frmAdminAdd frm = new frmAdminAdd();    // method to add new admin
             frm.ShowDialog();
             dgvAdmin.DataSource = objAdmin.GetAdmin();
             MakeColor();
@@ -40,6 +40,7 @@ namespace RentalProject
             dgvAdmin.Columns[11].Visible = false;
             dgvAdmin.Columns[12].Visible = false;
             MakeColor();
+            //design a admin list
 
             dgvAdminProcess.DataSource = objClsModify.getModify();
             dgvAdminProcess.Columns[0].Width = (dgvAdminProcess.Width/100) * 25;
@@ -47,9 +48,10 @@ namespace RentalProject
             dgvAdminProcess.Columns[2].Width = (dgvAdminProcess.Width/100) * 25;
             dgvAdminProcess.Columns[3].Width = (dgvAdminProcess.Width/100) * 25;
             Suggestion();
+            // design a admin process
         }
 
-        public void Suggestion()
+        public void Suggestion()    // method to add suggestion
         {
             AutoCompleteStringCollection sourse = new AutoCompleteStringCollection();
             DataTable DT = objClsModify.getModify();
@@ -75,12 +77,13 @@ namespace RentalProject
 
         private void tsbEdit_Click(object sender, EventArgs e)
         {
-            if (dgvAdmin.CurrentRow.Cells[0].Value.ToString() == string.Empty)
+            if (dgvAdmin.CurrentRow.Cells[0].Value.ToString() == string.Empty)// check select admin to edit or not
             {
                 MessageBox.Show("Please select a row to Edit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
+                // add data to the edit form to edit
                 frmAdminAdd frm = new frmAdminAdd();
                 frm.txtPassword.Visible = false;
                 frm.txtConfirmPassword.Visible = false;
@@ -102,7 +105,7 @@ namespace RentalProject
 
         }
 
-        private void tsbDelete_Click(object sender, EventArgs e)
+        private void tsbDelete_Click(object sender, EventArgs e) // remove a admin
         {
             if (dgvAdmin.CurrentRow.Cells[0].Value.ToString() == string.Empty)
             {
@@ -119,7 +122,7 @@ namespace RentalProject
                 }
             }
         }
-        private void MakeColor()
+        private void MakeColor()    // method to show red color is the admin has been removed
         {
             int lastIndex = dgvAdmin.Rows.Count - 1;
             for (int i = 0; i < lastIndex; i++)
@@ -132,6 +135,7 @@ namespace RentalProject
 
                 }
             }
+            // In here the admin is not delete. close all permision of the Admin
         }
 
         private void dgvAdmin_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)

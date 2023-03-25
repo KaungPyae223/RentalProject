@@ -35,7 +35,7 @@ namespace RentalProject
             ShowProperties();
 
         }
-        private void ShowProperties()
+        private void ShowProperties() // method to show admin properties
         {
             string[] check = properties.Split(',');
             for (int i = 0; i < clbProperties.Items.Count; i++)
@@ -95,7 +95,7 @@ namespace RentalProject
                     BinaryReader brs = new BinaryReader(File);
                     image = brs.ReadBytes((int)File.Length);
                 }
-                if (IsEdit == false)
+                if (IsEdit == false)    // check edit or not
                 {
                     DataTable DT = new DataTable();
                     DT = objAdmin.CheckAdmin(txtEmail.Text.Trim());
@@ -143,41 +143,41 @@ namespace RentalProject
         private Boolean CheckData()
         {
             string Password = txtPassword.Text;
-            if (txtName.Text.Trim() == string.Empty)
+            if (txtName.Text.Trim() == string.Empty)    // check name is empty
             {
                 MessageBox.Show("Plese type a Admin Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtName.Focus();
                 return false;
             }
-            else if (txtAccountName.Text.Trim() == string.Empty)
+            else if (txtAccountName.Text.Trim() == string.Empty)    // check account name is empty
             {
                 MessageBox.Show("Plese type a Account Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtAccountName.Focus();
                 return false;
 
             }
-            else if (txtLocation.Text.Trim() == string.Empty)
+            else if (txtLocation.Text.Trim() == string.Empty)   // check location is empty
             {
                 MessageBox.Show("Plese type a Location", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtLocation.Focus();
                 return false;
 
             }
-            else if (txtEmail.Text.Trim() == string.Empty)
+            else if (txtEmail.Text.Trim() == string.Empty)  // check email is empty
             {
                 MessageBox.Show("Plese type a Email", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtEmail.Focus();
                 return false;
 
             }
-            else if (txtPhone.Text.Trim() == string.Empty)
+            else if (txtPhone.Text.Trim() == string.Empty)  // check phone is empty
             {
                 MessageBox.Show("Plese type a Phone", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPhone.Focus();
                 return false;
 
             }
-            else if (txtNRC.Text.Trim() == string.Empty)
+            else if (txtNRC.Text.Trim() == string.Empty)    // check NRC is empty
             {
                 MessageBox.Show("Plese type an NRC", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtNRC.Focus();
@@ -240,7 +240,7 @@ namespace RentalProject
 
         }
 
-        private void AdminPicture_Click(object sender, EventArgs e)
+        private void AdminPicture_Click(object sender, EventArgs e) // method to add admin photo
         {
             OpenFileDialog OFdiag = new OpenFileDialog();
             OFdiag.Filter = "Picture Files|*.bmp;*.jpg;*.jpeg;*.png;*.gif";

@@ -55,12 +55,12 @@ namespace RentalProject
         private void btnSave_Click(object sender, EventArgs e)
         {
             int OK;
-            if (txtItemName.Text.Trim() == string.Empty)
+            if (txtItemName.Text.Trim() == string.Empty) // check the item name is empty
             {
                 MessageBox.Show("Plese type a Item Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtItemName.Focus();
             }
-            else if (cboBrand.SelectedIndex == 0)
+            else if (cboBrand.SelectedIndex == 0) // check the brand is selected or not
             {
                 MessageBox.Show("Plese select a Brand", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -117,7 +117,7 @@ namespace RentalProject
             {
                 try
                 {
-                    if (imgLocation != string.Empty)
+                    if (imgLocation != string.Empty) // check image location is empty
                     {
                         FileStream File = new FileStream(imgLocation, FileMode.Open, FileAccess.Read);
                         BinaryReader brs = new BinaryReader(File);
@@ -171,7 +171,8 @@ namespace RentalProject
             }
 
         }
-        private void SaveData()
+
+        private void SaveData() // add Item data to the cls Item
         {
             objClsItem.ItemID = MakeID();
             objClsItem.BrandID = cboBrand.SelectedValue.ToString();

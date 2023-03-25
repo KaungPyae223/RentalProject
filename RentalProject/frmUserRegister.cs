@@ -175,7 +175,7 @@ namespace RentalProject
             }
             else
             {
-                if (MessageBox.Show("Sure to Update", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
+                if (MessageBox.Show("Sure to Update", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to update
                 {
                     try
                     {
@@ -192,8 +192,9 @@ namespace RentalProject
                 }
             }
         }
-        private void AddData()
+        private void AddData() // method to add data to the class clsCustomer
         {
+            
             objclsCustomer.CustomerID = CustomerID;
             objclsCustomer.CustomerLevel = "Bronze";
             objclsCustomer.UserNRC = txtNRC.Text.Trim();
@@ -228,12 +229,12 @@ namespace RentalProject
 
         private void UserPicture_Click(object sender, EventArgs e)
         {
-            OpenFileDialog OFdiag = new OpenFileDialog();
-            OFdiag.Filter = "Picture Files|*.bmp;*.jpg;*.jpeg;*.png;*.gif";
+            OpenFileDialog OFdiag = new OpenFileDialog();   // call a file dialog
+            OFdiag.Filter = "Picture Files|*.bmp;*.jpg;*.jpeg;*.png;*.gif"; // secreate only image to allow
             if (OFdiag.ShowDialog() == DialogResult.OK)
             {
-                ImageLocation = OFdiag.FileName.ToString();
-                UserPicture.ImageLocation = ImageLocation;
+                ImageLocation = OFdiag.FileName.ToString(); // get image location
+                UserPicture.ImageLocation = ImageLocation;  // add image to the User Picture
             }
         }
 
@@ -247,5 +248,7 @@ namespace RentalProject
             if (IsEdit == false)
                 CustomerID = MakeCustomerID();
         }
+
+        /*  This form is also use to update the customer info */
     }
 }

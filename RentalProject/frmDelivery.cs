@@ -52,19 +52,19 @@ namespace RentalProject
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if(txtDeliveryName.Text.Trim() == string.Empty )
+            if(txtDeliveryName.Text.Trim() == string.Empty )    //check delivery name is empty
             {
                 MessageBox.Show("Plese type Delivery Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtDeliveryName.Focus();
             }
-            else if (txtDeliveryPhone.Text.Trim() == string.Empty)
+            else if (txtDeliveryPhone.Text.Trim() == string.Empty)  // check delivery phone is empty
             {
                 MessageBox.Show("Plese type Delivery Phone", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtDeliveryPhone.Focus();
             }
             else
             {
-                if(IsEdit)
+                if(IsEdit)  // check edit or add new
                 {
                     if (MessageBox.Show("Sure to Edit", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
                     {
