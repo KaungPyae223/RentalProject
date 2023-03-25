@@ -95,7 +95,10 @@ namespace RentalProject
                 frm.txtPhone.Text = dgvAdmin.CurrentRow.Cells[7].Value.ToString();
                 frm.txtNRC.Text = dgvAdmin.CurrentRow.Cells[8].Value.ToString();
                 frm.txtInfo.Text = dgvAdmin.CurrentRow.Cells[10].Value.ToString();
-                frm.cboPost.SelectedValue = dgvAdmin.CurrentRow.Cells[2].Value.ToString();
+                if(dgvAdmin.CurrentRow.Cells[2].Value.ToString() != string.Empty)
+                    frm.cboPost.SelectedValue = dgvAdmin.CurrentRow.Cells[2].Value.ToString();
+                else
+                    frm.cboPost.SelectedIndex = 0;
                 frm.IsEdit = true;
                 frm.image = (byte[])(dgvAdmin.CurrentRow.Cells[12].Value);
                 frm.Show();
