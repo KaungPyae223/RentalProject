@@ -52,7 +52,7 @@
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.txtAdminName = new System.Windows.Forms.ToolStripTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.TabAdminInfo.SuspendLayout();
             this.AdminInfoPanel.SuspendLayout();
@@ -62,7 +62,7 @@
             this.AdminProcessPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdminProcess)).BeginInit();
             this.toolStrip1.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -75,7 +75,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.Padding = new System.Drawing.Point(15, 12);
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1027, 468);
+            this.tabControl1.Size = new System.Drawing.Size(962, 387);
             this.tabControl1.TabIndex = 0;
             // 
             // TabAdminInfo
@@ -85,7 +85,7 @@
             this.TabAdminInfo.Location = new System.Drawing.Point(4, 56);
             this.TabAdminInfo.Margin = new System.Windows.Forms.Padding(0);
             this.TabAdminInfo.Name = "TabAdminInfo";
-            this.TabAdminInfo.Size = new System.Drawing.Size(1019, 408);
+            this.TabAdminInfo.Size = new System.Drawing.Size(954, 327);
             this.TabAdminInfo.TabIndex = 0;
             this.TabAdminInfo.Text = "Admin Info";
             this.TabAdminInfo.UseVisualStyleBackColor = true;
@@ -97,11 +97,13 @@
             this.AdminInfoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AdminInfoPanel.Location = new System.Drawing.Point(0, 0);
             this.AdminInfoPanel.Name = "AdminInfoPanel";
-            this.AdminInfoPanel.Size = new System.Drawing.Size(1019, 408);
+            this.AdminInfoPanel.Size = new System.Drawing.Size(954, 327);
             this.AdminInfoPanel.TabIndex = 0;
             // 
             // dgvAdmin
             // 
+            this.dgvAdmin.AllowUserToAddRows = false;
+            this.dgvAdmin.AllowUserToDeleteRows = false;
             this.dgvAdmin.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
@@ -139,7 +141,7 @@
             this.dgvAdmin.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvAdmin.RowTemplate.Height = 50;
             this.dgvAdmin.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAdmin.Size = new System.Drawing.Size(1019, 349);
+            this.dgvAdmin.Size = new System.Drawing.Size(954, 268);
             this.dgvAdmin.TabIndex = 7;
             this.dgvAdmin.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAdmin_ColumnHeaderMouseClick);
             // 
@@ -154,8 +156,8 @@
             this.tsbDelete});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Padding = new System.Windows.Forms.Padding(5);
-            this.toolStrip2.Size = new System.Drawing.Size(1019, 59);
+            this.toolStrip2.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.toolStrip2.Size = new System.Drawing.Size(954, 59);
             this.toolStrip2.TabIndex = 2;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -203,7 +205,7 @@
             this.TabAdminProcess.Location = new System.Drawing.Point(4, 56);
             this.TabAdminProcess.Margin = new System.Windows.Forms.Padding(0);
             this.TabAdminProcess.Name = "TabAdminProcess";
-            this.TabAdminProcess.Size = new System.Drawing.Size(1019, 408);
+            this.TabAdminProcess.Size = new System.Drawing.Size(954, 327);
             this.TabAdminProcess.TabIndex = 1;
             this.TabAdminProcess.Text = "Admin Process";
             this.TabAdminProcess.UseVisualStyleBackColor = true;
@@ -215,11 +217,13 @@
             this.AdminProcessPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AdminProcessPanel.Location = new System.Drawing.Point(0, 0);
             this.AdminProcessPanel.Name = "AdminProcessPanel";
-            this.AdminProcessPanel.Size = new System.Drawing.Size(1019, 408);
+            this.AdminProcessPanel.Size = new System.Drawing.Size(954, 327);
             this.AdminProcessPanel.TabIndex = 0;
             // 
             // dgvAdminProcess
             // 
+            this.dgvAdminProcess.AllowUserToAddRows = false;
+            this.dgvAdminProcess.AllowUserToDeleteRows = false;
             this.dgvAdminProcess.AllowUserToResizeRows = false;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
@@ -248,7 +252,7 @@
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvAdminProcess.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvAdminProcess.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvAdminProcess.Location = new System.Drawing.Point(0, 53);
+            this.dgvAdminProcess.Location = new System.Drawing.Point(0, 55);
             this.dgvAdminProcess.Name = "dgvAdminProcess";
             this.dgvAdminProcess.ReadOnly = true;
             this.dgvAdminProcess.RowHeadersVisible = false;
@@ -257,7 +261,7 @@
             this.dgvAdminProcess.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvAdminProcess.RowTemplate.Height = 50;
             this.dgvAdminProcess.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAdminProcess.Size = new System.Drawing.Size(1019, 355);
+            this.dgvAdminProcess.Size = new System.Drawing.Size(954, 272);
             this.dgvAdminProcess.TabIndex = 8;
             // 
             // toolStrip1
@@ -271,16 +275,16 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(10, 5, 5, 5);
-            this.toolStrip1.Size = new System.Drawing.Size(1019, 53);
+            this.toolStrip1.Size = new System.Drawing.Size(954, 55);
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // toolStripLabel1
             // 
-            this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripLabel1.Name = "toolStripLabel1";
             this.toolStripLabel1.Padding = new System.Windows.Forms.Padding(5);
-            this.toolStripLabel1.Size = new System.Drawing.Size(146, 38);
+            this.toolStripLabel1.Size = new System.Drawing.Size(158, 40);
             this.toolStripLabel1.Text = "Admin Name";
             // 
             // txtAdminName
@@ -299,28 +303,29 @@
             this.label1.BackColor = System.Drawing.Color.Bisque;
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Desktop;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1027, 61);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Admin";
+            this.label1.Size = new System.Drawing.Size(962, 61);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Admin Control";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel1
+            // panel2
             // 
-            this.panel1.Controls.Add(this.tabControl1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 61);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1027, 468);
-            this.panel1.TabIndex = 2;
+            this.panel2.Controls.Add(this.tabControl1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 61);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(962, 387);
+            this.panel2.TabIndex = 6;
             // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1027, 529);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(962, 448);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -341,7 +346,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdminProcess)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -351,8 +356,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage TabAdminInfo;
         private System.Windows.Forms.TabPage TabAdminProcess;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel AdminInfoPanel;
         private System.Windows.Forms.Panel AdminProcessPanel;
         private System.Windows.Forms.ToolStrip toolStrip1;
@@ -364,5 +367,7 @@
         private System.Windows.Forms.ToolStripButton tsbEdit;
         private System.Windows.Forms.ToolStripButton tsbDelete;
         private System.Windows.Forms.DataGridView dgvAdmin;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

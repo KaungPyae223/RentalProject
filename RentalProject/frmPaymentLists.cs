@@ -21,7 +21,7 @@ namespace RentalProject
         clsPayment objclsPayment = new clsPayment();
         private void frmPaymentLists_Load(object sender, EventArgs e)
         {
-           
+           // design a payment list
             dgvPaymentList.DataSource = objclsPayment.getpayment();
             dgvPaymentList.Columns[0].Visible = false;
             dgvPaymentList.Columns[1].Width = (dgvPaymentList.Width/100)*13;

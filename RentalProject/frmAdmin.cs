@@ -123,9 +123,8 @@ namespace RentalProject
             }
         }
         private void MakeColor()    // method to show red color is the admin has been removed
-        {
-            int lastIndex = dgvAdmin.Rows.Count - 1;
-            for (int i = 0; i < lastIndex; i++)
+        { 
+            for (int i = 0; i < dgvAdmin.Rows.Count; i++)
             {
                 if (dgvAdmin.Rows[i].Cells[2].Value.ToString() == "")
                 {
