@@ -156,6 +156,7 @@ namespace RentalProject
                         }
                         objClsPayment.AddPayment();
                         MessageBox.Show("Successfully Hire the Home Appliances \nThe Home appliances will deliver to your location within one week", "Successfully Hire");
+                        Program.Craft.Clear();
                         this.Close();
                     }
                     catch(Exception ex)

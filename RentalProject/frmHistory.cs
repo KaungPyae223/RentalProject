@@ -95,6 +95,14 @@ namespace RentalProject
         {
             MakeColor();
         }
+
+        private void dgvHire_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            frmHireDetailsView frm = new frmHireDetailsView(dgvHire.CurrentRow.Cells[0].Value.ToString());
+            frm.Text = "Hire Details of "+ dgvHire.CurrentRow.Cells[0].Value.ToString();
+            frm.ShowDialog();
+
+        }
     }
 
 }

@@ -90,7 +90,6 @@ namespace RentalProject
                 frmHire frm = new frmHire();    // call a hire form
                 frm.Show();                     // show a hire form
                 craftMainPanel.Controls.Clear();
-                Program.Craft.Clear();
                 lblPPM.Text = "0 £";        
                 lblTotalQty.Text = "0";
             }

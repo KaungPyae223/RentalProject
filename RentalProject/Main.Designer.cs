@@ -211,7 +211,7 @@
             this.btnUser.Name = "btnUser";
             this.btnUser.Size = new System.Drawing.Size(326, 62);
             this.btnUser.TabIndex = 9;
-            this.btnUser.Text = "           Customer View";
+            this.btnUser.Text = "           Customer List";
             this.btnUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUser.UseVisualStyleBackColor = false;
             this.btnUser.Visible = false;
