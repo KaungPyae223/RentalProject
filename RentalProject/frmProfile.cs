@@ -186,7 +186,11 @@ namespace RentalProject
                 frm.CustomerID = DT.Rows[0]["CustomerID"].ToString();
                 frm.Text = "The Customer Edit";
                 frm.btnRegister.Text = "Edit";
-                frm.Show();
+                if(frm.ShowDialog() == DialogResult.OK)
+                {
+                    Application.Exit();
+                }
+                
             }
         }
     }

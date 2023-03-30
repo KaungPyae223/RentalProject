@@ -22,15 +22,16 @@ namespace RentalProject
             cboPost.DataSource = DT;
             cboPost.DisplayMember = "Display";
             cboPost.ValueMember = "Value";
+            
         }
         public Boolean IsEdit = false;
-        string properties;
+        public string properties;
         string imageLocation;
         public byte[] image = null;
         RentalTableAdapters.AdminTableAdapter objAdmin = new RentalTableAdapters.AdminTableAdapter();
         private void cboPost_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
             properties =cboPost.SelectedValue.ToString();
             ShowProperties();
 
@@ -57,7 +58,8 @@ namespace RentalProject
         {
             if (IsEdit == false)
             {
-                cboPost.SelectedIndex= 0;
+                cboPost.SelectedIndex = 0;
+                properties = "Profile,Home,Item";
                 AddID();
             }
             if (IsEdit && image != null)
@@ -65,6 +67,7 @@ namespace RentalProject
                 MemoryStream ms = new MemoryStream(image);
                 AdminPicture.Image = Image.FromStream(ms);
             }
+            ShowProperties();
         }
         private void AddID()
         {
@@ -89,7 +92,7 @@ namespace RentalProject
             if (CheckData())
             {
 
-                if (imageLocation != string.Empty)
+                if (imageLocation != string.Empty && IsEdit == false)
                 {
                     FileStream File = new FileStream(imageLocation, FileMode.Open, FileAccess.Read);
                     BinaryReader brs = new BinaryReader(File);

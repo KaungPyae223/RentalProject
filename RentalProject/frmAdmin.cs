@@ -11,6 +11,8 @@ namespace RentalProject
         public frmAdmin()
         {
             InitializeComponent();
+            dgvAdmin.DataSource = objAdmin.GetAdmin();
+
         }
         RentalTableAdapters.AdminTableAdapter objAdmin = new RentalTableAdapters.AdminTableAdapter();
         clsModify objClsModify = new clsModify();
@@ -25,7 +27,6 @@ namespace RentalProject
 
         private void frmAdmin_Load(object sender, EventArgs e)
         {
-            dgvAdmin.DataSource = objAdmin.GetAdmin();
             dgvAdmin.Columns[0].Width = (dgvAdmin.Width/100)*15;
             dgvAdmin.Columns[1].Width = (dgvAdmin.Width/100)*15;
             dgvAdmin.Columns[2].Visible = false;
@@ -95,10 +96,14 @@ namespace RentalProject
                 frm.txtPhone.Text = dgvAdmin.CurrentRow.Cells[7].Value.ToString();
                 frm.txtNRC.Text = dgvAdmin.CurrentRow.Cells[8].Value.ToString();
                 frm.txtInfo.Text = dgvAdmin.CurrentRow.Cells[10].Value.ToString();
-                if(dgvAdmin.CurrentRow.Cells[2].Value.ToString() != string.Empty)
+                if (dgvAdmin.CurrentRow.Cells[2].Value.ToString() != string.Empty)
                     frm.cboPost.SelectedValue = dgvAdmin.CurrentRow.Cells[2].Value.ToString();
                 else
+                { 
                     frm.cboPost.SelectedIndex = 0;
+                    frm.properties = "Profile,Home,Item";
+                }
+                    
                 frm.IsEdit = true;
                 frm.image = (byte[])(dgvAdmin.CurrentRow.Cells[12].Value);
                 frm.Show();

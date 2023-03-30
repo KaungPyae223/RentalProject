@@ -556,6 +556,7 @@
             // btnRegister
             // 
             this.btnRegister.BackColor = System.Drawing.SystemColors.Info;
+            this.btnRegister.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnRegister.Enabled = false;
             this.btnRegister.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.btnRegister.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
