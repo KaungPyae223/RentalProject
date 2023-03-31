@@ -28,8 +28,12 @@ namespace RentalProject
             PricePerMonth = dr[8].ToString() + " £";
             ID = dr[0].ToString();
             byte[] img = (byte[])(dr[10]);  
-            MemoryStream ms = new MemoryStream(img);    // change byte to memoary stream
-            HomeItemPicture.Image = Image.FromStream(ms);   //change memoary stream to Image
+            if(img != null )
+            {
+                MemoryStream ms = new MemoryStream(img);    // change byte to memoary stream
+                HomeItemPicture.Image = Image.FromStream(ms);   //change memoary stream to Image
+
+            }
             Drop=drop;
         }
         private string ItemName;

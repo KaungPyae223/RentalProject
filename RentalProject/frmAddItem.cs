@@ -4,6 +4,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace RentalProject
 {
@@ -127,22 +128,30 @@ namespace RentalProject
                     {
                         if (MessageBox.Show("Sure to Save", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK) // confirm to save
                         {
+                            if(imgLocation == "")
+                            {
+                                MessageBox.Show("The image have to add");
+                                
+                            }
+                            else
+                            {
+                                SaveData();
+                                objClsItem.InsertItem();
 
-                            SaveData();
-                            objClsItem.InsertItem();
-
-                            objclsModify.Transation = "Insert";
-                            objclsModify.saveTransation();
-                            txtItemName.Text = "";
-                            cboBrand.SelectedValue = "";
-                            cboType.SelectedValue = "";
-                            txtPowerUsage.Text = string.Empty;
-                            txtTypicalUsage.Text = string.Empty;
-                            txtModelYear.Text = string.Empty;
-                            txtTotalQty.Text = string.Empty;
-                            txtPricePerMonth.Text = string.Empty;
-                            txtDescription.Text = string.Empty;
-                            MessageBox.Show("Successfully Save");
+                                objclsModify.Transation = "Insert";
+                                objclsModify.saveTransation();
+                                txtItemName.Text = "";
+                                cboBrand.SelectedValue = "";
+                                cboType.SelectedValue = "";
+                                txtPowerUsage.Text = string.Empty;
+                                txtTypicalUsage.Text = string.Empty;
+                                txtModelYear.Text = string.Empty;
+                                txtTotalQty.Text = string.Empty;
+                                txtPricePerMonth.Text = string.Empty;
+                                txtDescription.Text = string.Empty;
+                                MessageBox.Show("Successfully Save");
+                            }
+                            
                         }
                     }
                     else
